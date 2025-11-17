@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
@@ -17,7 +17,11 @@ import {
   ShieldAlert,
   Vote,
   Landmark,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { Button } from "@/components/ui/button";
 
 interface PracticeArea {
   icon: any;
@@ -28,6 +32,23 @@ interface PracticeArea {
 
 const PracticeAreas = () => {
   const [selectedArea, setSelectedArea] = useState<PracticeArea | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: false,
+    slidesToScroll: 1,
+    breakpoints: {
+      "(min-width: 768px)": { slidesToScroll: 2 },
+      "(min-width: 1024px)": { slidesToScroll: 3 },
+    },
+  });
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   const areas: PracticeArea[] = [
     {
@@ -113,47 +134,78 @@ const PracticeAreas = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {areas.map((area, index) => {
-            const Icon = area.icon;
-            return (
-              <Card
-                key={index}
-                className="cursor-pointer transition-all duration-500 bg-background border-border group relative overflow-hidden hover-lift"
-                onClick={() => setSelectedArea(area)}
-              >
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Shine effect on hover */}
-                <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        {/* Carousel Container */}
+        <div className="relative max-w-7xl mx-auto">
+          {/* Navigation Buttons */}
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={scrollPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </Button>
 
-                <CardContent className="p-8 relative z-10">
-                  {/* Icon container with enhanced hover effect */}
-                  <div className="relative mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg">
-                      <Icon className="w-10 h-10 text-accent group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    {/* Floating shadow effect */}
-                    <div className="absolute inset-0 w-20 h-20 bg-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
-                  </div>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={scrollNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
+            aria-label="Próximo"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </Button>
 
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300 min-h-[3.5rem]">
-                    {area.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground line-clamp-3 mb-5 leading-relaxed">
-                    {area.description}
-                  </p>
-                  
-                  {/* Call to action with arrow animation */}
-                  <div className="flex items-center gap-2 text-sm font-semibold text-accent">
-                    <span>Saiba mais</span>
-                    <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+          {/* Embla Carousel */}
+          <div className="overflow-hidden px-2" ref={emblaRef}>
+            <div className="flex gap-6">
+              {areas.map((area, index) => {
+                const Icon = area.icon;
+                return (
+                  <div
+                    key={index}
+                    className="flex-[0_0_100%] min-w-0 md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)]"
+                  >
+                    <Card
+                      className="cursor-pointer transition-all duration-500 bg-background border-border group relative overflow-hidden hover-lift h-full"
+                      onClick={() => setSelectedArea(area)}
+                    >
+                      {/* Gradient overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Shine effect on hover */}
+                      <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+                      <CardContent className="p-8 relative z-10">
+                        {/* Icon container with enhanced hover effect */}
+                        <div className="relative mb-6">
+                          <div className="w-20 h-20 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg">
+                            <Icon className="w-10 h-10 text-accent group-hover:scale-110 transition-transform duration-500" />
+                          </div>
+                          {/* Floating shadow effect */}
+                          <div className="absolute inset-0 w-20 h-20 bg-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                        </div>
+
+                        <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300 min-h-[3.5rem]">
+                          {area.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground line-clamp-3 mb-5 leading-relaxed">
+                          {area.description}
+                        </p>
+                        
+                        {/* Call to action with arrow animation */}
+                        <div className="flex items-center gap-2 text-sm font-semibold text-accent">
+                          <span>Saiba mais</span>
+                          <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         <Dialog open={selectedArea !== null} onOpenChange={() => setSelectedArea(null)}>
