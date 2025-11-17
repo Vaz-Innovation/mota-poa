@@ -97,7 +97,7 @@ const Hero = () => {
 
                 {/* Content */}
                 <div className="container mx-auto px-4 lg:px-8 relative z-30 h-full flex items-center">
-                  <div className="max-w-2xl space-y-6">
+                  <div className="max-w-2xl ml-16 lg:ml-24 space-y-6">
                     {/* Subtitle */}
                     <p 
                       className={`text-sm md:text-base font-light text-white/80 tracking-widest uppercase transition-all duration-800 ${
