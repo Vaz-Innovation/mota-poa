@@ -107,6 +107,17 @@ const translations: Record<Language, any> = {
         phone: 'Telefone'
       }
     },
+    newsletter: {
+      title: 'Receba Nossas Novidades',
+      description: 'Inscreva-se em nossa newsletter e receba atualizações sobre direito, dicas jurídicas e notícias do escritório.',
+      placeholder: 'Seu melhor e-mail',
+      button: 'Inscrever',
+      sending: 'Enviando...',
+      success: 'Sucesso!',
+      successMessage: 'Você foi inscrito em nossa newsletter.',
+      error: 'Erro',
+      errorMessage: 'Por favor, insira um e-mail válido.'
+    },
     footer: {
       description: 'Excelência em advocacia com ética, transparência e comprometimento.',
       quickLinks: 'Links Rápidos',
@@ -166,6 +177,17 @@ const translations: Record<Language, any> = {
         phone: 'Teléfono'
       }
     },
+    newsletter: {
+      title: 'Reciba Nuestras Novedades',
+      description: 'Suscríbase a nuestro boletín y reciba actualizaciones sobre derecho, consejos jurídicos y noticias del despacho.',
+      placeholder: 'Su mejor correo electrónico',
+      button: 'Suscribirse',
+      sending: 'Enviando...',
+      success: '¡Éxito!',
+      successMessage: 'Ha sido suscrito a nuestro boletín.',
+      error: 'Error',
+      errorMessage: 'Por favor, ingrese un correo electrónico válido.'
+    },
     footer: {
       description: 'Excelencia en abogacía con ética, transparencia y compromiso.',
       quickLinks: 'Enlaces Rápidos',
@@ -224,6 +246,17 @@ const translations: Record<Language, any> = {
         address: 'Address',
         phone: 'Phone'
       }
+    },
+    newsletter: {
+      title: 'Stay Updated',
+      description: 'Subscribe to our newsletter and receive updates on law, legal tips and firm news.',
+      placeholder: 'Your best email',
+      button: 'Subscribe',
+      sending: 'Sending...',
+      success: 'Success!',
+      successMessage: 'You have been subscribed to our newsletter.',
+      error: 'Error',
+      errorMessage: 'Please enter a valid email.'
     },
     footer: {
       description: 'Excellence in law with ethics, transparency and commitment.',
