@@ -1,4 +1,4 @@
-import { TrendingUp, Shield, Target, MapPin, Award, Users } from "lucide-react";
+import { TrendingUp, Shield, Target, MapPin } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import {
   Dialog,
@@ -104,11 +104,6 @@ const About = () => {
     },
   ];
 
-  const stats = [
-    { label: "Anos de Atuação", value: "18+", icon: Award },
-    { label: "Taxa de Sucesso", value: "95%", icon: Target },
-    { label: "Clientes Atendidos", value: "1000+", icon: Users },
-  ];
 
   return (
     <section 
@@ -202,40 +197,6 @@ const About = () => {
           })}
         </div>
 
-        {/* Stats Feature Card */}
-        <div 
-          className={`
-            max-w-7xl mx-auto p-8 md:p-12 rounded-2xl
-            backdrop-blur-lg border border-accent/30
-            transition-all duration-700 delay-700
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-          `}
-          style={{
-            background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--navy-light)) 50%, hsl(var(--accent) / 0.3) 100%)"
-          }}
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-8 text-center">
-            Excelência em Números
-          </h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => {
-              const StatIcon = stat.icon;
-              return (
-                <div key={index} className="text-center group">
-                  <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-accent/20 border border-accent/30 group-hover:scale-110 transition-transform duration-300">
-                    <StatIcon className="w-8 h-8 text-accent" />
-                  </div>
-                  <div className="text-4xl md:text-5xl font-bold text-accent mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm md:text-base text-primary-foreground/80 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
 
         {/* Dialog */}
         <Dialog open={selectedTopic !== null} onOpenChange={() => setSelectedTopic(null)}>
