@@ -20,13 +20,10 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-20">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
             <span className="block text-bronze">{t('hero.title')}</span>
             {t('hero.subtitle')}
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-            {t('hero.description')}
-          </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               asChild
