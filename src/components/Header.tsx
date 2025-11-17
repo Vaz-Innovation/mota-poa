@@ -18,7 +18,8 @@ const Header = () => {
             <img 
               src={motaLogo} 
               alt="MOTA & ADVOGADOS ASSOCIADOS" 
-              className="h-16 w-auto"
+              className="h-16 w-auto brightness-0 invert"
+              style={{ filter: 'brightness(0) invert(1)' }}
             />
           </div>
 
