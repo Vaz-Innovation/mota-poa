@@ -46,7 +46,7 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-2">
             <Button asChild variant="bronze" size="lg">
               <a
-                href="https://wa.me/5561995362668"
+                href="https://api.whatsapp.com/send/?phone=%2B5561995362668&text&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -105,7 +105,7 @@ const Header = () => {
             <div className="flex items-center justify-between">
               <Button asChild variant="bronze" size="lg" className="flex-1 mr-2">
                 <a
-                  href="https://wa.me/5561995362668"
+                  href="https://api.whatsapp.com/send/?phone=%2B5561995362668&text&type=phone_number&app_absent=0"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
