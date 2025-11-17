@@ -13,9 +13,7 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      'mapbox-gl': 'mapbox-gl/dist/mapbox-gl.js',
     },
-  },
-  optimizeDeps: {
-    exclude: ['mapbox-gl'],
   },
 }));
