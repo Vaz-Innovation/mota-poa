@@ -109,9 +109,7 @@ const translations: Record<Language, any> = {
     },
     lawyers: {
       title: 'Sócios da Mota & Advogados Associados',
-      intro1: 'A MOTA & ADVOGADOS ASSOCIADOS conta com uma equipe multidisciplinar de profissionais, sempre fiel ao nosso modo de prestar nossos serviços.',
-      intro2: 'O investimento na formação e capacitação dos nossos profissionais, a atuação em diversas áreas, o treinamento da nossa equipe, a dedicação e comprometimento com o profissionalismo nos transformam numa banca capacitada e especializada nas áreas em que atuamos. O resultado disso é a otimização de tempo e recursos e a criatividade nas soluções jurídicas.',
-      intro3: 'Tudo isso porque acreditamos que juntos, cada um de nós vale mais e porque temos vocação para a prática da advocacia. E por isso a praticamos com dedicação, prazer e alegria.'
+      intro: 'Conheça os sócios que lideram a MOTA & ADVOGADOS ASSOCIADOS com excelência e comprometimento.'
     },
     contact: {
       title: 'Entre em Contato',
@@ -233,9 +231,7 @@ const translations: Record<Language, any> = {
     },
     lawyers: {
       title: 'Socios de Mota & Abogados Asociados',
-      intro1: 'MOTA & ABOGADOS ASOCIADOS cuenta con un equipo multidisciplinario de profesionales, siempre fiel a nuestra forma de prestar nuestros servicios.',
-      intro2: 'La inversión en la formación y capacitación de nuestros profesionales, la actuación en diversas áreas, la capacitación de nuestro equipo, la dedicación y el compromiso con el profesionalismo nos transforman en un bufete capacitado y especializado en las áreas en que actuamos. El resultado de esto es la optimización de tiempo y recursos y la creatividad en las soluciones jurídicas.',
-      intro3: 'Todo esto porque creemos que juntos, cada uno de nosotros vale más y porque tenemos vocación por la práctica de la abogacía. Y por eso la practicamos con dedicación, placer y alegría.'
+      intro: 'Conozca los socios que lideran MOTA & ABOGADOS ASOCIADOS con excelencia y compromiso.'
     },
     contact: {
       title: 'Póngase en Contacto',
@@ -357,9 +353,7 @@ const translations: Record<Language, any> = {
     },
     lawyers: {
       title: 'Partners of Mota & Lawyers Associates',
-      intro1: 'MOTA & LAWYERS ASSOCIATES has a multidisciplinary team of professionals, always faithful to our way of providing our services.',
-      intro2: 'The investment in the training and qualification of our professionals, the performance in several areas, the training of our team, the dedication and commitment to professionalism transform us into a qualified and specialized firm in the areas in which we operate. The result of this is the optimization of time and resources and creativity in legal solutions.',
-      intro3: 'All this because we believe that together, each of us is worth more and because we have a vocation for the practice of law. And that is why we practice it with dedication, pleasure and joy.'
+      intro: 'Meet the partners who lead MOTA & LAWYERS ASSOCIATES with excellence and commitment.'
     },
     contact: {
       title: 'Get in Touch',
