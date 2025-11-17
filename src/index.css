@@ -10,28 +10,28 @@ All colors MUST be HSL.
   :root {
     /* Sophisticated navy and bronze palette inspired by premium banking */
     --background: 0 0% 100%;
-    --foreground: 218 54% 12%;
+    --foreground: 228 100% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 218 54% 12%;
+    --card-foreground: 228 100% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 218 54% 12%;
+    --popover-foreground: 228 100% 12%;
 
     /* Navy blue - primary brand color */
-    --primary: 218 54% 12%;
+    --primary: 228 100% 12%;
     --primary-foreground: 0 0% 100%;
 
     /* Light gray for secondary surfaces */
     --secondary: 220 14% 96%;
-    --secondary-foreground: 218 54% 12%;
+    --secondary-foreground: 228 100% 12%;
 
     /* Muted backgrounds */
     --muted: 220 14% 96%;
-    --muted-foreground: 218 20% 45%;
+    --muted-foreground: 228 50% 30%;
 
     /* Bronze/gold accent */
-    --accent: 32 85% 50%;
+    --accent: 23 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -39,53 +39,53 @@ All colors MUST be HSL.
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 218 54% 12%;
+    --ring: 228 100% 12%;
 
     --radius: 0.5rem;
 
     /* Custom colors for law firm */
-    --navy-deep: 218 54% 12%;
-    --navy-light: 218 40% 25%;
-    --bronze: 32 85% 50%;
-    --bronze-light: 32 85% 60%;
+    --navy-deep: 228 100% 12%;
+    --navy-light: 228 80% 25%;
+    --bronze: 23 100% 50%;
+    --bronze-light: 23 100% 60%;
     --gray-elegant: 220 14% 96%;
-    --gray-text: 218 20% 45%;
+    --gray-text: 228 50% 30%;
   }
 
   .dark {
-    --background: 218 54% 8%;
+    --background: 228 100% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 218 54% 12%;
+    --card: 228 100% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 218 54% 12%;
+    --popover: 228 100% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 32 85% 50%;
-    --primary-foreground: 218 54% 12%;
+    --primary: 23 100% 50%;
+    --primary-foreground: 228 100% 12%;
 
-    --secondary: 218 40% 18%;
+    --secondary: 228 80% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 218 40% 18%;
+    --muted: 228 80% 18%;
     --muted-foreground: 220 14% 70%;
 
-    --accent: 32 85% 50%;
-    --accent-foreground: 218 54% 12%;
+    --accent: 23 100% 50%;
+    --accent-foreground: 228 100% 12%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 218 40% 18%;
-    --input: 218 40% 18%;
-    --ring: 32 85% 50%;
+    --border: 228 80% 18%;
+    --input: 228 80% 18%;
+    --ring: 23 100% 50%;
 
-    --navy-deep: 218 54% 8%;
-    --navy-light: 218 40% 18%;
-    --bronze: 32 85% 50%;
-    --bronze-light: 32 85% 60%;
-    --gray-elegant: 218 40% 18%;
+    --navy-deep: 228 100% 8%;
+    --navy-light: 228 80% 18%;
+    --bronze: 23 100% 50%;
+    --bronze-light: 23 100% 60%;
+    --gray-elegant: 228 80% 18%;
     --gray-text: 220 14% 70%;
   }
 }
