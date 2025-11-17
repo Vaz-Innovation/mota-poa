@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Linkedin, Instagram, Facebook } from "lucide-react";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -6,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-navy text-white py-12">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
 
           <div>
             <h4 className="font-semibold text-bronze mb-4">{t('footer.quickLinks')}</h4>
@@ -47,6 +48,39 @@ const Footer = () => {
               <li>Porto Alegre - RS - CEP: 90010-001</li>
               <li>(51) 3286.6586</li>
             </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-bronze mb-4">Redes Sociais</h4>
+            <div className="flex gap-4">
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-bronze transition-colors hover-scale"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-bronze transition-colors hover-scale"
+                aria-label="Instagram"
+              >
+                <Instagram size={24} />
+              </a>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-bronze transition-colors hover-scale"
+                aria-label="Facebook"
+              >
+                <Facebook size={24} />
+              </a>
+            </div>
           </div>
         </div>
 
