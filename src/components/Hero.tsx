@@ -6,7 +6,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import heroImage from "@/assets/hero-brasilia.jpg";
+import heroBanner1 from "@/assets/hero-banner-1.jpg";
+import heroBanner2 from "@/assets/hero-banner-2.jpg";
+import heroBanner3 from "@/assets/hero-banner-3.jpg";
+import heroBanner4 from "@/assets/hero-banner-4.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
@@ -24,7 +27,7 @@ const Hero = () => {
       description: t('hero.banner1.description'),
       buttonText: t('hero.banner1.button'),
       buttonLink: "https://api.whatsapp.com/send/?phone=%2B5561995362668&text=Gostaria%20de%20saber%20mais%20sobre%20consultoria%20jur%C3%ADdica",
-      image: heroImage,
+      image: heroBanner1,
     },
     {
       id: 2,
@@ -32,7 +35,7 @@ const Hero = () => {
       description: t('hero.banner2.description'),
       buttonText: t('hero.banner2.button'),
       buttonLink: "https://api.whatsapp.com/send/?phone=%2B5561995362668&text=Preciso%20de%20assist%C3%AAncia%20em%20Direito%20do%20Trabalho",
-      image: heroImage,
+      image: heroBanner2,
     },
     {
       id: 3,
@@ -40,7 +43,7 @@ const Hero = () => {
       description: t('hero.banner3.description'),
       buttonText: t('hero.banner3.button'),
       buttonLink: "https://api.whatsapp.com/send/?phone=%2B5561995362668&text=Gostaria%20de%20agendar%20uma%20consulta",
-      image: heroImage,
+      image: heroBanner3,
     },
     {
       id: 4,
@@ -48,7 +51,7 @@ const Hero = () => {
       description: t('hero.banner4.description'),
       buttonText: t('hero.banner4.button'),
       buttonLink: "https://api.whatsapp.com/send/?phone=%2B5561995362668&text=Quero%20saber%20mais%20sobre%20os%20servi%C3%A7os",
-      image: heroImage,
+      image: heroBanner4,
     },
   ];
 
