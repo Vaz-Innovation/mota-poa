@@ -39,10 +39,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-bronze mb-4">Contato</h4>
             <ul className="space-y-2 text-white/80">
-              <li>SHIS QI 15, Conjunto 2, Casa 14</li>
-              <li>Lago Sul, Brasília - DF</li>
-              <li>(61) 3248-8080</li>
-              <li>contato@motaeadvogados.com.br</li>
+              <li>Rua Siqueira Campos, nº 1.171, 9º andar</li>
+              <li>Ed. Marquês do Herval - Centro</li>
+              <li>Porto Alegre - RS - CEP: 90010-001</li>
+              <li>(51) 3286.6586</li>
             </ul>
           </div>
         </div>
