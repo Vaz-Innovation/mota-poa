@@ -97,16 +97,16 @@ const Hero = () => {
                 </div>
 
                 {/* Logo Centralizada */}
-                <div className="absolute top-24 left-0 right-0 z-20 flex justify-center">
+                <div className="absolute top-16 md:top-20 left-0 right-0 z-20 flex justify-center px-4">
                   <div className={`transition-all duration-800 ${
                     current === index 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 -translate-y-4'
+                      ? 'opacity-100 translate-y-0 scale-100' 
+                      : 'opacity-0 -translate-y-8 scale-95'
                   }`}>
                     <img 
                       src={logoMota} 
                       alt="Mota & Advogados Associados" 
-                      className="h-24 md:h-32 lg:h-40 w-auto drop-shadow-2xl brightness-0 invert"
+                      className="h-32 md:h-44 lg:h-56 xl:h-64 w-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.5)] brightness-0 invert animate-fade-in"
                     />
                   </div>
                 </div>
