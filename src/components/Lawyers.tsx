@@ -1,5 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import joseMota from "@/assets/jose-mota.jpg";
+import rafaelMota from "@/assets/rafael-mota.jpg";
+import maristelaMota from "@/assets/maristela-mota.jpg";
 
 const Lawyers = () => {
   const lawyers = [
@@ -7,19 +10,19 @@ const Lawyers = () => {
       name: "Dr. José Pinto da Mota Filho",
       oab: "OAB/DF 1.413-A",
       initials: "JM",
-      image: "" // Pode adicionar URL da foto aqui
+      image: joseMota
     },
     {
       name: "Dra. Maristela Pinto da Mota",
       oab: "OAB/RS 40.523",
       initials: "MM",
-      image: "" // Pode adicionar URL da foto aqui
+      image: maristelaMota
     },
     {
       name: "Dr. Rafael Augusto Dantas Mota",
       oab: "OAB/DF 72.907",
       initials: "RM",
-      image: "" // Pode adicionar URL da foto aqui
+      image: rafaelMota
     }
   ];
 
