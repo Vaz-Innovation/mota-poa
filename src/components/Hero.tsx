@@ -96,7 +96,7 @@ const Hero = () => {
                 </div>
 
                 {/* Content */}
-                <div className="container mx-auto px-4 lg:px-8 relative z-10 h-full flex items-center">
+                <div className="container mx-auto px-4 lg:px-8 relative z-30 h-full flex items-center">
                   <div className="max-w-2xl space-y-6">
                     {/* Subtitle */}
                     <p 
@@ -163,8 +163,8 @@ const Hero = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-4 lg:left-8 bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110" />
-        <CarouselNext className="right-4 lg:right-8 bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110" />
+        <CarouselPrevious className="left-4 lg:left-8 z-10 bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110" />
+        <CarouselNext className="right-4 lg:right-8 z-10 bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110" />
         
         {/* Indicadores de Navegação (Dots) */}
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex gap-2 backdrop-blur-sm bg-black/10 px-4 py-2 rounded-full">
