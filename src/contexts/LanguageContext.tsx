@@ -115,6 +115,20 @@ const translations: Record<Language, any> = {
       title: 'Localização',
       subtitle: 'Visite nosso escritório em Porto Alegre.',
     },
+    processConsultation: {
+      title: 'Consulte Seu Processo',
+      description: 'Digite o número do processo e receba atualizações em poucos minutos.',
+      processNumberPlaceholder: 'Número do processo (ex: 0000000-00.0000.0.00.0000)',
+      emailPlaceholder: 'Seu melhor e-mail',
+      submitButton: 'Receber por E-mail',
+      whatsappButton: 'Consultar via WhatsApp',
+      sending: 'Enviando...',
+      success: 'Solicitação Enviada!',
+      successMessage: 'Você receberá a atualização do processo em seu e-mail em breve.',
+      error: 'Erro',
+      invalidProcess: 'Por favor, insira um número de processo válido.',
+      invalidEmail: 'Por favor, insira um e-mail válido.'
+    },
     newsletter: {
       title: 'Receba Nossas Novidades',
       description: 'Inscreva-se em nossa newsletter e receba atualizações sobre direito, dicas jurídicas e notícias do escritório.',
@@ -193,6 +207,20 @@ const translations: Record<Language, any> = {
       title: 'Ubicación',
       subtitle: 'Visite nuestra oficina en Porto Alegre.',
     },
+    processConsultation: {
+      title: 'Consulte Su Proceso',
+      description: 'Ingrese el número del proceso y reciba actualizaciones en pocos minutos.',
+      processNumberPlaceholder: 'Número de proceso (ej: 0000000-00.0000.0.00.0000)',
+      emailPlaceholder: 'Su mejor correo electrónico',
+      submitButton: 'Recibir por Correo',
+      whatsappButton: 'Consultar vía WhatsApp',
+      sending: 'Enviando...',
+      success: '¡Solicitud Enviada!',
+      successMessage: 'Recibirá la actualización del proceso en su correo pronto.',
+      error: 'Error',
+      invalidProcess: 'Por favor, ingrese un número de proceso válido.',
+      invalidEmail: 'Por favor, ingrese un correo electrónico válido.'
+    },
     newsletter: {
       title: 'Reciba Nuestras Novedades',
       description: 'Suscríbase a nuestro boletín y reciba actualizaciones sobre derecho, consejos jurídicos y noticias del despacho.',
@@ -270,6 +298,20 @@ const translations: Record<Language, any> = {
     contact: {
       title: 'Location',
       subtitle: 'Visit our office in Porto Alegre.',
+    },
+    processConsultation: {
+      title: 'Check Your Case',
+      description: 'Enter the case number and receive updates in just a few minutes.',
+      processNumberPlaceholder: 'Case number (ex: 0000000-00.0000.0.00.0000)',
+      emailPlaceholder: 'Your best email',
+      submitButton: 'Receive by Email',
+      whatsappButton: 'Check via WhatsApp',
+      sending: 'Sending...',
+      success: 'Request Sent!',
+      successMessage: 'You will receive the case update in your email soon.',
+      error: 'Error',
+      invalidProcess: 'Please enter a valid case number.',
+      invalidEmail: 'Please enter a valid email address.'
     },
     newsletter: {
       title: 'Stay Updated',
