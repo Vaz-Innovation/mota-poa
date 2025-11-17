@@ -4,6 +4,7 @@ import About from "@/components/About";
 import PracticeAreas from "@/components/PracticeAreas";
 import Lawyers from "@/components/Lawyers";
 import Contact from "@/components/Contact";
+import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -18,6 +19,7 @@ const Index = () => {
         <Lawyers />
         <Contact />
       </main>
+      <Newsletter />
       <Footer />
       <WhatsAppButton />
     </div>
