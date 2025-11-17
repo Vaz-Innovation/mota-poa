@@ -3,8 +3,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import joseMota from "@/assets/jose-mota.jpg";
 import rafaelMota from "@/assets/rafael-mota.jpg";
 import maristelaMota from "@/assets/maristela-mota.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Lawyers = () => {
+  const { t } = useLanguage();
+  
   const lawyers = [
     {
       name: "Dr. José Pinto da Mota Filho",
@@ -34,23 +37,12 @@ const Lawyers = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary mb-4">
-            Sócios da Mota & Advogados Associados
+            {t('lawyers.title')}
           </h2>
           <div className="max-w-4xl mx-auto space-y-4 text-muted-foreground">
-            <p>
-              A MOTA & ADVOGADOS ASSOCIADOS conta com uma equipe multidisciplinar de profissionais, 
-              sempre fiel ao nosso modo de prestar nossos serviços.
-            </p>
-            <p>
-              O investimento na formação e capacitação dos nossos profissionais, a atuação em diversas áreas, 
-              o treinamento da nossa equipe, a dedicação e comprometimento com o profissionalismo nos transformam 
-              numa banca capacitada e especializada nas áreas em que atuamos. O resultado disso é a otimização de 
-              tempo e recursos e a criatividade nas soluções jurídicas.
-            </p>
-            <p>
-              Tudo isso porque acreditamos que juntos, cada um de nós vale mais e porque temos vocação para a 
-              prática da advocacia. E por isso a praticamos com dedicação, prazer e alegria.
-            </p>
+            <p>{t('lawyers.intro1')}</p>
+            <p>{t('lawyers.intro2')}</p>
+            <p>{t('lawyers.intro3')}</p>
           </div>
         </div>
 

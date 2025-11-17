@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Form submission logic would go here
@@ -14,11 +16,10 @@ const Contact = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Entre em Contato
+            {t('contact.title')}
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Estamos prontos para atender você. Entre em contato conosco e agende uma
-            consulta com nossos especialistas.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -28,39 +29,39 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Nome Completo
+                  {t('contact.form.name')}
                 </label>
-                <Input id="name" placeholder="Seu nome" required />
+                <Input id="name" placeholder={t('contact.form.namePlaceholder')} required />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  E-mail
+                  {t('contact.form.email')}
                 </label>
-                <Input id="email" type="email" placeholder="seu@email.com" required />
+                <Input id="email" type="email" placeholder={t('contact.form.emailPlaceholder')} required />
               </div>
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                  Telefone
+                  {t('contact.form.phone')}
                 </label>
-                <Input id="phone" type="tel" placeholder="(61) 99999-9999" />
+                <Input id="phone" type="tel" placeholder={t('contact.form.phonePlaceholder')} />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Mensagem
+                  {t('contact.form.message')}
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Como podemos ajudá-lo?"
+                  placeholder={t('contact.form.messagePlaceholder')}
                   rows={5}
                   required
                 />
               </div>
 
               <Button type="submit" variant="bronze" size="lg" className="w-full">
-                Enviar Mensagem
+                {t('contact.form.submit')}
               </Button>
             </form>
           </div>
@@ -69,11 +70,10 @@ const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-primary mb-6">
-                Informações de Contato
+                {t('contact.info.title')}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Nossa equipe está disponível para atendê-lo de segunda a sexta-feira, das
-                9h às 18h.
+                {t('contact.info.availability')}
               </p>
             </div>
 
@@ -83,7 +83,7 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-primary mb-1">Endereço</h4>
+                  <h4 className="font-semibold text-primary mb-1">{t('contact.info.address')}</h4>
                   <p className="text-muted-foreground">
                     Rua Siqueira Campos, nº 1.171, 9º andar
                     <br />
@@ -99,7 +99,7 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-primary mb-1">Telefone</h4>
+                  <h4 className="font-semibold text-primary mb-1">{t('contact.info.phone')}</h4>
                   <p className="text-muted-foreground">
                     (51) 3286.6586
                   </p>

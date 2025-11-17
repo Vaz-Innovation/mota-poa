@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-brasilia.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="inicio" className="relative min-h-screen flex items-center">
       {/* Background Image with Overlay */}
@@ -18,11 +21,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            <span className="block text-bronze">MOTA & ADVOGADOS</span>
-            ASSOCIADOS
+            <span className="block text-bronze">{t('hero.title')}</span>
+            {t('hero.subtitle')}
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-            A MOTA & ADVOGADOS ASSOCIADOS é uma banca de advogados com atuação em Porto Alegre desde 2006, resultado da união de profissionais com relevante experiência e vasto conhecimento nas áreas do Direito Social, com destaque para Direito do Trabalho Individual e Coletivo, Direito Sindical, Direito Previdenciário e Direito Administrativo. Nosso o objetivo é a prestação de serviços jurídicos de excelência, realizados através do trabalho comprometido e da dedicação e paixão pela nossa profissão.
+            {t('hero.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
@@ -35,7 +38,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Fale com um Advogado
+                {t('hero.button')}
               </a>
             </Button>
           </div>

@@ -2,9 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import motaLogo from "@/assets/mota-logo.png";
+import LanguageSelector from "@/components/LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -22,28 +25,32 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#inicio" className="text-foreground hover:text-accent transition-colors">
-              Início
+              {t('nav.home')}
             </a>
             <a href="#sobre" className="text-foreground hover:text-accent transition-colors">
-              Sobre
+              {t('nav.about')}
             </a>
             <a href="#areas" className="text-foreground hover:text-accent transition-colors">
-              Áreas de Atuação
+              {t('nav.areas')}
+            </a>
+            <a href="#advogados" className="text-foreground hover:text-accent transition-colors">
+              {t('nav.lawyers')}
             </a>
             <a href="#contato" className="text-foreground hover:text-accent transition-colors">
-              Contato
+              {t('nav.contact')}
             </a>
+            <LanguageSelector />
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-2">
             <Button asChild variant="bronze" size="lg">
               <a
                 href="https://wa.me/5561995362668"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Fale Conosco
+                {t('nav.callUs')}
               </a>
             </Button>
           </div>
@@ -65,38 +72,48 @@ const Header = () => {
               className="block text-foreground hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Início
+              {t('nav.home')}
             </a>
             <a
               href="#sobre"
               className="block text-foreground hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Sobre
+              {t('nav.about')}
             </a>
             <a
               href="#areas"
               className="block text-foreground hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Áreas de Atuação
+              {t('nav.areas')}
+            </a>
+            <a
+              href="#advogados"
+              className="block text-foreground hover:text-accent transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('nav.lawyers')}
             </a>
             <a
               href="#contato"
               className="block text-foreground hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Contato
+              {t('nav.contact')}
             </a>
-            <Button asChild variant="bronze" size="lg" className="w-full">
-              <a
-                href="https://wa.me/5561995362668"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Fale Conosco
-              </a>
-            </Button>
+            <div className="flex items-center justify-between">
+              <Button asChild variant="bronze" size="lg" className="flex-1 mr-2">
+                <a
+                  href="https://wa.me/5561995362668"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('nav.callUs')}
+                </a>
+              </Button>
+              <LanguageSelector />
+            </div>
           </nav>
         )}
       </div>
