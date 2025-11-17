@@ -10,6 +10,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const ProcessConsultation = () => {
   const { t } = useLanguage();
@@ -68,6 +69,11 @@ const ProcessConsultation = () => {
       });
       return;
     }
+
+    // Track analytics event
+    trackWhatsAppClick('process_consultation', {
+      process_number: processNumber,
+    });
 
     const message = `Olá! Gostaria de consultar o processo nº ${processNumber}`;
     const encodedMessage = encodeURIComponent(message);

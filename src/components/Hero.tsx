@@ -15,6 +15,7 @@ import logoMota from "@/assets/logo-mota-hero.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef, useState, useEffect } from "react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -168,6 +169,10 @@ const Hero = () => {
                           href={banner.buttonLink}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => trackWhatsAppClick('hero_banner', {
+                            banner_id: banner.id,
+                            banner_title: banner.title,
+                          })}
                         >
                           {banner.buttonText}
                         </a>
