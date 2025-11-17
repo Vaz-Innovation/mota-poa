@@ -108,7 +108,7 @@ const translations: Record<Language, any> = {
       learnMore: 'Saiba mais →'
     },
     lawyers: {
-      title: 'Sócios da Mota & Advogados Associados',
+      title: 'Sócios',
       intro: 'Conheça os sócios que lideram a MOTA & ADVOGADOS ASSOCIADOS com excelência e comprometimento.'
     },
     contact: {
@@ -230,7 +230,7 @@ const translations: Record<Language, any> = {
       learnMore: 'Más información →'
     },
     lawyers: {
-      title: 'Socios de Mota & Abogados Asociados',
+      title: 'Socios',
       intro: 'Conozca los socios que lideran MOTA & ABOGADOS ASOCIADOS con excelencia y compromiso.'
     },
     contact: {
@@ -352,7 +352,7 @@ const translations: Record<Language, any> = {
       learnMore: 'Learn more →'
     },
     lawyers: {
-      title: 'Partners of Mota & Lawyers Associates',
+      title: 'Partners',
       intro: 'Meet the partners who lead MOTA & LAWYERS ASSOCIATES with excellence and commitment.'
     },
     contact: {
