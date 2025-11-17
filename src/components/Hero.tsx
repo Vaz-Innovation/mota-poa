@@ -31,7 +31,7 @@ const Hero = () => {
       title: t('hero.banner1.title'),
       description: t('hero.banner1.description'),
       buttonText: t('hero.banner1.button'),
-      buttonLink: "https://api.whatsapp.com/send/?phone=%2B5561995362668&text=Gostaria%20de%20saber%20mais%20sobre%20consultoria%20jur%C3%ADdica",
+      buttonLink: "https://wa.me/61995362668?text=Gostaria%20de%20saber%20mais%20sobre%20consultoria%20jur%C3%ADdica",
       image: heroBanner1,
     },
     {
@@ -40,7 +40,7 @@ const Hero = () => {
       title: t('hero.banner2.title'),
       description: t('hero.banner2.description'),
       buttonText: t('hero.banner2.button'),
-      buttonLink: "https://api.whatsapp.com/send/?phone=%2B5561995362668&text=Preciso%20de%20assist%C3%AAncia%20em%20Direito%20do%20Trabalho",
+      buttonLink: "https://wa.me/61995362668?text=Preciso%20de%20assist%C3%AAncia%20em%20Direito%20do%20Trabalho",
       image: heroBanner2,
     },
     {
@@ -49,7 +49,7 @@ const Hero = () => {
       title: t('hero.banner3.title'),
       description: t('hero.banner3.description'),
       buttonText: t('hero.banner3.button'),
-      buttonLink: "https://api.whatsapp.com/send/?phone=%2B5561995362668&text=Gostaria%20de%20agendar%20uma%20consulta",
+      buttonLink: "https://wa.me/61995362668?text=Gostaria%20de%20agendar%20uma%20consulta",
       image: heroBanner3,
     },
     {
@@ -58,7 +58,7 @@ const Hero = () => {
       title: t('hero.banner4.title'),
       description: t('hero.banner4.description'),
       buttonText: t('hero.banner4.button'),
-      buttonLink: "https://api.whatsapp.com/send/?phone=%2B5561995362668&text=Quero%20saber%20mais%20sobre%20os%20servi%C3%A7os",
+      buttonLink: "https://wa.me/61995362668?text=Quero%20saber%20mais%20sobre%20os%20servi%C3%A7os",
       image: heroBanner4,
     },
   ];
