@@ -120,4 +120,30 @@ All colors MUST be HSL.
   .hover-lift:hover {
     transform: translateY(-4px);
   }
+  
+  /* Mobile carousel optimization */
+  .cursor-grab {
+    cursor: grab;
+  }
+  
+  .cursor-grab:active {
+    cursor: grabbing;
+  }
+  
+  /* Smooth touch scrolling */
+  @media (max-width: 1024px) {
+    .touch-pan-y {
+      touch-action: pan-y;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  
+  /* Prevent text selection during drag on mobile */
+  .select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
 }

@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
@@ -32,14 +32,14 @@ interface PracticeArea {
 
 const PracticeAreas = () => {
   const [selectedArea, setSelectedArea] = useState<PracticeArea | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
     slidesToScroll: 1,
-    breakpoints: {
-      "(min-width: 768px)": { slidesToScroll: 2 },
-      "(min-width: 1024px)": { slidesToScroll: 3 },
-    },
+    dragFree: false,
+    containScroll: "trimSnaps",
+    skipSnaps: false,
   });
 
   const scrollPrev = useCallback(() => {
@@ -49,6 +49,23 @@ const PracticeAreas = () => {
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   const areas: PracticeArea[] = [
     {
@@ -136,12 +153,12 @@ const PracticeAreas = () => {
 
         {/* Carousel Container */}
         <div className="relative max-w-7xl mx-auto">
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Hidden on Mobile, Visible on Desktop */}
           <Button
             variant="outline"
             size="icon"
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
+            className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
             aria-label="Anterior"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -151,25 +168,27 @@ const PracticeAreas = () => {
             variant="outline"
             size="icon"
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
+            className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
             aria-label="Próximo"
           >
             <ChevronRight className="w-6 h-6" />
           </Button>
 
-          {/* Embla Carousel */}
-          <div className="overflow-hidden px-2" ref={emblaRef}>
-            <div className="flex gap-6">
+          {/* Embla Carousel with Touch Gestures */}
+          <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
+            <div className="flex gap-4 md:gap-6 -ml-4 md:-ml-0">
               {areas.map((area, index) => {
                 const Icon = area.icon;
                 return (
                   <div
                     key={index}
-                    className="flex-[0_0_100%] min-w-0 md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)]"
+                    className="flex-[0_0_85%] min-w-0 pl-4 md:pl-0 sm:flex-[0_0_70%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] touch-pan-y"
                   >
                     <Card
-                      className="cursor-pointer transition-all duration-500 bg-background border-border group relative overflow-hidden hover-lift h-full"
+                      className="cursor-pointer transition-all duration-500 bg-background border-border group relative overflow-hidden hover-lift h-full select-none"
                       onClick={() => setSelectedArea(area)}
+                      onTouchStart={(e) => e.currentTarget.style.transform = 'scale(0.98)'}
+                      onTouchEnd={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     >
                       {/* Gradient overlay on hover */}
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -205,6 +224,27 @@ const PracticeAreas = () => {
                 );
               })}
             </div>
+          </div>
+
+          {/* Progress Dots - Mobile Only */}
+          <div className="flex justify-center gap-2 mt-8 lg:hidden">
+            {areas.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => emblaApi?.scrollTo(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === selectedIndex
+                    ? "w-8 bg-accent"
+                    : "w-2 bg-border hover:bg-accent/50"
+                }`}
+                aria-label={`Ir para slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Swipe Hint - Mobile Only, fades out after first interaction */}
+          <div className="flex justify-center gap-2 mt-4 lg:hidden opacity-60 animate-pulse">
+            <span className="text-sm text-muted-foreground">← Deslize para navegar →</span>
           </div>
         </div>
 
