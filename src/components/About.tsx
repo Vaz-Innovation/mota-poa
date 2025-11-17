@@ -89,7 +89,8 @@ const About = () => {
             Sobre Nós
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Desde 2006 em Porto Alegre, a MOTA & ADVOGADOS ASSOCIADOS une profissionais com vasta experiência em Direito Social, oferecendo serviços jurídicos de excelência através do trabalho comprometido, ético e eficiente. Nossa atuação é pautada pela personalização do atendimento e pela busca constante da melhor solução para cada cliente.
+            Desde 2006 em Porto Alegre, a MOTA & ADVOGADOS ASSOCIADOS reúne advogados altamente especializados em Direito Previdenciário. Oferecemos serviços jurídicos de excelência, sempre com ética, comprometimento e eficiência.
+            Nosso atendimento é 100% personalizado: escutamos você com atenção, entendemos profundamente o seu caso e trabalhamos incansavelmente pela solução mais segura e vantajosa para a sua vida.
           </p>
         </div>
 
