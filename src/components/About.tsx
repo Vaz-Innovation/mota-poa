@@ -133,7 +133,7 @@ const About = () => {
         </div>
 
         {/* Main Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto mb-8">
           {topics.map((topic, index) => {
             const Icon = topic.icon;
             const isHovered = hoveredCard === index;
@@ -142,12 +142,11 @@ const About = () => {
             return (
               <div
                 key={index}
-                className={`
-                  group cursor-pointer
-                  ${index === 0 ? 'lg:col-span-2' : ''}
-                  transition-all duration-700
-                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-                `}
+            className={`
+              group cursor-pointer
+              transition-all duration-700
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+            `}
                 style={{ transitionDelay: `${delay + 300}ms` }}
                 onClick={() => setSelectedTopic(index)}
                 onMouseEnter={() => setHoveredCard(index)}
