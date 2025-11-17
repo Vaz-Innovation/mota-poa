@@ -113,6 +113,7 @@ const translations: Record<Language, any> = {
       title: 'Entre em Contato',
       subtitle: 'Estamos prontos para atender você. Entre em contato conosco e agende uma consulta com nossos especialistas.',
       form: {
+        title: 'Envie sua Mensagem',
         name: 'Nome Completo',
         namePlaceholder: 'Seu nome',
         email: 'E-mail',
@@ -121,13 +122,39 @@ const translations: Record<Language, any> = {
         phonePlaceholder: '(51) 99999-9999',
         message: 'Mensagem',
         messagePlaceholder: 'Como podemos ajudá-lo?',
-        submit: 'Enviar Mensagem'
+        submit: 'Enviar Mensagem',
+        sending: 'Enviando...'
       },
       info: {
         title: 'Informações de Contato',
         availability: 'Nossa equipe está disponível para atendê-lo de segunda a sexta-feira, das 9h às 18h.',
         address: 'Endereço',
-        phone: 'Telefone'
+        phone: 'Telefone',
+        email: 'E-mail',
+        hours: 'Horário de Atendimento',
+        hoursDetail: 'Segunda a Sexta: 9h às 18h'
+      },
+      map: {
+        title: 'Nossa Localização'
+      },
+      validation: {
+        nameMin: 'Nome deve ter pelo menos 2 caracteres',
+        nameMax: 'Nome deve ter no máximo 100 caracteres',
+        emailInvalid: 'E-mail inválido',
+        emailMax: 'E-mail deve ter no máximo 255 caracteres',
+        phoneMin: 'Telefone deve ter pelo menos 10 caracteres',
+        phoneMax: 'Telefone deve ter no máximo 20 caracteres',
+        messageMin: 'Mensagem deve ter pelo menos 10 caracteres',
+        messageMax: 'Mensagem deve ter no máximo 1000 caracteres'
+      },
+      success: {
+        title: 'Mensagem enviada!',
+        description: 'Entraremos em contato em breve.'
+      },
+      error: {
+        validation: 'Erro de validação',
+        title: 'Erro ao enviar',
+        description: 'Tente novamente mais tarde.'
       }
     },
     newsletter: {
@@ -206,6 +233,7 @@ const translations: Record<Language, any> = {
       title: 'Póngase en Contacto',
       subtitle: 'Estamos listos para atenderle. Contáctenos y programe una consulta con nuestros especialistas.',
       form: {
+        title: 'Envíe su Mensaje',
         name: 'Nombre Completo',
         namePlaceholder: 'Su nombre',
         email: 'Correo Electrónico',
@@ -214,13 +242,39 @@ const translations: Record<Language, any> = {
         phonePlaceholder: '(51) 99999-9999',
         message: 'Mensaje',
         messagePlaceholder: '¿Cómo podemos ayudarle?',
-        submit: 'Enviar Mensaje'
+        submit: 'Enviar Mensaje',
+        sending: 'Enviando...'
       },
       info: {
         title: 'Información de Contacto',
         availability: 'Nuestro equipo está disponible para atenderle de lunes a viernes, de 9h a 18h.',
         address: 'Dirección',
-        phone: 'Teléfono'
+        phone: 'Teléfono',
+        email: 'Correo Electrónico',
+        hours: 'Horario de Atención',
+        hoursDetail: 'Lunes a Viernes: 9h a 18h'
+      },
+      map: {
+        title: 'Nuestra Ubicación'
+      },
+      validation: {
+        nameMin: 'El nombre debe tener al menos 2 caracteres',
+        nameMax: 'El nombre debe tener como máximo 100 caracteres',
+        emailInvalid: 'Correo electrónico inválido',
+        emailMax: 'El correo debe tener como máximo 255 caracteres',
+        phoneMin: 'El teléfono debe tener al menos 10 caracteres',
+        phoneMax: 'El teléfono debe tener como máximo 20 caracteres',
+        messageMin: 'El mensaje debe tener al menos 10 caracteres',
+        messageMax: 'El mensaje debe tener como máximo 1000 caracteres'
+      },
+      success: {
+        title: '¡Mensaje enviado!',
+        description: 'Nos pondremos en contacto pronto.'
+      },
+      error: {
+        validation: 'Error de validación',
+        title: 'Error al enviar',
+        description: 'Intente nuevamente más tarde.'
       }
     },
     newsletter: {
@@ -299,6 +353,7 @@ const translations: Record<Language, any> = {
       title: 'Get in Touch',
       subtitle: 'We are ready to serve you. Contact us and schedule a consultation with our specialists.',
       form: {
+        title: 'Send Your Message',
         name: 'Full Name',
         namePlaceholder: 'Your name',
         email: 'Email',
@@ -307,13 +362,39 @@ const translations: Record<Language, any> = {
         phonePlaceholder: '(51) 99999-9999',
         message: 'Message',
         messagePlaceholder: 'How can we help you?',
-        submit: 'Send Message'
+        submit: 'Send Message',
+        sending: 'Sending...'
       },
       info: {
         title: 'Contact Information',
         availability: 'Our team is available to serve you from Monday to Friday, from 9am to 6pm.',
         address: 'Address',
-        phone: 'Phone'
+        phone: 'Phone',
+        email: 'Email',
+        hours: 'Business Hours',
+        hoursDetail: 'Monday to Friday: 9am to 6pm'
+      },
+      map: {
+        title: 'Our Location'
+      },
+      validation: {
+        nameMin: 'Name must have at least 2 characters',
+        nameMax: 'Name must have at most 100 characters',
+        emailInvalid: 'Invalid email',
+        emailMax: 'Email must have at most 255 characters',
+        phoneMin: 'Phone must have at least 10 characters',
+        phoneMax: 'Phone must have at most 20 characters',
+        messageMin: 'Message must have at least 10 characters',
+        messageMax: 'Message must have at most 1000 characters'
+      },
+      success: {
+        title: 'Message sent!',
+        description: 'We will contact you soon.'
+      },
+      error: {
+        validation: 'Validation error',
+        title: 'Error sending',
+        description: 'Please try again later.'
       }
     },
     newsletter: {
