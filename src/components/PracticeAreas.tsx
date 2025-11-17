@@ -123,9 +123,12 @@ const PracticeAreas = () => {
                   <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
                     {area.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2">
+                  <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
                     {area.description}
                   </p>
+                  <span className="text-sm font-semibold text-accent group-hover:underline">
+                    Saiba mais →
+                  </span>
                 </CardContent>
               </Card>
             );
