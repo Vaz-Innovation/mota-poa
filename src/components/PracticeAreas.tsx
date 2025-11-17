@@ -109,7 +109,7 @@ const PracticeAreas = () => {
             Áreas de Atuação
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Temos nossa atuação inserida em diversas áreas do Direito, especializados nas áreas do Direito Social, com destaque para Direito do Trabalho Individual e Coletivo, Direito Sindical, Direito Previdenciário e Direito Administrativo. Também atendemos outras áreas, contando sempre com profissionais qualificados.
+            Especializados em Direito Social e atuantes em diversas áreas do Direito.
           </p>
         </div>
 
