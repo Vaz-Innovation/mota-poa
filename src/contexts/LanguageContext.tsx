@@ -67,24 +67,28 @@ const translations: Record<Language, any> = {
     },
     hero: {
       banner1: {
-        title: 'Excelência Jurídica para Você',
-        description: 'Consultoria especializada em Direito do Trabalho, Previdenciário e Administrativo. Mais de 15 anos de experiência em soluções personalizadas.',
-        button: 'Fale com um Especialista'
+        subtitle: 'Excelência Jurídica',
+        title: 'Para Você',
+        description: 'Mais de 15 anos transformando desafios em soluções.',
+        button: 'Fale Conosco'
       },
       banner2: {
-        title: 'Defenda Seus Direitos Trabalhistas',
-        description: 'Atuação em Direito do Trabalho Individual e Coletivo. Proteção completa aos seus direitos com assessoria jurídica de excelência.',
-        button: 'Solicite uma Consulta'
+        subtitle: 'Direitos Trabalhistas',
+        title: 'Protegidos',
+        description: 'Defesa completa dos seus direitos com expertise.',
+        button: 'Consulte um Especialista'
       },
       banner3: {
-        title: 'Planejamento Previdenciário Completo',
-        description: 'Assessoria especializada em Direito Previdenciário. Garanta sua aposentadoria e benefícios com segurança e tranquilidade.',
-        button: 'Agende sua Avaliação'
+        subtitle: 'Previdência',
+        title: 'Planejada',
+        description: 'Garanta seu futuro com segurança e tranquilidade.',
+        button: 'Agende uma Consulta'
       },
       banner4: {
-        title: 'Compromisso com Resultados',
-        description: 'Equipe multidisciplinar dedicada a oferecer soluções jurídicas criativas e eficazes. Seu sucesso é nossa prioridade.',
-        button: 'Conheça Nossos Serviços'
+        subtitle: 'Resultados',
+        title: 'Comprovados',
+        description: 'Soluções jurídicas criativas e eficazes.',
+        button: 'Saiba Mais'
       }
     },
     stats: {
@@ -187,24 +191,28 @@ const translations: Record<Language, any> = {
     },
     hero: {
       banner1: {
-        title: 'Excelencia Jurídica para Usted',
-        description: 'Consultoría especializada en Derecho Laboral, Previsional y Administrativo. Más de 15 años de experiencia en soluciones personalizadas.',
-        button: 'Hable con un Especialista'
+        subtitle: 'Excelencia Jurídica',
+        title: 'Para Usted',
+        description: 'Más de 15 años transformando desafíos en soluciones.',
+        button: 'Contáctenos'
       },
       banner2: {
-        title: 'Defienda Sus Derechos Laborales',
-        description: 'Actuación en Derecho Laboral Individual y Colectivo. Protección completa de sus derechos con asesoría jurídica de excelencia.',
-        button: 'Solicite una Consulta'
+        subtitle: 'Derechos Laborales',
+        title: 'Protegidos',
+        description: 'Defensa completa de sus derechos con experiencia.',
+        button: 'Consulte un Especialista'
       },
       banner3: {
-        title: 'Planificación Previsional Completa',
-        description: 'Asesoría especializada en Derecho Previsional. Garantice su jubilación y beneficios con seguridad y tranquilidad.',
-        button: 'Agende su Evaluación'
+        subtitle: 'Previsión',
+        title: 'Planificada',
+        description: 'Garantice su futuro con seguridad y tranquilidad.',
+        button: 'Agende una Consulta'
       },
       banner4: {
-        title: 'Compromiso con Resultados',
-        description: 'Equipo multidisciplinario dedicado a ofrecer soluciones jurídicas creativas y eficaces. Su éxito es nuestra prioridad.',
-        button: 'Conozca Nuestros Servicios'
+        subtitle: 'Resultados',
+        title: 'Comprobados',
+        description: 'Soluciones jurídicas creativas y eficaces.',
+        button: 'Más Información'
       }
     },
     stats: {
@@ -307,24 +315,28 @@ const translations: Record<Language, any> = {
     },
     hero: {
       banner1: {
-        title: 'Legal Excellence for You',
-        description: 'Specialized consulting in Labor, Social Security and Administrative Law. Over 15 years of experience in personalized solutions.',
-        button: 'Talk to a Specialist'
+        subtitle: 'Legal Excellence',
+        title: 'For You',
+        description: 'Over 15 years transforming challenges into solutions.',
+        button: 'Contact Us'
       },
       banner2: {
-        title: 'Defend Your Labor Rights',
-        description: 'Performance in Individual and Collective Labor Law. Complete protection of your rights with excellent legal advice.',
-        button: 'Request a Consultation'
+        subtitle: 'Labor Rights',
+        title: 'Protected',
+        description: 'Complete defense of your rights with expertise.',
+        button: 'Consult a Specialist'
       },
       banner3: {
-        title: 'Complete Social Security Planning',
-        description: 'Specialized advice in Social Security Law. Ensure your retirement and benefits with safety and peace of mind.',
-        button: 'Schedule Your Assessment'
+        subtitle: 'Social Security',
+        title: 'Planned',
+        description: 'Secure your future with safety and peace of mind.',
+        button: 'Schedule a Consultation'
       },
       banner4: {
-        title: 'Commitment to Results',
-        description: 'Multidisciplinary team dedicated to offering creative and effective legal solutions. Your success is our priority.',
-        button: 'Learn About Our Services'
+        subtitle: 'Results',
+        title: 'Proven',
+        description: 'Creative and effective legal solutions.',
+        button: 'Learn More'
       }
     },
     stats: {

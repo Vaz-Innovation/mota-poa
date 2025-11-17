@@ -26,6 +26,7 @@ const Hero = () => {
   const banners = [
     {
       id: 1,
+      subtitle: t('hero.banner1.subtitle'),
       title: t('hero.banner1.title'),
       description: t('hero.banner1.description'),
       buttonText: t('hero.banner1.button'),
@@ -34,6 +35,7 @@ const Hero = () => {
     },
     {
       id: 2,
+      subtitle: t('hero.banner2.subtitle'),
       title: t('hero.banner2.title'),
       description: t('hero.banner2.description'),
       buttonText: t('hero.banner2.button'),
@@ -42,6 +44,7 @@ const Hero = () => {
     },
     {
       id: 3,
+      subtitle: t('hero.banner3.subtitle'),
       title: t('hero.banner3.title'),
       description: t('hero.banner3.description'),
       buttonText: t('hero.banner3.button'),
@@ -50,6 +53,7 @@ const Hero = () => {
     },
     {
       id: 4,
+      subtitle: t('hero.banner4.subtitle'),
       title: t('hero.banner4.title'),
       description: t('hero.banner4.description'),
       buttonText: t('hero.banner4.button'),
@@ -88,44 +92,61 @@ const Hero = () => {
                     alt={banner.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/60" />
                 </div>
 
                 {/* Content */}
                 <div className="container mx-auto px-4 lg:px-8 relative z-10 h-full flex items-center">
-                  <div className="max-w-3xl">
-                    <h1 
-                      className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight transition-all duration-700 ${
+                  <div className="max-w-2xl space-y-6">
+                    {/* Subtitle */}
+                    <p 
+                      className={`text-sm md:text-base font-light text-white/80 tracking-widest uppercase transition-all duration-800 ${
                         current === index 
                           ? 'opacity-100 translate-y-0' 
-                          : 'opacity-0 translate-y-8'
+                          : 'opacity-0 translate-y-4'
                       }`}
-                      style={{ transitionDelay: current === index ? '200ms' : '0ms' }}
+                      style={{ transitionDelay: current === index ? '100ms' : '0ms' }}
+                    >
+                      {banner.subtitle}
+                    </p>
+                    
+                    {/* Main Title */}
+                    <h1 
+                      className={`text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight transition-all duration-800 ${
+                        current === index 
+                          ? 'opacity-100 translate-y-0' 
+                          : 'opacity-0 translate-y-4'
+                      }`}
+                      style={{ transitionDelay: current === index ? '250ms' : '0ms' }}
                     >
                       {banner.title}
                     </h1>
+                    
+                    {/* Description */}
                     <p 
-                      className={`text-lg md:text-xl text-white/90 mb-8 leading-relaxed transition-all duration-700 ${
+                      className={`text-base md:text-lg text-white/90 font-light leading-relaxed transition-all duration-800 ${
                         current === index 
                           ? 'opacity-100 translate-y-0' 
-                          : 'opacity-0 translate-y-8'
+                          : 'opacity-0 translate-y-4'
                       }`}
                       style={{ transitionDelay: current === index ? '400ms' : '0ms' }}
                     >
                       {banner.description}
                     </p>
+                    
+                    {/* CTA Button */}
                     <div
-                      className={`transition-all duration-700 ${
+                      className={`transition-all duration-800 pt-4 ${
                         current === index 
                           ? 'opacity-100 translate-y-0' 
-                          : 'opacity-0 translate-y-8'
+                          : 'opacity-0 translate-y-4'
                       }`}
-                      style={{ transitionDelay: current === index ? '600ms' : '0ms' }}
+                      style={{ transitionDelay: current === index ? '550ms' : '0ms' }}
                     >
                       <Button
                         asChild
                         size="lg"
-                        className="text-lg px-8 py-6 bg-accent hover:bg-accent/90 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+                        className="text-base md:text-lg px-8 py-6 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary rounded-full font-medium shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105"
                       >
                         <a
                           href={banner.buttonLink}
@@ -142,19 +163,19 @@ const Hero = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-4 lg:left-8 bg-white/20 hover:bg-white/30 text-white border-white/30" />
-        <CarouselNext className="right-4 lg:right-8 bg-white/20 hover:bg-white/30 text-white border-white/30" />
+        <CarouselPrevious className="left-4 lg:left-8 bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110" />
+        <CarouselNext className="right-4 lg:right-8 bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110" />
         
         {/* Indicadores de Navegação (Dots) */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex gap-2 backdrop-blur-sm bg-black/10 px-4 py-2 rounded-full">
           {banners.map((_, index) => (
             <button
               key={index}
               onClick={() => api?.scrollTo(index)}
               className={`transition-all duration-300 rounded-full ${
                 current === index
-                  ? "w-12 h-3 bg-accent"
-                  : "w-3 h-3 bg-white/50 hover:bg-white/70"
+                  ? "w-10 h-2.5 bg-white shadow-lg"
+                  : "w-2.5 h-2.5 bg-white/40 hover:bg-white/60"
               }`}
               aria-label={`Ir para banner ${index + 1}`}
             />
