@@ -130,8 +130,8 @@ const translations: Record<Language, any> = {
       invalidEmail: 'Por favor, insira um e-mail válido.'
     },
     newsletter: {
-      title: 'Receba Nossas Novidades',
-      description: 'Inscreva-se em nossa newsletter e receba atualizações sobre direito, dicas jurídicas e notícias do escritório.',
+      title: 'Fique por Dentro',
+      description: 'Cadastre-se na newsletter e receba dicas jurídicas e novidades do escritório.',
       placeholder: 'Seu melhor e-mail',
       button: 'Inscrever',
       sending: 'Enviando...',
@@ -222,8 +222,8 @@ const translations: Record<Language, any> = {
       invalidEmail: 'Por favor, ingrese un correo electrónico válido.'
     },
     newsletter: {
-      title: 'Reciba Nuestras Novedades',
-      description: 'Suscríbase a nuestro boletín y reciba actualizaciones sobre derecho, consejos jurídicos y noticias del despacho.',
+      title: 'Manténgase Informado',
+      description: 'Suscríbase al boletín y reciba consejos jurídicos y novedades del despacho.',
       placeholder: 'Su mejor correo electrónico',
       button: 'Suscribirse',
       sending: 'Enviando...',
@@ -314,8 +314,8 @@ const translations: Record<Language, any> = {
       invalidEmail: 'Please enter a valid email address.'
     },
     newsletter: {
-      title: 'Stay Updated',
-      description: 'Subscribe to our newsletter and receive updates on law, legal tips and firm news.',
+      title: 'Stay Informed',
+      description: 'Subscribe to the newsletter and receive legal tips and firm updates.',
       placeholder: 'Your best email',
       button: 'Subscribe',
       sending: 'Sending...',
