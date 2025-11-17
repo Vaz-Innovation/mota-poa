@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -85,11 +85,11 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-primary mb-1">Endereço</h4>
                   <p className="text-muted-foreground">
-                    SHIS QI 15, Conjunto 2, Casa 14
+                    Rua Siqueira Campos, nº 1.171, 9º andar
                     <br />
-                    Lago Sul, Brasília - DF
+                    Ed. Marquês do Herval - Centro
                     <br />
-                    CEP 71635-520
+                    Porto Alegre - RS - CEP: 90010-001
                   </p>
                 </div>
               </div>
@@ -101,21 +101,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-primary mb-1">Telefone</h4>
                   <p className="text-muted-foreground">
-                    (61) 3248-8080
-                    <br />
-                    (61) 99999-9999
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary mb-1">E-mail</h4>
-                  <p className="text-muted-foreground">
-                    contato@motaeadvogados.com.br
+                    (51) 3286.6586
                   </p>
                 </div>
               </div>
