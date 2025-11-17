@@ -8,19 +8,22 @@ const Lawyers = () => {
   const lawyers = [
     {
       name: "Dr. José Pinto da Mota Filho",
-      oab: "OAB/DF 1.413-A",
+      oab: "OAB/DF 1413-A",
+      email: "Josemota@mota.adv.br",
       initials: "JM",
       image: joseMota
     },
     {
       name: "Dra. Maristela Pinto da Mota",
       oab: "OAB/RS 40.523",
+      email: "maristela@mota.adv.br",
       initials: "MM",
       image: maristelaMota
     },
     {
       name: "Dr. Rafael Augusto Dantas Mota",
       oab: "OAB/DF 72.907",
+      email: "rafael@mota.adv.br",
       initials: "RM",
       image: rafaelMota
     }
@@ -65,7 +68,13 @@ const Lawyers = () => {
                   </AvatarFallback>
                 </Avatar>
                 <h3 className="text-xl font-bold text-primary mb-2">{lawyer.name}</h3>
-                <p className="text-sm text-muted-foreground">{lawyer.oab}</p>
+                <p className="text-sm text-muted-foreground mb-1">{lawyer.oab}</p>
+                <a 
+                  href={`mailto:${lawyer.email}`}
+                  className="text-sm text-accent hover:underline"
+                >
+                  {lawyer.email}
+                </a>
               </CardContent>
             </Card>
           ))}
