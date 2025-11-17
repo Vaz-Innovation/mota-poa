@@ -87,6 +87,12 @@ const translations: Record<Language, any> = {
         button: 'Conheça Nossos Serviços'
       }
     },
+    stats: {
+      experience: 'Anos de Experiência',
+      clients: 'Clientes Atendidos',
+      success: 'Taxa de Sucesso',
+      cases: 'Casos Resolvidos'
+    },
     about: {
       title: 'Sobre Nós',
       intro: 'Conheça mais sobre nossa história, valores e compromisso com a excelência jurídica.',
@@ -174,6 +180,12 @@ const translations: Record<Language, any> = {
         button: 'Conozca Nuestros Servicios'
       }
     },
+    stats: {
+      experience: 'Años de Experiencia',
+      clients: 'Clientes Atendidos',
+      success: 'Tasa de Éxito',
+      cases: 'Casos Resueltos'
+    },
     about: {
       title: 'Sobre Nosotros',
       intro: 'Conozca más sobre nuestra historia, valores y compromiso con la excelencia jurídica.',
@@ -260,6 +272,12 @@ const translations: Record<Language, any> = {
         description: 'Multidisciplinary team dedicated to offering creative and effective legal solutions. Your success is our priority.',
         button: 'Learn About Our Services'
       }
+    },
+    stats: {
+      experience: 'Years of Experience',
+      clients: 'Clients Served',
+      success: 'Success Rate',
+      cases: 'Cases Resolved'
     },
     about: {
       title: 'About Us',
