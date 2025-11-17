@@ -78,7 +78,7 @@ const Header = () => {
               className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-full px-6"
             >
               <a
-                href="https://api.whatsapp.com/send/?phone=%2B5561995362668&text&type=phone_number&app_absent=0"
+                href="https://wa.me/61995362668"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -138,7 +138,7 @@ const Header = () => {
               <LanguageSelector />
               <Button asChild variant="bronze" size="lg" className="w-full">
                 <a
-                  href="https://api.whatsapp.com/send/?phone=%2B5561995362668&text&type=phone_number&app_absent=0"
+                  href="https://wa.me/61995362668"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

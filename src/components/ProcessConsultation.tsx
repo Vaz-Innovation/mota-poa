@@ -71,7 +71,7 @@ const ProcessConsultation = () => {
 
     const message = `Olá! Gostaria de consultar o processo nº ${processNumber}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send/?phone=%2B5561995362668&text=${encodedMessage}&type=phone_number&app_absent=0`;
+    const whatsappUrl = `https://wa.me/61995362668?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
 
