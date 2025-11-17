@@ -5,6 +5,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import heroBanner1 from "@/assets/hero-banner-1.jpg";
 import heroBanner2 from "@/assets/hero-banner-2.jpg";
@@ -12,13 +13,15 @@ import heroBanner3 from "@/assets/hero-banner-3.jpg";
 import heroBanner4 from "@/assets/hero-banner-4.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const Hero = () => {
   const { t } = useLanguage();
   const plugin = useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
   );
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
 
   const banners = [
     {
@@ -55,9 +58,20 @@ const Hero = () => {
     },
   ];
 
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center pt-16">
       <Carousel
+        setApi={setApi}
         plugins={[plugin.current]}
         className="w-full h-screen"
         onMouseEnter={plugin.current.stop}
@@ -107,6 +121,22 @@ const Hero = () => {
         </CarouselContent>
         <CarouselPrevious className="left-4 lg:left-8 bg-white/20 hover:bg-white/30 text-white border-white/30" />
         <CarouselNext className="right-4 lg:right-8 bg-white/20 hover:bg-white/30 text-white border-white/30" />
+        
+        {/* Indicadores de Navegação (Dots) */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => api?.scrollTo(index)}
+              className={`transition-all duration-300 rounded-full ${
+                current === index
+                  ? "w-12 h-3 bg-accent"
+                  : "w-3 h-3 bg-white/50 hover:bg-white/70"
+              }`}
+              aria-label={`Ir para banner ${index + 1}`}
+            />
+          ))}
+        </div>
       </Carousel>
     </section>
   );
