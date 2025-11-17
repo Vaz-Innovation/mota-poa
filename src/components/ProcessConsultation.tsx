@@ -3,14 +3,20 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
-import { Search, MessageCircle, Loader2 } from "lucide-react";
+import { Search, MessageCircle, Loader2, ChevronDown } from "lucide-react";
 import { z } from "zod";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const ProcessConsultation = () => {
   const { t } = useLanguage();
   const [processNumber, setProcessNumber] = useState("");
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const processSchema = z.object({
     processNumber: z.string()
@@ -73,71 +79,88 @@ const ProcessConsultation = () => {
     <section className="py-20 bg-gradient-to-b from-background to-navy/5">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-bronze/10 mb-6">
-              <Search className="w-8 h-8 text-bronze" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              {t('processConsultation.title')}
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              {t('processConsultation.description')}
-            </p>
-          </div>
-
-          <form onSubmit={handleEmailSubmit} className="bg-white border border-gray-100 rounded-lg shadow-lg p-8">
-            <div className="space-y-6">
-              <div>
-                <Input
-                  type="text"
-                  placeholder={t('processConsultation.processNumberPlaceholder')}
-                  value={processNumber}
-                  onChange={(e) => setProcessNumber(e.target.value)}
-                  className="text-base"
-                  disabled={isSubmitting}
-                />
+          <Collapsible open={isFormOpen} onOpenChange={setIsFormOpen}>
+            <CollapsibleTrigger asChild>
+              <div className="bg-white border border-gray-100 rounded-lg shadow-lg p-8 cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-bronze/10">
+                      <Search className="w-8 h-8 text-bronze" />
+                    </div>
+                    <div className="text-left">
+                      <h2 className="text-2xl md:text-3xl font-bold text-navy">
+                        {t('processConsultation.title')}
+                      </h2>
+                      <p className="text-muted-foreground mt-1">
+                        {t('processConsultation.description')}
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronDown 
+                    className={`w-8 h-8 text-bronze transition-transform duration-300 ${
+                      isFormOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </div>
               </div>
+            </CollapsibleTrigger>
 
-              <div>
-                <Input
-                  type="email"
-                  placeholder={t('processConsultation.emailPlaceholder')}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="text-base"
-                  disabled={isSubmitting}
-                />
-              </div>
+            <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+              <form onSubmit={handleEmailSubmit} className="bg-white border border-gray-100 rounded-lg shadow-lg p-8 mt-4">
+                <div className="space-y-6">
+                  <div>
+                    <Input
+                      type="text"
+                      placeholder={t('processConsultation.processNumberPlaceholder')}
+                      value={processNumber}
+                      onChange={(e) => setProcessNumber(e.target.value)}
+                      className="text-base"
+                      disabled={isSubmitting}
+                    />
+                  </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  type="submit"
-                  variant="bronze"
-                  className="flex-1"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      {t('processConsultation.sending')}
-                    </>
-                  ) : (
-                    t('processConsultation.submitButton')
-                  )}
-                </Button>
+                  <div>
+                    <Input
+                      type="email"
+                      placeholder={t('processConsultation.emailPlaceholder')}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="text-base"
+                      disabled={isSubmitting}
+                    />
+                  </div>
 
-                <Button
-                  type="button"
-                  onClick={handleWhatsAppClick}
-                  className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white"
-                  disabled={isSubmitting}
-                >
-                  <MessageCircle className="mr-2 h-4 w-4" />
-                  {t('processConsultation.whatsappButton')}
-                </Button>
-              </div>
-            </div>
-          </form>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button
+                      type="submit"
+                      variant="bronze"
+                      className="flex-1"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          {t('processConsultation.sending')}
+                        </>
+                      ) : (
+                        t('processConsultation.submitButton')
+                      )}
+                    </Button>
+
+                    <Button
+                      type="button"
+                      onClick={handleWhatsAppClick}
+                      className="flex-1 bg-[#25D366] hover:bg-[#20BA5A] text-white"
+                      disabled={isSubmitting}
+                    >
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      {t('processConsultation.whatsappButton')}
+                    </Button>
+                  </div>
+                </div>
+              </form>
+            </CollapsibleContent>
+          </Collapsible>
         </div>
       </div>
     </section>
