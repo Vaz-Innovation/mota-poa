@@ -62,13 +62,30 @@ const translations: Record<Language, any> = {
       areas: 'Áreas de Atuação',
       lawyers: 'Advogados',
       contact: 'Contato',
-      callUs: 'Fale Conosco'
+      callUs: 'Fale Conosco',
+      access: 'Acessos'
     },
     hero: {
-      title: 'MOTA & ADVOGADOS',
-      subtitle: 'ASSOCIADOS',
-      description: 'A MOTA & ADVOGADOS ASSOCIADOS é uma banca de advogados com atuação em Porto Alegre desde 2006, resultado da união de profissionais com relevante experiência e vasto conhecimento nas áreas do Direito Social, com destaque para Direito do Trabalho Individual e Coletivo, Direito Sindical, Direito Previdenciário e Direito Administrativo. Nosso o objetivo é a prestação de serviços jurídicos de excelência, realizados através do trabalho comprometido e da dedicação e paixão pela nossa profissão.',
-      button: 'Fale com um Advogado'
+      banner1: {
+        title: 'Excelência Jurídica para Você',
+        description: 'Consultoria especializada em Direito do Trabalho, Previdenciário e Administrativo. Mais de 15 anos de experiência em soluções personalizadas.',
+        button: 'Fale com um Especialista'
+      },
+      banner2: {
+        title: 'Defenda Seus Direitos Trabalhistas',
+        description: 'Atuação em Direito do Trabalho Individual e Coletivo. Proteção completa aos seus direitos com assessoria jurídica de excelência.',
+        button: 'Solicite uma Consulta'
+      },
+      banner3: {
+        title: 'Planejamento Previdenciário Completo',
+        description: 'Assessoria especializada em Direito Previdenciário. Garanta sua aposentadoria e benefícios com segurança e tranquilidade.',
+        button: 'Agende sua Avaliação'
+      },
+      banner4: {
+        title: 'Compromisso com Resultados',
+        description: 'Equipe multidisciplinar dedicada a oferecer soluções jurídicas criativas e eficazes. Seu sucesso é nossa prioridade.',
+        button: 'Conheça Nossos Serviços'
+      }
     },
     about: {
       title: 'Sobre Nós',
@@ -132,13 +149,30 @@ const translations: Record<Language, any> = {
       areas: 'Áreas de Práctica',
       lawyers: 'Abogados',
       contact: 'Contacto',
-      callUs: 'Contáctenos'
+      callUs: 'Contáctenos',
+      access: 'Accesos'
     },
     hero: {
-      title: 'MOTA & ABOGADOS',
-      subtitle: 'ASOCIADOS',
-      description: 'MOTA & ABOGADOS ASOCIADOS es un bufete de abogados que opera en Porto Alegre desde 2006, resultado de la unión de profesionales con experiencia relevante y amplio conocimiento en las áreas del Derecho Social, con énfasis en Derecho Laboral Individual y Colectivo, Derecho Sindical, Derecho Previsional y Derecho Administrativo. Nuestro objetivo es la prestación de servicios jurídicos de excelencia, realizados a través del trabajo comprometido y la dedicación y pasión por nuestra profesión.',
-      button: 'Hable con un Abogado'
+      banner1: {
+        title: 'Excelencia Jurídica para Usted',
+        description: 'Consultoría especializada en Derecho Laboral, Previsional y Administrativo. Más de 15 años de experiencia en soluciones personalizadas.',
+        button: 'Hable con un Especialista'
+      },
+      banner2: {
+        title: 'Defienda Sus Derechos Laborales',
+        description: 'Actuación en Derecho Laboral Individual y Colectivo. Protección completa de sus derechos con asesoría jurídica de excelencia.',
+        button: 'Solicite una Consulta'
+      },
+      banner3: {
+        title: 'Planificación Previsional Completa',
+        description: 'Asesoría especializada en Derecho Previsional. Garantice su jubilación y beneficios con seguridad y tranquilidad.',
+        button: 'Agende su Evaluación'
+      },
+      banner4: {
+        title: 'Compromiso con Resultados',
+        description: 'Equipo multidisciplinario dedicado a ofrecer soluciones jurídicas creativas y eficaces. Su éxito es nuestra prioridad.',
+        button: 'Conozca Nuestros Servicios'
+      }
     },
     about: {
       title: 'Sobre Nosotros',
@@ -202,13 +236,30 @@ const translations: Record<Language, any> = {
       areas: 'Practice Areas',
       lawyers: 'Lawyers',
       contact: 'Contact',
-      callUs: 'Contact Us'
+      callUs: 'Contact Us',
+      access: 'Access'
     },
     hero: {
-      title: 'MOTA & LAWYERS',
-      subtitle: 'ASSOCIATES',
-      description: 'MOTA & LAWYERS ASSOCIATES is a law firm operating in Porto Alegre since 2006, resulting from the union of professionals with relevant experience and extensive knowledge in the areas of Social Law, with emphasis on Individual and Collective Labor Law, Union Law, Social Security Law and Administrative Law. Our goal is to provide excellent legal services, carried out through committed work and dedication and passion for our profession.',
-      button: 'Talk to a Lawyer'
+      banner1: {
+        title: 'Legal Excellence for You',
+        description: 'Specialized consulting in Labor, Social Security and Administrative Law. Over 15 years of experience in personalized solutions.',
+        button: 'Talk to a Specialist'
+      },
+      banner2: {
+        title: 'Defend Your Labor Rights',
+        description: 'Performance in Individual and Collective Labor Law. Complete protection of your rights with excellent legal advice.',
+        button: 'Request a Consultation'
+      },
+      banner3: {
+        title: 'Complete Social Security Planning',
+        description: 'Specialized advice in Social Security Law. Ensure your retirement and benefits with safety and peace of mind.',
+        button: 'Schedule Your Assessment'
+      },
+      banner4: {
+        title: 'Commitment to Results',
+        description: 'Multidisciplinary team dedicated to offering creative and effective legal solutions. Your success is our priority.',
+        button: 'Learn About Our Services'
+      }
     },
     about: {
       title: 'About Us',
