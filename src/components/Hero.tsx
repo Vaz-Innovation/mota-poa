@@ -21,9 +21,8 @@ const Hero = () => {
             Excelência em
             <span className="block text-bronze">Advocacia</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-            Um dos maiores escritórios de advocacia de Brasília, fundamentado em ética,
-            transparência e comprometimento com resultados.
+          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+            A MOTA & ADVOGADOS ASSOCIADOS é uma banca de advogados com atuação em Porto Alegre desde 2006, resultado da união de profissionais com relevante experiência e vasto conhecimento nas áreas do Direito Social, com destaque para Direito do Trabalho Individual e Coletivo, Direito Sindical, Direito Previdenciário e Direito Administrativo. Nosso o objetivo é a prestação de serviços jurídicos de excelência, realizados através do trabalho comprometido e da dedicação e paixão pela nossa profissão.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button variant="bronze" size="lg" className="text-lg px-8 py-6">
