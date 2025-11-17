@@ -106,7 +106,7 @@ const Hero = () => {
                     <img 
                       src={logoMota} 
                       alt="Mota & Advogados Associados" 
-                      className="h-24 md:h-32 lg:h-40 w-auto drop-shadow-2xl"
+                      className="h-24 md:h-32 lg:h-40 w-auto drop-shadow-2xl brightness-0 invert"
                     />
                   </div>
                 </div>
