@@ -9,6 +9,7 @@ import ProcessConsultation from "@/components/ProcessConsultation";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
       <Newsletter />
       <Footer />
       <WhatsAppButton />
+      <CookieConsent />
     </div>
   );
 };

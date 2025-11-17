@@ -145,6 +145,12 @@ const translations: Record<Language, any> = {
       quickLinks: 'Links Rápidos',
       contact: 'Contato',
       rights: 'Todos os direitos reservados.'
+    },
+    cookies: {
+      title: 'Política de Cookies',
+      message: 'Utilizamos cookies para melhorar sua experiência em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade.',
+      accept: 'Aceitar',
+      decline: 'Recusar'
     }
   },
   es: {
@@ -237,6 +243,12 @@ const translations: Record<Language, any> = {
       quickLinks: 'Enlaces Rápidos',
       contact: 'Contacto',
       rights: 'Todos los derechos reservados.'
+    },
+    cookies: {
+      title: 'Política de Cookies',
+      message: 'Utilizamos cookies para mejorar su experiencia en nuestro sitio. Al continuar navegando, acepta nuestra política de privacidad.',
+      accept: 'Aceptar',
+      decline: 'Rechazar'
     }
   },
   en: {
@@ -329,6 +341,12 @@ const translations: Record<Language, any> = {
       quickLinks: 'Quick Links',
       contact: 'Contact',
       rights: 'All rights reserved.'
+    },
+    cookies: {
+      title: 'Cookie Policy',
+      message: 'We use cookies to improve your experience on our website. By continuing to browse, you agree to our privacy policy.',
+      accept: 'Accept',
+      decline: 'Decline'
     }
   }
 };
