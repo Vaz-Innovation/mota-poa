@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import motaLogo from "@/assets/mota-logo.png";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -81,6 +82,7 @@ const Header = () => {
                 href="https://wa.me/61995362668"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('header_desktop')}
               >
                 {t('nav.callUs')}
               </a>
@@ -141,6 +143,7 @@ const Header = () => {
                   href="https://wa.me/61995362668"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('header_mobile')}
                 >
                   {t('nav.callUs')}
                 </a>
