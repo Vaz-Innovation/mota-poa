@@ -99,7 +99,7 @@ const About = () => {
             return (
               <Card
                 key={index}
-                className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-background border-border"
+                className="cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-background border-border group"
                 onClick={() => setSelectedTopic(index)}
               >
                 <CardContent className="p-6 flex flex-col items-center text-center">
@@ -107,7 +107,10 @@ const About = () => {
                     <Icon className="w-8 h-8 text-accent" />
                   </div>
                   <h3 className="text-xl font-bold text-primary mb-2">{topic.title}</h3>
-                  <p className="text-sm text-muted-foreground">{topic.summary}</p>
+                  <p className="text-sm text-muted-foreground mb-4">{topic.summary}</p>
+                  <span className="text-sm font-semibold text-accent group-hover:underline">
+                    Saiba mais →
+                  </span>
                 </CardContent>
               </Card>
             );
