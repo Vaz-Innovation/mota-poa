@@ -69,7 +69,7 @@ const Hero = () => {
   }, [api]);
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-16">
+    <section id="inicio" className="relative min-h-screen flex items-center pt-20">
       <Carousel
         setApi={setApi}
         plugins={[plugin.current]}
