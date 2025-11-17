@@ -31,7 +31,7 @@ const Hero = () => {
               className="text-lg px-8 py-6 bg-accent hover:bg-accent/90 text-white"
             >
               <a
-                href="https://wa.me/5561995362668"
+                href="https://api.whatsapp.com/send/?phone=%2B5561995362668&text&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -1,8 +1,7 @@
 import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "5561995362668"; // Formato internacional para WhatsApp
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  const whatsappUrl = "https://api.whatsapp.com/send/?phone=%2B5561995362668&text&type=phone_number&app_absent=0";
 
   return (
     <a
