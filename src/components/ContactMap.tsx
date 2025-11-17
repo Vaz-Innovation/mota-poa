@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
+// Use dist build explicitly to avoid ESM default issues in some bundlers
+// @ts-ignore - types are imported from 'mapbox-gl'
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
+import type { Map as MapboxMap } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -12,7 +15,7 @@ interface ContactMapProps {
 
 const ContactMap = ({ address, coordinates }: ContactMapProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
+  const map = useRef<MapboxMap | null>(null);
   const [mapboxToken, setMapboxToken] = useState('');
   const [isTokenSet, setIsTokenSet] = useState(false);
 
