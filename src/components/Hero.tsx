@@ -78,7 +78,7 @@ const Hero = () => {
         onMouseLeave={plugin.current.reset}
       >
         <CarouselContent className="h-screen">
-          {banners.map((banner) => (
+          {banners.map((banner, index) => (
             <CarouselItem key={banner.id} className="h-screen">
               <div className="relative h-full w-full">
                 {/* Background Image with Overlay */}
@@ -94,25 +94,48 @@ const Hero = () => {
                 {/* Content */}
                 <div className="container mx-auto px-4 lg:px-8 relative z-10 h-full flex items-center">
                   <div className="max-w-3xl">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    <h1 
+                      className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight transition-all duration-700 ${
+                        current === index 
+                          ? 'opacity-100 translate-y-0' 
+                          : 'opacity-0 translate-y-8'
+                      }`}
+                      style={{ transitionDelay: current === index ? '200ms' : '0ms' }}
+                    >
                       {banner.title}
                     </h1>
-                    <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                    <p 
+                      className={`text-lg md:text-xl text-white/90 mb-8 leading-relaxed transition-all duration-700 ${
+                        current === index 
+                          ? 'opacity-100 translate-y-0' 
+                          : 'opacity-0 translate-y-8'
+                      }`}
+                      style={{ transitionDelay: current === index ? '400ms' : '0ms' }}
+                    >
                       {banner.description}
                     </p>
-                    <Button
-                      asChild
-                      size="lg"
-                      className="text-lg px-8 py-6 bg-accent hover:bg-accent/90 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+                    <div
+                      className={`transition-all duration-700 ${
+                        current === index 
+                          ? 'opacity-100 translate-y-0' 
+                          : 'opacity-0 translate-y-8'
+                      }`}
+                      style={{ transitionDelay: current === index ? '600ms' : '0ms' }}
                     >
-                      <a
-                        href={banner.buttonLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Button
+                        asChild
+                        size="lg"
+                        className="text-lg px-8 py-6 bg-accent hover:bg-accent/90 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
                       >
-                        {banner.buttonText}
-                      </a>
-                    </Button>
+                        <a
+                          href={banner.buttonLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {banner.buttonText}
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
