@@ -11,6 +11,7 @@ import heroBanner1 from "@/assets/hero-banner-1.jpg";
 import heroBanner2 from "@/assets/hero-banner-2.jpg";
 import heroBanner3 from "@/assets/hero-banner-3.jpg";
 import heroBanner4 from "@/assets/hero-banner-4.jpg";
+import logoMota from "@/assets/logo-mota-hero.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef, useState, useEffect } from "react";
@@ -93,6 +94,21 @@ const Hero = () => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/60" />
+                </div>
+
+                {/* Logo Centralizada */}
+                <div className="absolute top-24 left-0 right-0 z-20 flex justify-center">
+                  <div className={`transition-all duration-800 ${
+                    current === index 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 -translate-y-4'
+                  }`}>
+                    <img 
+                      src={logoMota} 
+                      alt="Mota & Advogados Associados" 
+                      className="h-24 md:h-32 lg:h-40 w-auto drop-shadow-2xl"
+                    />
+                  </div>
                 </div>
 
                 {/* Content */}
