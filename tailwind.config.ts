@@ -56,6 +56,7 @@ export default {
           DEFAULT: "hsl(var(--bronze))",
           light: "hsl(var(--bronze-light))",
         },
+        "hero-orange": "hsl(var(--hero-orange))",
       },
       borderRadius: {
         lg: "var(--radius)",
