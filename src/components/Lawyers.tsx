@@ -50,7 +50,7 @@ const Lawyers = () => {
     {
       name: "Dr. José Pinto da Mota Filho",
       specialty: "Direito Previdenciário",
-      oab: "OAB/DF 1413-A",
+      oab: "OAB/RS 22.378",
       email: "Josemota@mota.adv.br",
       initials: "JM",
       image: joseMota
