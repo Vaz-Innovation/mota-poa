@@ -50,9 +50,6 @@ All colors MUST be HSL.
     --bronze-light: 23 100% 60%;
     --gray-elegant: 220 14% 96%;
     --gray-text: 228 50% 30%;
-    
-    /* Hero orange background */
-    --hero-orange: 16 100% 63%;
   }
 
   .dark {
@@ -90,9 +87,6 @@ All colors MUST be HSL.
     --bronze-light: 23 100% 60%;
     --gray-elegant: 228 80% 18%;
     --gray-text: 220 14% 70%;
-    
-    /* Hero orange background */
-    --hero-orange: 16 100% 63%;
   }
 }
 
