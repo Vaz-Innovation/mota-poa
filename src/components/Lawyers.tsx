@@ -66,7 +66,7 @@ const Lawyers = () => {
     {
       name: "Dr. Rafael Augusto Dantas Mota",
       specialty: "Direito do Trabalho",
-      oab: "OAB/DF 72.907",
+      oab: "OAB/RS 138.765",
       email: "rafael@mota.adv.br",
       initials: "RM",
       image: rafaelMota
