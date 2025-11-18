@@ -49,7 +49,6 @@ const Lawyers = () => {
   const lawyers = [
     {
       name: "Dr. José Pinto da Mota Filho",
-      specialty: "Direito Previdenciário",
       oab: "OAB/RS 22.378",
       email: "Josemota@mota.adv.br",
       initials: "JM",
@@ -57,7 +56,6 @@ const Lawyers = () => {
     },
     {
       name: "Dra. Maristela Pinto da Mota",
-      specialty: "Direito Social",
       oab: "OAB/RS 40.523",
       email: "maristela@mota.adv.br",
       initials: "MM",
@@ -65,7 +63,6 @@ const Lawyers = () => {
     },
     {
       name: "Dr. Rafael Augusto Dantas Mota",
-      specialty: "Direito do Trabalho",
       oab: "OAB/RS 138.765",
       email: "rafael@mota.adv.br",
       initials: "RM",
@@ -138,10 +135,6 @@ const Lawyers = () => {
                       <h3 className="text-2xl font-semibold text-primary mb-2 group-hover:text-accent transition-colors duration-300">
                         {lawyer.name}
                       </h3>
-
-                      <p className="text-base font-medium text-accent mb-3">
-                        {lawyer.specialty}
-                      </p>
 
                       <p className="text-sm text-muted-foreground/80 mb-4">
                         {lawyer.oab}
