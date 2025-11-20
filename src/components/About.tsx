@@ -40,13 +40,10 @@ const About = () => {
       content: (
         <>
           <p className="mb-4">
-            A MOTA & ADVOGADOS ASSOCIADOS é uma banca de advogados com atuação em Porto Alegre desde 2006, resultado da união de profissionais com relevante experiência e vasto conhecimento nas áreas do Direito Social, com destaque para Direito do Trabalho Individual e Coletivo, Direito Sindical, Direito Previdenciário e Direito Administrativo. Nosso objetivo é a prestação de serviços jurídicos de excelência, realizados através do trabalho comprometido e da dedicação e paixão pela nossa profissão.
-          </p>
-          <p className="mb-4">
-            Estamos sempre acompanhando as inúmeras transformações que refletem no Direito e em suas práticas e é na atualização e no constante aperfeiçoamento técnico-profissional e multidisciplinar que encontramos o complemento imprescindível para o domínio das áreas jurídicas nas quais temos nossa atuação inserida.
+            A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados com sede na cidade de Porto Alegre, RS, desde 2006, e com atuação nacional.
           </p>
           <p>
-            Competência. Além do saber - jurídico, é fundamental ter planejamento e estratégia na hora de agir. Sabemos que por trás de todo o direito reclamado, há um patrimônio jurídico lesado e nosso trabalho é estarmos ao lado daqueles que nos confiam à busca pela melhor solução. Por isso, nosso atendimento é pautado pela personalização de todas as questões que nos são trazidas. São nesses preceitos que firmamos nossa atuação.
+            A prestação de serviços jurídicos de excelência é nosso objetivo e se reflete nos resultados alcançados e na satisfação dos nossos clientes.
           </p>
         </>
       ),
