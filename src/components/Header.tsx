@@ -38,6 +38,7 @@ const Header = () => {
               src={motaLogo} 
               alt="MOTA & ADVOGADOS ASSOCIADOS" 
               className="h-12 w-auto"
+              style={{ mixBlendMode: 'multiply' }}
             />
           </div>
 
