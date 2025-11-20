@@ -97,7 +97,17 @@ const Contact = () => {
         {/* Parking Information */}
         <div className="max-w-7xl mx-auto mb-6 flex items-center justify-center gap-2 text-muted-foreground">
           <Car className="w-4 h-4" />
-          <p className="text-sm">Opção de estacionamento para acesso ao escritório.</p>
+          <p className="text-sm">
+            Opção de estacionamento para acesso ao escritório - {" "}
+            <a 
+              href="https://maps.app.goo.gl/pMeXvfLdYfhFseow5" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              mapa do estacionamento
+            </a>
+          </p>
         </div>
 
         {/* Google Map */}
