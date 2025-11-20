@@ -57,10 +57,10 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 const translations: Record<Language, any> = {
   pt: {
     nav: {
-      home: 'Início',
+      home: 'Home',
       about: 'Sobre',
       areas: 'Áreas de Atuação',
-      lawyers: 'Advogados',
+      lawyers: 'Equipe',
       contact: 'Contato',
       callUs: 'Fale Conosco',
       access: 'Acessos'
