@@ -10,16 +10,26 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, User, FileText, Briefcase, Upload } from "lucide-react";
 import { z } from "zod";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const TrabalheConosco = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
+  const [cargo, setCargo] = useState("");
+  
   const jobApplicationSchema = z.object({
     name: z.string().trim().min(1, "Nome é obrigatório").max(100, "Nome muito longo"),
     email: z.string().trim().email("E-mail inválido").max(255, "E-mail muito longo"),
     phone: z.string().trim().min(1, "Telefone é obrigatório").max(20, "Telefone muito longo"),
+    cargo: z.string().min(1, "Cargo é obrigatório"),
     area: z.string().trim().min(1, "Área de interesse é obrigatória"),
     message: z.string().trim().min(10, "Mensagem deve ter pelo menos 10 caracteres").max(1000, "Mensagem muito longa")
   });
@@ -33,6 +43,7 @@ const TrabalheConosco = () => {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
+      cargo: cargo,
       area: formData.get("area") as string,
       message: formData.get("message") as string,
     };
@@ -41,7 +52,7 @@ const TrabalheConosco = () => {
       const validatedData = jobApplicationSchema.parse(data);
       
       // Encode data for WhatsApp
-      const whatsappMessage = `*Candidatura - Trabalhe Conosco*%0A%0A*Nome:* ${encodeURIComponent(validatedData.name)}%0A*Telefone:* ${encodeURIComponent(validatedData.phone)}%0A*Email:* ${encodeURIComponent(validatedData.email)}%0A*Área de Interesse:* ${encodeURIComponent(validatedData.area)}%0A*Mensagem:* ${encodeURIComponent(validatedData.message)}`;
+      const whatsappMessage = `*Candidatura - Trabalhe Conosco*%0A%0A*Nome:* ${encodeURIComponent(validatedData.name)}%0A*Telefone:* ${encodeURIComponent(validatedData.phone)}%0A*Email:* ${encodeURIComponent(validatedData.email)}%0A*Cargo:* ${encodeURIComponent(validatedData.cargo)}%0A*Área de Interesse:* ${encodeURIComponent(validatedData.area)}%0A*Mensagem:* ${encodeURIComponent(validatedData.message)}`;
       
       // Open WhatsApp with the message
       window.open(`https://wa.me/5551995362668?text=${whatsappMessage}`, '_blank');
@@ -53,6 +64,7 @@ const TrabalheConosco = () => {
       
       // Reset form
       e.currentTarget.reset();
+      setCargo("");
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast({
@@ -186,6 +198,26 @@ const TrabalheConosco = () => {
                     maxLength={20}
                     className="w-full"
                   />
+                </div>
+
+                {/* Cargo Field */}
+                <div className="space-y-2">
+                  <Label htmlFor="cargo" className="text-sm font-medium flex items-center gap-2">
+                    <Briefcase className="w-4 h-4 text-accent" />
+                    Cargo
+                  </Label>
+                  <Select value={cargo} onValueChange={setCargo} required>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Selecione o cargo desejado" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Estagiário">Estagiário</SelectItem>
+                      <SelectItem value="Assistente Administrativo">Assistente Administrativo</SelectItem>
+                      <SelectItem value="Advogado">Advogado</SelectItem>
+                      <SelectItem value="Advogado Correspondente">Advogado Correspondente</SelectItem>
+                      <SelectItem value="Advogado Parceiro">Advogado Parceiro</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 {/* Area Field */}
