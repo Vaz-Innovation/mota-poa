@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, User, MessageSquare } from "lucide-react";
+import { Mail, Phone, User, MessageSquare, ParkingSquare } from "lucide-react";
 import { z } from "zod";
 
 const Contact = () => {
@@ -92,6 +92,18 @@ const Contact = () => {
           <p className="text-xl text-muted-foreground leading-relaxed">
             {t('contact.subtitle')}
           </p>
+        </div>
+
+        {/* Parking Information */}
+        <div className="max-w-7xl mx-auto mb-8">
+          <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="bg-accent/20 p-3 rounded-lg">
+              <ParkingSquare className="w-6 h-6 text-accent" />
+            </div>
+            <p className="text-lg font-medium text-foreground">
+              Opção de estacionamento no local
+            </p>
+          </div>
         </div>
 
         {/* Google Map */}
