@@ -85,29 +85,29 @@ const Contact = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             {t('contact.title')}
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <p className="text-xl text-muted-foreground leading-relaxed mb-6">
             {t('contact.subtitle')}
           </p>
-        </div>
-
-        {/* Parking Information */}
-        <div className="max-w-7xl mx-auto mb-6 flex items-center justify-center gap-2 text-muted-foreground">
-          <Car className="w-4 h-4" />
-          <p className="text-sm">
-            Opção de estacionamento para acesso ao escritório - {" "}
-            <a 
-              href="https://maps.app.goo.gl/pMeXvfLdYfhFseow5" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-accent hover:underline"
-            >
-              mapa do estacionamento
-            </a>
-          </p>
+          
+          {/* Parking Information */}
+          <div className="flex items-center justify-center gap-2 text-muted-foreground">
+            <Car className="w-4 h-4" />
+            <p className="text-sm">
+              Opção de estacionamento para acesso ao escritório - {" "}
+              <a 
+                href="https://maps.app.goo.gl/pMeXvfLdYfhFseow5" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-accent hover:underline"
+              >
+                mapa do estacionamento
+              </a>
+            </p>
+          </div>
         </div>
 
         {/* Google Map */}
