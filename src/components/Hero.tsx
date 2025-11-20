@@ -14,7 +14,11 @@ const Hero = () => {
           <img 
             src={logoMota} 
             alt="Mota & Advogados Associados" 
-            className="h-32 md:h-44 lg:h-56 xl:h-64 w-auto drop-shadow-2xl animate-fade-in"
+            className="h-32 md:h-44 lg:h-56 xl:h-64 w-auto drop-shadow-2xl animate-fade-in object-contain"
+            style={{
+              objectFit: 'contain',
+              objectPosition: 'center'
+            }}
           />
         </div>
 
