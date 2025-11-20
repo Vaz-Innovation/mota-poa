@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 import { Linkedin, Instagram, Facebook } from "lucide-react";
 
 const Footer = () => {
@@ -38,9 +39,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#trabalhe-conosco" className="text-white/80 hover:text-bronze transition-colors">
+                <Link to="/trabalhe-conosco" className="text-white/80 hover:text-bronze transition-colors">
                   Trabalhe Conosco
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
