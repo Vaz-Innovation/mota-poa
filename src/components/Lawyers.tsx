@@ -48,21 +48,21 @@ const Lawyers = () => {
   
   const lawyers = [
     {
-      name: "Dr. José Pinto da Mota Filho",
+      name: "Dr. José Mota",
       oab: "OAB/RS 22.378",
       email: "Josemota@mota.adv.br",
       initials: "JM",
       image: joseMota
     },
     {
-      name: "Dra. Maristela Pinto da Mota",
+      name: "Dra. Maristela Mota",
       oab: "OAB/RS 40.523",
       email: "maristela@mota.adv.br",
       initials: "MM",
       image: maristelaMota
     },
     {
-      name: "Dr. Rafael Augusto Dantas Mota",
+      name: "Dr. Rafael Augusto Mota",
       oab: "OAB/RS 138.765",
       email: "rafael@mota.adv.br",
       initials: "RM",
