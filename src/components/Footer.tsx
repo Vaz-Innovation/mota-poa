@@ -37,6 +37,11 @@ const Footer = () => {
                   {t('nav.contact')}
                 </a>
               </li>
+              <li>
+                <a href="#trabalhe-conosco" className="text-white/80 hover:text-bronze transition-colors">
+                  Trabalhe Conosco
+                </a>
+              </li>
             </ul>
           </div>
 
