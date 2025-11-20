@@ -95,14 +95,11 @@ const Contact = () => {
         </div>
 
         {/* Google Map */}
-        <div className="max-w-7xl mx-auto mb-8">
+        <div className="max-w-7xl mx-auto mb-20">
           <GoogleMap 
             address={officeAddress}
             coordinates={officeCoordinates}
           />
-          <p className="text-center text-muted-foreground mt-4 text-lg">
-            Estacionamento no local – acesso ao escritório
-          </p>
         </div>
 
         {/* Contact Form */}
