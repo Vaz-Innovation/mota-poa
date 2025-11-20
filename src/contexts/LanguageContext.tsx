@@ -109,7 +109,7 @@ const translations: Record<Language, any> = {
     },
     lawyers: {
       title: 'Equipe',
-      intro: 'Conheça a equipe que lidera a MOTA & ADVOGADOS ASSOCIADOS com excelência e comprometimento.'
+      intro: 'Os pilares da MOTA & ADVOGADOS ASSOCIADOS: experiência, ética e resultados.'
     },
     contact: {
       title: 'Localização',
