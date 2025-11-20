@@ -125,7 +125,7 @@ const About = () => {
             <div className="h-1 w-20 bg-accent mx-auto mb-6 rounded-full" />
           </div>
           <h2 className={`text-4xl md:text-6xl font-bold text-navy mb-6 tracking-tight transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Nossa Essência
+            Escritório
           </h2>
           <p className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-700 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Construindo soluções jurídicas com excelência, ética e comprometimento desde 2006
