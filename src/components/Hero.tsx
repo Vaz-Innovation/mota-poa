@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logoMota from "@/assets/mota-logo-new.png";
+import logoMota from "@/assets/mota-logo-transparent.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
@@ -15,7 +15,6 @@ const Hero = () => {
             src={logoMota} 
             alt="Mota & Advogados Associados" 
             className="h-32 md:h-44 lg:h-56 xl:h-64 w-auto drop-shadow-2xl animate-fade-in"
-            style={{ mixBlendMode: 'multiply' }}
           />
         </div>
 
