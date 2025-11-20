@@ -37,7 +37,7 @@ const Header = () => {
             <img 
               src={motaLogo} 
               alt="MOTA & ADVOGADOS ASSOCIADOS" 
-              className="h-16 w-auto"
+              className="h-20 w-auto"
             />
           </div>
 
