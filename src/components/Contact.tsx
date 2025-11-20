@@ -95,7 +95,7 @@ const Contact = () => {
         </div>
 
         {/* Parking Information */}
-        <div className="max-w-7xl mx-auto mb-6 flex items-center gap-2 text-muted-foreground">
+        <div className="max-w-7xl mx-auto mb-6 flex items-center justify-center gap-2 text-muted-foreground">
           <ParkingSquare className="w-4 h-4" />
           <p className="text-sm">Opção de estacionamento para acesso ao escritório.</p>
         </div>
