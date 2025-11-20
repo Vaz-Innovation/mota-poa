@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logoMota from "@/assets/logo-mota-hero.png";
+import logoMota from "@/assets/logo-mota-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
@@ -14,7 +14,7 @@ const Hero = () => {
           <img 
             src={logoMota} 
             alt="Mota & Advogados Associados" 
-            className="h-32 md:h-44 lg:h-56 xl:h-64 w-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.3)] brightness-0 invert animate-fade-in"
+            className="h-32 md:h-44 lg:h-56 xl:h-64 w-auto drop-shadow-[0_0_40px_rgba(0,0,0,0.2)] animate-fade-in"
           />
         </div>
 
