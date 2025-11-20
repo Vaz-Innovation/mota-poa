@@ -15,6 +15,8 @@ import { trackWhatsAppClick } from "@/lib/analytics";
 const ProcessConsultation = () => {
   const { t } = useLanguage();
   const [processNumber, setProcessNumber] = useState("");
+  const [name, setName] = useState("");
+  const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -25,6 +27,15 @@ const ProcessConsultation = () => {
       .regex(/^\d{7}-\d{2}\.\d{4}\.\d\.\d{2}\.\d{4}$/, { 
         message: t('processConsultation.invalidProcess')
       }),
+    name: z.string()
+      .min(3, { message: "Nome deve ter no mínimo 3 caracteres" })
+      .max(100, { message: "Nome deve ter no máximo 100 caracteres" }),
+    cpf: z.string()
+      .min(11, { message: "CPF inválido" })
+      .max(14, { message: "CPF inválido" })
+      .regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$|^\d{11}$/, { 
+        message: "CPF deve estar no formato 000.000.000-00 ou 00000000000"
+      }),
     email: z.string()
       .email({ message: t('processConsultation.invalidEmail') })
       .max(255)
@@ -33,7 +44,7 @@ const ProcessConsultation = () => {
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const validation = processSchema.safeParse({ processNumber, email });
+    const validation = processSchema.safeParse({ processNumber, name, cpf, email });
     
     if (!validation.success) {
       toast({
@@ -57,14 +68,16 @@ const ProcessConsultation = () => {
     });
 
     setProcessNumber("");
+    setName("");
+    setCpf("");
     setEmail("");
   };
 
   const handleWhatsAppClick = () => {
-    if (!processNumber.trim()) {
+    if (!processNumber.trim() || !name.trim() || !cpf.trim()) {
       toast({
         title: t('processConsultation.error'),
-        description: t('processConsultation.invalidProcess'),
+        description: "Por favor, preencha todos os campos obrigatórios",
         variant: "destructive",
       });
       return;
@@ -73,9 +86,11 @@ const ProcessConsultation = () => {
     // Track analytics event
     trackWhatsAppClick('process_consultation', {
       process_number: processNumber,
+      name: name,
+      cpf: cpf,
     });
 
-    const message = `Olá! Gostaria de consultar o processo nº ${processNumber}`;
+    const message = `Olá! Gostaria de consultar o processo nº ${processNumber}\nNome: ${name}\nCPF: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5561995362668?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
@@ -120,6 +135,28 @@ const ProcessConsultation = () => {
                       placeholder={t('processConsultation.processNumberPlaceholder')}
                       value={processNumber}
                       onChange={(e) => setProcessNumber(e.target.value)}
+                      className="text-base"
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
+                  <div>
+                    <Input
+                      type="text"
+                      placeholder="Nome completo"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="text-base"
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
+                  <div>
+                    <Input
+                      type="text"
+                      placeholder="CPF (000.000.000-00)"
+                      value={cpf}
+                      onChange={(e) => setCpf(e.target.value)}
                       className="text-base"
                       disabled={isSubmitting}
                     />
