@@ -19,7 +19,7 @@ const Hero = () => {
         </div>
 
         {/* Content */}
-        <div className="max-w-2xl ml-0 md:ml-16 lg:ml-24 space-y-6 animate-fade-in">
+        <div className="max-w-2xl mx-auto space-y-6 animate-fade-in text-center">
           {/* Subtitle */}
           <p className="text-sm md:text-base font-light text-white/90 tracking-widest uppercase">
             {t('hero.banner1.subtitle')}
@@ -36,7 +36,7 @@ const Hero = () => {
           </p>
           
           {/* CTA Button */}
-          <div className="pt-4">
+          <div className="pt-4 flex justify-center">
             <Button
               asChild
               size="lg"
