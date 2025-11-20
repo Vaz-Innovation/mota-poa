@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, User, MessageSquare, ParkingSquare } from "lucide-react";
+import { Mail, Phone, User, MessageSquare, Car } from "lucide-react";
 import { z } from "zod";
 
 const Contact = () => {
@@ -95,8 +95,8 @@ const Contact = () => {
         </div>
 
         {/* Parking Information */}
-        <div className="max-w-7xl mx-auto mb-6 flex items-center gap-2 text-muted-foreground">
-          <ParkingSquare className="w-4 h-4" />
+        <div className="max-w-7xl mx-auto mb-6 flex items-center justify-center gap-2 text-muted-foreground">
+          <Car className="w-4 h-4" />
           <p className="text-sm">Opção de estacionamento para acesso ao escritório.</p>
         </div>
 
