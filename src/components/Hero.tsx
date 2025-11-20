@@ -1,10 +1,6 @@
-import { Button } from "@/components/ui/button";
 import logoMota from "@/assets/logo-mota-new.png";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { trackWhatsAppClick } from "@/lib/analytics";
 
 const Hero = () => {
-  const { t } = useLanguage();
 
   return (
     <section id="inicio" className="relative min-h-screen flex items-center pt-20 bg-[#FF7F3E]">
@@ -16,45 +12,6 @@ const Hero = () => {
             alt="Mota & Advogados Associados" 
             className="h-64 md:h-80 lg:h-96 xl:h-[32rem] w-auto drop-shadow-2xl animate-fade-in animate-float"
           />
-        </div>
-
-        {/* Content */}
-        <div className="max-w-2xl mx-auto space-y-6 animate-fade-in text-center">
-          {/* Subtitle */}
-          <p className="text-sm md:text-base font-light text-white/90 tracking-widest uppercase">
-            {t('hero.banner1.subtitle')}
-          </p>
-          
-          {/* Main Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-            {t('hero.banner1.title')}
-          </h1>
-          
-          {/* Description */}
-          <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
-            {t('hero.banner1.description')}
-          </p>
-          
-          {/* CTA Button */}
-          <div className="pt-4 flex justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="text-base md:text-lg px-8 py-6 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#FF7F3E] rounded-full font-medium shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105"
-            >
-              <a
-                href="https://wa.me/5561995362668?text=Gostaria%20de%20saber%20mais%20sobre%20consultoria%20jur%C3%ADdica"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick('hero_banner', {
-                  banner_id: 1,
-                  banner_title: t('hero.banner1.title'),
-                })}
-              >
-                {t('hero.banner1.button')}
-              </a>
-            </Button>
-          </div>
         </div>
       </div>
     </section>
