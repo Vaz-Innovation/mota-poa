@@ -37,7 +37,12 @@ const Header = () => {
           <img 
             src={motaLogo} 
             alt="MOTA & ADVOGADOS ASSOCIADOS" 
-            className="h-12 w-auto"
+            className="h-12 w-auto object-contain"
+            style={{ 
+              objectFit: 'contain',
+              objectPosition: 'center',
+              maxWidth: '200px'
+            }}
           />
           </div>
 
