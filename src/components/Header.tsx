@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Search, Lock } from "lucide-react";
 import { useState, useEffect } from "react";
-import motaLogo from "@/assets/mota-logo-new.png";
+import motaLogo from "@/assets/mota-logo-transparent.png";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppClick } from "@/lib/analytics";
@@ -38,7 +38,6 @@ const Header = () => {
             src={motaLogo} 
             alt="MOTA & ADVOGADOS ASSOCIADOS" 
             className="h-12 w-auto"
-            style={{ mixBlendMode: 'multiply' }}
           />
           </div>
 
