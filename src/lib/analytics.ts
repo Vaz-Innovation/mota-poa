@@ -15,6 +15,8 @@ interface EventProperties {
   banner_id?: number;
   banner_title?: string;
   process_number?: string;
+  name?: string;
+  cpf?: string;
   timestamp?: string;
 }
 
