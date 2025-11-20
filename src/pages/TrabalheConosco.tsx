@@ -274,7 +274,7 @@ const TrabalheConosco = () => {
                   disabled={isSubmitting}
                   className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-6 text-lg rounded-lg transition-all duration-300 hover:shadow-lg"
                 >
-                  {isSubmitting ? "Enviando..." : "Enviar Candidatura"}
+                  {isSubmitting ? "Enviando..." : "Enviar"}
                 </Button>
               </form>
             </div>
