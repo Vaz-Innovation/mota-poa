@@ -106,7 +106,7 @@ const Contact = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Entre em Contato
+              Contato
             </h3>
             <p className="text-lg text-muted-foreground">
               Preencha o formulário abaixo e entraremos em contato o mais breve possível
