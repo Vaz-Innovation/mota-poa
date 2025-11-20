@@ -95,15 +95,9 @@ const Contact = () => {
         </div>
 
         {/* Parking Information */}
-        <div className="max-w-7xl mx-auto mb-8">
-          <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-            <div className="bg-accent/20 p-3 rounded-lg">
-              <ParkingSquare className="w-6 h-6 text-accent" />
-            </div>
-            <p className="text-lg font-medium text-foreground">
-              Opção de estacionamento no local
-            </p>
-          </div>
+        <div className="max-w-7xl mx-auto mb-6 flex items-center gap-2 text-muted-foreground">
+          <ParkingSquare className="w-4 h-4" />
+          <p className="text-sm">Opção de estacionamento no local</p>
         </div>
 
         {/* Google Map */}
