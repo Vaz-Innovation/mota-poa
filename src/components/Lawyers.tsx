@@ -50,7 +50,7 @@ const Lawyers = () => {
     {
       name: "Dr. José Mota",
       oab: "OAB/RS 22.378",
-      email: "Josemota@mota.adv.br",
+      email: "josemota@mota.adv.br",
       initials: "JM",
       image: joseMota
     },
