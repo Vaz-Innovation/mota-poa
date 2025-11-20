@@ -108,8 +108,8 @@ const translations: Record<Language, any> = {
       learnMore: 'Saiba mais →'
     },
     lawyers: {
-      title: 'Sócios',
-      intro: 'Conheça os sócios que lideram a MOTA & ADVOGADOS ASSOCIADOS com excelência e comprometimento.'
+      title: 'Equipe',
+      intro: 'Conheça a equipe que lidera a MOTA & ADVOGADOS ASSOCIADOS com excelência e comprometimento.'
     },
     contact: {
       title: 'Localização',
