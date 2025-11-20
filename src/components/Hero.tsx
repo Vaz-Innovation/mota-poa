@@ -15,6 +15,7 @@ const Hero = () => {
             src={logoMota} 
             alt="Mota & Advogados Associados" 
             className="h-32 md:h-44 lg:h-56 xl:h-64 w-auto drop-shadow-[0_0_40px_rgba(0,0,0,0.2)] animate-fade-in"
+            style={{ mixBlendMode: 'multiply' }}
           />
         </div>
 
