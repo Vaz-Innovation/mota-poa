@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Search, Lock } from "lucide-react";
 import { useState, useEffect } from "react";
-import motaLogo from "@/assets/logo-mota-new.png";
+import motaLogo from "@/assets/logo-mota-hero.png";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppClick } from "@/lib/analytics";
