@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logoMota from "@/assets/mota-logo-transparent.png";
+import logoMota from "@/assets/mota-logo-clean.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
