@@ -10,7 +10,7 @@ const Hero = () => {
           <img 
             src={logoMota} 
             alt="Mota & Advogados Associados" 
-            className="h-96 md:h-[28rem] lg:h-[36rem] xl:h-[48rem] w-auto drop-shadow-2xl animate-fade-in animate-float"
+            className="h-96 md:h-[28rem] lg:h-[36rem] xl:h-[48rem] w-auto drop-shadow-2xl animate-fade-in animate-float animate-glow"
           />
         </div>
       </div>
