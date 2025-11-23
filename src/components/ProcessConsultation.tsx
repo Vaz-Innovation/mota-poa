@@ -35,7 +35,7 @@ const ProcessConsultation = () => {
       cpf: cpf,
     });
 
-    const message = `Olá! Gostaria de consultar o processo nº ${processNumber}\nNome: ${name}\nCPF: ${cpf}`;
+    const message = `Olá, queria consultar o meu processo\nNúmero do processo: ${processNumber}\nNome Completo: ${name}\nCPF: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5561995362668?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
