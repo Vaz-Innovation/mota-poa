@@ -4,7 +4,7 @@ const Hero = () => {
 
   return (
     <section id="inicio" className="relative min-h-screen flex items-start pt-20 bg-[#FF7F3E]">
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 h-full flex flex-col justify-start pt-8 md:pt-12 pb-32 md:pb-48">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 h-full flex flex-col justify-start pt-2 md:pt-4 pb-32 md:pb-48">
         {/* Logo Centralizada */}
         <div className="flex justify-center mb-16 md:mb-20">
           <img 
