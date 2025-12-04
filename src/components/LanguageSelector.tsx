@@ -12,9 +12,9 @@ const LanguageSelector = () => {
   const { language, setLanguage } = useLanguage();
 
   const languages = [
-    { code: 'pt', label: 'Português', flag: '🇧🇷' },
-    { code: 'es', label: 'Español', flag: '🇪🇸' },
-    { code: 'en', label: 'English', flag: '🇺🇸' }
+    { code: 'pt', label: 'Português', abbr: 'PT' },
+    { code: 'es', label: 'Español', abbr: 'ES' },
+    { code: 'en', label: 'English', abbr: 'EN' }
   ];
 
   const currentLanguage = languages.find(lang => lang.code === language);
@@ -24,7 +24,7 @@ const LanguageSelector = () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-2">
           <Globe className="h-4 w-4 text-white" />
-          <span className="hidden md:inline">{currentLanguage?.flag}</span>
+          <span className="hidden md:inline text-white">{currentLanguage?.abbr}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -34,7 +34,7 @@ const LanguageSelector = () => {
             onClick={() => setLanguage(lang.code as 'pt' | 'es' | 'en')}
             className={language === lang.code ? 'bg-accent' : ''}
           >
-            <span className="mr-2">{lang.flag}</span>
+            <span className="mr-2 font-medium">{lang.abbr}</span>
             {lang.label}
           </DropdownMenuItem>
         ))}
