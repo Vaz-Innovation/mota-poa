@@ -23,7 +23,7 @@ const LanguageSelector = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-2">
-          <Globe className="h-4 w-4" />
+          <Globe className="h-4 w-4 text-white" />
           <span className="hidden md:inline">{currentLanguage?.flag}</span>
         </Button>
       </DropdownMenuTrigger>
