@@ -62,7 +62,7 @@ const About = () => {
             Nosso propósito é promover o equilíbrio das relações sociais através da prestação de um trabalho empenhado juridicamente e competente, priorizando o relacionamento profissional com o cliente.
           </p>
           <p>
-            Nossa atuação, seja ela de forma preventiva, administrativa ou judicial, é focada na busca pela garantia dos direitos, na segurança juridica, valorizando principalmente nosso ponto mais forte: as pessoas.
+            Nossa atuação, seja ela de forma preventiva, administrativa ou judicial, é focada na busca pela garantia dos direitos, na segurança juridica, valorizando principalmente nosso ponto mais forte: as pessoas e a satisfação do trabalho desenvolvido.
           </p>
         </>
       ),
