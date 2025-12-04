@@ -74,11 +74,8 @@ const About = () => {
       summary: "Relacionamento de qualidade e serviços jurídicos eficazes",
       content: (
         <>
-          <p className="mb-4">
-            Estamos inseridos numa sociedade que está em constante movimento, bem como o Direito que a regula também está. Cotidianamente diversos paradigmas são rompidos e novos conceitos nos são trazidos. Por isso estamos sempre nos reciclando e reinventando para bem serví-los.
-          </p>
           <p>
-            Nossa missão está diretamente ligada a um relacionamento de qualidade com o nosso cliente, oferecendo serviços jurídicos criativos, seguros e eficazes. Visamos atrair e desenvolver os melhores talentos, formando equipes sempre capacitadas, com o objetivo de aprimorar e compartilhar, constantemente o conhecimento, praticando e transmitindo valores nos quais acreditamos.
+            Estamos inseridos em uma sociedade em constante evolução, o que se reflete na atualização recorrente do arcabouço normativo do Direito. Cotidianamente, observamos mudanças na legislação e na jurisprudência, por isso estamos constantemente reciclando nossa equipe e nos reinventando para atender nossos clientes com ainda mais eficiência e resolutividade.
           </p>
         </>
       ),
