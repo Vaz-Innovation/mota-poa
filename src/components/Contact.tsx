@@ -72,9 +72,8 @@ const Contact = () => {
     }
   };
 
-  // Porto Alegre office coordinates
-  const officeCoordinates: [number, number] = [-51.2177, -30.0346];
-  const officeAddress = "Rua Siqueira Campos, nº 1.171, 12º andar, sala 1202, Bairro Independência, Porto Alegre - RS";
+  // Porto Alegre office address
+  const officeAddress = "R. Siqueira Campos, 1171 - Centro Histórico, Porto Alegre - RS, 90010-001";
 
   return (
     <section id="contato" className="py-24 bg-background relative overflow-hidden">
@@ -112,10 +111,7 @@ const Contact = () => {
 
         {/* Google Map */}
         <div className="max-w-7xl mx-auto mb-20">
-          <GoogleMap 
-            address={officeAddress}
-            coordinates={officeCoordinates}
-          />
+          <GoogleMap address={officeAddress} />
         </div>
 
         {/* Contact Form */}

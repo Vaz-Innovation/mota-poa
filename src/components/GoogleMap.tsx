@@ -2,13 +2,12 @@ import React from 'react';
 
 interface GoogleMapProps {
   address: string;
-  coordinates: [number, number];
 }
 
-const GoogleMap = ({ address, coordinates }: GoogleMapProps) => {
-  // Convert coordinates to Google Maps embed URL
-  const [lng, lat] = coordinates;
-  const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${lat},${lng}&zoom=15`;
+const GoogleMap = ({ address }: GoogleMapProps) => {
+  // Use address for better Google Maps accuracy
+  const encodedAddress = encodeURIComponent(address);
+  const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodedAddress}&zoom=17`;
 
   return (
     <div className="w-full h-[500px] md:h-[600px] rounded-xl overflow-hidden shadow-2xl">
