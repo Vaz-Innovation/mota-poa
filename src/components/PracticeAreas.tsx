@@ -12,7 +12,6 @@ import {
   Users,
   Wallet,
   Building2,
-  MapPin,
   Scale,
   ShieldAlert,
   Vote,
@@ -95,13 +94,6 @@ const PracticeAreas = () => {
       description: "Defesa em processos administrativos e licitações",
       details:
         "Regime jurídico único dos servidores públicos federais, autarquias e fundações públicas – RJU – Lei nº 8.112/90; Licitações – Lei nº 8.666/93; Defesa administrativa em sindicâncias e processos administrativos tanto em matéria disciplinar como de licitações; Atuação perante o Tribunal de Contas da União em todas as matérias do âmbito de sua competência; Regime jurídico de servidores estaduais, municipais, e ex-territórios.",
-    },
-    {
-      icon: MapPin,
-      title: "Direito Administrativo com ênfase no Distrito Federal",
-      description: "Especialização em servidores do Distrito Federal",
-      details:
-        "Regime jurídico único dos servidores do Distrito Federal; Licitações e processos administrativos. Acompanhamento de procedimentos judiciais e administrativos, inclusive Tribunal de Contas do Distrito Federal.",
     },
     {
       icon: Scale,
