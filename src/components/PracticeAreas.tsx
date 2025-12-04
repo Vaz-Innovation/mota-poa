@@ -70,9 +70,9 @@ const PracticeAreas = () => {
     {
       icon: Building2,
       title: "Direito Administrativo (Servidor Público)",
-      description: "Defesa em processos administrativos e licitações",
+      description: "Defesa dos direitos e interesses dos servidores públicos",
       details:
-        "Regime jurídico único dos servidores públicos federais, autarquias e fundações públicas – RJU – Lei nº 8.112/90; Licitações – Lei nº 8.666/93; Defesa administrativa em sindicâncias e processos administrativos tanto em matéria disciplinar como de licitações; Atuação perante o Tribunal de Contas da União em todas as matérias do âmbito de sua competência; Regime jurídico de servidores estaduais, municipais, e ex-territórios.",
+        "Ao longo de sua trajetória nos consolidamos como um dos maiores escritórios de advocacia do país na defesa dos direitos e interesses profissionais dos servidores públicos, atuando de forma resolutiva em milhares de ações judiciais que asseguraram aos servidores públicos o reconhecimento de seus direitos. São inúmeros os servidores assistidos pelo escritório, sempre de forma direta e humanizada, com total transparência, orientação técnica, e encaminhamento jurídico responsável, proporcionando segurança jurídica na tomada de decisões que afetam seus direitos individuais e coletivos.",
     },
     {
       icon: Briefcase,
