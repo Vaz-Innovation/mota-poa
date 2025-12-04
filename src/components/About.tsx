@@ -52,7 +52,7 @@ const About = () => {
       icon: Shield,
       title: "Pilares Consolidados",
       badge: "Ética | Comprometimento",
-      summary: "Princípios de uma advocacia ética e comprometida",
+      summary: "Os pilares de uma advocacia que une ética, excelência e resultados",
       content: (
         <>
           <p className="mb-4">
