@@ -147,7 +147,7 @@ const PracticeAreas = () => {
             Áreas de Atuação
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Especializados em Direito Social e atuantes em diversas áreas do Direito.
+            Especializados em Direito Constitucional e atuantes em diversas áreas do Direito.
           </p>
         </div>
 
