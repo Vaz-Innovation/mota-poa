@@ -87,11 +87,8 @@ const About = () => {
       summary: "Sede em Porto Alegre com cobertura nacional",
       content: (
         <>
-          <p className="mb-4">
-            Com a nossa sede na cidade de Porto Alegre, temos focado nossa atuação na Região Sul do Brasil, atendendo demandas nos estados do Rio Grande do Sul, Santa Catarina e Paraná.
-          </p>
           <p>
-            Ainda, contamos com um escritório conveniado em Brasília, conseguindo assim atingir atuação nacional e principalmente, nas instâncias superiores. Mantemos parcerias com escritórios de advocacia localizados em Florianópolis, Foz do Iguaçu, Rio de Janeiro, São Paulo, Belo Horizonte, Cuiabá, Salvador, Natal, Boa Vista, Recife, Belém e Manaus.
+            A partir de nossa sede em Porto Alegre (RS), expandimos nossa atuação para todo o território nacional. Para garantir ainda mais eficiência e agilidade no atendimento, contamos com escritórios de apoio em Brasília, São Paulo e Natal.
           </p>
         </>
       ),
