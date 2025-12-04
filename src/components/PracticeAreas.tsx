@@ -68,6 +68,13 @@ const PracticeAreas = () => {
 
   const areas: PracticeArea[] = [
     {
+      icon: Building2,
+      title: "Direito Administrativo",
+      description: "Defesa em processos administrativos e licitações",
+      details:
+        "Regime jurídico único dos servidores públicos federais, autarquias e fundações públicas – RJU – Lei nº 8.112/90; Licitações – Lei nº 8.666/93; Defesa administrativa em sindicâncias e processos administrativos tanto em matéria disciplinar como de licitações; Atuação perante o Tribunal de Contas da União em todas as matérias do âmbito de sua competência; Regime jurídico de servidores estaduais, municipais, e ex-territórios.",
+    },
+    {
       icon: Briefcase,
       title: "Direito do Trabalho Individual e Coletivo",
       description: "Reclamatórias trabalhistas e acompanhamento processual",
@@ -87,13 +94,6 @@ const PracticeAreas = () => {
       description: "Concessão e revisão de benefícios previdenciários",
       details:
         "Processos Administrativos - processo inicial junto ao INSS, acompanhamento, apresentação de defesas e recursos administrativos; Concessão de Benefícios - propositura de ação visando à concessão de benefícios previdenciários. Revisionais de Aposentadoria e Benefícios Previdenciários. Mandado de Segurança - impetração de mandado de segurança visando o reconhecimento dos direitos dos clientes em face de atos ilegais e arbitrários cometidos por agentes públicos, que não reconhecem o direito ao recebimento de pensão ou aposentadoria.\n\nProcessos Judiciais - processos negados pelo INSS dos seguintes benefícios: AUXILIO-DOENÇA, APOSENTADORIA POR IDADE, APOSENTADORIA POR TEMPO DE CONTRIBUIÇÃO, APOSENTADORIA POR INVALIDEZ, PENSÃO POR MORTE, SALÁRIO MATERNIDADE, AUXILIO RECLUSÃO E ACIDENTE DO TRABALHO.\n\nAinda, aposentados e pensionistas da União, Distrito Federal, Estados, Municípios e do INSS têm assessoria completa para revisão de seus benefícios. Realizamos estudos, análise dos planos de benefícios instituídos por fundos de pensão e do sistema de previdência complementar com ênfase nos aspectos jurídicos, tributários, com orientação para entidades associativas e sindicais.",
-    },
-    {
-      icon: Building2,
-      title: "Direito Administrativo",
-      description: "Defesa em processos administrativos e licitações",
-      details:
-        "Regime jurídico único dos servidores públicos federais, autarquias e fundações públicas – RJU – Lei nº 8.112/90; Licitações – Lei nº 8.666/93; Defesa administrativa em sindicâncias e processos administrativos tanto em matéria disciplinar como de licitações; Atuação perante o Tribunal de Contas da União em todas as matérias do âmbito de sua competência; Regime jurídico de servidores estaduais, municipais, e ex-territórios.",
     },
     {
       icon: Scale,
