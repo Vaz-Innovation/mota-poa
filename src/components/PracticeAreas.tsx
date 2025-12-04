@@ -69,7 +69,7 @@ const PracticeAreas = () => {
   const areas: PracticeArea[] = [
     {
       icon: Building2,
-      title: "Direito Administrativo",
+      title: "Direito Administrativo (Servidor Público)",
       description: "Defesa em processos administrativos e licitações",
       details:
         "Regime jurídico único dos servidores públicos federais, autarquias e fundações públicas – RJU – Lei nº 8.112/90; Licitações – Lei nº 8.666/93; Defesa administrativa em sindicâncias e processos administrativos tanto em matéria disciplinar como de licitações; Atuação perante o Tribunal de Contas da União em todas as matérias do âmbito de sua competência; Regime jurídico de servidores estaduais, municipais, e ex-territórios.",
