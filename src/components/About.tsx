@@ -125,7 +125,7 @@ const About = () => {
             Escritório
           </h2>
           <p className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-700 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Construindo soluções jurídicas com excelência, ética e resultado desde 2006 com atuação nacional
+            Construindo soluções jurídicas com excelência, ética e resultado desde 2000 com atuação nacional
           </p>
         </div>
 
