@@ -30,14 +30,14 @@ const Stats = () => {
   const stats = [
     {
       id: 1,
-      value: 18,
+      value: 25,
       suffix: "+",
       label: t('stats.experience'),
       duration: 2000,
     },
     {
       id: 2,
-      value: 2500,
+      value: 22500,
       suffix: "+",
       label: t('stats.clients'),
       duration: 2500,
@@ -51,7 +51,7 @@ const Stats = () => {
     },
     {
       id: 4,
-      value: 5000,
+      value: 15000,
       suffix: "+",
       label: t('stats.cases'),
       duration: 3000,
