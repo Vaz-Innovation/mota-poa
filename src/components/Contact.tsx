@@ -44,7 +44,7 @@ const Contact = () => {
       const whatsappMessage = `Nome: ${encodeURIComponent(validatedData.name)}%0ACPF: ${encodeURIComponent(validatedData.cpf)}%0ATelefone: ${encodeURIComponent(validatedData.phone)}%0AE-mail: ${encodeURIComponent(validatedData.email)}${validatedData.processNumber ? `%0ANúmero do Processo: ${encodeURIComponent(validatedData.processNumber)}` : ''}%0AMensagem: ${encodeURIComponent(validatedData.message)}`;
       
       // Open WhatsApp with the message
-      window.open(`https://wa.me/5551995362668?text=${whatsappMessage}`, '_blank');
+      window.open(`https://wa.me/5561995362668?text=${whatsappMessage}`, '_blank');
       
       toast({
         title: "Mensagem enviada!",
