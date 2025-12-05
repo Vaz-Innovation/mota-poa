@@ -100,7 +100,7 @@ const PracticeAreas = () => {
       title: "Direito Constitucional",
       description: "Elaboração de ADI e recursos extraordinários",
       details:
-        "Ação direta de inconstitucionalidade, para entidades legitimadas perante o Supremo Tribunal Federal; Petições para intervenção como Amicus Curie; Elaboração de Recursos Extraordinários e demais recursos e ações originárias perante o Supremo Tribunal Federal.",
+        "Área de especialização do escritório que está relacionada ao acompanhamento, elaboração e desenvolvimento de teses jurídicas que envolvem temas de natureza constitucional, sejam elas os recursos extraordinários, ações diretas de inconstitucionalidade (ADI), mandados de injunção, Arguição de Descumprimento de Preceito Fundamental (ADPF), reclamações, dentre outras.",
     },
     {
       icon: ShieldAlert,
