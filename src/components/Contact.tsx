@@ -41,7 +41,7 @@ const Contact = () => {
       const validatedData = contactSchema.parse(data);
       
       // Encode data for WhatsApp
-      const whatsappMessage = `*Nova mensagem do site*%0A%0A*Nome:* ${encodeURIComponent(validatedData.name)}%0A*CPF:* ${encodeURIComponent(validatedData.cpf)}%0A*Telefone:* ${encodeURIComponent(validatedData.phone)}%0A*Email:* ${encodeURIComponent(validatedData.email)}${validatedData.processNumber ? `%0A*Número do Processo:* ${encodeURIComponent(validatedData.processNumber)}` : ''}%0A*Mensagem:* ${encodeURIComponent(validatedData.message)}`;
+      const whatsappMessage = `Nome: ${encodeURIComponent(validatedData.name)}%0ACPF: ${encodeURIComponent(validatedData.cpf)}%0ATelefone: ${encodeURIComponent(validatedData.phone)}%0AE-mail: ${encodeURIComponent(validatedData.email)}${validatedData.processNumber ? `%0ANúmero do Processo: ${encodeURIComponent(validatedData.processNumber)}` : ''}%0AMensagem: ${encodeURIComponent(validatedData.message)}`;
       
       // Open WhatsApp with the message
       window.open(`https://wa.me/5551995362668?text=${whatsappMessage}`, '_blank');
