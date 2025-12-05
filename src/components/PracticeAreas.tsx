@@ -18,6 +18,7 @@ import {
   Landmark,
   Home,
   Heart,
+  Gavel,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -138,6 +139,13 @@ const PracticeAreas = () => {
       description: "Inventários, divórcios, pensões e sucessões",
       details:
         "Dedicamos atenção especial a esta área em razão de sua conexão com outras frentes do nosso trabalho, motivo pelo qual estruturamos um departamento exclusivo para atender casos de habilitação de crédito para herdeiros, reconhecimento e regularização de união estável, divórcios, pensões alimentícias, inventários e sobrepartilhas, tanto extrajudiciais quanto judiciais, além de outras demandas relacionadas.",
+    },
+    {
+      icon: Gavel,
+      title: "Fazenda Pública e Entes Federados",
+      description: "Ações contra União, Estados, DF e Municípios",
+      details:
+        "Esta área de atuação abrange ações de cobrança, indenizações, execuções contra Fazenda Pública da União, Estados, DF e Municípios, impugnação de autuações, adesão à regimes fiscais especiais, REFIS, desconsideração da personalidade jurídica, e matérias correlatas.",
     },
   ];
 
