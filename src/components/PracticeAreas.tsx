@@ -16,6 +16,7 @@ import {
   ShieldAlert,
   Vote,
   Landmark,
+  Home,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -122,6 +123,13 @@ const PracticeAreas = () => {
       description: "Atuação em Brasília junto aos Tribunais Superiores",
       details:
         "MOTA & ADVOGADOS ASSOCIADOS é um dos escritórios com intensa atuação nos Tribunais Superiores, especialmente STJ, TST e STF, e no TSE e STM de forma associada, acompanhando recursos diversos, ou ajuizando ações originárias ou impetrando recursos em prol de clientes de todo os Brasil, e no assessoramento a outros escritórios de advocacia.",
+    },
+    {
+      icon: Home,
+      title: "Direito Imobiliário",
+      description: "Assessoria completa em negócios e regularização imobiliária",
+      details:
+        "Atuamos em todas as frentes do direito imobiliário, incluindo estruturação de negócios, cobrança de dívidas, assessoria em compra, venda e locação, avaliações, leilões, dação em pagamento, usucapião, regularização fundiária, desapropriações e acompanhamento perante SPU, INCRA e órgãos ambientais. Também tratamos de loteamentos, parcelamentos, registros imobiliários, projetos hoteleiros, estudos de viabilidade e assessoria para imobiliárias, incorporadoras, investidores e demandas judiciais relacionadas.",
     },
   ];
 
