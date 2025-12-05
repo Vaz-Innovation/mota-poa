@@ -17,6 +17,7 @@ import {
   Vote,
   Landmark,
   Home,
+  Heart,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -130,6 +131,13 @@ const PracticeAreas = () => {
       description: "Assessoria completa em negócios e regularização imobiliária",
       details:
         "Atuamos em todas as frentes do direito imobiliário, incluindo estruturação de negócios, cobrança de dívidas, assessoria em compra, venda e locação, avaliações, leilões, dação em pagamento, usucapião, regularização fundiária, desapropriações e acompanhamento perante SPU, INCRA e órgãos ambientais. Também tratamos de loteamentos, parcelamentos, registros imobiliários, projetos hoteleiros, estudos de viabilidade e assessoria para imobiliárias, incorporadoras, investidores e demandas judiciais relacionadas.",
+    },
+    {
+      icon: Heart,
+      title: "Direito de Família e Sucessões",
+      description: "Inventários, divórcios, pensões e sucessões",
+      details:
+        "Dedicamos atenção especial a esta área em razão de sua conexão com outras frentes do nosso trabalho, motivo pelo qual estruturamos um departamento exclusivo para atender casos de habilitação de crédito para herdeiros, reconhecimento e regularização de união estável, divórcios, pensões alimentícias, inventários e sobrepartilhas, tanto extrajudiciais quanto judiciais, além de outras demandas relacionadas.",
     },
   ];
 
