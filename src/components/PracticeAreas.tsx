@@ -121,7 +121,7 @@ const PracticeAreas = () => {
       title: "Tribunais Superiores",
       description: "Atuação em Brasília junto aos Tribunais Superiores",
       details:
-        "A partir da nossa forte atuação em Brasília atuamos como representantes de escritórios de advocacia de inúmeros estados e até do exterior, diligenciando processos, protocolando documentos, elaborando peças processuais urgentes e realizando sustentação oral sempre que solicitado em todos os Tribunais Superiores lá localizados.",
+        "MOTA & ADVOGADOS ASSOCIADOS é um dos escritórios com intensa atuação nos Tribunais Superiores, especialmente STJ, TST e STF, e no TSE e STM de forma associada, acompanhando recursos diversos, ou ajuizando ações originárias ou impetrando recursos em prol de clientes de todo os Brasil, e no assessoramento a outros escritórios de advocacia.",
     },
   ];
 
