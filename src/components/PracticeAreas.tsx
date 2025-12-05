@@ -107,7 +107,7 @@ const PracticeAreas = () => {
       title: "Direito Penal",
       description: "Habeas Corpus e recursos criminais",
       details:
-        "Impetração e acompanhamento de Habeas Corpus ou Recurso em Habeas Corpus perante a Justiça Federal, Tribunais Regionais Federais, Superior Tribunal de Justiça, Supremo Tribunal Federal, Tribunal de Justiça do Rio Grande do Sul e Distrito Federal.",
+        "O Direito Penal passou a integrar recentemente as áreas de atuação do nosso escritório. Trabalhamos em parceria com profissionais de ampla experiência, oferecendo atendimento especializado nas seguintes frentes:\n\n• Direito Penal Econômico\n• Atendimento personalizado ao cliente\n• Defesa Criminal em todas as instâncias\n• Atuação imediata perante autoridades e órgãos de Justiça",
     },
     {
       icon: Vote,
