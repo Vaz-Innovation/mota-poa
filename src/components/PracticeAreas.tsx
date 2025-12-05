@@ -86,7 +86,7 @@ const PracticeAreas = () => {
       title: "Direito Sindical",
       description: "Assessoria completa para entidades sindicais",
       details:
-        "Registro sindical e controvérsias sindicais, acordos, convenções e negociações coletivas e assessoramento às entidades sindicais.",
+        "Nosso escritório administra uma carteira de grandes clientes constituída por inúmeras associações, sindicatos e outras entidades representativas dos servidores públicos, atuando no âmbito administrativo e judicial, com ênfase em demandas coletivas de interesse dos integrantes das respectivas carreiras.",
     },
     {
       icon: Wallet,
