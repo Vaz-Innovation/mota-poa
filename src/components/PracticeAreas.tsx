@@ -19,6 +19,7 @@ import {
   Home,
   Heart,
   Gavel,
+  Handshake,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -146,6 +147,13 @@ const PracticeAreas = () => {
       description: "Ações contra União, Estados, DF e Municípios",
       details:
         "Esta área de atuação abrange ações de cobrança, indenizações, execuções contra Fazenda Pública da União, Estados, DF e Municípios, impugnação de autuações, adesão à regimes fiscais especiais, REFIS, desconsideração da personalidade jurídica, e matérias correlatas.",
+    },
+    {
+      icon: Handshake,
+      title: "Mediação e Conciliação",
+      description: "Métodos alternativos de resolução de conflitos",
+      details:
+        "Trata-se de uma área dedicada a métodos alternativos de resolução de conflitos, conduzida por profissionais especializados em técnicas de negociação. Por meio dela, pessoas físicas e jurídicas podem solucionar suas demandas de forma extrajudicial, com mais rapidez e eficiência, evitando o ingresso no Poder Judiciário. O processo garante segurança, formalidade e soluções adequadas para cada situação.",
     },
   ];
 
