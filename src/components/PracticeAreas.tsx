@@ -20,6 +20,7 @@ import {
   Heart,
   Gavel,
   Handshake,
+  Receipt,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -154,6 +155,13 @@ const PracticeAreas = () => {
       description: "Métodos alternativos de resolução de conflitos",
       details:
         "Trata-se de uma área dedicada a métodos alternativos de resolução de conflitos, conduzida por profissionais especializados em técnicas de negociação. Por meio dela, pessoas físicas e jurídicas podem solucionar suas demandas de forma extrajudicial, com mais rapidez e eficiência, evitando o ingresso no Poder Judiciário. O processo garante segurança, formalidade e soluções adequadas para cada situação.",
+    },
+    {
+      icon: Receipt,
+      title: "Direito Tributário e Empresarial",
+      description: "Assessoria jurídica para empresas e matéria tributária",
+      details:
+        "Diante da crescente demanda nessa área, o escritório estruturou uma equipe exclusiva, coordenada por advogados especializados, para oferecer assessoria jurídica de alta complexidade e apoiar empresas na organização jurídica de seus negócios. Também acompanhamos as principais mudanças legislativas, especialmente em matéria tributária e regulatória, orientando sobre impactos, enquadramento legal, regularização de débitos e identificação de possíveis créditos tributários.",
     },
   ];
 
