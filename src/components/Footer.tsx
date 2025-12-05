@@ -58,6 +58,11 @@ const Footer = () => {
               <li>Ed. Marquês do Herval - Centro</li>
               <li>Porto Alegre - RS - CEP: 90010-001</li>
               <li>(51) 3286.6586</li>
+              <li>
+                <a href="mailto:faleconosco@motaeadvogados.com.br" className="hover:text-bronze transition-colors">
+                  faleconosco@motaeadvogados.com.br
+                </a>
+              </li>
             </ul>
           </div>
 
