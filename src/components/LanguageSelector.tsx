@@ -14,7 +14,11 @@ const LanguageSelector = () => {
   const languages = [
     { code: 'pt', label: 'Português', abbr: 'PT' },
     { code: 'es', label: 'Español', abbr: 'ES' },
-    { code: 'en', label: 'English', abbr: 'EN' }
+    { code: 'en', label: 'English', abbr: 'EN' },
+    { code: 'de', label: 'Deutsch', abbr: 'DE' },
+    { code: 'it', label: 'Italiano', abbr: 'IT' },
+    { code: 'fr', label: 'Français', abbr: 'FR' },
+    { code: 'zh', label: '中文', abbr: 'ZH' }
   ];
 
   const currentLanguage = languages.find(lang => lang.code === language);
@@ -31,7 +35,7 @@ const LanguageSelector = () => {
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => setLanguage(lang.code as 'pt' | 'es' | 'en')}
+            onClick={() => setLanguage(lang.code as 'pt' | 'es' | 'en' | 'de' | 'it' | 'fr' | 'zh')}
             className={language === lang.code ? 'bg-accent' : ''}
           >
             <span className="mr-2 font-medium">{lang.abbr}</span>

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-type Language = 'pt' | 'es' | 'en';
+type Language = 'pt' | 'es' | 'en' | 'de' | 'it' | 'fr' | 'zh';
 
 interface LanguageContextType {
   language: Language;
@@ -347,6 +347,398 @@ const translations: Record<Language, any> = {
       message: 'We use cookies to improve your experience on our website. By continuing to browse, you agree to our privacy policy.',
       accept: 'Accept',
       decline: 'Decline'
+    }
+  },
+  de: {
+    nav: {
+      home: 'Startseite',
+      about: 'Über Uns',
+      areas: 'Tätigkeitsbereiche',
+      lawyers: 'Anwälte',
+      contact: 'Kontakt',
+      callUs: 'Kontaktieren Sie Uns',
+      access: 'Zugang'
+    },
+    hero: {
+      banner1: {
+        subtitle: 'Juristische Exzellenz',
+        title: 'Für Sie',
+        description: 'Über 15 Jahre Erfahrung in der Umwandlung von Herausforderungen in Lösungen.',
+        button: 'Kontaktieren Sie Uns'
+      },
+      banner2: {
+        subtitle: 'Arbeitsrechte',
+        title: 'Geschützt',
+        description: 'Vollständige Verteidigung Ihrer Rechte mit Expertise.',
+        button: 'Experten Konsultieren'
+      },
+      banner3: {
+        subtitle: 'Sozialversicherung',
+        title: 'Geplant',
+        description: 'Sichern Sie Ihre Zukunft mit Sicherheit und Ruhe.',
+        button: 'Beratung Vereinbaren'
+      },
+      banner4: {
+        subtitle: 'Ergebnisse',
+        title: 'Bewährt',
+        description: 'Kreative und effektive juristische Lösungen.',
+        button: 'Mehr Erfahren'
+      }
+    },
+    stats: {
+      experience: 'Jahre Erfahrung',
+      clients: 'Betreute Mandanten',
+      success: 'Erfolgsquote',
+      cases: 'Gelöste Fälle'
+    },
+    about: {
+      title: 'Über Uns',
+      intro: 'Erfahren Sie mehr über unsere Geschichte, Werte und unser Engagement für juristische Exzellenz.',
+      learnMore: 'Mehr erfahren →'
+    },
+    practiceAreas: {
+      title: 'Tätigkeitsbereiche',
+      intro: 'Unsere Praxis erstreckt sich über verschiedene Rechtsbereiche, spezialisiert auf Sozialrecht, mit Schwerpunkt auf Individual- und Kollektivarbeitsrecht, Gewerkschaftsrecht, Sozialversicherungsrecht und Verwaltungsrecht. Wir bedienen auch andere Bereiche mit stets qualifizierten Fachleuten.',
+      learnMore: 'Mehr erfahren →'
+    },
+    lawyers: {
+      title: 'Partner',
+      intro: 'Lernen Sie die Partner kennen, die MOTA & RECHTSANWÄLTE PARTNER mit Exzellenz und Engagement führen.'
+    },
+    contact: {
+      title: 'Standort',
+      subtitle: 'Besuchen Sie unser Büro in Porto Alegre.',
+    },
+    processConsultation: {
+      title: 'Ihren Fall Prüfen',
+      description: 'Geben Sie die Fallnummer ein und erhalten Sie in wenigen Minuten Updates.',
+      processNumberPlaceholder: 'Fallnummer (z.B.: 0000000-00.0000.0.00.0000)',
+      emailPlaceholder: 'Ihre beste E-Mail',
+      submitButton: 'Per E-Mail Erhalten',
+      whatsappButton: 'Via WhatsApp Prüfen',
+      sending: 'Wird gesendet...',
+      success: 'Anfrage Gesendet!',
+      successMessage: 'Sie erhalten das Fall-Update in Kürze per E-Mail.',
+      error: 'Fehler',
+      invalidProcess: 'Bitte geben Sie eine gültige Fallnummer ein.',
+      invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+    },
+    newsletter: {
+      title: 'Bleiben Sie Informiert',
+      description: 'Abonnieren Sie den Newsletter und erhalten Sie juristische Tipps und Kanzlei-Neuigkeiten.',
+      placeholder: 'Ihre beste E-Mail',
+      button: 'Abonnieren',
+      sending: 'Wird gesendet...',
+      success: 'Erfolg!',
+      successMessage: 'Sie wurden für unseren Newsletter angemeldet.',
+      error: 'Fehler',
+      errorMessage: 'Bitte geben Sie eine gültige E-Mail ein.'
+    },
+    footer: {
+      description: 'Exzellenz in der Rechtspraxis mit Ethik, Transparenz und Engagement.',
+      quickLinks: 'Schnelllinks',
+      contact: 'Kontakt',
+      rights: 'Alle Rechte vorbehalten.'
+    },
+    cookies: {
+      title: 'Cookie-Richtlinie',
+      message: 'Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch das Fortsetzen der Navigation stimmen Sie unserer Datenschutzrichtlinie zu.',
+      accept: 'Akzeptieren',
+      decline: 'Ablehnen'
+    }
+  },
+  it: {
+    nav: {
+      home: 'Home',
+      about: 'Chi Siamo',
+      areas: 'Aree di Pratica',
+      lawyers: 'Avvocati',
+      contact: 'Contatto',
+      callUs: 'Contattaci',
+      access: 'Accesso'
+    },
+    hero: {
+      banner1: {
+        subtitle: 'Eccellenza Legale',
+        title: 'Per Te',
+        description: 'Oltre 15 anni di trasformazione delle sfide in soluzioni.',
+        button: 'Contattaci'
+      },
+      banner2: {
+        subtitle: 'Diritti del Lavoro',
+        title: 'Protetti',
+        description: 'Difesa completa dei tuoi diritti con competenza.',
+        button: 'Consulta uno Specialista'
+      },
+      banner3: {
+        subtitle: 'Previdenza',
+        title: 'Pianificata',
+        description: 'Garantisci il tuo futuro con sicurezza e tranquillità.',
+        button: 'Prenota una Consulenza'
+      },
+      banner4: {
+        subtitle: 'Risultati',
+        title: 'Comprovati',
+        description: 'Soluzioni legali creative ed efficaci.',
+        button: 'Scopri di Più'
+      }
+    },
+    stats: {
+      experience: 'Anni di Esperienza',
+      clients: 'Clienti Assistiti',
+      success: 'Tasso di Successo',
+      cases: 'Casi Risolti'
+    },
+    about: {
+      title: 'Chi Siamo',
+      intro: 'Scopri di più sulla nostra storia, valori e impegno per l\'eccellenza legale.',
+      learnMore: 'Scopri di più →'
+    },
+    practiceAreas: {
+      title: 'Aree di Pratica',
+      intro: 'La nostra pratica si estende a diverse aree del Diritto, specializzati nelle aree del Diritto Sociale, con enfasi sul Diritto del Lavoro Individuale e Collettivo, Diritto Sindacale, Diritto Previdenziale e Diritto Amministrativo. Serviamo anche altre aree, sempre con professionisti qualificati.',
+      learnMore: 'Scopri di più →'
+    },
+    lawyers: {
+      title: 'Partner',
+      intro: 'Conosci i partner che guidano MOTA & AVVOCATI ASSOCIATI con eccellenza e impegno.'
+    },
+    contact: {
+      title: 'Posizione',
+      subtitle: 'Visita il nostro ufficio a Porto Alegre.',
+    },
+    processConsultation: {
+      title: 'Verifica il Tuo Caso',
+      description: 'Inserisci il numero del caso e ricevi aggiornamenti in pochi minuti.',
+      processNumberPlaceholder: 'Numero del caso (es: 0000000-00.0000.0.00.0000)',
+      emailPlaceholder: 'La tua email migliore',
+      submitButton: 'Ricevi via Email',
+      whatsappButton: 'Verifica via WhatsApp',
+      sending: 'Invio in corso...',
+      success: 'Richiesta Inviata!',
+      successMessage: 'Riceverai l\'aggiornamento del caso via email a breve.',
+      error: 'Errore',
+      invalidProcess: 'Per favore inserisci un numero di caso valido.',
+      invalidEmail: 'Per favore inserisci un indirizzo email valido.'
+    },
+    newsletter: {
+      title: 'Rimani Informato',
+      description: 'Iscriviti alla newsletter e ricevi consigli legali e novità dello studio.',
+      placeholder: 'La tua email migliore',
+      button: 'Iscriviti',
+      sending: 'Invio in corso...',
+      success: 'Successo!',
+      successMessage: 'Sei stato iscritto alla nostra newsletter.',
+      error: 'Errore',
+      errorMessage: 'Per favore inserisci un\'email valida.'
+    },
+    footer: {
+      description: 'Eccellenza nel diritto con etica, trasparenza e impegno.',
+      quickLinks: 'Link Rapidi',
+      contact: 'Contatto',
+      rights: 'Tutti i diritti riservati.'
+    },
+    cookies: {
+      title: 'Politica dei Cookie',
+      message: 'Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito. Continuando a navigare, accetti la nostra politica sulla privacy.',
+      accept: 'Accetta',
+      decline: 'Rifiuta'
+    }
+  },
+  fr: {
+    nav: {
+      home: 'Accueil',
+      about: 'À Propos',
+      areas: 'Domaines de Pratique',
+      lawyers: 'Avocats',
+      contact: 'Contact',
+      callUs: 'Contactez-Nous',
+      access: 'Accès'
+    },
+    hero: {
+      banner1: {
+        subtitle: 'Excellence Juridique',
+        title: 'Pour Vous',
+        description: 'Plus de 15 ans à transformer les défis en solutions.',
+        button: 'Contactez-Nous'
+      },
+      banner2: {
+        subtitle: 'Droits du Travail',
+        title: 'Protégés',
+        description: 'Défense complète de vos droits avec expertise.',
+        button: 'Consulter un Spécialiste'
+      },
+      banner3: {
+        subtitle: 'Prévoyance',
+        title: 'Planifiée',
+        description: 'Assurez votre avenir en toute sécurité et tranquillité.',
+        button: 'Prendre Rendez-vous'
+      },
+      banner4: {
+        subtitle: 'Résultats',
+        title: 'Prouvés',
+        description: 'Solutions juridiques créatives et efficaces.',
+        button: 'En Savoir Plus'
+      }
+    },
+    stats: {
+      experience: 'Années d\'Expérience',
+      clients: 'Clients Servis',
+      success: 'Taux de Réussite',
+      cases: 'Affaires Résolues'
+    },
+    about: {
+      title: 'À Propos de Nous',
+      intro: 'Découvrez notre histoire, nos valeurs et notre engagement envers l\'excellence juridique.',
+      learnMore: 'En savoir plus →'
+    },
+    practiceAreas: {
+      title: 'Domaines de Pratique',
+      intro: 'Notre pratique s\'étend à plusieurs domaines du Droit, spécialisés dans le Droit Social, avec un accent sur le Droit du Travail Individuel et Collectif, le Droit Syndical, le Droit de la Sécurité Sociale et le Droit Administratif. Nous servons également d\'autres domaines, toujours avec des professionnels qualifiés.',
+      learnMore: 'En savoir plus →'
+    },
+    lawyers: {
+      title: 'Associés',
+      intro: 'Rencontrez les associés qui dirigent MOTA & AVOCATS ASSOCIÉS avec excellence et engagement.'
+    },
+    contact: {
+      title: 'Emplacement',
+      subtitle: 'Visitez notre bureau à Porto Alegre.',
+    },
+    processConsultation: {
+      title: 'Vérifiez Votre Dossier',
+      description: 'Entrez le numéro du dossier et recevez des mises à jour en quelques minutes.',
+      processNumberPlaceholder: 'Numéro de dossier (ex: 0000000-00.0000.0.00.0000)',
+      emailPlaceholder: 'Votre meilleur email',
+      submitButton: 'Recevoir par Email',
+      whatsappButton: 'Vérifier via WhatsApp',
+      sending: 'Envoi en cours...',
+      success: 'Demande Envoyée!',
+      successMessage: 'Vous recevrez la mise à jour du dossier par email sous peu.',
+      error: 'Erreur',
+      invalidProcess: 'Veuillez entrer un numéro de dossier valide.',
+      invalidEmail: 'Veuillez entrer une adresse email valide.'
+    },
+    newsletter: {
+      title: 'Restez Informé',
+      description: 'Abonnez-vous à la newsletter et recevez des conseils juridiques et des nouvelles du cabinet.',
+      placeholder: 'Votre meilleur email',
+      button: 'S\'abonner',
+      sending: 'Envoi en cours...',
+      success: 'Succès!',
+      successMessage: 'Vous avez été inscrit à notre newsletter.',
+      error: 'Erreur',
+      errorMessage: 'Veuillez entrer un email valide.'
+    },
+    footer: {
+      description: 'Excellence en droit avec éthique, transparence et engagement.',
+      quickLinks: 'Liens Rapides',
+      contact: 'Contact',
+      rights: 'Tous droits réservés.'
+    },
+    cookies: {
+      title: 'Politique de Cookies',
+      message: 'Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.',
+      accept: 'Accepter',
+      decline: 'Refuser'
+    }
+  },
+  zh: {
+    nav: {
+      home: '首页',
+      about: '关于我们',
+      areas: '业务领域',
+      lawyers: '律师团队',
+      contact: '联系我们',
+      callUs: '联系我们',
+      access: '访问'
+    },
+    hero: {
+      banner1: {
+        subtitle: '法律卓越',
+        title: '为您服务',
+        description: '超过15年的经验，将挑战转化为解决方案。',
+        button: '联系我们'
+      },
+      banner2: {
+        subtitle: '劳动权益',
+        title: '受到保护',
+        description: '以专业知识全面捍卫您的权益。',
+        button: '咨询专家'
+      },
+      banner3: {
+        subtitle: '社会保障',
+        title: '规划妥当',
+        description: '安全、安心地保障您的未来。',
+        button: '预约咨询'
+      },
+      banner4: {
+        subtitle: '成果',
+        title: '有目共睹',
+        description: '创新有效的法律解决方案。',
+        button: '了解更多'
+      }
+    },
+    stats: {
+      experience: '年经验',
+      clients: '服务客户',
+      success: '成功率',
+      cases: '已解决案件'
+    },
+    about: {
+      title: '关于我们',
+      intro: '了解我们的历史、价值观以及对法律卓越的承诺。',
+      learnMore: '了解更多 →'
+    },
+    practiceAreas: {
+      title: '业务领域',
+      intro: '我们的业务涵盖法律的多个领域，专注于社会法领域，特别是个人和集体劳动法、工会法、社会保障法和行政法。我们还提供其他领域的服务，始终依靠合格的专业人员。',
+      learnMore: '了解更多 →'
+    },
+    lawyers: {
+      title: '合伙人',
+      intro: '认识以卓越和承诺领导莫塔律师事务所的合伙人。'
+    },
+    contact: {
+      title: '地址',
+      subtitle: '欢迎访问我们位于阿雷格里港的办公室。',
+    },
+    processConsultation: {
+      title: '查询您的案件',
+      description: '输入案件编号，几分钟内即可收到更新。',
+      processNumberPlaceholder: '案件编号（例：0000000-00.0000.0.00.0000）',
+      emailPlaceholder: '您的常用邮箱',
+      submitButton: '通过邮件接收',
+      whatsappButton: '通过WhatsApp查询',
+      sending: '发送中...',
+      success: '请求已发送！',
+      successMessage: '您将很快通过邮件收到案件更新。',
+      error: '错误',
+      invalidProcess: '请输入有效的案件编号。',
+      invalidEmail: '请输入有效的邮箱地址。'
+    },
+    newsletter: {
+      title: '保持关注',
+      description: '订阅我们的通讯，获取法律建议和事务所动态。',
+      placeholder: '您的常用邮箱',
+      button: '订阅',
+      sending: '发送中...',
+      success: '成功！',
+      successMessage: '您已成功订阅我们的通讯。',
+      error: '错误',
+      errorMessage: '请输入有效的邮箱。'
+    },
+    footer: {
+      description: '以道德、透明和承诺追求法律卓越。',
+      quickLinks: '快速链接',
+      contact: '联系方式',
+      rights: '版权所有。'
+    },
+    cookies: {
+      title: 'Cookie政策',
+      message: '我们使用Cookie来改善您在我们网站上的体验。继续浏览即表示您同意我们的隐私政策。',
+      accept: '接受',
+      decline: '拒绝'
     }
   }
 };
