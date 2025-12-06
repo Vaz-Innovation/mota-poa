@@ -1,0 +1,284 @@
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Calendar, User, ArrowLeft, Share2, Clock } from 'lucide-react';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+import { toast } from 'sonner';
+
+interface BlogPostData {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string | null;
+  content: string;
+  featured_image: string | null;
+  tags: string[];
+  meta_title: string | null;
+  meta_description: string | null;
+  published_at: string | null;
+  created_at: string;
+  category: {
+    id: string;
+    name: string;
+    slug: string;
+  } | null;
+  author: {
+    full_name: string | null;
+    avatar_url: string | null;
+  } | null;
+}
+
+const BlogPost = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const [post, setPost] = useState<BlogPostData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [readingTime, setReadingTime] = useState(0);
+
+  useEffect(() => {
+    if (slug) {
+      fetchPost(slug);
+    }
+  }, [slug]);
+
+  const fetchPost = async (postSlug: string) => {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select(`
+        id,
+        title,
+        slug,
+        excerpt,
+        content,
+        featured_image,
+        tags,
+        meta_title,
+        meta_description,
+        published_at,
+        created_at,
+        category:blog_categories(id, name, slug),
+        author:profiles(full_name, avatar_url)
+      `)
+      .eq('slug', postSlug)
+      .eq('published', true)
+      .single();
+
+    if (error) {
+      console.error('Error fetching post:', error);
+    } else if (data) {
+      setPost(data);
+      // Calculate reading time (average 200 words per minute)
+      const wordCount = data.content.split(/\s+/).length;
+      setReadingTime(Math.ceil(wordCount / 200));
+    }
+    setLoading(false);
+  };
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: post?.title,
+          text: post?.excerpt || '',
+          url,
+        });
+      } catch (error) {
+        // User cancelled share
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      toast.success('Link copiado para a área de transferência!');
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 pt-24 pb-16">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="max-w-4xl mx-auto animate-pulse">
+              <div className="h-8 bg-muted rounded w-3/4 mb-4" />
+              <div className="h-4 bg-muted rounded w-1/4 mb-8" />
+              <div className="h-64 bg-muted rounded mb-8" />
+              <div className="space-y-4">
+                <div className="h-4 bg-muted rounded w-full" />
+                <div className="h-4 bg-muted rounded w-full" />
+                <div className="h-4 bg-muted rounded w-2/3" />
+              </div>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (!post) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 pt-24 pb-16">
+          <div className="container mx-auto px-4 lg:px-8 text-center">
+            <h1 className="text-3xl font-bold text-primary mb-4">Artigo não encontrado</h1>
+            <p className="text-muted-foreground mb-8">O artigo que você procura não existe ou foi removido.</p>
+            <Button asChild>
+              <Link to="/blog">Voltar ao Blog</Link>
+            </Button>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const pageTitle = post.meta_title || post.title;
+  const pageDescription = post.meta_description || post.excerpt || '';
+
+  // JSON-LD structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.featured_image,
+    "datePublished": post.published_at || post.created_at,
+    "dateModified": post.published_at || post.created_at,
+    "author": {
+      "@type": "Person",
+      "name": post.author?.full_name || "Mota Advogados"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mota & Advogados Associados",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${window.location.origin}/logo.png`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": window.location.href
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      {/* SEO Meta Tags */}
+      <title>{pageTitle} | Blog Mota Advogados</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content={post.tags.join(', ')} />
+      <link rel="canonical" href={window.location.href} />
+      
+      {/* Open Graph */}
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={window.location.href} />
+      {post.featured_image && <meta property="og:image" content={post.featured_image} />}
+      
+      {/* Article specific */}
+      <meta property="article:published_time" content={post.published_at || post.created_at} />
+      {post.author?.full_name && <meta property="article:author" content={post.author.full_name} />}
+      {post.tags.map((tag, i) => (
+        <meta key={i} property="article:tag" content={tag} />
+      ))}
+      
+      {/* Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      
+      <Header />
+      
+      <main className="flex-1 pt-24 pb-16">
+        <article className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Back Button */}
+            <Link
+              to="/blog"
+              className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Voltar ao Blog
+            </Link>
+            
+            {/* Header */}
+            <header className="mb-8">
+              {post.category && (
+                <Badge className="mb-4 bg-accent">{post.category.name}</Badge>
+              )}
+              
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
+                {post.title}
+              </h1>
+              
+              <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
+                <span className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  {format(new Date(post.published_at || post.created_at), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                </span>
+                
+                {post.author?.full_name && (
+                  <span className="flex items-center gap-2">
+                    <User className="h-4 w-4" />
+                    {post.author.full_name}
+                  </span>
+                )}
+                
+                <span className="flex items-center gap-2">
+                  <Clock className="h-4 w-4" />
+                  {readingTime} min de leitura
+                </span>
+                
+                <Button variant="ghost" size="sm" onClick={handleShare} className="ml-auto">
+                  <Share2 className="mr-2 h-4 w-4" />
+                  Compartilhar
+                </Button>
+              </div>
+            </header>
+            
+            {/* Featured Image */}
+            {post.featured_image && (
+              <figure className="mb-8">
+                <img
+                  src={post.featured_image}
+                  alt={post.title}
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </figure>
+            )}
+            
+            {/* Content */}
+            <div
+              className="prose prose-lg max-w-none prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+            
+            {/* Tags */}
+            {post.tags.length > 0 && (
+              <footer className="mt-12 pt-8 border-t border-border">
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-sm font-medium text-muted-foreground">Tags:</span>
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </footer>
+            )}
+          </div>
+        </article>
+      </main>
+      
+      <Footer />
+    </div>
+  );
+};
+
+export default BlogPost;
