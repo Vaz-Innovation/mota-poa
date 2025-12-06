@@ -87,8 +87,14 @@ const About = () => {
       summary: "Sede em Porto Alegre com cobertura nacional",
       content: (
         <>
+          <p className="mb-2">
+            Tecnologia, agilidade e alcance nacional.
+          </p>
+          <p className="mb-2">
+            Presença em todo o território, soluções em cada detalhe.
+          </p>
           <p>
-            A partir de nossa sede em Porto Alegre (RS), expandimos nossa atuação para todo o território nacional. Para garantir ainda mais eficiência e agilidade no atendimento, contamos com escritórios de apoio em Brasília, São Paulo e Natal.
+            Com endereços, também, em São Paulo, Brasília, e Natal.
           </p>
         </>
       ),
