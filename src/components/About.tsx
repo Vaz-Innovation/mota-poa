@@ -75,7 +75,7 @@ const About = () => {
       content: (
         <>
           <p>
-            Estamos inseridos em uma sociedade em constante evolução, o que se reflete na atualização recorrente do arcabouço normativo do Direito. Cotidianamente, observamos mudanças na legislação e na jurisprudência, por isso estamos constantemente reciclando nossa equipe e nos reinventando para atender nossos clientes com ainda mais eficiência e resolutividade.
+            Estamos inseridos em uma sociedade em constante evolução, o que reflete a necessidade de capacitação contínua de nossa equipe. Alterações legislativas, normativas e jurisprudenciais exigem cada vez mais qualificação técnica e a incorporação de novas tecnologias, para que o atendimento aos nossos clientes proporcione satisfação, alcance eficiência, resolutividade e, principalmente, agilidade.
           </p>
         </>
       ),
