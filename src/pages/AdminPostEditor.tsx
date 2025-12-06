@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { toast } from 'sonner';
-import { ArrowLeft, Save, Eye, Image } from 'lucide-react';
+import { ArrowLeft, Save, Eye, Image, Link2, Loader2 } from 'lucide-react';
 import { z } from 'zod';
 
 interface Category {
@@ -54,6 +54,10 @@ const AdminPostEditor = () => {
   const [metaTitle, setMetaTitle] = useState('');
   const [metaDescription, setMetaDescription] = useState('');
   const [published, setPublished] = useState(false);
+  
+  // Import URL state
+  const [importUrl, setImportUrl] = useState('');
+  const [importing, setImporting] = useState(false);
 
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
@@ -146,6 +150,55 @@ const AdminPostEditor = () => {
 
     setFeaturedImage(data.publicUrl);
     toast.success('Imagem enviada com sucesso');
+  };
+
+  const handleImportFromUrl = async () => {
+    if (!importUrl.trim()) {
+      toast.error('Digite uma URL para importar');
+      return;
+    }
+
+    setImporting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('extract-article', {
+        body: { url: importUrl },
+      });
+
+      if (error) {
+        console.error('Error importing:', error);
+        toast.error('Erro ao importar conteúdo');
+        return;
+      }
+
+      if (data?.error) {
+        toast.error(data.error);
+        return;
+      }
+
+      if (data?.success && data?.data) {
+        const extracted = data.data;
+        
+        if (extracted.title) {
+          setTitle(extracted.title);
+          setSlug(generateSlug(extracted.title));
+        }
+        if (extracted.excerpt) setExcerpt(extracted.excerpt.substring(0, 300));
+        if (extracted.content) setContent(extracted.content);
+        if (extracted.featuredImage) setFeaturedImage(extracted.featuredImage);
+        if (extracted.tags && Array.isArray(extracted.tags)) setTags(extracted.tags.join(', '));
+        if (extracted.metaDescription) setMetaDescription(extracted.metaDescription.substring(0, 160));
+        if (extracted.title) setMetaTitle(extracted.title.substring(0, 60));
+        
+        setImportUrl('');
+        toast.success('Conteúdo importado com sucesso! Revise antes de publicar.');
+      }
+    } catch (err) {
+      console.error('Import error:', err);
+      toast.error('Erro ao importar conteúdo');
+    } finally {
+      setImporting(false);
+    }
   };
 
   const handleSave = async () => {
@@ -278,6 +331,43 @@ const AdminPostEditor = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
+            {/* Import from URL */}
+            <Card className="border-accent/30 bg-accent/5">
+              <CardHeader className="pb-3">
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Link2 className="h-5 w-5 text-accent" />
+                  Importar de URL
+                </CardTitle>
+                <CardDescription>
+                  Cole o link de um artigo para preencher automaticamente com IA
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex gap-2">
+                  <Input
+                    value={importUrl}
+                    onChange={(e) => setImportUrl(e.target.value)}
+                    placeholder="https://exemplo.com/artigo"
+                    disabled={importing}
+                  />
+                  <Button 
+                    onClick={handleImportFromUrl} 
+                    disabled={importing || !importUrl.trim()}
+                    className="shrink-0"
+                  >
+                    {importing ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Importando...
+                      </>
+                    ) : (
+                      'Importar'
+                    )}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>Conteúdo</CardTitle>
