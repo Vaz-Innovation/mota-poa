@@ -59,7 +59,7 @@ const About = () => {
             A MOTA & ADVOGADOS ASSOCIADOS tem sua atuação fundada nos princípios de uma advocacia ética, do trabalho comprometido, sério e eficiente, atento às mudanças da sociedade e às necessidades de cada cliente, sem dispensar a boa técnica e o papel social do advogado na busca pela solução eficaz.
           </p>
           <p className="mb-4">
-            Nosso propósito é promover o equilíbrio das relações sociais através da prestação de um trabalho empenhado juridicamente e competente, priorizando o relacionamento profissional com o cliente.
+            Nosso propósito é promover o equilíbrio das relações sociais através da prestação de um trabalho juridicamente competente, priorizando o relacionamento profissional com o cliente.
           </p>
           <p>
             Nossa atuação, seja ela de forma preventiva, administrativa ou judicial, é focada na busca pela garantia dos direitos, na segurança juridica, valorizando principalmente nosso ponto mais forte: as pessoas e a satisfação do trabalho desenvolvido.
