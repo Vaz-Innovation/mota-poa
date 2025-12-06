@@ -101,7 +101,7 @@ const TrabalheConosco = () => {
               Trabalhe Conosco
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              Faça parte de uma equipe de excelência comprometida com a justiça e o sucesso de nossos clientes.
+              Junte-se a nós e construa o futuro da advocacia com ética, inovação e compromisso com resultados.
             </p>
           </div>
         </div>
