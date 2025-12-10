@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Search, Lock } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import motaLogo from "@/assets/logo-mota-header.png";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -65,6 +66,9 @@ const Header = () => {
             <a href="#contato" className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.contact')}
             </a>
+            <Link to="/blog" className="text-white hover:text-accent transition-colors text-sm font-medium">
+              Blog
+            </Link>
           </nav>
 
           {/* Right Side Actions */}
@@ -142,6 +146,13 @@ const Header = () => {
             >
               {t('nav.contact')}
             </a>
+            <Link
+              to="/blog"
+              className="block text-white hover:text-accent transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog
+            </Link>
             <div className="flex flex-col gap-3 pt-2">
               <LanguageSelector />
               <Button asChild variant="bronze" size="lg" className="w-full">
