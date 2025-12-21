@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 const WhatsAppButton = () => {
-  const whatsappUrl = "https://wa.me/5561995362668";
+  const whatsappUrl = "https://wa.me/5551981981210";
 
   const handleClick = () => {
     trackWhatsAppClick('floating_button');
