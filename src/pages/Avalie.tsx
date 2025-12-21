@@ -82,7 +82,7 @@ const Avalie = () => {
             {/* Rodapé da Página */}
             <div className="text-center mt-8 space-y-2">
               <p className="font-semibold text-foreground">
-                Mota Advogados Associados • Brasília - DF
+                Mota Advogados Associados • Porto Alegre - RS
               </p>
               <p className="text-sm text-muted-foreground">
                 Excelência em serviços jurídicos há mais de 20 anos
