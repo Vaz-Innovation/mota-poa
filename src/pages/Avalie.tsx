@@ -6,7 +6,7 @@ import { Scale } from "lucide-react";
 
 const Avalie = () => {
   const handleReviewClick = () => {
-    window.open("https://share.google/zSKgKz2ENPLLLPQ8M", "_blank");
+    window.open("https://share.google/XEKsZcXVK5q5gBPEB", "_blank");
   };
 
   return (
