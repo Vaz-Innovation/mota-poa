@@ -211,7 +211,7 @@ const translations: Record<Language, any> = {
     },
     lawyers: {
       title: 'Equipe',
-      intro: 'Os pilares da MOTA & ADVOGADOS ASSOCIADOS: experiência, ética e resultados.',
+      intro: 'Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.',
       swipeHint: '← Deslize para navegar →',
       prev: 'Anterior',
       next: 'Próximo'
