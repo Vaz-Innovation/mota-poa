@@ -102,7 +102,7 @@ const translations: Record<Language, any> = {
       intro: 'Conheça mais sobre nossa história, valores e compromisso com a excelência jurídica.',
       learnMore: 'Saiba mais →',
       sectionTitle: 'Escritório',
-      sectionSubtitle: 'Construindo soluções jurídicas com excelência, ética e resultados desde 2000 com atuação nacional',
+      sectionSubtitle: 'Construindo soluções jurídicas com excelência, ética e resultados desde 2000, com atuação em todo o território nacional.',
       explore: 'Explorar',
       trajectory: {
         title: 'Trajetória',
