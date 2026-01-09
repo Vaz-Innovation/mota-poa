@@ -75,8 +75,8 @@ const Footer = () => {
             <h4 className="font-semibold text-bronze mb-4">{t('footer.socialMedia')}</h4>
             <div className="flex gap-4">
               <a 
-                href="https://linkedin.com" 
-                target="_blank" 
+                href="https://www.linkedin.com/company/mota-&-advogados-associados/" 
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 hover:text-bronze transition-colors hover-scale"
                 aria-label="LinkedIn"
