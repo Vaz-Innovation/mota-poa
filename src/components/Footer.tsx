@@ -48,6 +48,11 @@ const Footer = () => {
                   {t('footer.rateUs')}
                 </Link>
               </li>
+              <li>
+                <Link to="/blog" className="text-white/80 hover:text-bronze transition-colors">
+                  {t('nav.blog')}
+                </Link>
+              </li>
             </ul>
           </div>
 

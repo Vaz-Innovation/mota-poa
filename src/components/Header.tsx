@@ -67,7 +67,7 @@ const Header = () => {
               {t('nav.contact')}
             </a>
             <Link to="/blog" className="text-white hover:text-accent transition-colors text-sm font-medium">
-              Blog
+              {t('nav.blog')}
             </Link>
           </nav>
 
@@ -151,7 +151,7 @@ const Header = () => {
               className="block text-white hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Blog
+              {t('nav.blog')}
             </Link>
             <div className="flex flex-col gap-3 pt-2">
               <LanguageSelector />
