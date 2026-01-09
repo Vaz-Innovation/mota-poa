@@ -7,8 +7,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
   const [selectedTopic, setSelectedTopic] = useState<number | null>(null);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -34,67 +36,67 @@ const About = () => {
   const topics = [
     {
       icon: TrendingUp,
-      title: "Trajetória",
-      badge: "Desde 2000",
-      summary: "Mais de 25 anos de excelência jurídica",
+      title: t('about.trajectory.title'),
+      badge: t('about.trajectory.badge'),
+      summary: t('about.trajectory.summary'),
       content: (
         <>
           <p className="mb-4">
-            A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados desde 2000, com atuação nacional.
+            {t('about.trajectory.content1')}
           </p>
           <p>
-            A prestação de serviços jurídicos de excelência é nosso objetivo e se reflete nos resultados alcançados e na satisfação dos nossos clientes.
+            {t('about.trajectory.content2')}
           </p>
         </>
       ),
     },
     {
       icon: Shield,
-      title: "Pilares Consolidados",
-      badge: "Ética | Comprometimento",
-      summary: "Os pilares de uma advocacia que une ética, excelência e resultados",
+      title: t('about.pillars.title'),
+      badge: t('about.pillars.badge'),
+      summary: t('about.pillars.summary'),
       content: (
         <>
           <p className="mb-4">
-            A MOTA & ADVOGADOS ASSOCIADOS tem sua atuação fundada nos princípios de uma advocacia ética, do trabalho comprometido, sério e eficiente, atento às mudanças da sociedade e às necessidades de cada cliente, sem dispensar a boa técnica e o papel social do advogado na busca pela solução eficaz.
+            {t('about.pillars.content1')}
           </p>
           <p className="mb-4">
-            Nosso propósito é promover o equilíbrio das relações sociais através da prestação de um trabalho juridicamente competente, priorizando o relacionamento profissional com o cliente.
+            {t('about.pillars.content2')}
           </p>
           <p>
-            Nossa atuação, seja ela de forma preventiva, administrativa ou judicial, é focada na busca pela garantia dos direitos, na segurança juridica, valorizando principalmente nosso ponto mais forte: as pessoas e a satisfação com o trabalho desenvolvido.
+            {t('about.pillars.content3')}
           </p>
         </>
       ),
     },
     {
       icon: Target,
-      title: "Nossa Missão",
-      badge: "Excelência",
-      summary: "Relacionamento de qualidade e serviços jurídicos eficazes",
+      title: t('about.mission.title'),
+      badge: t('about.mission.badge'),
+      summary: t('about.mission.summary'),
       content: (
         <>
           <p>
-            Estamos inseridos em uma sociedade em constante evolução, o que reflete a necessidade de capacitação contínua de nossa equipe. Alterações legislativas, normativas e jurisprudenciais exigem cada vez mais qualificação técnica e a incorporação de novas tecnologias, para que o atendimento aos nossos clientes proporcione satisfação, alcance eficiência, resolutividade e, principalmente, agilidade.
+            {t('about.mission.content')}
           </p>
         </>
       ),
     },
     {
       icon: MapPin,
-      title: "Escritório",
-      badge: "Atuação Nacional",
-      summary: "Sede em Porto Alegre com cobertura nacional",
+      title: t('about.office.title'),
+      badge: t('about.office.badge'),
+      summary: t('about.office.summary'),
       content: (
         <>
           <p className="mb-2">
-            Tecnologia, agilidade e alcance nacional.
+            {t('about.office.content1')}
           </p>
           <p className="mb-2">
-            Presença em todo o território, soluções em cada detalhe.
+            {t('about.office.content2')}
           </p>
           <p>
-            Com endereços, também, em São Paulo, Brasília, e Natal.
+            {t('about.office.content3')}
           </p>
         </>
       ),
@@ -122,10 +124,10 @@ const About = () => {
             <div className="h-1 w-20 bg-accent mx-auto mb-6 rounded-full" />
           </div>
           <h2 className={`text-4xl md:text-6xl font-bold text-navy mb-6 tracking-tight transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Escritório
+            {t('about.sectionTitle')}
           </h2>
           <p className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-700 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Construindo soluções jurídicas com excelência, ética e resultados desde 2000 com atuação nacional
+            {t('about.sectionSubtitle')}
           </p>
         </div>
 
@@ -184,7 +186,7 @@ const About = () => {
                   
                   {/* CTA */}
                   <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-3 transition-all duration-300">
-                    <span>Explorar</span>
+                    <span>{t('about.explore')}</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </div>
                 </div>
