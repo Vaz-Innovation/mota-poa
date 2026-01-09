@@ -26,15 +26,15 @@ import {
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface PracticeArea {
   icon: any;
-  title: string;
-  description: string;
-  details: string;
+  key: string;
 }
 
 const PracticeAreas = () => {
+  const { t } = useLanguage();
   const [selectedArea, setSelectedArea] = useState<PracticeArea | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -72,97 +72,19 @@ const PracticeAreas = () => {
   }, [emblaApi, onSelect]);
 
   const areas: PracticeArea[] = [
-    {
-      icon: Building2,
-      title: "Direito Administrativo (Servidor Público)",
-      description: "Defesa dos direitos e interesses dos servidores públicos",
-      details:
-        "Ao longo de sua trajetória nos consolidamos como um dos maiores escritórios de advocacia do país na defesa dos direitos e interesses profissionais dos servidores públicos, atuando de forma resolutiva em milhares de ações judiciais que asseguraram aos servidores públicos o reconhecimento de seus direitos. São inúmeros os servidores assistidos pelo escritório, sempre de forma direta e humanizada, com total transparência, orientação técnica, e encaminhamento jurídico responsável, proporcionando segurança jurídica na tomada de decisões que afetam seus direitos individuais e coletivos.",
-    },
-    {
-      icon: Briefcase,
-      title: "Direito do Trabalho Individual e Coletivo",
-      description: "Reclamatórias trabalhistas e acompanhamento processual",
-      details:
-        "Reclamatórias trabalhistas (Horas-extras; Periculosidade/insalubridade; Promoções; Adicional de transferência; Vinculo empregatício; Estabilidade de gestante; Pedido de complementação da aposentadoria; Multa 40% FGTS; Função gratificada; Acidente de trabalho), acompanhamento em audiências, medidas cautelares, contestações, acompanhamento de todos os recursos no âmbito do TRTs e TST.",
-    },
-    {
-      icon: Users,
-      title: "Direito Sindical",
-      description: "Assessoria completa para entidades sindicais",
-      details:
-        "Nosso escritório administra uma carteira de grandes clientes constituída por inúmeras associações, sindicatos e outras entidades representativas dos servidores públicos, atuando no âmbito administrativo e judicial, com ênfase em demandas coletivas de interesse dos integrantes das respectivas carreiras.",
-    },
-    {
-      icon: Wallet,
-      title: "Direito Previdenciário",
-      description: "Concessão e revisão de benefícios previdenciários",
-      details:
-        "Atuamos no Regime Próprio de Previdência dos Servidores Públicos, no Regime Geral e nos regimes de previdência complementar, abrangendo servidores e empregados públicos.\nEntre nossos serviços estão: planejamento previdenciário, análise de tempo de serviço, orientação sobre contribuições, conversão de tempo especial, averbações, pedidos de aposentadoria, revisões, pensões, habilitação de herdeiros, isenção de IRPF por doença, entre outros.",
-    },
-    {
-      icon: Scale,
-      title: "Direito Constitucional",
-      description: "Elaboração de ADI e recursos extraordinários",
-      details:
-        "Área de especialização do escritório que está relacionada ao acompanhamento, elaboração e desenvolvimento de teses jurídicas que envolvem temas de natureza constitucional, sejam elas os recursos extraordinários, ações diretas de inconstitucionalidade (ADI), mandados de injunção, Arguição de Descumprimento de Preceito Fundamental (ADPF), reclamações, dentre outras.",
-    },
-    {
-      icon: ShieldAlert,
-      title: "Direito Penal",
-      description: "Habeas Corpus e recursos criminais",
-      details:
-        "O Direito Penal passou a integrar recentemente as áreas de atuação do nosso escritório. Trabalhamos em parceria com profissionais de ampla experiência, oferecendo atendimento especializado nas seguintes frentes:\n\n• Direito Penal Econômico\n• Atendimento personalizado ao cliente\n• Defesa Criminal em todas as instâncias\n• Atuação imediata perante autoridades e órgãos de Justiça",
-    },
-    {
-      icon: Vote,
-      title: "Direito Eleitoral",
-      description: "Assessoria eleitoral completa",
-      details:
-        "Assessoria eleitoral a partidos, candidatos, elaboração de recursos, sustentação oral e demais providências de ordem administrativa perante Tribunais Regionais Eleitorais e Tribunal Superior Eleitoral.",
-    },
-    {
-      icon: Landmark,
-      title: "Tribunais Superiores",
-      description: "Atuação em Brasília junto aos Tribunais Superiores",
-      details:
-        "MOTA & ADVOGADOS ASSOCIADOS é um dos escritórios com intensa atuação nos Tribunais Superiores, especialmente STJ, TST e STF, e no TSE e STM de forma associada, acompanhando recursos diversos, ou ajuizando ações originárias ou impetrando recursos em prol de clientes de todo os Brasil, e no assessoramento a outros escritórios de advocacia.",
-    },
-    {
-      icon: Home,
-      title: "Direito Imobiliário",
-      description: "Assessoria completa em negócios e regularização imobiliária",
-      details:
-        "Atuamos em todas as frentes do direito imobiliário, incluindo estruturação de negócios, cobrança de dívidas, assessoria em compra, venda e locação, avaliações, leilões, dação em pagamento, usucapião, regularização fundiária, desapropriações e acompanhamento perante SPU, INCRA e órgãos ambientais. Também tratamos de loteamentos, parcelamentos, registros imobiliários, projetos hoteleiros, estudos de viabilidade e assessoria para imobiliárias, incorporadoras, investidores e demandas judiciais relacionadas.",
-    },
-    {
-      icon: Heart,
-      title: "Direito de Família e Sucessões",
-      description: "Inventários, divórcios, pensões e sucessões",
-      details:
-        "Dedicamos atenção especial a esta área em razão de sua conexão com outras frentes do nosso trabalho, motivo pelo qual estruturamos um departamento exclusivo para atender casos de habilitação de crédito para herdeiros, reconhecimento e regularização de união estável, divórcios, pensões alimentícias, inventários e sobrepartilhas, tanto extrajudiciais quanto judiciais, além de outras demandas relacionadas.",
-    },
-    {
-      icon: Gavel,
-      title: "Fazenda Pública e Entes Federados",
-      description: "Ações contra União, Estados, DF e Municípios",
-      details:
-        "Esta área de atuação abrange ações de cobrança, indenizações, execuções contra Fazenda Pública da União, Estados, DF e Municípios, impugnação de autuações, adesão à regimes fiscais especiais, REFIS, desconsideração da personalidade jurídica, e matérias correlatas.",
-    },
-    {
-      icon: Handshake,
-      title: "Mediação e Conciliação",
-      description: "Métodos alternativos de resolução de conflitos",
-      details:
-        "Trata-se de uma área dedicada a métodos alternativos de resolução de conflitos, conduzida por profissionais especializados em técnicas de negociação. Por meio dela, pessoas físicas e jurídicas podem solucionar suas demandas de forma extrajudicial, com mais rapidez e eficiência, evitando o ingresso no Poder Judiciário. O processo garante segurança, formalidade e soluções adequadas para cada situação.",
-    },
-    {
-      icon: Receipt,
-      title: "Direito Tributário e Empresarial",
-      description: "Assessoria jurídica para empresas e matéria tributária",
-      details:
-        "Diante da crescente demanda nessa área, o escritório estruturou uma equipe exclusiva, coordenada por advogados especializados, para oferecer assessoria jurídica de alta complexidade e apoiar empresas na organização jurídica de seus negócios. Também acompanhamos as principais mudanças legislativas, especialmente em matéria tributária e regulatória, orientando sobre impactos, enquadramento legal, regularização de débitos e identificação de possíveis créditos tributários.",
-    },
+    { icon: Building2, key: "administrative" },
+    { icon: Briefcase, key: "labor" },
+    { icon: Users, key: "union" },
+    { icon: Wallet, key: "socialSecurity" },
+    { icon: Scale, key: "constitutional" },
+    { icon: ShieldAlert, key: "criminal" },
+    { icon: Vote, key: "electoral" },
+    { icon: Landmark, key: "superiorCourts" },
+    { icon: Home, key: "realEstate" },
+    { icon: Heart, key: "family" },
+    { icon: Gavel, key: "publicTreasury" },
+    { icon: Handshake, key: "mediation" },
+    { icon: Receipt, key: "taxBusiness" },
   ];
 
   return (
@@ -176,10 +98,10 @@ const PracticeAreas = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Áreas de Atuação
+            {t('practiceAreas.title')}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Especializados em Direito Constitucional e atuantes em diversas áreas do Direito.
+            {t('practiceAreas.subtitle')}
           </p>
         </div>
 
@@ -239,15 +161,15 @@ const PracticeAreas = () => {
                         </div>
 
                         <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300 min-h-[3.5rem]">
-                          {area.title}
+                          {t(`practiceAreas.areas.${area.key}.title`)}
                         </h3>
                         <p className="text-sm text-muted-foreground line-clamp-3 mb-5 leading-relaxed">
-                          {area.description}
+                          {t(`practiceAreas.areas.${area.key}.description`)}
                         </p>
                         
                         {/* Call to action with arrow animation */}
                         <div className="flex items-center gap-2 text-sm font-semibold text-accent">
-                          <span>Saiba mais</span>
+                          <span>{t('practiceAreas.learnMore')}</span>
                           <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
                         </div>
                       </CardContent>
@@ -276,7 +198,7 @@ const PracticeAreas = () => {
 
           {/* Swipe Hint - Mobile Only, fades out after first interaction */}
           <div className="flex justify-center gap-2 mt-4 lg:hidden opacity-60 animate-pulse">
-            <span className="text-sm text-muted-foreground">← Deslize para navegar →</span>
+            <span className="text-sm text-muted-foreground">{t('practiceAreas.swipeHint')}</span>
           </div>
         </div>
 
@@ -286,10 +208,10 @@ const PracticeAreas = () => {
               <>
                 <DialogHeader>
                   <DialogTitle className="text-3xl font-bold text-primary mb-2">
-                    {selectedArea.title}
+                    {t(`practiceAreas.areas.${selectedArea.key}.title`)}
                   </DialogTitle>
                   <DialogDescription className="text-base text-muted-foreground leading-relaxed pt-4 whitespace-pre-line">
-                    {selectedArea.details}
+                    {t(`practiceAreas.areas.${selectedArea.key}.details`)}
                   </DialogDescription>
                 </DialogHeader>
               </>
