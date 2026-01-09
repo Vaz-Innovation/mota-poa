@@ -100,7 +100,39 @@ const translations: Record<Language, any> = {
     about: {
       title: 'Sobre Nós',
       intro: 'Conheça mais sobre nossa história, valores e compromisso com a excelência jurídica.',
-      learnMore: 'Saiba mais →'
+      learnMore: 'Saiba mais →',
+      sectionTitle: 'Escritório',
+      sectionSubtitle: 'Construindo soluções jurídicas com excelência, ética e resultados desde 2000 com atuação nacional',
+      explore: 'Explorar',
+      trajectory: {
+        title: 'Trajetória',
+        badge: 'Desde 2000',
+        summary: 'Mais de 25 anos de excelência jurídica',
+        content1: 'A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados desde 2000, com atuação nacional.',
+        content2: 'A prestação de serviços jurídicos de excelência é nosso objetivo e se reflete nos resultados alcançados e na satisfação dos nossos clientes.'
+      },
+      pillars: {
+        title: 'Pilares Consolidados',
+        badge: 'Ética | Comprometimento',
+        summary: 'Os pilares de uma advocacia que une ética, excelência e resultados',
+        content1: 'A MOTA & ADVOGADOS ASSOCIADOS tem sua atuação fundada nos princípios de uma advocacia ética, do trabalho comprometido, sério e eficiente, atento às mudanças da sociedade e às necessidades de cada cliente, sem dispensar a boa técnica e o papel social do advogado na busca pela solução eficaz.',
+        content2: 'Nosso propósito é promover o equilíbrio das relações sociais através da prestação de um trabalho juridicamente competente, priorizando o relacionamento profissional com o cliente.',
+        content3: 'Nossa atuação, seja ela de forma preventiva, administrativa ou judicial, é focada na busca pela garantia dos direitos, na segurança jurídica, valorizando principalmente nosso ponto mais forte: as pessoas e a satisfação com o trabalho desenvolvido.'
+      },
+      mission: {
+        title: 'Nossa Missão',
+        badge: 'Excelência',
+        summary: 'Relacionamento de qualidade e serviços jurídicos eficazes',
+        content: 'Estamos inseridos em uma sociedade em constante evolução, o que reflete a necessidade de capacitação contínua de nossa equipe. Alterações legislativas, normativas e jurisprudenciais exigem cada vez mais qualificação técnica e a incorporação de novas tecnologias, para que o atendimento aos nossos clientes proporcione satisfação, alcance eficiência, resolutividade e, principalmente, agilidade.'
+      },
+      office: {
+        title: 'Escritório',
+        badge: 'Atuação Nacional',
+        summary: 'Sede em Porto Alegre com cobertura nacional',
+        content1: 'Tecnologia, agilidade e alcance nacional.',
+        content2: 'Presença em todo o território, soluções em cada detalhe.',
+        content3: 'Com endereços, também, em São Paulo, Brasília, e Natal.'
+      }
     },
     practiceAreas: {
       title: 'Áreas de Atuação',
@@ -198,7 +230,39 @@ const translations: Record<Language, any> = {
     about: {
       title: 'Sobre Nosotros',
       intro: 'Conozca más sobre nuestra historia, valores y compromiso con la excelencia jurídica.',
-      learnMore: 'Más información →'
+      learnMore: 'Más información →',
+      sectionTitle: 'Oficina',
+      sectionSubtitle: 'Construyendo soluciones jurídicas con excelencia, ética y resultados desde 2000 con actuación nacional',
+      explore: 'Explorar',
+      trajectory: {
+        title: 'Trayectoria',
+        badge: 'Desde 2000',
+        summary: 'Más de 25 años de excelencia jurídica',
+        content1: 'MOTA & ABOGADOS ASOCIADOS es una sociedad de abogados desde 2000, con actuación nacional.',
+        content2: 'La prestación de servicios jurídicos de excelencia es nuestro objetivo y se refleja en los resultados alcanzados y en la satisfacción de nuestros clientes.'
+      },
+      pillars: {
+        title: 'Pilares Consolidados',
+        badge: 'Ética | Compromiso',
+        summary: 'Los pilares de una abogacía que une ética, excelencia y resultados',
+        content1: 'MOTA & ABOGADOS ASOCIADOS tiene su actuación fundada en los principios de una abogacía ética, del trabajo comprometido, serio y eficiente, atento a los cambios de la sociedad y a las necesidades de cada cliente, sin prescindir de la buena técnica y el papel social del abogado en la búsqueda de la solución eficaz.',
+        content2: 'Nuestro propósito es promover el equilibrio de las relaciones sociales a través de la prestación de un trabajo jurídicamente competente, priorizando la relación profesional con el cliente.',
+        content3: 'Nuestra actuación, sea de forma preventiva, administrativa o judicial, está enfocada en la búsqueda de la garantía de los derechos, en la seguridad jurídica, valorizando principalmente nuestro punto más fuerte: las personas y la satisfacción con el trabajo desarrollado.'
+      },
+      mission: {
+        title: 'Nuestra Misión',
+        badge: 'Excelencia',
+        summary: 'Relación de calidad y servicios jurídicos eficaces',
+        content: 'Estamos insertos en una sociedad en constante evolución, lo que refleja la necesidad de capacitación continua de nuestro equipo. Cambios legislativos, normativos y jurisprudenciales exigen cada vez más calificación técnica y la incorporación de nuevas tecnologías, para que la atención a nuestros clientes proporcione satisfacción, alcance eficiencia, resolutividad y, principalmente, agilidad.'
+      },
+      office: {
+        title: 'Oficina',
+        badge: 'Actuación Nacional',
+        summary: 'Sede en Porto Alegre con cobertura nacional',
+        content1: 'Tecnología, agilidad y alcance nacional.',
+        content2: 'Presencia en todo el territorio, soluciones en cada detalle.',
+        content3: 'Con direcciones, también, en São Paulo, Brasilia y Natal.'
+      }
     },
     practiceAreas: {
       title: 'Áreas de Práctica',
@@ -296,7 +360,39 @@ const translations: Record<Language, any> = {
     about: {
       title: 'About Us',
       intro: 'Learn more about our history, values and commitment to legal excellence.',
-      learnMore: 'Learn more →'
+      learnMore: 'Learn more →',
+      sectionTitle: 'Office',
+      sectionSubtitle: 'Building legal solutions with excellence, ethics and results since 2000 with national coverage',
+      explore: 'Explore',
+      trajectory: {
+        title: 'Trajectory',
+        badge: 'Since 2000',
+        summary: 'Over 25 years of legal excellence',
+        content1: 'MOTA & LAWYERS ASSOCIATES is a law firm since 2000, with national coverage.',
+        content2: 'Providing excellent legal services is our goal and is reflected in the results achieved and in our clients\' satisfaction.'
+      },
+      pillars: {
+        title: 'Consolidated Pillars',
+        badge: 'Ethics | Commitment',
+        summary: 'The pillars of a law practice that unites ethics, excellence and results',
+        content1: 'MOTA & LAWYERS ASSOCIATES has its practice founded on the principles of ethical advocacy, committed, serious and efficient work, attentive to changes in society and the needs of each client, without dispensing with good technique and the lawyer\'s social role in the search for effective solutions.',
+        content2: 'Our purpose is to promote the balance of social relations through the provision of legally competent work, prioritizing the professional relationship with the client.',
+        content3: 'Our practice, whether preventive, administrative or judicial, is focused on seeking the guarantee of rights, legal security, valuing mainly our strongest point: people and satisfaction with the work developed.'
+      },
+      mission: {
+        title: 'Our Mission',
+        badge: 'Excellence',
+        summary: 'Quality relationships and effective legal services',
+        content: 'We are part of a constantly evolving society, which reflects the need for continuous training of our team. Legislative, regulatory and jurisprudential changes require more and more technical qualification and the incorporation of new technologies, so that the service to our clients provides satisfaction, achieves efficiency, resolution and, above all, agility.'
+      },
+      office: {
+        title: 'Office',
+        badge: 'National Coverage',
+        summary: 'Headquarters in Porto Alegre with national coverage',
+        content1: 'Technology, agility and national reach.',
+        content2: 'Presence throughout the territory, solutions in every detail.',
+        content3: 'With addresses also in São Paulo, Brasília, and Natal.'
+      }
     },
     practiceAreas: {
       title: 'Practice Areas',
@@ -394,7 +490,39 @@ const translations: Record<Language, any> = {
     about: {
       title: 'Über Uns',
       intro: 'Erfahren Sie mehr über unsere Geschichte, Werte und unser Engagement für juristische Exzellenz.',
-      learnMore: 'Mehr erfahren →'
+      learnMore: 'Mehr erfahren →',
+      sectionTitle: 'Kanzlei',
+      sectionSubtitle: 'Juristische Lösungen mit Exzellenz, Ethik und Ergebnissen seit 2000 mit nationaler Reichweite',
+      explore: 'Erkunden',
+      trajectory: {
+        title: 'Geschichte',
+        badge: 'Seit 2000',
+        summary: 'Über 25 Jahre juristische Exzellenz',
+        content1: 'MOTA & RECHTSANWÄLTE PARTNER ist eine Anwaltskanzlei seit 2000 mit nationaler Reichweite.',
+        content2: 'Exzellente Rechtsdienstleistungen zu erbringen ist unser Ziel und spiegelt sich in den erzielten Ergebnissen und der Zufriedenheit unserer Mandanten wider.'
+      },
+      pillars: {
+        title: 'Konsolidierte Grundsätze',
+        badge: 'Ethik | Engagement',
+        summary: 'Die Grundsätze einer Anwaltspraxis, die Ethik, Exzellenz und Ergebnisse vereint',
+        content1: 'MOTA & RECHTSANWÄLTE PARTNER hat seine Praxis auf den Grundsätzen ethischer Rechtsvertretung, engagierter, seriöser und effizienter Arbeit gegründet, aufmerksam auf gesellschaftliche Veränderungen und die Bedürfnisse jedes Mandanten, ohne auf gute Technik und die soziale Rolle des Anwalts bei der Suche nach effektiven Lösungen zu verzichten.',
+        content2: 'Unser Ziel ist es, das Gleichgewicht der sozialen Beziehungen durch rechtlich kompetente Arbeit zu fördern und die professionelle Beziehung zum Mandanten zu priorisieren.',
+        content3: 'Unsere Praxis, ob präventiv, administrativ oder gerichtlich, konzentriert sich auf die Garantie der Rechte, die Rechtssicherheit und schätzt vor allem unsere größte Stärke: die Menschen und die Zufriedenheit mit der geleisteten Arbeit.'
+      },
+      mission: {
+        title: 'Unsere Mission',
+        badge: 'Exzellenz',
+        summary: 'Qualitätsbeziehungen und effektive Rechtsdienstleistungen',
+        content: 'Wir sind Teil einer sich ständig weiterentwickelnden Gesellschaft, was die Notwendigkeit kontinuierlicher Weiterbildung unseres Teams widerspiegelt. Gesetzliche, regulatorische und rechtsprechende Änderungen erfordern immer mehr technische Qualifikation und die Integration neuer Technologien, damit der Service für unsere Mandanten Zufriedenheit bietet, Effizienz erreicht, Lösungen findet und vor allem Agilität gewährleistet.'
+      },
+      office: {
+        title: 'Kanzlei',
+        badge: 'Nationale Reichweite',
+        summary: 'Hauptsitz in Porto Alegre mit nationaler Abdeckung',
+        content1: 'Technologie, Agilität und nationale Reichweite.',
+        content2: 'Präsenz im ganzen Land, Lösungen in jedem Detail.',
+        content3: 'Mit Adressen auch in São Paulo, Brasília und Natal.'
+      }
     },
     practiceAreas: {
       title: 'Tätigkeitsbereiche',
@@ -492,7 +620,39 @@ const translations: Record<Language, any> = {
     about: {
       title: 'Chi Siamo',
       intro: 'Scopri di più sulla nostra storia, valori e impegno per l\'eccellenza legale.',
-      learnMore: 'Scopri di più →'
+      learnMore: 'Scopri di più →',
+      sectionTitle: 'Studio',
+      sectionSubtitle: 'Costruendo soluzioni legali con eccellenza, etica e risultati dal 2000 con copertura nazionale',
+      explore: 'Esplora',
+      trajectory: {
+        title: 'Storia',
+        badge: 'Dal 2000',
+        summary: 'Oltre 25 anni di eccellenza legale',
+        content1: 'MOTA & AVVOCATI ASSOCIATI è uno studio legale dal 2000, con copertura nazionale.',
+        content2: 'Fornire servizi legali eccellenti è il nostro obiettivo e si riflette nei risultati raggiunti e nella soddisfazione dei nostri clienti.'
+      },
+      pillars: {
+        title: 'Pilastri Consolidati',
+        badge: 'Etica | Impegno',
+        summary: 'I pilastri di una pratica legale che unisce etica, eccellenza e risultati',
+        content1: 'MOTA & AVVOCATI ASSOCIATI ha la sua pratica fondata sui principi della difesa etica, del lavoro impegnato, serio ed efficiente, attento ai cambiamenti della società e alle esigenze di ogni cliente, senza rinunciare alla buona tecnica e al ruolo sociale dell\'avvocato nella ricerca di soluzioni efficaci.',
+        content2: 'Il nostro scopo è promuovere l\'equilibrio delle relazioni sociali attraverso la prestazione di un lavoro giuridicamente competente, dando priorità al rapporto professionale con il cliente.',
+        content3: 'La nostra pratica, sia essa preventiva, amministrativa o giudiziaria, è focalizzata sulla ricerca della garanzia dei diritti, della sicurezza giuridica, valorizzando principalmente il nostro punto di forza: le persone e la soddisfazione per il lavoro svolto.'
+      },
+      mission: {
+        title: 'La Nostra Missione',
+        badge: 'Eccellenza',
+        summary: 'Relazioni di qualità e servizi legali efficaci',
+        content: 'Siamo parte di una società in continua evoluzione, che riflette la necessità di formazione continua del nostro team. I cambiamenti legislativi, normativi e giurisprudenziali richiedono sempre più qualificazione tecnica e l\'incorporazione di nuove tecnologie, affinché il servizio ai nostri clienti fornisca soddisfazione, raggiunga efficienza, risoluzione e, soprattutto, agilità.'
+      },
+      office: {
+        title: 'Studio',
+        badge: 'Copertura Nazionale',
+        summary: 'Sede a Porto Alegre con copertura nazionale',
+        content1: 'Tecnologia, agilità e portata nazionale.',
+        content2: 'Presenza su tutto il territorio, soluzioni in ogni dettaglio.',
+        content3: 'Con indirizzi anche a São Paulo, Brasília e Natal.'
+      }
     },
     practiceAreas: {
       title: 'Aree di Pratica',
@@ -590,7 +750,39 @@ const translations: Record<Language, any> = {
     about: {
       title: 'À Propos de Nous',
       intro: 'Découvrez notre histoire, nos valeurs et notre engagement envers l\'excellence juridique.',
-      learnMore: 'En savoir plus →'
+      learnMore: 'En savoir plus →',
+      sectionTitle: 'Cabinet',
+      sectionSubtitle: 'Construire des solutions juridiques avec excellence, éthique et résultats depuis 2000 avec une couverture nationale',
+      explore: 'Explorer',
+      trajectory: {
+        title: 'Trajectoire',
+        badge: 'Depuis 2000',
+        summary: 'Plus de 25 ans d\'excellence juridique',
+        content1: 'MOTA & AVOCATS ASSOCIÉS est un cabinet d\'avocats depuis 2000, avec une couverture nationale.',
+        content2: 'Fournir d\'excellents services juridiques est notre objectif et se reflète dans les résultats obtenus et la satisfaction de nos clients.'
+      },
+      pillars: {
+        title: 'Piliers Consolidés',
+        badge: 'Éthique | Engagement',
+        summary: 'Les piliers d\'une pratique juridique qui unit éthique, excellence et résultats',
+        content1: 'MOTA & AVOCATS ASSOCIÉS a sa pratique fondée sur les principes d\'une défense éthique, d\'un travail engagé, sérieux et efficace, attentif aux changements de la société et aux besoins de chaque client, sans renoncer à la bonne technique et au rôle social de l\'avocat dans la recherche de solutions efficaces.',
+        content2: 'Notre objectif est de promouvoir l\'équilibre des relations sociales grâce à la prestation d\'un travail juridiquement compétent, en privilégiant la relation professionnelle avec le client.',
+        content3: 'Notre pratique, qu\'elle soit préventive, administrative ou judiciaire, est axée sur la recherche de la garantie des droits, de la sécurité juridique, en valorisant principalement notre point le plus fort: les personnes et la satisfaction du travail accompli.'
+      },
+      mission: {
+        title: 'Notre Mission',
+        badge: 'Excellence',
+        summary: 'Relations de qualité et services juridiques efficaces',
+        content: 'Nous faisons partie d\'une société en constante évolution, ce qui reflète la nécessité d\'une formation continue de notre équipe. Les changements législatifs, réglementaires et jurisprudentiels exigent de plus en plus de qualification technique et l\'incorporation de nouvelles technologies, afin que le service à nos clients apporte satisfaction, atteigne l\'efficacité, la résolution et, surtout, l\'agilité.'
+      },
+      office: {
+        title: 'Cabinet',
+        badge: 'Couverture Nationale',
+        summary: 'Siège à Porto Alegre avec couverture nationale',
+        content1: 'Technologie, agilité et portée nationale.',
+        content2: 'Présence sur tout le territoire, solutions dans chaque détail.',
+        content3: 'Avec des adresses également à São Paulo, Brasília et Natal.'
+      }
     },
     practiceAreas: {
       title: 'Domaines de Pratique',
@@ -688,7 +880,39 @@ const translations: Record<Language, any> = {
     about: {
       title: '关于我们',
       intro: '了解我们的历史、价值观以及对法律卓越的承诺。',
-      learnMore: '了解更多 →'
+      learnMore: '了解更多 →',
+      sectionTitle: '事务所',
+      sectionSubtitle: '自2000年以来，以卓越、道德和成果构建法律解决方案，覆盖全国',
+      explore: '探索',
+      trajectory: {
+        title: '发展历程',
+        badge: '始于2000年',
+        summary: '超过25年的法律卓越',
+        content1: '莫塔律师事务所自2000年成立以来，业务覆盖全国。',
+        content2: '提供卓越的法律服务是我们的目标，这体现在我们取得的成果和客户的满意度上。'
+      },
+      pillars: {
+        title: '坚实基础',
+        badge: '道德 | 承诺',
+        summary: '将道德、卓越和成果融为一体的法律实践基础',
+        content1: '莫塔律师事务所的实践建立在道德辩护、认真、严肃和高效工作的原则之上，关注社会变化和每位客户的需求，同时不放弃良好的技术和律师在寻求有效解决方案中的社会角色。',
+        content2: '我们的目标是通过提供法律上合格的工作来促进社会关系的平衡，优先考虑与客户的专业关系。',
+        content3: '我们的实践，无论是预防性的、行政性的还是司法性的，都专注于寻求权利保障、法律安全，最重要的是重视我们最强大的优势：人员和对所完成工作的满意度。'
+      },
+      mission: {
+        title: '我们的使命',
+        badge: '卓越',
+        summary: '优质关系和有效的法律服务',
+        content: '我们是一个不断发展的社会的一部分，这反映了我们团队持续培训的必要性。立法、监管和司法判例的变化要求越来越多的技术资格和新技术的融入，以便为客户提供满意的服务，实现效率、解决问题，最重要的是敏捷性。'
+      },
+      office: {
+        title: '事务所',
+        badge: '全国覆盖',
+        summary: '总部位于阿雷格里港，覆盖全国',
+        content1: '技术、敏捷性和全国覆盖。',
+        content2: '遍布全国，在每个细节上提供解决方案。',
+        content3: '在圣保罗、巴西利亚和纳塔尔也设有办事处。'
+      }
     },
     practiceAreas: {
       title: '业务领域',
