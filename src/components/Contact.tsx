@@ -15,12 +15,12 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const contactSchema = z.object({
-    name: z.string().trim().min(1, "Nome é obrigatório").max(100, "Nome muito longo"),
-    email: z.string().trim().email("E-mail inválido").max(255, "E-mail muito longo"),
-    phone: z.string().trim().min(1, "Telefone é obrigatório").max(20, "Telefone muito longo"),
-    cpf: z.string().trim().min(1, "CPF é obrigatório").max(14, "CPF inválido"),
-    processNumber: z.string().trim().max(50, "Número do processo muito longo").optional(),
-    message: z.string().trim().min(10, "Mensagem deve ter pelo menos 10 caracteres").max(1000, "Mensagem muito longa")
+    name: z.string().trim().min(1, t('contact.validation.nameRequired')).max(100, t('contact.validation.nameTooLong')),
+    email: z.string().trim().email(t('contact.validation.emailInvalid')).max(255, t('contact.validation.emailTooLong')),
+    phone: z.string().trim().min(1, t('contact.validation.phoneRequired')).max(20, t('contact.validation.phoneTooLong')),
+    cpf: z.string().trim().min(1, t('contact.validation.cpfRequired')).max(14, t('contact.validation.cpfInvalid')),
+    processNumber: z.string().trim().max(50, t('contact.validation.processNumberTooLong')).optional(),
+    message: z.string().trim().min(10, t('contact.validation.messageTooShort')).max(1000, t('contact.validation.messageTooLong'))
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -47,8 +47,8 @@ const Contact = () => {
       window.open(`https://wa.me/5551981981210?text=${whatsappMessage}`, '_blank');
       
       toast({
-        title: "Mensagem enviada!",
-        description: "Entraremos em contato em breve.",
+        title: t('contact.toastSuccessTitle'),
+        description: t('contact.toastSuccessDescription'),
       });
       
       // Reset form
@@ -56,14 +56,14 @@ const Contact = () => {
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast({
-          title: "Erro de validação",
+          title: t('contact.toastValidationErrorTitle'),
           description: error.issues[0].message,
           variant: "destructive",
         });
       } else {
         toast({
-          title: "Erro",
-          description: "Ocorreu um erro ao enviar sua mensagem. Tente novamente.",
+          title: t('contact.toastGenericErrorTitle'),
+          description: t('contact.toastGenericErrorDescription'),
           variant: "destructive",
         });
       }
@@ -96,14 +96,14 @@ const Contact = () => {
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <Car className="w-4 h-4" />
             <p className="text-sm">
-              Opção de estacionamento para acesso ao escritório - {" "}
+              {t('contact.parkingText')} - {" "}
               <a 
                 href="https://maps.app.goo.gl/pMeXvfLdYfhFseow5" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-accent hover:underline"
               >
-                mapa do estacionamento
+                {t('contact.parkingLinkText')}
               </a>
             </p>
           </div>
@@ -118,10 +118,10 @@ const Contact = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Contato
+              {t('contact.formTitle')}
             </h3>
             <p className="text-lg text-muted-foreground">
-              Preencha o formulário abaixo e entraremos em contato o mais breve possível
+              {t('contact.formSubtitle')}
             </p>
           </div>
 
@@ -130,13 +130,13 @@ const Contact = () => {
             <div className="space-y-2">
               <Label htmlFor="name" className="text-sm font-medium flex items-center gap-2">
                 <User className="w-4 h-4 text-accent" />
-                Nome Completo
+                {t('contact.fields.fullNameLabel')}
               </Label>
               <Input
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Seu nome completo"
+                placeholder={t('contact.fields.fullNamePlaceholder')}
                 required
                 maxLength={100}
                 className="w-full"
@@ -147,13 +147,13 @@ const Contact = () => {
             <div className="space-y-2">
               <Label htmlFor="cpf" className="text-sm font-medium flex items-center gap-2">
                 <User className="w-4 h-4 text-accent" />
-                CPF
+                {t('contact.fields.cpfLabel')}
               </Label>
               <Input
                 id="cpf"
                 name="cpf"
                 type="text"
-                placeholder="000.000.000-00"
+                placeholder={t('contact.fields.cpfPlaceholder')}
                 required
                 maxLength={14}
                 className="w-full"
@@ -164,13 +164,13 @@ const Contact = () => {
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-sm font-medium flex items-center gap-2">
                 <Phone className="w-4 h-4 text-accent" />
-                Telefone
+                {t('contact.fields.phoneLabel')}
               </Label>
               <Input
                 id="phone"
                 name="phone"
                 type="tel"
-                placeholder="(00) 00000-0000"
+                placeholder={t('contact.fields.phonePlaceholder')}
                 required
                 maxLength={20}
                 className="w-full"
@@ -181,13 +181,13 @@ const Contact = () => {
             <div className="space-y-2">
               <Label htmlFor="email" className="text-sm font-medium flex items-center gap-2">
                 <Mail className="w-4 h-4 text-accent" />
-                E-mail
+                {t('contact.fields.emailLabel')}
               </Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="seu@email.com"
+                placeholder={t('contact.fields.emailPlaceholder')}
                 required
                 maxLength={255}
                 className="w-full"
@@ -198,13 +198,13 @@ const Contact = () => {
             <div className="space-y-2">
               <Label htmlFor="processNumber" className="text-sm font-medium flex items-center gap-2">
                 <MessageSquare className="w-4 h-4 text-accent" />
-                Número do Processo (Opcional)
+                {t('contact.fields.processNumberLabelOptional')}
               </Label>
               <Input
                 id="processNumber"
                 name="processNumber"
                 type="text"
-                placeholder="0000000-00.0000.0.00.0000"
+                placeholder={t('contact.fields.processNumberPlaceholder')}
                 maxLength={50}
                 className="w-full"
               />
@@ -214,12 +214,12 @@ const Contact = () => {
             <div className="space-y-2">
               <Label htmlFor="message" className="text-sm font-medium flex items-center gap-2">
                 <MessageSquare className="w-4 h-4 text-accent" />
-                Mensagem
+                {t('contact.fields.messageLabel')}
               </Label>
               <Textarea
                 id="message"
                 name="message"
-                placeholder="Descreva como podemos ajudá-lo..."
+                placeholder={t('contact.fields.messagePlaceholder')}
                 required
                 minLength={10}
                 maxLength={1000}
@@ -234,7 +234,7 @@ const Contact = () => {
               disabled={isSubmitting}
               className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-6 text-lg rounded-lg transition-all duration-300 hover:shadow-lg"
             >
-              {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
+              {isSubmitting ? t('contact.submitting') : t('contact.submit')}
             </Button>
           </form>
         </div>

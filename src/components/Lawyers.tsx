@@ -90,7 +90,7 @@ const Lawyers = () => {
             size="icon"
             onClick={scrollPrev}
             className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
-            aria-label="Anterior"
+            aria-label={t('lawyers.prev')}
           >
             <ChevronLeft className="w-6 h-6" />
           </Button>
@@ -100,7 +100,7 @@ const Lawyers = () => {
             size="icon"
             onClick={scrollNext}
             className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
-            aria-label="Próximo"
+            aria-label={t('lawyers.next')}
           >
             <ChevronRight className="w-6 h-6" />
           </Button>
@@ -172,7 +172,7 @@ const Lawyers = () => {
 
           {/* Swipe Hint - Mobile Only */}
           <div className="flex justify-center gap-2 mt-4 lg:hidden opacity-60 animate-pulse">
-            <span className="text-sm text-muted-foreground">← Deslize para navegar →</span>
+            <span className="text-sm text-muted-foreground">{t('lawyers.swipeHint')}</span>
           </div>
         </div>
       </div>
