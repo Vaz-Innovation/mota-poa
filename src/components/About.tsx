@@ -36,7 +36,7 @@ const About = () => {
       icon: TrendingUp,
       title: "Trajetória",
       badge: "Desde 2000",
-      summary: "Mais de 25 anos de excelência jurídica em Porto Alegre",
+      summary: "Mais de 25 anos de excelência jurídica",
       content: (
         <>
           <p className="mb-4">
