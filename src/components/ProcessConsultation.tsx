@@ -22,7 +22,7 @@ const ProcessConsultation = () => {
     if (!processNumber.trim() || !name.trim() || !cpf.trim()) {
       toast({
         title: t('processConsultation.error'),
-        description: "Por favor, preencha todos os campos obrigatórios",
+        description: t('processConsultation.requiredFieldsError'),
         variant: "destructive",
       });
       return;
@@ -87,7 +87,7 @@ const ProcessConsultation = () => {
                   <div>
                     <Input
                       type="text"
-                      placeholder="Nome completo"
+                      placeholder={t('processConsultation.fullNamePlaceholder')}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       className="text-base"
@@ -97,7 +97,7 @@ const ProcessConsultation = () => {
                   <div>
                     <Input
                       type="text"
-                      placeholder="CPF (000.000.000-00)"
+                      placeholder={t('processConsultation.cpfPlaceholder')}
                       value={cpf}
                       onChange={(e) => setCpf(e.target.value)}
                       className="text-base"
