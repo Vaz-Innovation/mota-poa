@@ -40,7 +40,7 @@ const About = () => {
       content: (
         <>
           <p className="mb-4">
-            A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados com sede na cidade de Porto Alegre, RS, desde 2000, e com atuação nacional.
+            A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados desde 2000, com atuação nacional.
           </p>
           <p>
             A prestação de serviços jurídicos de excelência é nosso objetivo e se reflete nos resultados alcançados e na satisfação dos nossos clientes.
