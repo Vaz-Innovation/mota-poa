@@ -136,8 +136,76 @@ const translations: Record<Language, any> = {
     },
     practiceAreas: {
       title: 'Áreas de Atuação',
-      intro: 'Temos nossa atuação inserida em diversas áreas do Direito, especializados nas áreas do Direito Social, com destaque para Direito do Trabalho Individual e Coletivo, Direito Sindical, Direito Previdenciário e Direito Administrativo. Também atendemos outras áreas, contando sempre com profissionais qualificados.',
-      learnMore: 'Saiba mais →'
+      subtitle: 'Especializados em Direito Constitucional e atuantes em diversas áreas do Direito.',
+      learnMore: 'Saiba mais',
+      swipeHint: '← Deslize para navegar →',
+      areas: {
+        administrative: {
+          title: 'Direito Administrativo (Servidor Público)',
+          description: 'Defesa dos direitos e interesses dos servidores públicos',
+          details: 'Ao longo de sua trajetória nos consolidamos como um dos maiores escritórios de advocacia do país na defesa dos direitos e interesses profissionais dos servidores públicos, atuando de forma resolutiva em milhares de ações judiciais que asseguraram aos servidores públicos o reconhecimento de seus direitos. São inúmeros os servidores assistidos pelo escritório, sempre de forma direta e humanizada, com total transparência, orientação técnica, e encaminhamento jurídico responsável, proporcionando segurança jurídica na tomada de decisões que afetam seus direitos individuais e coletivos.'
+        },
+        labor: {
+          title: 'Direito do Trabalho Individual e Coletivo',
+          description: 'Reclamatórias trabalhistas e acompanhamento processual',
+          details: 'Reclamatórias trabalhistas (Horas-extras; Periculosidade/insalubridade; Promoções; Adicional de transferência; Vinculo empregatício; Estabilidade de gestante; Pedido de complementação da aposentadoria; Multa 40% FGTS; Função gratificada; Acidente de trabalho), acompanhamento em audiências, medidas cautelares, contestações, acompanhamento de todos os recursos no âmbito do TRTs e TST.'
+        },
+        union: {
+          title: 'Direito Sindical',
+          description: 'Assessoria completa para entidades sindicais',
+          details: 'Nosso escritório administra uma carteira de grandes clientes constituída por inúmeras associações, sindicatos e outras entidades representativas dos servidores públicos, atuando no âmbito administrativo e judicial, com ênfase em demandas coletivas de interesse dos integrantes das respectivas carreiras.'
+        },
+        socialSecurity: {
+          title: 'Direito Previdenciário',
+          description: 'Concessão e revisão de benefícios previdenciários',
+          details: 'Atuamos no Regime Próprio de Previdência dos Servidores Públicos, no Regime Geral e nos regimes de previdência complementar, abrangendo servidores e empregados públicos.\nEntre nossos serviços estão: planejamento previdenciário, análise de tempo de serviço, orientação sobre contribuições, conversão de tempo especial, averbações, pedidos de aposentadoria, revisões, pensões, habilitação de herdeiros, isenção de IRPF por doença, entre outros.'
+        },
+        constitutional: {
+          title: 'Direito Constitucional',
+          description: 'Elaboração de ADI e recursos extraordinários',
+          details: 'Área de especialização do escritório que está relacionada ao acompanhamento, elaboração e desenvolvimento de teses jurídicas que envolvem temas de natureza constitucional, sejam elas os recursos extraordinários, ações diretas de inconstitucionalidade (ADI), mandados de injunção, Arguição de Descumprimento de Preceito Fundamental (ADPF), reclamações, dentre outras.'
+        },
+        criminal: {
+          title: 'Direito Penal',
+          description: 'Habeas Corpus e recursos criminais',
+          details: 'O Direito Penal passou a integrar recentemente as áreas de atuação do nosso escritório. Trabalhamos em parceria com profissionais de ampla experiência, oferecendo atendimento especializado nas seguintes frentes:\n\n• Direito Penal Econômico\n• Atendimento personalizado ao cliente\n• Defesa Criminal em todas as instâncias\n• Atuação imediata perante autoridades e órgãos de Justiça'
+        },
+        electoral: {
+          title: 'Direito Eleitoral',
+          description: 'Assessoria eleitoral completa',
+          details: 'Assessoria eleitoral a partidos, candidatos, elaboração de recursos, sustentação oral e demais providências de ordem administrativa perante Tribunais Regionais Eleitorais e Tribunal Superior Eleitoral.'
+        },
+        superiorCourts: {
+          title: 'Tribunais Superiores',
+          description: 'Atuação em Brasília junto aos Tribunais Superiores',
+          details: 'MOTA & ADVOGADOS ASSOCIADOS é um dos escritórios com intensa atuação nos Tribunais Superiores, especialmente STJ, TST e STF, e no TSE e STM de forma associada, acompanhando recursos diversos, ou ajuizando ações originárias ou impetrando recursos em prol de clientes de todo os Brasil, e no assessoramento a outros escritórios de advocacia.'
+        },
+        realEstate: {
+          title: 'Direito Imobiliário',
+          description: 'Assessoria completa em negócios e regularização imobiliária',
+          details: 'Atuamos em todas as frentes do direito imobiliário, incluindo estruturação de negócios, cobrança de dívidas, assessoria em compra, venda e locação, avaliações, leilões, dação em pagamento, usucapião, regularização fundiária, desapropriações e acompanhamento perante SPU, INCRA e órgãos ambientais. Também tratamos de loteamentos, parcelamentos, registros imobiliários, projetos hoteleiros, estudos de viabilidade e assessoria para imobiliárias, incorporadoras, investidores e demandas judiciais relacionadas.'
+        },
+        family: {
+          title: 'Direito de Família e Sucessões',
+          description: 'Inventários, divórcios, pensões e sucessões',
+          details: 'Dedicamos atenção especial a esta área em razão de sua conexão com outras frentes do nosso trabalho, motivo pelo qual estruturamos um departamento exclusivo para atender casos de habilitação de crédito para herdeiros, reconhecimento e regularização de união estável, divórcios, pensões alimentícias, inventários e sobrepartilhas, tanto extrajudiciais quanto judiciais, além de outras demandas relacionadas.'
+        },
+        publicTreasury: {
+          title: 'Fazenda Pública e Entes Federados',
+          description: 'Ações contra União, Estados, DF e Municípios',
+          details: 'Esta área de atuação abrange ações de cobrança, indenizações, execuções contra Fazenda Pública da União, Estados, DF e Municípios, impugnação de autuações, adesão à regimes fiscais especiais, REFIS, desconsideração da personalidade jurídica, e matérias correlatas.'
+        },
+        mediation: {
+          title: 'Mediação e Conciliação',
+          description: 'Métodos alternativos de resolução de conflitos',
+          details: 'Trata-se de uma área dedicada a métodos alternativos de resolução de conflitos, conduzida por profissionais especializados em técnicas de negociação. Por meio dela, pessoas físicas e jurídicas podem solucionar suas demandas de forma extrajudicial, com mais rapidez e eficiência, evitando o ingresso no Poder Judiciário. O processo garante segurança, formalidade e soluções adequadas para cada situação.'
+        },
+        taxBusiness: {
+          title: 'Direito Tributário e Empresarial',
+          description: 'Assessoria jurídica para empresas e matéria tributária',
+          details: 'Diante da crescente demanda nessa área, o escritório estruturou uma equipe exclusiva, coordenada por advogados especializados, para oferecer assessoria jurídica de alta complexidade e apoiar empresas na organização jurídica de seus negócios. Também acompanhamos as principais mudanças legislativas, especialmente em matéria tributária e regulatória, orientando sobre impactos, enquadramento legal, regularização de débitos e identificação de possíveis créditos tributários.'
+        }
+      }
     },
     lawyers: {
       title: 'Equipe',
@@ -266,8 +334,76 @@ const translations: Record<Language, any> = {
     },
     practiceAreas: {
       title: 'Áreas de Práctica',
-      intro: 'Tenemos nuestra actuación insertada en diversas áreas del Derecho, especializados en las áreas del Derecho Social, con énfasis en Derecho Laboral Individual y Colectivo, Derecho Sindical, Derecho Previsional y Derecho Administrativo. También atendemos otras áreas, contando siempre con profesionales calificados.',
-      learnMore: 'Más información →'
+      subtitle: 'Especializados en Derecho Constitucional y actuantes en diversas áreas del Derecho.',
+      learnMore: 'Más información',
+      swipeHint: '← Desliza para navegar →',
+      areas: {
+        administrative: {
+          title: 'Derecho Administrativo (Servidor Público)',
+          description: 'Defensa de los derechos e intereses de los servidores públicos',
+          details: 'A lo largo de nuestra trayectoria nos consolidamos como uno de los mayores despachos de abogados del país en la defensa de los derechos e intereses profesionales de los servidores públicos, actuando de forma resolutiva en miles de acciones judiciales que aseguraron a los servidores públicos el reconocimiento de sus derechos.'
+        },
+        labor: {
+          title: 'Derecho Laboral Individual y Colectivo',
+          description: 'Reclamaciones laborales y seguimiento procesal',
+          details: 'Reclamaciones laborales (horas extras, peligrosidad/insalubridad, promociones, adicional de transferencia, vínculo laboral, estabilidad de gestante, solicitud de complementación de jubilación, multa 40% FGTS, función gratificada, accidente de trabajo), seguimiento en audiencias, medidas cautelares, contestaciones.'
+        },
+        union: {
+          title: 'Derecho Sindical',
+          description: 'Asesoría completa para entidades sindicales',
+          details: 'Nuestro despacho administra una cartera de grandes clientes constituida por numerosas asociaciones, sindicatos y otras entidades representativas de los servidores públicos, actuando en el ámbito administrativo y judicial.'
+        },
+        socialSecurity: {
+          title: 'Derecho Previsional',
+          description: 'Concesión y revisión de beneficios previsionales',
+          details: 'Actuamos en el Régimen Propio de Previsión de los Servidores Públicos, en el Régimen General y en los regímenes de previsión complementaria, abarcando servidores y empleados públicos.'
+        },
+        constitutional: {
+          title: 'Derecho Constitucional',
+          description: 'Elaboración de ADI y recursos extraordinarios',
+          details: 'Área de especialización del despacho relacionada con el seguimiento, elaboración y desarrollo de tesis jurídicas que involucran temas de naturaleza constitucional.'
+        },
+        criminal: {
+          title: 'Derecho Penal',
+          description: 'Habeas Corpus y recursos criminales',
+          details: 'El Derecho Penal pasó a integrar recientemente las áreas de actuación de nuestro despacho. Trabajamos en asociación con profesionales de amplia experiencia.'
+        },
+        electoral: {
+          title: 'Derecho Electoral',
+          description: 'Asesoría electoral completa',
+          details: 'Asesoría electoral a partidos, candidatos, elaboración de recursos, sustentación oral y demás providencias de orden administrativa ante Tribunales Regionales Electorales y Tribunal Superior Electoral.'
+        },
+        superiorCourts: {
+          title: 'Tribunales Superiores',
+          description: 'Actuación en Brasilia ante los Tribunales Superiores',
+          details: 'MOTA & ABOGADOS ASOCIADOS es uno de los despachos con intensa actuación en los Tribunales Superiores, especialmente STJ, TST y STF.'
+        },
+        realEstate: {
+          title: 'Derecho Inmobiliario',
+          description: 'Asesoría completa en negocios y regularización inmobiliaria',
+          details: 'Actuamos en todos los frentes del derecho inmobiliario, incluyendo estructuración de negocios, cobro de deudas, asesoría en compra, venta y alquiler.'
+        },
+        family: {
+          title: 'Derecho de Familia y Sucesiones',
+          description: 'Inventarios, divorcios, pensiones y sucesiones',
+          details: 'Dedicamos atención especial a esta área debido a su conexión con otras áreas de nuestro trabajo, por lo que estructuramos un departamento exclusivo.'
+        },
+        publicTreasury: {
+          title: 'Hacienda Pública y Entes Federados',
+          description: 'Acciones contra Unión, Estados, DF y Municipios',
+          details: 'Esta área de actuación abarca acciones de cobro, indemnizaciones, ejecuciones contra Hacienda Pública de la Unión, Estados, DF y Municipios.'
+        },
+        mediation: {
+          title: 'Mediación y Conciliación',
+          description: 'Métodos alternativos de resolución de conflictos',
+          details: 'Se trata de un área dedicada a métodos alternativos de resolución de conflictos, conducida por profesionales especializados en técnicas de negociación.'
+        },
+        taxBusiness: {
+          title: 'Derecho Tributario y Empresarial',
+          description: 'Asesoría jurídica para empresas y materia tributaria',
+          details: 'Ante la creciente demanda en esta área, el despacho estructuró un equipo exclusivo, coordinado por abogados especializados.'
+        }
+      }
     },
     lawyers: {
       title: 'Socios',
@@ -396,8 +532,76 @@ const translations: Record<Language, any> = {
     },
     practiceAreas: {
       title: 'Practice Areas',
-      intro: 'We have our practice inserted in several areas of Law, specialized in the areas of Social Law, with emphasis on Individual and Collective Labor Law, Union Law, Social Security Law and Administrative Law. We also serve other areas, always counting on qualified professionals.',
-      learnMore: 'Learn more →'
+      subtitle: 'Specialized in Constitutional Law and practicing in various areas of Law.',
+      learnMore: 'Learn more',
+      swipeHint: '← Swipe to navigate →',
+      areas: {
+        administrative: {
+          title: 'Administrative Law (Public Servants)',
+          description: 'Defense of the rights and interests of public servants',
+          details: 'Throughout our trajectory we have consolidated ourselves as one of the largest law firms in the country in defending the professional rights and interests of public servants, acting decisively in thousands of lawsuits that ensured public servants the recognition of their rights.'
+        },
+        labor: {
+          title: 'Individual and Collective Labor Law',
+          description: 'Labor claims and procedural follow-up',
+          details: 'Labor claims (overtime, hazard/unhealthiness pay, promotions, transfer allowance, employment relationship, maternity stability, retirement supplement request, 40% FGTS fine, gratified function, work accident), hearing accompaniment, precautionary measures, contestations.'
+        },
+        union: {
+          title: 'Union Law',
+          description: 'Complete advisory for union entities',
+          details: 'Our firm manages a portfolio of major clients consisting of numerous associations, unions and other representative entities of public servants, acting in the administrative and judicial spheres.'
+        },
+        socialSecurity: {
+          title: 'Social Security Law',
+          description: 'Granting and revision of social security benefits',
+          details: 'We work in the Public Servants Own Social Security Regime, in the General Regime and in complementary social security regimes, covering public servants and employees.'
+        },
+        constitutional: {
+          title: 'Constitutional Law',
+          description: 'Preparation of ADI and extraordinary appeals',
+          details: 'Specialty area of the firm related to the monitoring, preparation and development of legal theses involving constitutional matters.'
+        },
+        criminal: {
+          title: 'Criminal Law',
+          description: 'Habeas Corpus and criminal appeals',
+          details: 'Criminal Law has recently become part of our firm practice areas. We work in partnership with highly experienced professionals.'
+        },
+        electoral: {
+          title: 'Electoral Law',
+          description: 'Complete electoral advisory',
+          details: 'Electoral advisory to parties, candidates, preparation of appeals, oral arguments and other administrative measures before Regional Electoral Courts and Superior Electoral Court.'
+        },
+        superiorCourts: {
+          title: 'Superior Courts',
+          description: 'Practice in Brasilia before Superior Courts',
+          details: 'MOTA & LAWYERS ASSOCIATES is one of the firms with intense activity in the Superior Courts, especially STJ, TST and STF.'
+        },
+        realEstate: {
+          title: 'Real Estate Law',
+          description: 'Complete advisory in business and real estate regularization',
+          details: 'We work on all fronts of real estate law, including business structuring, debt collection, advisory in buying, selling and leasing.'
+        },
+        family: {
+          title: 'Family and Succession Law',
+          description: 'Inventories, divorces, alimony and successions',
+          details: 'We dedicate special attention to this area due to its connection with other fronts of our work, which is why we have structured an exclusive department.'
+        },
+        publicTreasury: {
+          title: 'Public Treasury and Federated Entities',
+          description: 'Actions against Union, States, DF and Municipalities',
+          details: 'This practice area covers collection actions, indemnities, executions against the Public Treasury of the Union, States, DF and Municipalities.'
+        },
+        mediation: {
+          title: 'Mediation and Conciliation',
+          description: 'Alternative methods of conflict resolution',
+          details: 'This is an area dedicated to alternative methods of conflict resolution, conducted by professionals specialized in negotiation techniques.'
+        },
+        taxBusiness: {
+          title: 'Tax and Business Law',
+          description: 'Legal advisory for companies and tax matters',
+          details: 'Given the growing demand in this area, the firm has structured an exclusive team, coordinated by specialized lawyers.'
+        }
+      }
     },
     lawyers: {
       title: 'Partners',
@@ -526,8 +730,76 @@ const translations: Record<Language, any> = {
     },
     practiceAreas: {
       title: 'Tätigkeitsbereiche',
-      intro: 'Unsere Praxis erstreckt sich über verschiedene Rechtsbereiche, spezialisiert auf Sozialrecht, mit Schwerpunkt auf Individual- und Kollektivarbeitsrecht, Gewerkschaftsrecht, Sozialversicherungsrecht und Verwaltungsrecht. Wir bedienen auch andere Bereiche mit stets qualifizierten Fachleuten.',
-      learnMore: 'Mehr erfahren →'
+      subtitle: 'Spezialisiert auf Verfassungsrecht und tätig in verschiedenen Rechtsgebieten.',
+      learnMore: 'Mehr erfahren',
+      swipeHint: '← Wischen zum Navigieren →',
+      areas: {
+        administrative: {
+          title: 'Verwaltungsrecht (Öffentlicher Dienst)',
+          description: 'Verteidigung der Rechte und Interessen der Beamten',
+          details: 'Im Laufe unserer Geschichte haben wir uns als eine der größten Anwaltskanzleien des Landes bei der Verteidigung der beruflichen Rechte und Interessen von Beamten etabliert.'
+        },
+        labor: {
+          title: 'Individual- und Kollektivarbeitsrecht',
+          description: 'Arbeitsklagen und Prozessbegleitung',
+          details: 'Arbeitsklagen (Überstunden, Gefahren-/Gesundheitszulage, Beförderungen, Versetzungszulage, Arbeitsverhältnis, Mutterschutz, Rentenergänzungsantrag, 40% FGTS-Strafe, Gratifikationsfunktion, Arbeitsunfall).'
+        },
+        union: {
+          title: 'Gewerkschaftsrecht',
+          description: 'Vollständige Beratung für Gewerkschaften',
+          details: 'Unsere Kanzlei verwaltet ein Portfolio großer Kunden, bestehend aus zahlreichen Verbänden, Gewerkschaften und anderen Vertretungsorganen der Beamten.'
+        },
+        socialSecurity: {
+          title: 'Sozialversicherungsrecht',
+          description: 'Gewährung und Überprüfung von Sozialversicherungsleistungen',
+          details: 'Wir arbeiten im eigenen Sozialversicherungssystem der Beamten, im allgemeinen System und in ergänzenden Sozialversicherungssystemen.'
+        },
+        constitutional: {
+          title: 'Verfassungsrecht',
+          description: 'Erstellung von ADI und außerordentlichen Rechtsmitteln',
+          details: 'Fachgebiet der Kanzlei im Zusammenhang mit der Überwachung, Erstellung und Entwicklung rechtlicher Thesen zu verfassungsrechtlichen Themen.'
+        },
+        criminal: {
+          title: 'Strafrecht',
+          description: 'Habeas Corpus und Strafberufungen',
+          details: 'Das Strafrecht ist kürzlich zu unseren Tätigkeitsbereichen hinzugekommen. Wir arbeiten in Partnerschaft mit hocherfahrenen Fachleuten.'
+        },
+        electoral: {
+          title: 'Wahlrecht',
+          description: 'Vollständige Wahlberatung',
+          details: 'Wahlberatung für Parteien, Kandidaten, Erstellung von Rechtsmitteln, mündliche Vorträge und andere Verwaltungsmaßnahmen vor Wahlgerichten.'
+        },
+        superiorCourts: {
+          title: 'Oberste Gerichte',
+          description: 'Tätigkeit in Brasília vor den Obersten Gerichten',
+          details: 'MOTA & RECHTSANWÄLTE PARTNER ist eine der Kanzleien mit intensiver Tätigkeit an den Obersten Gerichten, insbesondere STJ, TST und STF.'
+        },
+        realEstate: {
+          title: 'Immobilienrecht',
+          description: 'Vollständige Beratung in Immobiliengeschäften und -regularisierung',
+          details: 'Wir arbeiten an allen Fronten des Immobilienrechts, einschließlich Geschäftsstrukturierung, Inkasso, Beratung bei Kauf, Verkauf und Vermietung.'
+        },
+        family: {
+          title: 'Familien- und Erbrecht',
+          description: 'Inventare, Scheidungen, Unterhalt und Erbschaften',
+          details: 'Wir widmen diesem Bereich besondere Aufmerksamkeit aufgrund seiner Verbindung mit anderen Bereichen unserer Arbeit.'
+        },
+        publicTreasury: {
+          title: 'Öffentliche Finanzen und Föderale Einheiten',
+          description: 'Klagen gegen Bund, Länder, DF und Gemeinden',
+          details: 'Dieser Tätigkeitsbereich umfasst Inkassoklagen, Entschädigungen, Vollstreckungen gegen die öffentliche Kasse des Bundes, der Länder, DF und Gemeinden.'
+        },
+        mediation: {
+          title: 'Mediation und Schlichtung',
+          description: 'Alternative Methoden der Konfliktlösung',
+          details: 'Dies ist ein Bereich, der alternativen Methoden der Konfliktlösung gewidmet ist, durchgeführt von Fachleuten, die auf Verhandlungstechniken spezialisiert sind.'
+        },
+        taxBusiness: {
+          title: 'Steuer- und Unternehmensrecht',
+          description: 'Rechtsberatung für Unternehmen und Steuerangelegenheiten',
+          details: 'Angesichts der wachsenden Nachfrage in diesem Bereich hat die Kanzlei ein exklusives Team strukturiert, koordiniert von spezialisierten Anwälten.'
+        }
+      }
     },
     lawyers: {
       title: 'Partner',
@@ -656,8 +928,76 @@ const translations: Record<Language, any> = {
     },
     practiceAreas: {
       title: 'Aree di Pratica',
-      intro: 'La nostra pratica si estende a diverse aree del Diritto, specializzati nelle aree del Diritto Sociale, con enfasi sul Diritto del Lavoro Individuale e Collettivo, Diritto Sindacale, Diritto Previdenziale e Diritto Amministrativo. Serviamo anche altre aree, sempre con professionisti qualificati.',
-      learnMore: 'Scopri di più →'
+      subtitle: 'Specializzati in Diritto Costituzionale e operanti in diverse aree del Diritto.',
+      learnMore: 'Scopri di più',
+      swipeHint: '← Scorri per navigare →',
+      areas: {
+        administrative: {
+          title: 'Diritto Amministrativo (Dipendenti Pubblici)',
+          description: 'Difesa dei diritti e interessi dei dipendenti pubblici',
+          details: 'Nel corso della nostra storia ci siamo consolidati come uno dei più grandi studi legali del paese nella difesa dei diritti e interessi professionali dei dipendenti pubblici.'
+        },
+        labor: {
+          title: 'Diritto del Lavoro Individuale e Collettivo',
+          description: 'Reclami lavorativi e follow-up processuale',
+          details: 'Reclami lavorativi (straordinari, indennità di rischio/insalubrità, promozioni, indennità di trasferimento, rapporto di lavoro, stabilità maternità, richiesta di integrazione pensione).'
+        },
+        union: {
+          title: 'Diritto Sindacale',
+          description: 'Consulenza completa per enti sindacali',
+          details: 'Il nostro studio gestisce un portafoglio di grandi clienti costituito da numerose associazioni, sindacati e altri enti rappresentativi dei dipendenti pubblici.'
+        },
+        socialSecurity: {
+          title: 'Diritto Previdenziale',
+          description: 'Concessione e revisione dei benefici previdenziali',
+          details: 'Operiamo nel Regime Previdenziale Proprio dei Dipendenti Pubblici, nel Regime Generale e nei regimi di previdenza complementare.'
+        },
+        constitutional: {
+          title: 'Diritto Costituzionale',
+          description: 'Elaborazione di ADI e ricorsi straordinari',
+          details: 'Area di specializzazione dello studio relativa al monitoraggio, elaborazione e sviluppo di tesi giuridiche che coinvolgono questioni costituzionali.'
+        },
+        criminal: {
+          title: 'Diritto Penale',
+          description: 'Habeas Corpus e ricorsi penali',
+          details: 'Il Diritto Penale è recentemente entrato a far parte delle aree di pratica del nostro studio. Lavoriamo in collaborazione con professionisti di grande esperienza.'
+        },
+        electoral: {
+          title: 'Diritto Elettorale',
+          description: 'Consulenza elettorale completa',
+          details: 'Consulenza elettorale a partiti, candidati, elaborazione di ricorsi, arringhe orali e altre misure amministrative presso i Tribunali Elettorali.'
+        },
+        superiorCourts: {
+          title: 'Corti Superiori',
+          description: 'Attività a Brasilia presso le Corti Superiori',
+          details: 'MOTA & AVVOCATI ASSOCIATI è uno degli studi con intensa attività presso le Corti Superiori, in particolare STJ, TST e STF.'
+        },
+        realEstate: {
+          title: 'Diritto Immobiliare',
+          description: 'Consulenza completa in affari e regolarizzazione immobiliare',
+          details: 'Operiamo su tutti i fronti del diritto immobiliare, inclusa la strutturazione aziendale, il recupero crediti, la consulenza in acquisto, vendita e locazione.'
+        },
+        family: {
+          title: 'Diritto di Famiglia e Successioni',
+          description: 'Inventari, divorzi, alimenti e successioni',
+          details: 'Dedichiamo particolare attenzione a quest area a causa della sua connessione con altre aree del nostro lavoro.'
+        },
+        publicTreasury: {
+          title: 'Tesoro Pubblico ed Enti Federati',
+          description: 'Azioni contro Unione, Stati, DF e Comuni',
+          details: 'Quest area di pratica copre azioni di recupero crediti, indennizzi, esecuzioni contro il Tesoro Pubblico dell Unione, Stati, DF e Comuni.'
+        },
+        mediation: {
+          title: 'Mediazione e Conciliazione',
+          description: 'Metodi alternativi di risoluzione dei conflitti',
+          details: 'Quest area è dedicata a metodi alternativi di risoluzione dei conflitti, condotta da professionisti specializzati in tecniche di negoziazione.'
+        },
+        taxBusiness: {
+          title: 'Diritto Tributario e Societario',
+          description: 'Consulenza legale per aziende e questioni fiscali',
+          details: 'Data la crescente domanda in quest area, lo studio ha strutturato un team esclusivo, coordinato da avvocati specializzati.'
+        }
+      }
     },
     lawyers: {
       title: 'Partner',
@@ -786,8 +1126,76 @@ const translations: Record<Language, any> = {
     },
     practiceAreas: {
       title: 'Domaines de Pratique',
-      intro: 'Notre pratique s\'étend à plusieurs domaines du Droit, spécialisés dans le Droit Social, avec un accent sur le Droit du Travail Individuel et Collectif, le Droit Syndical, le Droit de la Sécurité Sociale et le Droit Administratif. Nous servons également d\'autres domaines, toujours avec des professionnels qualifiés.',
-      learnMore: 'En savoir plus →'
+      subtitle: 'Spécialisés en Droit Constitutionnel et pratiquant dans divers domaines du Droit.',
+      learnMore: 'En savoir plus',
+      swipeHint: '← Glissez pour naviguer →',
+      areas: {
+        administrative: {
+          title: 'Droit Administratif (Fonctionnaires)',
+          description: 'Défense des droits et intérêts des fonctionnaires',
+          details: 'Au cours de notre histoire, nous nous sommes consolidés comme l un des plus grands cabinets d avocats du pays dans la défense des droits et intérêts professionnels des fonctionnaires.'
+        },
+        labor: {
+          title: 'Droit du Travail Individuel et Collectif',
+          description: 'Réclamations de travail et suivi procédural',
+          details: 'Réclamations de travail (heures supplémentaires, prime de danger/insalubrité, promotions, prime de transfert, relation de travail, stabilité maternité, demande de complément de retraite).'
+        },
+        union: {
+          title: 'Droit Syndical',
+          description: 'Conseil complet pour les entités syndicales',
+          details: 'Notre cabinet gère un portefeuille de grands clients composé de nombreuses associations, syndicats et autres entités représentatives des fonctionnaires.'
+        },
+        socialSecurity: {
+          title: 'Droit de la Sécurité Sociale',
+          description: 'Octroi et révision des prestations de sécurité sociale',
+          details: 'Nous travaillons dans le Régime Propre de Prévoyance des Fonctionnaires, dans le Régime Général et dans les régimes de prévoyance complémentaire.'
+        },
+        constitutional: {
+          title: 'Droit Constitutionnel',
+          description: 'Élaboration d ADI et recours extraordinaires',
+          details: 'Domaine de spécialisation du cabinet lié au suivi, à l élaboration et au développement de thèses juridiques impliquant des questions constitutionnelles.'
+        },
+        criminal: {
+          title: 'Droit Pénal',
+          description: 'Habeas Corpus et recours pénaux',
+          details: 'Le Droit Pénal fait récemment partie des domaines de pratique de notre cabinet. Nous travaillons en partenariat avec des professionnels hautement expérimentés.'
+        },
+        electoral: {
+          title: 'Droit Électoral',
+          description: 'Conseil électoral complet',
+          details: 'Conseil électoral aux partis, candidats, élaboration de recours, plaidoiries orales et autres mesures administratives devant les Tribunaux Électoraux.'
+        },
+        superiorCourts: {
+          title: 'Cours Supérieures',
+          description: 'Pratique à Brasilia devant les Cours Supérieures',
+          details: 'MOTA & AVOCATS ASSOCIÉS est l un des cabinets avec une activité intense devant les Cours Supérieures, notamment STJ, TST et STF.'
+        },
+        realEstate: {
+          title: 'Droit Immobilier',
+          description: 'Conseil complet en affaires et régularisation immobilière',
+          details: 'Nous travaillons sur tous les fronts du droit immobilier, y compris la structuration d entreprise, le recouvrement de créances, le conseil en achat, vente et location.'
+        },
+        family: {
+          title: 'Droit de la Famille et des Successions',
+          description: 'Inventaires, divorces, pensions alimentaires et successions',
+          details: 'Nous accordons une attention particulière à ce domaine en raison de sa connexion avec d autres domaines de notre travail.'
+        },
+        publicTreasury: {
+          title: 'Trésor Public et Entités Fédérées',
+          description: 'Actions contre l Union, les États, le DF et les Municipalités',
+          details: 'Ce domaine de pratique couvre les actions de recouvrement, les indemnisations, les exécutions contre le Trésor Public de l Union, des États, du DF et des Municipalités.'
+        },
+        mediation: {
+          title: 'Médiation et Conciliation',
+          description: 'Méthodes alternatives de résolution des conflits',
+          details: 'Il s agit d un domaine dédié aux méthodes alternatives de résolution des conflits, mené par des professionnels spécialisés dans les techniques de négociation.'
+        },
+        taxBusiness: {
+          title: 'Droit Fiscal et des Affaires',
+          description: 'Conseil juridique aux entreprises et matières fiscales',
+          details: 'Face à la demande croissante dans ce domaine, le cabinet a structuré une équipe exclusive, coordonnée par des avocats spécialisés.'
+        }
+      }
     },
     lawyers: {
       title: 'Associés',
@@ -916,8 +1324,76 @@ const translations: Record<Language, any> = {
     },
     practiceAreas: {
       title: '业务领域',
-      intro: '我们的业务涵盖法律的多个领域，专注于社会法领域，特别是个人和集体劳动法、工会法、社会保障法和行政法。我们还提供其他领域的服务，始终依靠合格的专业人员。',
-      learnMore: '了解更多 →'
+      subtitle: '专注于宪法法律并在法律的各个领域执业。',
+      learnMore: '了解更多',
+      swipeHint: '← 滑动浏览 →',
+      areas: {
+        administrative: {
+          title: '行政法（公务员）',
+          description: '捍卫公务员的权利和利益',
+          details: '在我们的发展历程中，我们已成为该国在捍卫公务员专业权利和利益方面最大的律师事务所之一。'
+        },
+        labor: {
+          title: '个人和集体劳动法',
+          description: '劳动索赔和程序跟进',
+          details: '劳动索赔（加班费、危险/不健康津贴、晋升、调动津贴、劳动关系、孕妇稳定性、退休补充申请）。'
+        },
+        union: {
+          title: '工会法',
+          description: '为工会实体提供全面咨询',
+          details: '我们的事务所管理着由众多协会、工会和其他公务员代表机构组成的大客户群。'
+        },
+        socialSecurity: {
+          title: '社会保障法',
+          description: '社会保障福利的授予和审查',
+          details: '我们在公务员自身社会保障制度、一般制度和补充社会保障制度中工作。'
+        },
+        constitutional: {
+          title: '宪法',
+          description: '编制ADI和非常上诉',
+          details: '事务所的专业领域，涉及监测、编制和发展涉及宪法事项的法律论点。'
+        },
+        criminal: {
+          title: '刑法',
+          description: '人身保护令和刑事上诉',
+          details: '刑法最近成为我们事务所的业务领域之一。我们与经验丰富的专业人士合作。'
+        },
+        electoral: {
+          title: '选举法',
+          description: '完整的选举咨询',
+          details: '为政党、候选人提供选举咨询，编制上诉、口头辩论和其他选举法庭的行政措施。'
+        },
+        superiorCourts: {
+          title: '上级法院',
+          description: '在巴西利亚的上级法院执业',
+          details: '莫塔律师事务所是在上级法院有密集活动的事务所之一，特别是STJ、TST和STF。'
+        },
+        realEstate: {
+          title: '房地产法',
+          description: '房地产业务和正规化的全面咨询',
+          details: '我们在房地产法的各个方面开展工作，包括业务结构、债务追收、买卖和租赁咨询。'
+        },
+        family: {
+          title: '家庭和继承法',
+          description: '遗产清单、离婚、赡养费和继承',
+          details: '由于该领域与我们其他工作领域的联系，我们对其给予特别关注。'
+        },
+        publicTreasury: {
+          title: '公共财政和联邦实体',
+          description: '针对联邦、州、联邦区和市政府的诉讼',
+          details: '该业务领域涵盖追收诉讼、赔偿、针对联邦、州、联邦区和市政府公共财政的执行。'
+        },
+        mediation: {
+          title: '调解与和解',
+          description: '冲突解决的替代方法',
+          details: '这是一个致力于冲突解决替代方法的领域，由专门从事谈判技巧的专业人员进行。'
+        },
+        taxBusiness: {
+          title: '税务和商业法',
+          description: '为企业和税务事项提供法律咨询',
+          details: '鉴于该领域需求不断增长，事务所组建了一个由专业律师协调的专属团队。'
+        }
+      }
     },
     lawyers: {
       title: '合伙人',
