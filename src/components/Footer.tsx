@@ -40,12 +40,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/trabalhe-conosco" className="text-white/80 hover:text-bronze transition-colors">
-                  Trabalhe Conosco
+                  {t('footer.workWithUs')}
                 </Link>
               </li>
               <li>
                 <Link to="/avalie" className="text-white/80 hover:text-bronze transition-colors">
-                  Avalie-nos
+                  {t('footer.rateUs')}
                 </Link>
               </li>
             </ul>
@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-bronze mb-4">Redes Sociais</h4>
+            <h4 className="font-semibold text-bronze mb-4">{t('footer.socialMedia')}</h4>
             <div className="flex gap-4">
               <a 
                 href="https://linkedin.com" 

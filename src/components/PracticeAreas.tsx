@@ -113,7 +113,7 @@ const PracticeAreas = () => {
             size="icon"
             onClick={scrollPrev}
             className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
-            aria-label="Anterior"
+            aria-label={t('practiceAreas.prev')}
           >
             <ChevronLeft className="w-6 h-6" />
           </Button>
@@ -123,7 +123,7 @@ const PracticeAreas = () => {
             size="icon"
             onClick={scrollNext}
             className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-background/95 backdrop-blur-sm border-2 border-accent/30 hover:bg-accent hover:border-accent shadow-xl hover:scale-110 transition-all duration-300"
-            aria-label="Próximo"
+            aria-label={t('practiceAreas.next')}
           >
             <ChevronRight className="w-6 h-6" />
           </Button>
