@@ -139,6 +139,8 @@ const translations: Record<Language, any> = {
       subtitle: 'Especializados em Direito Constitucional e atuantes em diversas áreas do Direito.',
       learnMore: 'Saiba mais',
       swipeHint: '← Deslize para navegar →',
+      prev: 'Anterior',
+      next: 'Próximo',
       areas: {
         administrative: {
           title: 'Direito Administrativo (Servidor Público)',
@@ -288,7 +290,10 @@ const translations: Record<Language, any> = {
       description: 'Excelência em advocacia com ética, transparência e comprometimento.',
       quickLinks: 'Links Rápidos',
       contact: 'Contato',
-      rights: 'Todos os direitos reservados.'
+      rights: 'Todos os direitos reservados.',
+      socialMedia: 'Redes Sociais',
+      workWithUs: 'Trabalhe Conosco',
+      rateUs: 'Avalie-nos'
     },
     cookies: {
       title: 'Política de Cookies',
@@ -381,6 +386,8 @@ const translations: Record<Language, any> = {
       subtitle: 'Especializados en Derecho Constitucional y actuantes en diversas áreas del Derecho.',
       learnMore: 'Más información',
       swipeHint: '← Desliza para navegar →',
+      prev: 'Anterior',
+      next: 'Siguiente',
       areas: {
         administrative: {
           title: 'Derecho Administrativo (Servidor Público)',
@@ -530,7 +537,10 @@ const translations: Record<Language, any> = {
       description: 'Excelencia en abogacía con ética, transparencia y compromiso.',
       quickLinks: 'Enlaces Rápidos',
       contact: 'Contacto',
-      rights: 'Todos los derechos reservados.'
+      rights: 'Todos los derechos reservados.',
+      socialMedia: 'Redes Sociales',
+      workWithUs: 'Trabaje Con Nosotros',
+      rateUs: 'Evalúenos'
     },
     cookies: {
       title: 'Política de Cookies',
@@ -623,6 +633,8 @@ const translations: Record<Language, any> = {
       subtitle: 'Specialized in Constitutional Law and practicing in various areas of Law.',
       learnMore: 'Learn more',
       swipeHint: '← Swipe to navigate →',
+      prev: 'Previous',
+      next: 'Next',
       areas: {
         administrative: {
           title: 'Administrative Law (Public Servants)',
@@ -772,7 +784,10 @@ const translations: Record<Language, any> = {
       description: 'Excellence in law with ethics, transparency and commitment.',
       quickLinks: 'Quick Links',
       contact: 'Contact',
-      rights: 'All rights reserved.'
+      rights: 'All rights reserved.',
+      socialMedia: 'Social Media',
+      workWithUs: 'Work With Us',
+      rateUs: 'Rate Us'
     },
     cookies: {
       title: 'Cookie Policy',
@@ -865,6 +880,8 @@ const translations: Record<Language, any> = {
       subtitle: 'Spezialisiert auf Verfassungsrecht und tätig in verschiedenen Rechtsgebieten.',
       learnMore: 'Mehr erfahren',
       swipeHint: '← Wischen zum Navigieren →',
+      prev: 'Zurück',
+      next: 'Weiter',
       areas: {
         administrative: {
           title: 'Verwaltungsrecht (Öffentlicher Dienst)',
@@ -1014,7 +1031,10 @@ const translations: Record<Language, any> = {
       description: 'Exzellenz in der Rechtspraxis mit Ethik, Transparenz und Engagement.',
       quickLinks: 'Schnelllinks',
       contact: 'Kontakt',
-      rights: 'Alle Rechte vorbehalten.'
+      rights: 'Alle Rechte vorbehalten.',
+      socialMedia: 'Soziale Medien',
+      workWithUs: 'Arbeiten Sie Mit Uns',
+      rateUs: 'Bewerten Sie Uns'
     },
     cookies: {
       title: 'Cookie-Richtlinie',
@@ -1107,6 +1127,8 @@ const translations: Record<Language, any> = {
       subtitle: 'Specializzati in Diritto Costituzionale e operanti in diverse aree del Diritto.',
       learnMore: 'Scopri di più',
       swipeHint: '← Scorri per navigare →',
+      prev: 'Precedente',
+      next: 'Successivo',
       areas: {
         administrative: {
           title: 'Diritto Amministrativo (Dipendenti Pubblici)',
@@ -1256,7 +1278,10 @@ const translations: Record<Language, any> = {
       description: 'Eccellenza nel diritto con etica, trasparenza e impegno.',
       quickLinks: 'Link Rapidi',
       contact: 'Contatto',
-      rights: 'Tutti i diritti riservati.'
+      rights: 'Tutti i diritti riservati.',
+      socialMedia: 'Social Media',
+      workWithUs: 'Lavora Con Noi',
+      rateUs: 'Valutaci'
     },
     cookies: {
       title: 'Politica dei Cookie',
@@ -1349,6 +1374,8 @@ const translations: Record<Language, any> = {
       subtitle: 'Spécialisés en Droit Constitutionnel et pratiquant dans divers domaines du Droit.',
       learnMore: 'En savoir plus',
       swipeHint: '← Glissez pour naviguer →',
+      prev: 'Précédent',
+      next: 'Suivant',
       areas: {
         administrative: {
           title: 'Droit Administratif (Fonctionnaires)',
@@ -1498,7 +1525,10 @@ const translations: Record<Language, any> = {
       description: 'Excellence en droit avec éthique, transparence et engagement.',
       quickLinks: 'Liens Rapides',
       contact: 'Contact',
-      rights: 'Tous droits réservés.'
+      rights: 'Tous droits réservés.',
+      socialMedia: 'Réseaux Sociaux',
+      workWithUs: 'Travaillez Avec Nous',
+      rateUs: 'Évaluez-nous'
     },
     cookies: {
       title: 'Politique de Cookies',
@@ -1591,6 +1621,8 @@ const translations: Record<Language, any> = {
       subtitle: '专注于宪法法律并在法律的各个领域执业。',
       learnMore: '了解更多',
       swipeHint: '← 滑动浏览 →',
+      prev: '上一页',
+      next: '下一页',
       areas: {
         administrative: {
           title: '行政法（公务员）',
@@ -1740,7 +1772,10 @@ const translations: Record<Language, any> = {
       description: '以道德、透明和承诺追求法律卓越。',
       quickLinks: '快速链接',
       contact: '联系方式',
-      rights: '版权所有。'
+      rights: '版权所有。',
+      socialMedia: '社交媒体',
+      workWithUs: '加入我们',
+      rateUs: '评价我们'
     },
     cookies: {
       title: 'Cookie政策',
