@@ -137,7 +137,7 @@ const translations: Record<Language, any> = {
     },
     practiceAreas: {
       title: 'Áreas de Atuação',
-      subtitle: 'Especializados em Direito Constitucional e atuantes em diversas áreas do Direito.',
+      subtitle: 'Especializados em Direito Administrativo e atuantes em diversas áreas do Direito.',
       learnMore: 'Saiba mais',
       swipeHint: '← Deslize para navegar →',
       prev: 'Anterior',
