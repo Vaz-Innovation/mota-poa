@@ -1,40 +1,30 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useToast } from "@/hooks/use-toast";
 import { Mail } from "lucide-react";
 
 const Newsletter = () => {
   const { t } = useLanguage();
-  const { toast } = useToast();
-  const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email) {
-      toast({
-        title: t('newsletter.error'),
-        description: t('newsletter.errorMessage'),
-        variant: "destructive",
-      });
-      return;
-    }
+  useEffect(() => {
+    // Load Beehiiv embed script
+    const script = document.createElement("script");
+    script.src = "https://subscribe-forms.beehiiv.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
 
-    setIsLoading(true);
-    
-    // Simulação de envio - aqui você pode integrar com seu serviço de email
-    setTimeout(() => {
-      toast({
-        title: t('newsletter.success'),
-        description: t('newsletter.successMessage'),
-      });
-      setEmail("");
-      setIsLoading(false);
-    }, 1000);
-  };
+    // Load Beehiiv attribution script
+    const attributionScript = document.createElement("script");
+    attributionScript.src = "https://subscribe-forms.beehiiv.com/attribution.js";
+    attributionScript.type = "text/javascript";
+    attributionScript.async = true;
+    document.body.appendChild(attributionScript);
+
+    return () => {
+      // Cleanup scripts on unmount
+      document.body.removeChild(script);
+      document.body.removeChild(attributionScript);
+    };
+  }, []);
 
   return (
     <section className="py-16 bg-navy">
@@ -50,25 +40,24 @@ const Newsletter = () => {
             {t('newsletter.description')}
           </p>
           
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-            <Input
-              type="email"
-              placeholder={t('newsletter.placeholder')}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-bronze"
-              disabled={isLoading}
+          <div className="flex justify-center">
+            <iframe 
+              src="https://subscribe-forms.beehiiv.com/092332b5-4048-4b0f-9719-736bac706b1b" 
+              className="beehiiv-embed" 
+              data-test-id="beehiiv-embed" 
+              frameBorder="0" 
+              scrolling="no" 
+              style={{
+                width: "560px",
+                height: "207px",
+                margin: 0,
+                borderRadius: "0px",
+                backgroundColor: "transparent",
+                boxShadow: "none",
+                maxWidth: "100%"
+              }}
             />
-            <Button
-              type="submit"
-              variant="bronze"
-              size="lg"
-              disabled={isLoading}
-              className="sm:w-auto w-full"
-            >
-              {isLoading ? t('newsletter.sending') : t('newsletter.button')}
-            </Button>
-          </form>
+          </div>
         </div>
       </div>
     </section>
