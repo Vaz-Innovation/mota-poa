@@ -255,7 +255,7 @@ const BlogPost = () => {
             
             {/* Content */}
             <div
-              className="prose prose-lg max-w-none prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline"
+              className="blog-content"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
             
