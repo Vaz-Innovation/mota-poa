@@ -34,20 +34,17 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a 
-            href="#inicio" 
+          <Link 
+            to="/" 
             className="flex items-center cursor-pointer"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <img 
               src={motaLogo} 
               alt="MOTA & ADVOGADOS ASSOCIADOS" 
               className="h-20 w-auto"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
