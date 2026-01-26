@@ -89,7 +89,7 @@ const Header = () => {
               className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-full px-6"
             >
               <a
-                href="https://wa.me/5561995362668"
+                href="https://wa.me/5551981981210"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick('header_desktop')}
@@ -157,7 +157,7 @@ const Header = () => {
               <LanguageSelector />
               <Button asChild variant="bronze" size="lg" className="w-full">
                 <a
-                  href="https://wa.me/5561995362668"
+                  href="https://wa.me/5551981981210"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick('header_mobile')}
