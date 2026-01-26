@@ -7,7 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Calendar, User, Search, Tag, ArrowRight } from 'lucide-react';
+import { Calendar, User, Search, Tag, ArrowRight, X } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
@@ -192,18 +193,37 @@ const Blog = () => {
             </div>
             
             {allTags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-4">
-                <Tag className="h-4 w-4 text-muted-foreground" />
-                {allTags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant={selectedTag === tag ? 'default' : 'secondary'}
-                    className="cursor-pointer"
-                    onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+              <div className="flex items-center gap-3 mt-4">
+                <div className="flex items-center gap-2">
+                  <Tag className="h-4 w-4 text-muted-foreground" />
+                  <Select
+                    value={selectedTag || "all"}
+                    onValueChange={(value) => setSelectedTag(value === "all" ? null : value)}
                   >
-                    {tag}
-                  </Badge>
-                ))}
+                    <SelectTrigger className="w-[200px]">
+                      <SelectValue placeholder="Filtrar por tag" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Todas as tags</SelectItem>
+                      {allTags.map((tag) => (
+                        <SelectItem key={tag} value={tag}>
+                          {tag}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                {selectedTag && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setSelectedTag(null)}
+                    className="h-8 px-2 text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="h-4 w-4 mr-1" />
+                    Limpar
+                  </Button>
+                )}
               </div>
             )}
           </section>
