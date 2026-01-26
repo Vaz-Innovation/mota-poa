@@ -93,7 +93,7 @@ const Footer = () => {
                 <Instagram size={24} />
               </a>
               <a 
-                href="https://www.facebook.com/share/1ExdJ6FCK9/?mibextid=wwXIfr" 
+                href="https://web.facebook.com/Mota.Advogados.Poa" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/80 hover:text-bronze transition-colors hover-scale"
