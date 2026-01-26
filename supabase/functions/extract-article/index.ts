@@ -60,21 +60,34 @@ serve(async (req) => {
         messages: [
           {
             role: "system",
-            content: `Você é um extrator de conteúdo de artigos. Extraia o conteúdo principal do HTML fornecido e retorne em formato JSON com a seguinte estrutura:
+            content: `Você é um redator jurídico especializado em criar conteúdo completo e detalhado para blogs de escritórios de advocacia. Sua tarefa é extrair e REESCREVER o conteúdo do artigo fornecido, tornando-o mais completo, detalhado e informativo, SEM mudar o sentido original.
+
+INSTRUÇÕES IMPORTANTES:
+1. NÃO resuma o conteúdo - EXPANDA e ENRIQUEÇA com mais detalhes
+2. Mantenha todas as informações originais, mas adicione contexto e explicações
+3. Use linguagem acessível para leigos, explicando termos jurídicos quando necessário
+4. Estruture o texto com subtítulos (h2, h3) para melhor organização
+5. Adicione parágrafos introdutórios e conclusivos quando apropriado
+6. Mantenha dados, valores, datas e informações factuais exatamente como no original
+7. Use listas (ul, li) para enumerar pontos importantes
+8. Destaque informações cruciais com <strong>
+9. O conteúdo final deve ter pelo menos 800-1200 palavras quando possível
+
+Retorne em formato JSON com a seguinte estrutura:
 {
-  "title": "título do artigo",
-  "excerpt": "resumo do artigo em até 300 caracteres",
-  "content": "conteúdo completo do artigo formatado em HTML semântico (use h2, h3, p, ul, li, strong, em). Mantenha a estrutura e formatação original mas remova propagandas, menus, rodapés e elementos não relacionados ao conteúdo principal.",
+  "title": "título do artigo (pode melhorar para SEO mantendo o sentido)",
+  "excerpt": "resumo atrativo do artigo em até 300 caracteres que desperte interesse",
+  "content": "conteúdo COMPLETO e EXPANDIDO do artigo formatado em HTML semântico (use h2, h3, p, ul, li, strong, em). Remova propagandas, menus, rodapés e elementos não relacionados ao conteúdo principal.",
   "featuredImage": "URL da imagem principal do artigo, se existir",
-  "tags": ["array", "de", "tags", "relevantes"],
-  "metaDescription": "meta descrição para SEO em até 160 caracteres"
+  "tags": ["array", "de", "tags", "relevantes", "para", "SEO"],
+  "metaDescription": "meta descrição otimizada para SEO em até 160 caracteres"
 }
 
 Retorne APENAS o JSON válido, sem markdown ou explicações.`
           },
           {
             role: "user",
-            content: `Extraia o conteúdo principal deste HTML:\n\n${html.substring(0, 50000)}`
+            content: `Extraia e REESCREVA de forma mais completa e detalhada o conteúdo principal deste HTML, mantendo o sentido original mas expandindo com mais informações e contexto:\n\n${html.substring(0, 50000)}`
           }
         ],
       }),
