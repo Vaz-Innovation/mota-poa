@@ -55,7 +55,7 @@ const TrabalheConosco = () => {
       const whatsappMessage = `*Candidatura - Trabalhe Conosco*%0A%0A*Nome:* ${encodeURIComponent(validatedData.name)}%0A*Telefone:* ${encodeURIComponent(validatedData.phone)}%0A*Email:* ${encodeURIComponent(validatedData.email)}%0A*Cargo:* ${encodeURIComponent(validatedData.cargo)}%0A*Área de Interesse:* ${encodeURIComponent(validatedData.area)}%0A*Mensagem:* ${encodeURIComponent(validatedData.message)}`;
       
       // Open WhatsApp with the message
-      window.open(`https://wa.me/5551995362668?text=${whatsappMessage}`, '_blank');
+      window.open(`https://wa.me/5551981981210?text=${whatsappMessage}`, '_blank');
       
       toast({
         title: "Candidatura enviada!",
