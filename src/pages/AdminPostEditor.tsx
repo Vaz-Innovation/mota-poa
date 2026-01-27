@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { toast } from 'sonner';
-import { ArrowLeft, Save, Eye, Image, Link2, Loader2 } from 'lucide-react';
+import { ArrowLeft, Save, Eye, Image, Link2, Loader2, Languages } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Category {
@@ -50,6 +50,9 @@ const AdminPostEditor = () => {
   // Import URL state
   const [importUrl, setImportUrl] = useState('');
   const [importing, setImporting] = useState(false);
+  
+  // Translation state
+  const [translating, setTranslating] = useState(false);
 
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
@@ -193,6 +196,38 @@ const AdminPostEditor = () => {
     }
   };
 
+  const handleTranslate = async () => {
+    if (!isEditing || !id) {
+      toast.error(t('admin.saveBeforeTranslating'));
+      return;
+    }
+
+    setTranslating(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('translate-post', {
+        body: { postId: id },
+      });
+
+      if (error) {
+        console.error('Translation error:', error);
+        toast.error(t('admin.translationError'));
+        return;
+      }
+
+      if (data?.success) {
+        toast.success(data.message || t('admin.translationsGenerated'));
+      } else {
+        toast.error(data?.error || t('admin.translationError'));
+      }
+    } catch (err) {
+      console.error('Translation error:', err);
+      toast.error(t('admin.translationError'));
+    } finally {
+      setTranslating(false);
+    }
+  };
+
   const handleSave = async () => {
     if (title.length < 3) {
       toast.error(t('admin.validation.titleMin'));
@@ -320,6 +355,27 @@ const AdminPostEditor = () => {
                   {published ? t('admin.publishedStatus') : t('admin.draftStatus')}
                 </Label>
               </div>
+              
+              {isEditing && (
+                <Button 
+                  variant="ghost" 
+                  className="text-primary-foreground"
+                  onClick={handleTranslate}
+                  disabled={translating}
+                >
+                  {translating ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {t('admin.translating')}
+                    </>
+                  ) : (
+                    <>
+                      <Languages className="mr-2 h-4 w-4" />
+                      {t('admin.generateTranslations')}
+                    </>
+                  )}
+                </Button>
+              )}
               
               {published && slug && (
                 <Button variant="ghost" asChild className="text-primary-foreground">
