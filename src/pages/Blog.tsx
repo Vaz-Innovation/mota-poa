@@ -33,6 +33,13 @@ interface BlogPost {
   } | null;
 }
 
+interface BlogPostTranslation {
+  post_id: string;
+  language: string;
+  title: string;
+  excerpt: string | null;
+}
+
 interface Category {
   id: string;
   name: string;
@@ -59,11 +66,11 @@ const Blog = () => {
   };
 
   useEffect(() => {
-    fetchPosts();
+    fetchPosts(language);
     fetchCategories();
-  }, []);
+  }, [language]);
 
-  const fetchPosts = async () => {
+  const fetchPosts = async (lang: string) => {
     const { data, error } = await supabase
       .from('blog_posts')
       .select(`
@@ -83,8 +90,46 @@ const Blog = () => {
 
     if (error) {
       console.error('Error fetching posts:', error);
+      setLoading(false);
+      return;
+    }
+
+    const basePosts = (data || []) as BlogPost[];
+
+    // Apply per-language title/excerpt on the listing (the detail page already handles translations)
+    if (lang && lang !== 'pt' && basePosts.length > 0) {
+      const postIds = basePosts.map((p) => p.id);
+      const { data: translations, error: translationsError } = await supabase
+        .from('blog_post_translations')
+        .select('post_id, language, title, excerpt')
+        .in('post_id', postIds)
+        .eq('language', lang);
+
+      if (translationsError) {
+        console.error('Error fetching translations:', translationsError);
+        setPosts(basePosts);
+        setLoading(false);
+        return;
+      }
+
+      const tMap = new Map<string, BlogPostTranslation>();
+      (translations as BlogPostTranslation[] | null)?.forEach((tr) => {
+        tMap.set(tr.post_id, tr);
+      });
+
+      const translatedPosts = basePosts.map((p) => {
+        const tr = tMap.get(p.id);
+        if (!tr) return p;
+        return {
+          ...p,
+          title: tr.title || p.title,
+          excerpt: tr.excerpt ?? p.excerpt,
+        };
+      });
+
+      setPosts(translatedPosts);
     } else {
-      setPosts(data || []);
+      setPosts(basePosts);
     }
     setLoading(false);
   };
