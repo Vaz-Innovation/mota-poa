@@ -320,6 +320,16 @@ const translations: Record<Language, any> = {
       articleNotFoundDesc: 'O artigo que você procura não existe ou foi removido.',
       linkCopied: 'Link copiado para a área de transferência!'
     },
+    avalie: {
+      heroTitle: 'Sua opinião é importante',
+      heroSubtitle: 'Ajude-nos a continuar oferecendo serviços jurídicos de excelência',
+      cardTitle: 'Avalie Nossa Experiência',
+      cardSubtitle: 'Compartilhe sua experiência com nossos serviços no Google',
+      note: 'Sua avaliação nos ajuda a melhorar continuamente nossos serviços e a alcançar mais clientes que precisam de assessoria jurídica de qualidade.',
+      cta: 'Deixar Avaliação',
+      disclaimer: 'Você será redirecionado para o Google Meu Negócio',
+      footerLine: 'Excelência em serviços jurídicos há mais de 20 anos'
+    },
     auth: {
       adminArea: 'Área Administrativa',
       accessPanel: 'Acesse o painel de gerenciamento do blog',
@@ -739,6 +749,16 @@ const translations: Record<Language, any> = {
       articleNotFound: 'Artículo no encontrado',
       articleNotFoundDesc: 'El artículo que busca no existe o fue eliminado.',
       linkCopied: '¡Enlace copiado al portapapeles!'
+    },
+    avalie: {
+      heroTitle: 'Tu opinión es importante',
+      heroSubtitle: 'Ayúdanos a seguir ofreciendo servicios jurídicos de excelencia',
+      cardTitle: 'Evalúa Nuestra Experiencia',
+      cardSubtitle: 'Comparte tu experiencia con nuestros servicios en Google',
+      note: 'Tu reseña nos ayuda a mejorar continuamente nuestros servicios y a llegar a más clientes que necesitan asesoría jurídica de calidad.',
+      cta: 'Dejar Reseña',
+      disclaimer: 'Serás redirigido a Google Business',
+      footerLine: 'Excelencia en servicios jurídicos desde hace más de 20 años'
     },
     auth: {
       adminArea: 'Área Administrativa',
@@ -1160,6 +1180,16 @@ const translations: Record<Language, any> = {
       articleNotFoundDesc: 'The article you are looking for does not exist or has been removed.',
       linkCopied: 'Link copied to clipboard!'
     },
+    avalie: {
+      heroTitle: 'Your opinion matters',
+      heroSubtitle: 'Help us continue delivering excellent legal services',
+      cardTitle: 'Rate Our Experience',
+      cardSubtitle: 'Share your experience with our services on Google',
+      note: 'Your review helps us continuously improve our services and reach more clients who need quality legal support.',
+      cta: 'Leave a Review',
+      disclaimer: 'You will be redirected to Google Business',
+      footerLine: 'Excellence in legal services for over 20 years'
+    },
     auth: {
       adminArea: 'Admin Area',
       accessPanel: 'Access the blog management panel',
@@ -1579,6 +1609,16 @@ const translations: Record<Language, any> = {
       articleNotFound: 'Artikel nicht gefunden',
       articleNotFoundDesc: 'Der gesuchte Artikel existiert nicht oder wurde entfernt.',
       linkCopied: 'Link in die Zwischenablage kopiert!'
+    },
+    avalie: {
+      heroTitle: 'Ihre Meinung ist wichtig',
+      heroSubtitle: 'Helfen Sie uns, weiterhin exzellente juristische Dienstleistungen anzubieten',
+      cardTitle: 'Bewerten Sie unsere Erfahrung',
+      cardSubtitle: 'Teilen Sie Ihre Erfahrung mit unseren Dienstleistungen auf Google',
+      note: 'Ihre Bewertung hilft uns, unsere Dienstleistungen kontinuierlich zu verbessern und mehr Mandanten zu erreichen, die qualitativ hochwertige Rechtsberatung benötigen.',
+      cta: 'Bewertung abgeben',
+      disclaimer: 'Sie werden zu Google Business weitergeleitet',
+      footerLine: 'Exzellenz in juristischen Dienstleistungen seit über 20 Jahren'
     },
     auth: {
       adminArea: 'Administrationsbereich',
@@ -2000,6 +2040,16 @@ const translations: Record<Language, any> = {
       articleNotFoundDesc: "L'articolo che stai cercando non esiste o è stato rimosso.",
       linkCopied: 'Link copiato negli appunti!'
     },
+    avalie: {
+      heroTitle: 'La tua opinione è importante',
+      heroSubtitle: 'Aiutaci a continuare a offrire servizi legali di eccellenza',
+      cardTitle: 'Valuta la nostra esperienza',
+      cardSubtitle: 'Condividi la tua esperienza con i nostri servizi su Google',
+      note: 'La tua recensione ci aiuta a migliorare continuamente i nostri servizi e a raggiungere più clienti che hanno bisogno di assistenza legale di qualità.',
+      cta: 'Lascia una recensione',
+      disclaimer: 'Sarai reindirizzato a Google Business',
+      footerLine: 'Eccellenza nei servizi legali da oltre 20 anni'
+    },
     auth: {
       adminArea: 'Area Amministrativa',
       accessPanel: 'Accedi al pannello di gestione del blog',
@@ -2420,6 +2470,16 @@ const translations: Record<Language, any> = {
       articleNotFoundDesc: "L'article que vous recherchez n'existe pas ou a été supprimé.",
       linkCopied: 'Lien copié dans le presse-papiers !'
     },
+    avalie: {
+      heroTitle: 'Votre avis compte',
+      heroSubtitle: 'Aidez-nous à continuer d’offrir des services juridiques d’excellence',
+      cardTitle: 'Évaluez notre expérience',
+      cardSubtitle: 'Partagez votre expérience avec nos services sur Google',
+      note: 'Votre avis nous aide à améliorer continuellement nos services et à toucher davantage de clients qui ont besoin d’un accompagnement juridique de qualité.',
+      cta: 'Laisser un avis',
+      disclaimer: 'Vous serez redirigé vers Google Business',
+      footerLine: 'Excellence des services juridiques depuis plus de 20 ans'
+    },
     auth: {
       adminArea: 'Zone Administrative',
       accessPanel: 'Accéder au panneau de gestion du blog',
@@ -2839,6 +2899,16 @@ const translations: Record<Language, any> = {
       articleNotFound: '文章未找到',
       articleNotFoundDesc: '您查找的文章不存在或已被删除。',
       linkCopied: '链接已复制到剪贴板！'
+    },
+    avalie: {
+      heroTitle: '您的意见很重要',
+      heroSubtitle: '帮助我们持续提供卓越的法律服务',
+      cardTitle: '评价我们的服务体验',
+      cardSubtitle: '在 Google 上分享您对我们服务的体验',
+      note: '您的评价将帮助我们不断改进服务，并让更多需要高质量法律支持的客户找到我们。',
+      cta: '留下评价',
+      disclaimer: '您将跳转到 Google 商家页面',
+      footerLine: '20 多年来坚持卓越法律服务'
     },
     auth: {
       adminArea: '管理区域',
