@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -48,6 +48,7 @@ interface Category {
 
 const Blog = () => {
   const { t, language } = useLanguage();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
@@ -69,6 +70,12 @@ const Blog = () => {
     fetchPosts(language);
     fetchCategories();
   }, [language]);
+
+  // Support deep-linking like /blog?tag=CNH
+  useEffect(() => {
+    const tag = searchParams.get('tag');
+    setSelectedTag(tag || null);
+  }, [searchParams]);
 
   const fetchPosts = async (lang: string) => {
     const { data, error } = await supabase
@@ -160,6 +167,19 @@ const Blog = () => {
   });
 
   const allTags = Array.from(new Set(posts.flatMap((post) => post.tags ?? [])));
+
+  const handleTagChange = (value: string) => {
+    const next = value === 'all' ? null : value;
+    setSelectedTag(next);
+
+    // Keep URL in sync so clicking a tag on the post page works and is shareable
+    setSearchParams((prev) => {
+      const nextParams = new URLSearchParams(prev);
+      if (!next) nextParams.delete('tag');
+      else nextParams.set('tag', next);
+      return nextParams;
+    }, { replace: true });
+  };
 
   // JSON-LD structured data for SEO
   const structuredData = {
@@ -256,7 +276,7 @@ const Blog = () => {
                   <Tag className="h-4 w-4 text-muted-foreground" />
                   <Select
                     value={selectedTag || "all"}
-                    onValueChange={(value) => setSelectedTag(value === "all" ? null : value)}
+                      onValueChange={handleTagChange}
                   >
                     <SelectTrigger className="w-[200px]">
                       <SelectValue placeholder={t('blog.filterByTag')} />
