@@ -319,9 +319,9 @@ const BlogPost = () => {
                 <div className="flex flex-wrap gap-2">
                   <span className="text-sm font-medium text-muted-foreground">{t('blog.tags')}:</span>
                   {post.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary">
-                      {tag}
-                    </Badge>
+                    <Link key={tag} to={`/blog?tag=${encodeURIComponent(tag)}`} className="inline-flex">
+                      <Badge variant="secondary">{tag}</Badge>
+                    </Link>
                   ))}
                 </div>
               </footer>
