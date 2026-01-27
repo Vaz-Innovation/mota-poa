@@ -17,23 +17,15 @@ import {
 } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { ArrowLeft, Save, Eye, Image, Link2, Loader2 } from 'lucide-react';
-import { z } from 'zod';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Category {
   id: string;
   name: string;
 }
 
-const postSchema = z.object({
-  title: z.string().min(3, 'Título deve ter no mínimo 3 caracteres').max(200, 'Título muito longo'),
-  slug: z.string().min(3, 'Slug deve ter no mínimo 3 caracteres').max(200, 'Slug muito longo'),
-  excerpt: z.string().max(300, 'Resumo deve ter no máximo 300 caracteres').optional(),
-  content: z.string().min(10, 'Conteúdo deve ter no mínimo 10 caracteres'),
-  meta_title: z.string().max(60, 'Meta título deve ter no máximo 60 caracteres').optional(),
-  meta_description: z.string().max(160, 'Meta descrição deve ter no máximo 160 caracteres').optional(),
-});
-
 const AdminPostEditor = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { user, isAdmin, loading } = useAuth();
@@ -89,7 +81,7 @@ const AdminPostEditor = () => {
       .single();
 
     if (error) {
-      toast.error('Erro ao carregar post');
+      toast.error(t('admin.loadPostError'));
       navigate('/admin');
       return;
     }
@@ -140,7 +132,7 @@ const AdminPostEditor = () => {
       .upload(filePath, file);
 
     if (uploadError) {
-      toast.error('Erro ao fazer upload da imagem');
+      toast.error(t('admin.imageUploadError'));
       return;
     }
 
@@ -149,12 +141,12 @@ const AdminPostEditor = () => {
       .getPublicUrl(filePath);
 
     setFeaturedImage(data.publicUrl);
-    toast.success('Imagem enviada com sucesso');
+    toast.success(t('admin.imageUploadSuccess'));
   };
 
   const handleImportFromUrl = async () => {
     if (!importUrl.trim()) {
-      toast.error('Digite uma URL para importar');
+      toast.error(t('admin.enterUrlToImport'));
       return;
     }
 
@@ -167,7 +159,7 @@ const AdminPostEditor = () => {
 
       if (error) {
         console.error('Error importing:', error);
-        toast.error('Erro ao importar conteúdo');
+        toast.error(t('admin.importError'));
         return;
       }
 
@@ -191,27 +183,47 @@ const AdminPostEditor = () => {
         if (extracted.title) setMetaTitle(extracted.title.substring(0, 60));
         
         setImportUrl('');
-        toast.success('Conteúdo importado com sucesso! Revise antes de publicar.');
+        toast.success(t('admin.importSuccess'));
       }
     } catch (err) {
       console.error('Import error:', err);
-      toast.error('Erro ao importar conteúdo');
+      toast.error(t('admin.importError'));
     } finally {
       setImporting(false);
     }
   };
 
   const handleSave = async () => {
-    const result = postSchema.safeParse({
-      title,
-      slug,
-      excerpt,
-      content,
-      meta_title: metaTitle,
-      meta_description: metaDescription,
-    });
-    if (!result.success) {
-      toast.error(result.error.issues[0].message);
+    if (title.length < 3) {
+      toast.error(t('admin.validation.titleMin'));
+      return;
+    }
+    if (title.length > 200) {
+      toast.error(t('admin.validation.titleMax'));
+      return;
+    }
+    if (slug.length < 3) {
+      toast.error(t('admin.validation.slugMin'));
+      return;
+    }
+    if (slug.length > 200) {
+      toast.error(t('admin.validation.slugMax'));
+      return;
+    }
+    if (excerpt.length > 300) {
+      toast.error(t('admin.validation.excerptMax'));
+      return;
+    }
+    if (content.length < 10) {
+      toast.error(t('admin.validation.contentMin'));
+      return;
+    }
+    if (metaTitle.length > 60) {
+      toast.error(t('admin.validation.metaTitleMax'));
+      return;
+    }
+    if (metaDescription.length > 160) {
+      toast.error(t('admin.validation.metaDescriptionMax'));
       return;
     }
 
@@ -245,9 +257,9 @@ const AdminPostEditor = () => {
 
       if (error) {
         console.error('Error updating post:', error);
-        toast.error('Erro ao atualizar post');
+        toast.error(t('admin.postUpdateError'));
       } else {
-        toast.success('Post atualizado com sucesso');
+        toast.success(t('admin.postUpdated'));
         navigate('/admin');
       }
     } else {
@@ -258,12 +270,12 @@ const AdminPostEditor = () => {
       if (error) {
         console.error('Error creating post:', error);
         if (error.code === '23505') {
-          toast.error('Já existe um post com este slug');
+          toast.error(t('admin.slugExists'));
         } else {
-          toast.error('Erro ao criar post');
+          toast.error(t('admin.postCreateError'));
         }
       } else {
-        toast.success('Post criado com sucesso');
+        toast.success(t('admin.postCreated'));
         navigate('/admin');
       }
     }
@@ -289,11 +301,11 @@ const AdminPostEditor = () => {
               <Button variant="ghost" asChild className="text-primary-foreground">
                 <Link to="/admin">
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Voltar
+                  {t('admin.back')}
                 </Link>
               </Button>
               <h1 className="text-xl font-bold">
-                {isEditing ? 'Editar Post' : 'Novo Post'}
+                {isEditing ? t('admin.editPost') : t('admin.newPostTitle')}
               </h1>
             </div>
             
@@ -305,7 +317,7 @@ const AdminPostEditor = () => {
                   onCheckedChange={setPublished}
                 />
                 <Label htmlFor="published" className="text-primary-foreground">
-                  {published ? 'Publicado' : 'Rascunho'}
+                  {published ? t('admin.publishedStatus') : t('admin.draftStatus')}
                 </Label>
               </div>
               
@@ -313,14 +325,14 @@ const AdminPostEditor = () => {
                 <Button variant="ghost" asChild className="text-primary-foreground">
                   <Link to={`/blog/${slug}`} target="_blank">
                     <Eye className="mr-2 h-4 w-4" />
-                    Visualizar
+                    {t('admin.preview')}
                   </Link>
                 </Button>
               )}
               
               <Button onClick={handleSave} disabled={saving} variant="secondary">
                 <Save className="mr-2 h-4 w-4" />
-                {saving ? 'Salvando...' : 'Salvar'}
+                {saving ? t('admin.saving') : t('admin.save')}
               </Button>
             </div>
           </div>
@@ -336,10 +348,10 @@ const AdminPostEditor = () => {
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-base">
                   <Link2 className="h-5 w-5 text-accent" />
-                  Importar de URL
+                  {t('admin.importFromUrl')}
                 </CardTitle>
                 <CardDescription>
-                  Cole o link de um artigo para preencher automaticamente com IA
+                  {t('admin.importFromUrlDesc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -347,7 +359,7 @@ const AdminPostEditor = () => {
                   <Input
                     value={importUrl}
                     onChange={(e) => setImportUrl(e.target.value)}
-                    placeholder="https://exemplo.com/artigo"
+                    placeholder={t('admin.importPlaceholder')}
                     disabled={importing}
                   />
                   <Button 
@@ -358,10 +370,10 @@ const AdminPostEditor = () => {
                     {importing ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Importando...
+                        {t('admin.importing')}
                       </>
                     ) : (
-                      'Importar'
+                      t('admin.import')
                     )}
                   </Button>
                 </div>
@@ -370,59 +382,59 @@ const AdminPostEditor = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle>Conteúdo</CardTitle>
+                <CardTitle>{t('admin.content')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="title">Título *</Label>
+                  <Label htmlFor="title">{t('admin.titleRequired')}</Label>
                   <Input
                     id="title"
                     value={title}
                     onChange={(e) => handleTitleChange(e.target.value)}
-                    placeholder="Título do artigo"
+                    placeholder={t('admin.titlePlaceholder')}
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="slug">Slug (URL) *</Label>
+                  <Label htmlFor="slug">{t('admin.slugUrl')}</Label>
                   <Input
                     id="slug"
                     value={slug}
                     onChange={(e) => setSlug(e.target.value)}
-                    placeholder="titulo-do-artigo"
+                    placeholder={t('admin.slugPlaceholder')}
                   />
                   <p className="text-xs text-muted-foreground">
-                    URL: /blog/{slug || 'titulo-do-artigo'}
+                    URL: /blog/{slug || t('admin.slugPlaceholder')}
                   </p>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="excerpt">Resumo</Label>
+                  <Label htmlFor="excerpt">{t('admin.excerpt')}</Label>
                   <Textarea
                     id="excerpt"
                     value={excerpt}
                     onChange={(e) => setExcerpt(e.target.value)}
-                    placeholder="Breve resumo do artigo (aparece na listagem)"
+                    placeholder={t('admin.excerptPlaceholder')}
                     rows={3}
                     maxLength={300}
                   />
                   <p className="text-xs text-muted-foreground text-right">
-                    {excerpt.length}/300 caracteres
+                    {excerpt.length}/300 {t('admin.characters')}
                   </p>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="content">Conteúdo *</Label>
+                  <Label htmlFor="content">{t('admin.contentRequired')}</Label>
                   <Textarea
                     id="content"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
-                    placeholder="Escreva o conteúdo do artigo... (suporta HTML)"
+                    placeholder={t('admin.contentPlaceholder')}
                     rows={20}
                     className="font-mono text-sm"
                   />
                   <p className="text-xs text-muted-foreground">
-                    Você pode usar HTML para formatação (h2, h3, p, ul, li, strong, em, a, etc.)
+                    {t('admin.htmlHint')}
                   </p>
                 </div>
               </CardContent>
@@ -433,7 +445,7 @@ const AdminPostEditor = () => {
           <div className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>Imagem Destacada</CardTitle>
+                <CardTitle>{t('admin.featuredImage')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {featuredImage && (
@@ -447,7 +459,7 @@ const AdminPostEditor = () => {
                   <Label htmlFor="image-upload" className="cursor-pointer">
                     <div className="flex items-center justify-center gap-2 p-4 border-2 border-dashed rounded-lg hover:border-primary transition-colors">
                       <Image className="h-5 w-5" />
-                      <span>Carregar imagem</span>
+                      <span>{t('admin.uploadImage')}</span>
                     </div>
                   </Label>
                   <input
@@ -459,7 +471,7 @@ const AdminPostEditor = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="featured-image-url">Ou cole a URL</Label>
+                  <Label htmlFor="featured-image-url">{t('admin.orPasteUrl')}</Label>
                   <Input
                     id="featured-image-url"
                     value={featuredImage}
@@ -472,14 +484,14 @@ const AdminPostEditor = () => {
             
             <Card>
               <CardHeader>
-                <CardTitle>Organização</CardTitle>
+                <CardTitle>{t('admin.organization')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="category">Categoria</Label>
+                  <Label htmlFor="category">{t('admin.category')}</Label>
                   <Select value={categoryId} onValueChange={setCategoryId}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Selecione uma categoria" />
+                      <SelectValue placeholder={t('admin.selectCategory')} />
                     </SelectTrigger>
                     <SelectContent>
                       {categories.map((category) => (
@@ -492,15 +504,15 @@ const AdminPostEditor = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="tags">Tags</Label>
+                  <Label htmlFor="tags">{t('admin.tagsLabel')}</Label>
                   <Input
                     id="tags"
                     value={tags}
                     onChange={(e) => setTags(e.target.value)}
-                    placeholder="direito, legislação, STF"
+                    placeholder={t('admin.tagsPlaceholder')}
                   />
                   <p className="text-xs text-muted-foreground">
-                    Separe as tags por vírgula
+                    {t('admin.tagsSeparator')}
                   </p>
                 </div>
               </CardContent>
@@ -508,36 +520,35 @@ const AdminPostEditor = () => {
             
             <Card>
               <CardHeader>
-                <CardTitle>SEO</CardTitle>
-                <CardDescription>Otimização para mecanismos de busca</CardDescription>
+                <CardTitle>{t('admin.seo')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="meta-title">Meta Título</Label>
+                  <Label htmlFor="meta-title">{t('admin.metaTitle')}</Label>
                   <Input
                     id="meta-title"
                     value={metaTitle}
                     onChange={(e) => setMetaTitle(e.target.value)}
-                    placeholder={title || 'Título para SEO'}
+                    placeholder={title || t('admin.metaTitlePlaceholder')}
                     maxLength={60}
                   />
                   <p className="text-xs text-muted-foreground text-right">
-                    {metaTitle.length}/60 caracteres
+                    {metaTitle.length}/60 {t('admin.characters')}
                   </p>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="meta-description">Meta Descrição</Label>
+                  <Label htmlFor="meta-description">{t('admin.metaDescription')}</Label>
                   <Textarea
                     id="meta-description"
                     value={metaDescription}
                     onChange={(e) => setMetaDescription(e.target.value)}
-                    placeholder={excerpt || 'Descrição para SEO'}
+                    placeholder={excerpt || t('admin.metaDescriptionPlaceholder')}
                     rows={3}
                     maxLength={160}
                   />
                   <p className="text-xs text-muted-foreground text-right">
-                    {metaDescription.length}/160 caracteres
+                    {metaDescription.length}/160 {t('admin.characters')}
                   </p>
                 </div>
               </CardContent>

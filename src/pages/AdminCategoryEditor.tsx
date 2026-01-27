@@ -9,15 +9,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { ArrowLeft, Save } from 'lucide-react';
-import { z } from 'zod';
-
-const categorySchema = z.object({
-  name: z.string().min(2, 'Nome deve ter no mínimo 2 caracteres').max(50, 'Nome muito longo'),
-  slug: z.string().min(2, 'Slug deve ter no mínimo 2 caracteres').max(50, 'Slug muito longo'),
-  description: z.string().max(200, 'Descrição deve ter no máximo 200 caracteres').optional(),
-});
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const AdminCategoryEditor = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { user, isAdmin, loading } = useAuth();
@@ -50,7 +45,7 @@ const AdminCategoryEditor = () => {
       .single();
 
     if (error) {
-      toast.error('Erro ao carregar categoria');
+      toast.error(t('admin.loadCategoryError'));
       navigate('/admin');
       return;
     }
@@ -82,9 +77,24 @@ const AdminCategoryEditor = () => {
   };
 
   const handleSave = async () => {
-    const result = categorySchema.safeParse({ name, slug, description });
-    if (!result.success) {
-      toast.error(result.error.issues[0].message);
+    if (name.length < 2) {
+      toast.error(t('admin.validation.categoryNameMin'));
+      return;
+    }
+    if (name.length > 50) {
+      toast.error(t('admin.validation.categoryNameMax'));
+      return;
+    }
+    if (slug.length < 2) {
+      toast.error(t('admin.validation.categorySlugMin'));
+      return;
+    }
+    if (slug.length > 50) {
+      toast.error(t('admin.validation.categorySlugMax'));
+      return;
+    }
+    if (description.length > 200) {
+      toast.error(t('admin.validation.categoryDescriptionMax'));
       return;
     }
 
@@ -104,9 +114,9 @@ const AdminCategoryEditor = () => {
 
       if (error) {
         console.error('Error updating category:', error);
-        toast.error('Erro ao atualizar categoria');
+        toast.error(t('admin.categoryUpdateError'));
       } else {
-        toast.success('Categoria atualizada com sucesso');
+        toast.success(t('admin.categoryUpdated'));
         navigate('/admin');
       }
     } else {
@@ -117,12 +127,12 @@ const AdminCategoryEditor = () => {
       if (error) {
         console.error('Error creating category:', error);
         if (error.code === '23505') {
-          toast.error('Já existe uma categoria com este nome ou slug');
+          toast.error(t('admin.categorySlugExists'));
         } else {
-          toast.error('Erro ao criar categoria');
+          toast.error(t('admin.categoryCreateError'));
         }
       } else {
-        toast.success('Categoria criada com sucesso');
+        toast.success(t('admin.categoryCreated'));
         navigate('/admin');
       }
     }
@@ -148,17 +158,17 @@ const AdminCategoryEditor = () => {
               <Button variant="ghost" asChild className="text-primary-foreground">
                 <Link to="/admin">
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Voltar
+                  {t('admin.back')}
                 </Link>
               </Button>
               <h1 className="text-xl font-bold">
-                {isEditing ? 'Editar Categoria' : 'Nova Categoria'}
+                {isEditing ? t('admin.editCategory') : t('admin.newCategoryTitle')}
               </h1>
             </div>
             
             <Button onClick={handleSave} disabled={saving} variant="secondary">
               <Save className="mr-2 h-4 w-4" />
-              {saving ? 'Salvando...' : 'Salvar'}
+              {saving ? t('admin.saving') : t('admin.save')}
             </Button>
           </div>
         </div>
@@ -167,41 +177,41 @@ const AdminCategoryEditor = () => {
       <main className="container mx-auto px-4 py-8 max-w-2xl">
         <Card>
           <CardHeader>
-            <CardTitle>Detalhes da Categoria</CardTitle>
+            <CardTitle>{t('admin.categoryDetails')}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Nome *</Label>
+              <Label htmlFor="name">{t('admin.categoryName')}</Label>
               <Input
                 id="name"
                 value={name}
                 onChange={(e) => handleNameChange(e.target.value)}
-                placeholder="Nome da categoria"
+                placeholder={t('admin.categoryNamePlaceholder')}
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="slug">Slug (URL) *</Label>
+              <Label htmlFor="slug">{t('admin.categorySlug')}</Label>
               <Input
                 id="slug"
                 value={slug}
                 onChange={(e) => setSlug(e.target.value)}
-                placeholder="nome-da-categoria"
+                placeholder={t('admin.categorySlugPlaceholder')}
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="description">Descrição</Label>
+              <Label htmlFor="description">{t('admin.categoryDescription')}</Label>
               <Textarea
                 id="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Descrição da categoria (opcional)"
+                placeholder={t('admin.categoryDescriptionPlaceholder')}
                 rows={3}
                 maxLength={200}
               />
               <p className="text-xs text-muted-foreground text-right">
-                {description.length}/200 caracteres
+                {description.length}/200 {t('admin.characters')}
               </p>
             </div>
           </CardContent>
