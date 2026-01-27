@@ -18,15 +18,6 @@ const Avalie = () => {
       <main className="flex-1 bg-gradient-to-b from-background to-muted">
         <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="max-w-2xl mx-auto">
-            {/* Logo e Título */}
-            <div className="text-center mb-8">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <Scale className="w-8 h-8 text-accent" />
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Mota Advogados Associados
-                </h1>
-              </div>
-            </div>
 
             {/* Card Principal */}
             <div className="bg-card rounded-lg shadow-xl p-8 md:p-12">
