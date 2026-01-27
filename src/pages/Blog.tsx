@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { format, Locale } from 'date-fns';
 import { ptBR, es, enUS, de, it, fr, zhCN } from 'date-fns/locale';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { translateTag } from '@/lib/tagTranslations';
 
 interface BlogPost {
   id: string;
@@ -285,7 +286,7 @@ const Blog = () => {
                       <SelectItem value="all">{t('blog.allTags')}</SelectItem>
                       {allTags.map((tag) => (
                         <SelectItem key={tag} value={tag}>
-                          {tag}
+                          {translateTag(tag, language)}
                         </SelectItem>
                       ))}
                     </SelectContent>

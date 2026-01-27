@@ -10,6 +10,7 @@ import { format, Locale } from 'date-fns';
 import { ptBR, es, enUS, de, it, fr, zhCN } from 'date-fns/locale';
 import { toast } from 'sonner';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { translateTag } from '@/lib/tagTranslations';
 
 interface BlogPostData {
   id: string;
@@ -320,7 +321,7 @@ const BlogPost = () => {
                   <span className="text-sm font-medium text-muted-foreground">{t('blog.tags')}:</span>
                   {post.tags.map((tag) => (
                     <Link key={tag} to={`/blog?tag=${encodeURIComponent(tag)}`} className="inline-flex">
-                      <Badge variant="secondary">{tag}</Badge>
+                      <Badge variant="secondary">{translateTag(tag, language)}</Badge>
                     </Link>
                   ))}
                 </div>

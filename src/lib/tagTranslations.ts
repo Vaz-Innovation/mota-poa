@@ -1,0 +1,261 @@
+// Common tag translations for the blog
+// When a tag doesn't have a translation for a language, the original tag is shown
+
+type TagTranslationsMap = Record<string, Record<string, string>>;
+
+export const tagTranslations: TagTranslationsMap = {
+  // Traffic / CNH related
+  'CNH': {
+    en: "Driver's License",
+    es: 'Licencia de Conducir',
+    de: 'Führerschein',
+    it: 'Patente di Guida',
+    fr: 'Permis de Conduire',
+    zh: '驾驶执照',
+  },
+  'Contran': {
+    en: 'National Traffic Council',
+    es: 'Consejo Nacional de Tránsito',
+    de: 'Nationaler Verkehrsrat',
+    it: 'Consiglio Nazionale del Traffico',
+    fr: 'Conseil National du Trafic',
+    zh: '全国交通委员会',
+  },
+  'Ministério dos Transportes': {
+    en: 'Ministry of Transport',
+    es: 'Ministerio de Transportes',
+    de: 'Verkehrsministerium',
+    it: 'Ministero dei Trasporti',
+    fr: 'Ministère des Transports',
+    zh: '交通部',
+  },
+  'Legislação de Trânsito': {
+    en: 'Traffic Legislation',
+    es: 'Legislación de Tránsito',
+    de: 'Verkehrsgesetzgebung',
+    it: 'Legislazione sul Traffico',
+    fr: 'Législation routière',
+    zh: '交通法规',
+  },
+  'Democratização CNH': {
+    en: 'License Democratization',
+    es: 'Democratización de la Licencia',
+    de: 'Führerschein-Demokratisierung',
+    it: 'Democratizzazione della Patente',
+    fr: 'Démocratisation du permis',
+    zh: '驾照民主化',
+  },
+  'Redução Custos CNH': {
+    en: 'License Cost Reduction',
+    es: 'Reducción de Costos de Licencia',
+    de: 'Kostenreduzierung Führerschein',
+    it: 'Riduzione Costi Patente',
+    fr: 'Réduction des coûts du permis',
+    zh: '驾照费用降低',
+  },
+  'Ensino Remoto': {
+    en: 'Remote Learning',
+    es: 'Enseñanza Remota',
+    de: 'Fernunterricht',
+    it: 'Insegnamento a Distanza',
+    fr: 'Enseignement à Distance',
+    zh: '远程教学',
+  },
+  'Revalidação CNH': {
+    en: 'License Renewal',
+    es: 'Revalidación de Licencia',
+    de: 'Führerscheinverlängerung',
+    it: 'Rinnovo Patente',
+    fr: 'Renouvellement du permis',
+    zh: '驾照续期',
+  },
+  'Motoristas Profissionais': {
+    en: 'Professional Drivers',
+    es: 'Conductores Profesionales',
+    de: 'Berufskraftfahrer',
+    it: 'Autisti Professionisti',
+    fr: 'Chauffeurs Professionnels',
+    zh: '职业司机',
+  },
+  'Segurança Viária': {
+    en: 'Road Safety',
+    es: 'Seguridad Vial',
+    de: 'Verkehrssicherheit',
+    it: 'Sicurezza Stradale',
+    fr: 'Sécurité Routière',
+    zh: '道路安全',
+  },
+  'Desburocratização': {
+    en: 'Bureaucracy Reduction',
+    es: 'Desburocratización',
+    de: 'Bürokratieabbau',
+    it: 'Semplificazione Burocratica',
+    fr: 'Débureaucratisation',
+    zh: '精简手续',
+  },
+  // Work benefits related
+  'vale-alimentação': {
+    en: 'Food Voucher',
+    es: 'Vale de Alimentación',
+    de: 'Essensgutschein',
+    it: 'Buono Alimentare',
+    fr: 'Chèque Alimentaire',
+    zh: '餐饮券',
+  },
+  'vale-refeição': {
+    en: 'Meal Voucher',
+    es: 'Vale de Comida',
+    de: 'Essensgutschein',
+    it: 'Buono Pasto',
+    fr: 'Titre Restaurant',
+    zh: '用餐券',
+  },
+  'PAT': {
+    en: 'Worker Food Program',
+    es: 'Programa de Alimentación del Trabajador',
+    de: 'Arbeitnehmer-Verpflegungsprogramm',
+    it: 'Programma Alimentare Lavoratori',
+    fr: 'Programme Alimentation Travailleurs',
+    zh: '工人餐饮计划',
+  },
+  'Programa de Alimentação do Trabalhador': {
+    en: 'Worker Food Program',
+    es: 'Programa de Alimentación del Trabajador',
+    de: 'Arbeitnehmer-Verpflegungsprogramm',
+    it: 'Programma Alimentare Lavoratori',
+    fr: 'Programme Alimentation Travailleurs',
+    zh: '工人餐饮计划',
+  },
+  'decreto': {
+    en: 'Decree',
+    es: 'Decreto',
+    de: 'Dekret',
+    it: 'Decreto',
+    fr: 'Décret',
+    zh: '法令',
+  },
+  'legislação trabalhista': {
+    en: 'Labor Legislation',
+    es: 'Legislación Laboral',
+    de: 'Arbeitsgesetzgebung',
+    it: 'Legislazione del Lavoro',
+    fr: 'Législation du Travail',
+    zh: '劳动法',
+  },
+  'benefícios corporativos': {
+    en: 'Corporate Benefits',
+    es: 'Beneficios Corporativos',
+    de: 'Unternehmensleistungen',
+    it: 'Benefit Aziendali',
+    fr: 'Avantages Sociaux',
+    zh: '企业福利',
+  },
+  'interoperabilidade': {
+    en: 'Interoperability',
+    es: 'Interoperabilidad',
+    de: 'Interoperabilität',
+    it: 'Interoperabilità',
+    fr: 'Interopérabilité',
+    zh: '互操作性',
+  },
+  'portabilidade de benefícios': {
+    en: 'Benefit Portability',
+    es: 'Portabilidad de Beneficios',
+    de: 'Übertragbarkeit von Leistungen',
+    it: 'Portabilità dei Benefici',
+    fr: 'Portabilité des Avantages',
+    zh: '福利转移性',
+  },
+  'direitos do trabalhador': {
+    en: "Worker's Rights",
+    es: 'Derechos del Trabajador',
+    de: 'Arbeitnehmerrechte',
+    it: 'Diritti dei Lavoratori',
+    fr: 'Droits des Travailleurs',
+    zh: '劳动者权益',
+  },
+  'reformas trabalhistas': {
+    en: 'Labor Reforms',
+    es: 'Reformas Laborales',
+    de: 'Arbeitsreformen',
+    it: 'Riforme del Lavoro',
+    fr: 'Réformes du Travail',
+    zh: '劳动改革',
+  },
+  // General
+  'INSS': {
+    en: 'Social Security (INSS)',
+    es: 'Seguridad Social (INSS)',
+    de: 'Sozialversicherung (INSS)',
+    it: 'Previdenza Sociale (INSS)',
+    fr: 'Sécurité Sociale (INSS)',
+    zh: '社会保障(INSS)',
+  },
+  'aposentadoria': {
+    en: 'Retirement',
+    es: 'Jubilación',
+    de: 'Ruhestand',
+    it: 'Pensione',
+    fr: 'Retraite',
+    zh: '退休金',
+  },
+  'previdência': {
+    en: 'Social Security',
+    es: 'Previsión Social',
+    de: 'Sozialversicherung',
+    it: 'Previdenza',
+    fr: 'Prévoyance',
+    zh: '社会保障',
+  },
+  'STF': {
+    en: 'Supreme Court (STF)',
+    es: 'Tribunal Supremo (STF)',
+    de: 'Oberstes Gericht (STF)',
+    it: 'Corte Suprema (STF)',
+    fr: 'Cour Suprême (STF)',
+    zh: '最高法院(STF)',
+  },
+  'servidores públicos': {
+    en: 'Civil Servants',
+    es: 'Servidores Públicos',
+    de: 'Beamte',
+    it: 'Dipendenti Pubblici',
+    fr: 'Fonctionnaires',
+    zh: '公务员',
+  },
+  'auxílio-alimentação': {
+    en: 'Food Allowance',
+    es: 'Ayuda Alimentaria',
+    de: 'Essenszuschuss',
+    it: 'Indennità Alimentare',
+    fr: 'Allocation Alimentaire',
+    zh: '餐饮补贴',
+  },
+  'Governo Federal': {
+    en: 'Federal Government',
+    es: 'Gobierno Federal',
+    de: 'Bundesregierung',
+    it: 'Governo Federale',
+    fr: 'Gouvernement Fédéral',
+    zh: '联邦政府',
+  },
+  'reforma da previdência': {
+    en: 'Pension Reform',
+    es: 'Reforma de Pensiones',
+    de: 'Rentenreform',
+    it: 'Riforma Previdenziale',
+    fr: 'Réforme des Retraites',
+    zh: '养老金改革',
+  },
+};
+
+/**
+ * Translate a tag to a given language.
+ * Returns the original tag if no translation is found.
+ */
+export function translateTag(tag: string, lang: string): string {
+  if (lang === 'pt') return tag; // Portuguese is the source language
+  const entry = tagTranslations[tag];
+  if (!entry) return tag;
+  return entry[lang] ?? tag;
+}
