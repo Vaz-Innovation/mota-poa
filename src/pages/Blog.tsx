@@ -153,12 +153,13 @@ const Blog = () => {
     
     const matchesCategory = !selectedCategory || post.category?.id === selectedCategory;
     
-    const matchesTag = !selectedTag || post.tags.includes(selectedTag);
+    const postTags = post.tags ?? [];
+    const matchesTag = !selectedTag || postTags.includes(selectedTag);
     
     return matchesSearch && matchesCategory && matchesTag;
   });
 
-  const allTags = Array.from(new Set(posts.flatMap((post) => post.tags)));
+  const allTags = Array.from(new Set(posts.flatMap((post) => post.tags ?? [])));
 
   // JSON-LD structured data for SEO
   const structuredData = {
