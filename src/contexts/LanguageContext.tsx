@@ -330,6 +330,74 @@ const translations: Record<Language, any> = {
       disclaimer: 'Você será redirecionado para o Google Meu Negócio',
       footerLine: 'Excelência em serviços jurídicos há mais de 20 anos'
     },
+    trabalheConosco: {
+      heroTitle: 'Trabalhe Conosco',
+      heroSubtitle: 'Junte-se a nós e construa o futuro da advocacia com ética, inovação e compromisso com resultados.',
+      whyTitle: 'Por que trabalhar conosco?',
+      benefits: {
+        collaborativeTitle: 'Ambiente Colaborativo',
+        collaborativeDesc: 'Trabalhe em uma equipe que valoriza a colaboração e o desenvolvimento profissional.',
+        challengingTitle: 'Casos Desafiadores',
+        challengingDesc: 'Participe de casos complexos e relevantes em diversas áreas do direito.',
+        growthTitle: 'Crescimento Profissional',
+        growthDesc: 'Desenvolva sua carreira em um escritório com tradição e excelência jurídica.'
+      },
+      formTitle: 'Envie sua Candidatura',
+      fields: {
+        nameLabel: 'Nome Completo',
+        namePlaceholder: 'Seu nome completo',
+        emailLabel: 'E-mail',
+        emailPlaceholder: 'seu@email.com',
+        phoneLabel: 'Telefone',
+        phonePlaceholder: '(00) 00000-0000',
+        roleLabel: 'Cargo',
+        rolePlaceholder: 'Selecione o cargo desejado',
+        interestAreaLabel: 'Área de Interesse',
+        interestAreaPlaceholder: 'Ex: Direito Civil, Direito Trabalhista, etc.',
+        messageLabel: 'Mensagem / Experiência Profissional',
+        messagePlaceholder: 'Conte-nos sobre sua experiência e por que deseja trabalhar conosco...'
+      },
+      roles: {
+        intern: 'Estagiário',
+        adminAssistant: 'Assistente Administrativo',
+        lawyer: 'Advogado',
+        correspondentLawyer: 'Advogado Correspondente',
+        partnerLawyer: 'Advogado Parceiro'
+      },
+      resumeBox: {
+        title: 'Envio de Currículo',
+        description: 'Após enviar este formulário, você será redirecionado ao WhatsApp onde poderá anexar seu currículo.'
+      },
+      submit: 'Enviar',
+      submitting: 'Enviando...',
+      backHome: 'Voltar para Home',
+      toastSuccessTitle: 'Candidatura enviada!',
+      toastSuccessDescription: 'Entraremos em contato em breve.',
+      toastValidationErrorTitle: 'Erro de validação',
+      toastGenericErrorTitle: 'Erro',
+      toastGenericErrorDescription: 'Ocorreu um erro ao enviar sua candidatura. Tente novamente.',
+      validation: {
+        nameRequired: 'Nome é obrigatório',
+        nameTooLong: 'Nome muito longo',
+        emailInvalid: 'E-mail inválido',
+        emailTooLong: 'E-mail muito longo',
+        phoneRequired: 'Telefone é obrigatório',
+        phoneTooLong: 'Telefone muito longo',
+        roleRequired: 'Cargo é obrigatório',
+        interestAreaRequired: 'Área de interesse é obrigatória',
+        messageTooShort: 'Mensagem deve ter pelo menos 10 caracteres',
+        messageTooLong: 'Mensagem muito longa'
+      },
+      whatsapp: {
+        title: 'Candidatura - Trabalhe Conosco',
+        name: 'Nome',
+        phone: 'Telefone',
+        email: 'Email',
+        role: 'Cargo',
+        interestArea: 'Área de Interesse',
+        message: 'Mensagem'
+      }
+    },
     auth: {
       adminArea: 'Área Administrativa',
       accessPanel: 'Acesse o painel de gerenciamento do blog',
@@ -759,6 +827,74 @@ const translations: Record<Language, any> = {
       cta: 'Dejar Reseña',
       disclaimer: 'Serás redirigido a Google Business',
       footerLine: 'Excelencia en servicios jurídicos desde hace más de 20 años'
+    },
+    trabalheConosco: {
+      heroTitle: 'Trabaja con Nosotros',
+      heroSubtitle: 'Únete a nosotros y construye el futuro de la abogacía con ética, innovación y compromiso con resultados.',
+      whyTitle: '¿Por qué trabajar con nosotros?',
+      benefits: {
+        collaborativeTitle: 'Ambiente Colaborativo',
+        collaborativeDesc: 'Trabaja en un equipo que valora la colaboración y el desarrollo profesional.',
+        challengingTitle: 'Casos Desafiantes',
+        challengingDesc: 'Participa en casos complejos y relevantes en diversas áreas del derecho.',
+        growthTitle: 'Crecimiento Profesional',
+        growthDesc: 'Desarrolla tu carrera en un despacho con tradición y excelencia jurídica.'
+      },
+      formTitle: 'Envía tu Candidatura',
+      fields: {
+        nameLabel: 'Nombre Completo',
+        namePlaceholder: 'Tu nombre completo',
+        emailLabel: 'Correo electrónico',
+        emailPlaceholder: 'tu@email.com',
+        phoneLabel: 'Teléfono',
+        phonePlaceholder: '(00) 00000-0000',
+        roleLabel: 'Puesto',
+        rolePlaceholder: 'Selecciona el puesto deseado',
+        interestAreaLabel: 'Área de Interés',
+        interestAreaPlaceholder: 'Ej: Derecho Civil, Derecho Laboral, etc.',
+        messageLabel: 'Mensaje / Experiencia Profesional',
+        messagePlaceholder: 'Cuéntanos sobre tu experiencia y por qué quieres trabajar con nosotros...'
+      },
+      roles: {
+        intern: 'Practicante',
+        adminAssistant: 'Asistente Administrativo',
+        lawyer: 'Abogado',
+        correspondentLawyer: 'Abogado Corresponsal',
+        partnerLawyer: 'Abogado Socio'
+      },
+      resumeBox: {
+        title: 'Envío de Currículum',
+        description: 'Después de enviar este formulario, serás redirigido a WhatsApp donde podrás adjuntar tu currículum.'
+      },
+      submit: 'Enviar',
+      submitting: 'Enviando...',
+      backHome: 'Volver al Inicio',
+      toastSuccessTitle: '¡Candidatura enviada!',
+      toastSuccessDescription: 'Nos pondremos en contacto pronto.',
+      toastValidationErrorTitle: 'Error de validación',
+      toastGenericErrorTitle: 'Error',
+      toastGenericErrorDescription: 'Ocurrió un error al enviar tu candidatura. Inténtalo de nuevo.',
+      validation: {
+        nameRequired: 'El nombre es obligatorio',
+        nameTooLong: 'Nombre demasiado largo',
+        emailInvalid: 'Correo electrónico inválido',
+        emailTooLong: 'Correo electrónico demasiado largo',
+        phoneRequired: 'El teléfono es obligatorio',
+        phoneTooLong: 'Teléfono demasiado largo',
+        roleRequired: 'El puesto es obligatorio',
+        interestAreaRequired: 'El área de interés es obligatoria',
+        messageTooShort: 'El mensaje debe tener al menos 10 caracteres',
+        messageTooLong: 'Mensaje demasiado largo'
+      },
+      whatsapp: {
+        title: 'Candidatura - Trabaja con Nosotros',
+        name: 'Nombre',
+        phone: 'Teléfono',
+        email: 'Email',
+        role: 'Puesto',
+        interestArea: 'Área de Interés',
+        message: 'Mensaje'
+      }
     },
     auth: {
       adminArea: 'Área Administrativa',
@@ -1190,6 +1326,74 @@ const translations: Record<Language, any> = {
       disclaimer: 'You will be redirected to Google Business',
       footerLine: 'Excellence in legal services for over 20 years'
     },
+    trabalheConosco: {
+      heroTitle: 'Work With Us',
+      heroSubtitle: 'Join us and help build the future of legal practice with ethics, innovation, and a commitment to results.',
+      whyTitle: 'Why work with us?',
+      benefits: {
+        collaborativeTitle: 'Collaborative Environment',
+        collaborativeDesc: 'Work in a team that values collaboration and professional development.',
+        challengingTitle: 'Challenging Cases',
+        challengingDesc: 'Take part in complex and relevant cases across different areas of law.',
+        growthTitle: 'Professional Growth',
+        growthDesc: 'Grow your career at a firm with tradition and legal excellence.'
+      },
+      formTitle: 'Submit Your Application',
+      fields: {
+        nameLabel: 'Full Name',
+        namePlaceholder: 'Your full name',
+        emailLabel: 'Email',
+        emailPlaceholder: 'your@email.com',
+        phoneLabel: 'Phone',
+        phonePlaceholder: '(00) 00000-0000',
+        roleLabel: 'Role',
+        rolePlaceholder: 'Select the desired role',
+        interestAreaLabel: 'Area of Interest',
+        interestAreaPlaceholder: 'e.g., Civil Law, Labor Law, etc.',
+        messageLabel: 'Message / Professional Experience',
+        messagePlaceholder: 'Tell us about your experience and why you want to work with us...'
+      },
+      roles: {
+        intern: 'Intern',
+        adminAssistant: 'Administrative Assistant',
+        lawyer: 'Lawyer',
+        correspondentLawyer: 'Correspondent Lawyer',
+        partnerLawyer: 'Partner Lawyer'
+      },
+      resumeBox: {
+        title: 'Resume Upload',
+        description: 'After submitting this form, you will be redirected to WhatsApp where you can attach your resume.'
+      },
+      submit: 'Send',
+      submitting: 'Sending...',
+      backHome: 'Back to Home',
+      toastSuccessTitle: 'Application sent!',
+      toastSuccessDescription: 'We will contact you soon.',
+      toastValidationErrorTitle: 'Validation error',
+      toastGenericErrorTitle: 'Error',
+      toastGenericErrorDescription: 'An error occurred while sending your application. Please try again.',
+      validation: {
+        nameRequired: 'Name is required',
+        nameTooLong: 'Name is too long',
+        emailInvalid: 'Invalid email',
+        emailTooLong: 'Email is too long',
+        phoneRequired: 'Phone is required',
+        phoneTooLong: 'Phone is too long',
+        roleRequired: 'Role is required',
+        interestAreaRequired: 'Area of interest is required',
+        messageTooShort: 'Message must be at least 10 characters',
+        messageTooLong: 'Message is too long'
+      },
+      whatsapp: {
+        title: 'Application - Work With Us',
+        name: 'Name',
+        phone: 'Phone',
+        email: 'Email',
+        role: 'Role',
+        interestArea: 'Area of Interest',
+        message: 'Message'
+      }
+    },
     auth: {
       adminArea: 'Admin Area',
       accessPanel: 'Access the blog management panel',
@@ -1619,6 +1823,74 @@ const translations: Record<Language, any> = {
       cta: 'Bewertung abgeben',
       disclaimer: 'Sie werden zu Google Business weitergeleitet',
       footerLine: 'Exzellenz in juristischen Dienstleistungen seit über 20 Jahren'
+    },
+    trabalheConosco: {
+      heroTitle: 'Arbeiten Sie mit uns',
+      heroSubtitle: 'Schließen Sie sich uns an und gestalten Sie die Zukunft der Anwaltschaft mit Ethik, Innovation und Ergebnisorientierung.',
+      whyTitle: 'Warum bei uns arbeiten?',
+      benefits: {
+        collaborativeTitle: 'Kollaboratives Umfeld',
+        collaborativeDesc: 'Arbeiten Sie in einem Team, das Zusammenarbeit und berufliche Entwicklung schätzt.',
+        challengingTitle: 'Herausfordernde Fälle',
+        challengingDesc: 'Arbeiten Sie an komplexen und relevanten Fällen in verschiedenen Rechtsgebieten mit.',
+        growthTitle: 'Berufliches Wachstum',
+        growthDesc: 'Entwickeln Sie Ihre Karriere in einer Kanzlei mit Tradition und juristischer Exzellenz.'
+      },
+      formTitle: 'Bewerbung senden',
+      fields: {
+        nameLabel: 'Vollständiger Name',
+        namePlaceholder: 'Ihr vollständiger Name',
+        emailLabel: 'E-Mail',
+        emailPlaceholder: 'ihre@email.com',
+        phoneLabel: 'Telefon',
+        phonePlaceholder: '(00) 00000-0000',
+        roleLabel: 'Position',
+        rolePlaceholder: 'Gewünschte Position auswählen',
+        interestAreaLabel: 'Interessensgebiet',
+        interestAreaPlaceholder: 'z. B. Zivilrecht, Arbeitsrecht usw.',
+        messageLabel: 'Nachricht / Berufserfahrung',
+        messagePlaceholder: 'Erzählen Sie uns von Ihrer Erfahrung und warum Sie bei uns arbeiten möchten...'
+      },
+      roles: {
+        intern: 'Praktikant/in',
+        adminAssistant: 'Administrative Assistenz',
+        lawyer: 'Anwalt/Anwältin',
+        correspondentLawyer: 'Korrespondenzanwalt/-anwältin',
+        partnerLawyer: 'Partneranwalt/-anwältin'
+      },
+      resumeBox: {
+        title: 'Lebenslauf senden',
+        description: 'Nach dem Absenden dieses Formulars werden Sie zu WhatsApp weitergeleitet, wo Sie Ihren Lebenslauf anhängen können.'
+      },
+      submit: 'Senden',
+      submitting: 'Wird gesendet...',
+      backHome: 'Zur Startseite',
+      toastSuccessTitle: 'Bewerbung gesendet!',
+      toastSuccessDescription: 'Wir melden uns in Kürze.',
+      toastValidationErrorTitle: 'Validierungsfehler',
+      toastGenericErrorTitle: 'Fehler',
+      toastGenericErrorDescription: 'Beim Senden Ihrer Bewerbung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.',
+      validation: {
+        nameRequired: 'Name ist erforderlich',
+        nameTooLong: 'Name ist zu lang',
+        emailInvalid: 'Ungültige E-Mail',
+        emailTooLong: 'E-Mail ist zu lang',
+        phoneRequired: 'Telefon ist erforderlich',
+        phoneTooLong: 'Telefon ist zu lang',
+        roleRequired: 'Position ist erforderlich',
+        interestAreaRequired: 'Interessensgebiet ist erforderlich',
+        messageTooShort: 'Nachricht muss mindestens 10 Zeichen haben',
+        messageTooLong: 'Nachricht ist zu lang'
+      },
+      whatsapp: {
+        title: 'Bewerbung - Arbeiten Sie mit uns',
+        name: 'Name',
+        phone: 'Telefon',
+        email: 'E-Mail',
+        role: 'Position',
+        interestArea: 'Interessensgebiet',
+        message: 'Nachricht'
+      }
     },
     auth: {
       adminArea: 'Administrationsbereich',
@@ -2050,6 +2322,74 @@ const translations: Record<Language, any> = {
       disclaimer: 'Sarai reindirizzato a Google Business',
       footerLine: 'Eccellenza nei servizi legali da oltre 20 anni'
     },
+    trabalheConosco: {
+      heroTitle: 'Lavora con noi',
+      heroSubtitle: 'Unisciti a noi e costruisci il futuro dell’avvocatura con etica, innovazione e impegno per i risultati.',
+      whyTitle: 'Perché lavorare con noi?',
+      benefits: {
+        collaborativeTitle: 'Ambiente collaborativo',
+        collaborativeDesc: 'Lavora in un team che valorizza la collaborazione e lo sviluppo professionale.',
+        challengingTitle: 'Casi impegnativi',
+        challengingDesc: 'Partecipa a casi complessi e rilevanti in diverse aree del diritto.',
+        growthTitle: 'Crescita professionale',
+        growthDesc: 'Sviluppa la tua carriera in uno studio con tradizione ed eccellenza giuridica.'
+      },
+      formTitle: 'Invia la tua candidatura',
+      fields: {
+        nameLabel: 'Nome completo',
+        namePlaceholder: 'Il tuo nome completo',
+        emailLabel: 'Email',
+        emailPlaceholder: 'tua@email.com',
+        phoneLabel: 'Telefono',
+        phonePlaceholder: '(00) 00000-0000',
+        roleLabel: 'Ruolo',
+        rolePlaceholder: 'Seleziona il ruolo desiderato',
+        interestAreaLabel: 'Area di interesse',
+        interestAreaPlaceholder: 'Es: Diritto Civile, Diritto del Lavoro, ecc.',
+        messageLabel: 'Messaggio / Esperienza professionale',
+        messagePlaceholder: 'Raccontaci la tua esperienza e perché vuoi lavorare con noi...'
+      },
+      roles: {
+        intern: 'Stagista',
+        adminAssistant: 'Assistente amministrativo',
+        lawyer: 'Avvocato',
+        correspondentLawyer: 'Avvocato corrispondente',
+        partnerLawyer: 'Avvocato partner'
+      },
+      resumeBox: {
+        title: 'Invio del CV',
+        description: 'Dopo aver inviato questo modulo, verrai reindirizzato a WhatsApp dove potrai allegare il tuo CV.'
+      },
+      submit: 'Invia',
+      submitting: 'Invio in corso...',
+      backHome: 'Torna alla Home',
+      toastSuccessTitle: 'Candidatura inviata!',
+      toastSuccessDescription: 'Ti contatteremo a breve.',
+      toastValidationErrorTitle: 'Errore di validazione',
+      toastGenericErrorTitle: 'Errore',
+      toastGenericErrorDescription: 'Si è verificato un errore durante l’invio della candidatura. Riprova.',
+      validation: {
+        nameRequired: 'Il nome è obbligatorio',
+        nameTooLong: 'Nome troppo lungo',
+        emailInvalid: 'Email non valida',
+        emailTooLong: 'Email troppo lunga',
+        phoneRequired: 'Il telefono è obbligatorio',
+        phoneTooLong: 'Telefono troppo lungo',
+        roleRequired: 'Il ruolo è obbligatorio',
+        interestAreaRequired: 'L’area di interesse è obbligatoria',
+        messageTooShort: 'Il messaggio deve avere almeno 10 caratteri',
+        messageTooLong: 'Messaggio troppo lungo'
+      },
+      whatsapp: {
+        title: 'Candidatura - Lavora con noi',
+        name: 'Nome',
+        phone: 'Telefono',
+        email: 'Email',
+        role: 'Ruolo',
+        interestArea: 'Area di interesse',
+        message: 'Messaggio'
+      }
+    },
     auth: {
       adminArea: 'Area Amministrativa',
       accessPanel: 'Accedi al pannello di gestione del blog',
@@ -2480,6 +2820,74 @@ const translations: Record<Language, any> = {
       disclaimer: 'Vous serez redirigé vers Google Business',
       footerLine: 'Excellence des services juridiques depuis plus de 20 ans'
     },
+    trabalheConosco: {
+      heroTitle: 'Travailler avec nous',
+      heroSubtitle: 'Rejoignez-nous et construisez l’avenir de la profession avec éthique, innovation et engagement pour les résultats.',
+      whyTitle: 'Pourquoi travailler avec nous ?',
+      benefits: {
+        collaborativeTitle: 'Environnement collaboratif',
+        collaborativeDesc: 'Travaillez dans une équipe qui valorise la collaboration et le développement professionnel.',
+        challengingTitle: 'Dossiers stimulants',
+        challengingDesc: 'Participez à des dossiers complexes et pertinents dans diverses branches du droit.',
+        growthTitle: 'Évolution professionnelle',
+        growthDesc: 'Développez votre carrière dans un cabinet avec tradition et excellence juridique.'
+      },
+      formTitle: 'Envoyer votre candidature',
+      fields: {
+        nameLabel: 'Nom complet',
+        namePlaceholder: 'Votre nom complet',
+        emailLabel: 'Email',
+        emailPlaceholder: 'votre@email.com',
+        phoneLabel: 'Téléphone',
+        phonePlaceholder: '(00) 00000-0000',
+        roleLabel: 'Poste',
+        rolePlaceholder: 'Sélectionnez le poste souhaité',
+        interestAreaLabel: 'Domaine d’intérêt',
+        interestAreaPlaceholder: 'Ex : Droit civil, Droit du travail, etc.',
+        messageLabel: 'Message / Expérience professionnelle',
+        messagePlaceholder: 'Parlez-nous de votre expérience et pourquoi vous souhaitez travailler avec nous...'
+      },
+      roles: {
+        intern: 'Stagiaire',
+        adminAssistant: 'Assistant administratif',
+        lawyer: 'Avocat',
+        correspondentLawyer: 'Avocat correspondant',
+        partnerLawyer: 'Avocat partenaire'
+      },
+      resumeBox: {
+        title: 'Envoi du CV',
+        description: 'Après l’envoi de ce formulaire, vous serez redirigé vers WhatsApp où vous pourrez joindre votre CV.'
+      },
+      submit: 'Envoyer',
+      submitting: 'Envoi...',
+      backHome: 'Retour à l’accueil',
+      toastSuccessTitle: 'Candidature envoyée !',
+      toastSuccessDescription: 'Nous vous contacterons bientôt.',
+      toastValidationErrorTitle: 'Erreur de validation',
+      toastGenericErrorTitle: 'Erreur',
+      toastGenericErrorDescription: 'Une erreur est survenue lors de l’envoi de votre candidature. Veuillez réessayer.',
+      validation: {
+        nameRequired: 'Le nom est obligatoire',
+        nameTooLong: 'Nom trop long',
+        emailInvalid: 'Email invalide',
+        emailTooLong: 'Email trop long',
+        phoneRequired: 'Le téléphone est obligatoire',
+        phoneTooLong: 'Téléphone trop long',
+        roleRequired: 'Le poste est obligatoire',
+        interestAreaRequired: 'Le domaine d’intérêt est obligatoire',
+        messageTooShort: 'Le message doit contenir au moins 10 caractères',
+        messageTooLong: 'Message trop long'
+      },
+      whatsapp: {
+        title: 'Candidature - Travailler avec nous',
+        name: 'Nom',
+        phone: 'Téléphone',
+        email: 'Email',
+        role: 'Poste',
+        interestArea: 'Domaine d’intérêt',
+        message: 'Message'
+      }
+    },
     auth: {
       adminArea: 'Zone Administrative',
       accessPanel: 'Accéder au panneau de gestion du blog',
@@ -2909,6 +3317,74 @@ const translations: Record<Language, any> = {
       cta: '留下评价',
       disclaimer: '您将跳转到 Google 商家页面',
       footerLine: '20 多年来坚持卓越法律服务'
+    },
+    trabalheConosco: {
+      heroTitle: '加入我们',
+      heroSubtitle: '加入我们，以道德、创新与结果导向共同塑造法律服务的未来。',
+      whyTitle: '为什么加入我们？',
+      benefits: {
+        collaborativeTitle: '协作氛围',
+        collaborativeDesc: '与重视协作与职业发展的团队一起工作。',
+        challengingTitle: '富有挑战的案件',
+        challengingDesc: '参与多领域复杂且重要的案件。',
+        growthTitle: '职业成长',
+        growthDesc: '在具备传统与卓越法律实力的律所发展你的职业生涯。'
+      },
+      formTitle: '提交你的申请',
+      fields: {
+        nameLabel: '姓名',
+        namePlaceholder: '您的姓名',
+        emailLabel: '邮箱',
+        emailPlaceholder: '您的邮箱地址',
+        phoneLabel: '电话',
+        phonePlaceholder: '(00) 00000-0000',
+        roleLabel: '岗位',
+        rolePlaceholder: '请选择岗位',
+        interestAreaLabel: '感兴趣的领域',
+        interestAreaPlaceholder: '例如：民法、劳动法等',
+        messageLabel: '留言 / 工作经历',
+        messagePlaceholder: '请介绍你的经历，以及为什么想加入我们...'
+      },
+      roles: {
+        intern: '实习生',
+        adminAssistant: '行政助理',
+        lawyer: '律师',
+        correspondentLawyer: '驻地/合作律师',
+        partnerLawyer: '合伙律师'
+      },
+      resumeBox: {
+        title: '简历提交',
+        description: '提交表单后，你将跳转到 WhatsApp，在那里可以附加你的简历。'
+      },
+      submit: '发送',
+      submitting: '发送中...',
+      backHome: '返回首页',
+      toastSuccessTitle: '申请已发送！',
+      toastSuccessDescription: '我们将尽快与您联系。',
+      toastValidationErrorTitle: '校验错误',
+      toastGenericErrorTitle: '错误',
+      toastGenericErrorDescription: '发送申请时发生错误。请重试。',
+      validation: {
+        nameRequired: '姓名为必填项',
+        nameTooLong: '姓名过长',
+        emailInvalid: '邮箱格式无效',
+        emailTooLong: '邮箱过长',
+        phoneRequired: '电话为必填项',
+        phoneTooLong: '电话过长',
+        roleRequired: '岗位为必填项',
+        interestAreaRequired: '感兴趣的领域为必填项',
+        messageTooShort: '留言至少需要 10 个字符',
+        messageTooLong: '留言过长'
+      },
+      whatsapp: {
+        title: '应聘 - 加入我们',
+        name: '姓名',
+        phone: '电话',
+        email: '邮箱',
+        role: '岗位',
+        interestArea: '感兴趣的领域',
+        message: '留言'
+      }
     },
     auth: {
       adminArea: '管理区域',
