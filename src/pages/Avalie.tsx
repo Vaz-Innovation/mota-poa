@@ -3,8 +3,11 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Star, ExternalLink } from "lucide-react";
 import { Scale } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Avalie = () => {
+  const { t } = useLanguage();
+
   const handleReviewClick = () => {
     window.open("https://share.google/XEKsZcXVK5q5gBPEB", "_blank");
   };
@@ -28,11 +31,11 @@ const Avalie = () => {
             {/* Card Principal */}
             <div className="bg-card rounded-lg shadow-xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
-                Sua opinião é importante
+                {t('avalie.heroTitle')}
               </h2>
               
               <p className="text-center text-muted-foreground mb-8">
-                Ajude-nos a continuar oferecendo serviços jurídicos de excelência em Brasília
+                {t('avalie.heroSubtitle')}
               </p>
 
               {/* Estrelas */}
@@ -46,11 +49,11 @@ const Avalie = () => {
               </div>
 
               <h3 className="text-2xl font-semibold text-center mb-3 text-foreground">
-                Avalie Nossa Experiência
+                {t('avalie.cardTitle')}
               </h3>
               
               <p className="text-center text-muted-foreground mb-6">
-                Compartilhe sua experiência com nossos serviços no Google
+                {t('avalie.cardSubtitle')}
               </p>
 
               {/* Caixa de Informação */}
@@ -58,8 +61,7 @@ const Avalie = () => {
                 <div className="flex gap-3">
                   <div className="text-accent text-xl flex-shrink-0">✍️</div>
                   <p className="text-sm text-muted-foreground">
-                    Sua avaliação nos ajuda a melhorar continuamente nossos serviços e a 
-                    alcançar mais clientes que precisam de assessoria jurídica de qualidade.
+                    {t('avalie.note')}
                   </p>
                 </div>
               </div>
@@ -70,12 +72,12 @@ const Avalie = () => {
                 className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-6 text-lg rounded-lg shadow-lg transition-all hover:shadow-xl"
               >
                 <Star className="w-5 h-5 mr-2" />
-                Deixar Avaliação
+                {t('avalie.cta')}
                 <ExternalLink className="w-5 h-5 ml-2" />
               </Button>
 
               <p className="text-center text-sm text-muted-foreground mt-4">
-                Você será redirecionado para o Google Meu Negócio
+                {t('avalie.disclaimer')}
               </p>
             </div>
 
@@ -85,7 +87,7 @@ const Avalie = () => {
                 Mota Advogados Associados • Porto Alegre - RS
               </p>
               <p className="text-sm text-muted-foreground">
-                Excelência em serviços jurídicos há mais de 20 anos
+                {t('avalie.footerLine')}
               </p>
             </div>
           </div>
