@@ -9,8 +9,9 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Calendar, User, Search, Tag, ArrowRight, X } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import { format, Locale } from 'date-fns';
+import { ptBR, es, enUS, de, it, fr, zhCN } from 'date-fns/locale';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface BlogPost {
   id: string;
@@ -39,12 +40,23 @@ interface Category {
 }
 
 const Blog = () => {
+  const { t, language } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  const dateLocales: Record<string, Locale> = {
+    pt: ptBR,
+    es: es,
+    en: enUS,
+    de: de,
+    it: it,
+    fr: fr,
+    zh: zhCN
+  };
 
   useEffect(() => {
     fetchPosts();
@@ -108,7 +120,7 @@ const Blog = () => {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Blog Mota Advogados",
-    "description": "Artigos e notícias sobre direito, legislação e jurisprudência.",
+    "description": t('blog.subtitle'),
     "url": window.location.href,
     "publisher": {
       "@type": "Organization",
@@ -130,14 +142,14 @@ const Blog = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* SEO Meta Tags */}
-      <title>Blog | Mota & Advogados Associados</title>
-      <meta name="description" content="Artigos e notícias sobre direito, legislação e jurisprudência. Mantenha-se atualizado com as últimas mudanças legais." />
+      <title>{t('blog.title')} | Mota & Advogados Associados</title>
+      <meta name="description" content={t('blog.subtitle')} />
       <meta name="keywords" content="blog jurídico, direito, legislação, jurisprudência, advocacia, Mota Advogados" />
       <link rel="canonical" href={window.location.href} />
       
       {/* Open Graph */}
-      <meta property="og:title" content="Blog | Mota & Advogados Associados" />
-      <meta property="og:description" content="Artigos e notícias sobre direito, legislação e jurisprudência." />
+      <meta property="og:title" content={`${t('blog.title')} | Mota & Advogados Associados`} />
+      <meta property="og:description" content={t('blog.subtitle')} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={window.location.href} />
       
@@ -151,10 +163,10 @@ const Blog = () => {
           {/* Hero Section */}
           <section className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-              Blog Jurídico
+              {t('blog.title')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Artigos, notícias e análises sobre as mais recentes mudanças na legislação e jurisprudência brasileira.
+              {t('blog.subtitle')}
             </p>
           </section>
           
@@ -164,7 +176,7 @@ const Blog = () => {
               <div className="relative w-full md:w-96">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Buscar artigos..."
+                  placeholder={t('blog.searchPlaceholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -177,7 +189,7 @@ const Blog = () => {
                   size="sm"
                   onClick={() => setSelectedCategory(null)}
                 >
-                  Todos
+                  {t('blog.all')}
                 </Button>
                 {categories.map((category) => (
                   <Button
@@ -201,10 +213,10 @@ const Blog = () => {
                     onValueChange={(value) => setSelectedTag(value === "all" ? null : value)}
                   >
                     <SelectTrigger className="w-[200px]">
-                      <SelectValue placeholder="Filtrar por tag" />
+                      <SelectValue placeholder={t('blog.filterByTag')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Todas as tags</SelectItem>
+                      <SelectItem value="all">{t('blog.allTags')}</SelectItem>
                       {allTags.map((tag) => (
                         <SelectItem key={tag} value={tag}>
                           {tag}
@@ -221,7 +233,7 @@ const Blog = () => {
                     className="h-8 px-2 text-muted-foreground hover:text-foreground"
                   >
                     <X className="h-4 w-4 mr-1" />
-                    Limpar
+                    {t('blog.clear')}
                   </Button>
                 )}
               </div>
@@ -249,7 +261,7 @@ const Blog = () => {
             ) : filteredPosts.length === 0 ? (
               <div className="text-center py-12">
                 <p className="text-muted-foreground text-lg">
-                  Nenhum artigo encontrado.
+                  {t('blog.noArticles')}
                 </p>
               </div>
             ) : (
@@ -280,7 +292,7 @@ const Blog = () => {
                           <CardDescription className="flex items-center gap-4 text-sm">
                             <span className="flex items-center gap-1">
                               <Calendar className="h-3 w-3" />
-                              {format(new Date(post.published_at || post.created_at), "d 'de' MMMM, yyyy", { locale: ptBR })}
+                              {format(new Date(post.published_at || post.created_at), "d 'de' MMMM, yyyy", { locale: dateLocales[language] || ptBR })}
                             </span>
                             {post.author?.full_name && (
                               <span className="flex items-center gap-1">
@@ -297,7 +309,7 @@ const Blog = () => {
                             </p>
                           )}
                           <div className="flex items-center text-accent text-sm font-medium">
-                            Ler mais <ArrowRight className="ml-1 h-4 w-4" />
+                            {t('blog.readMore')} <ArrowRight className="ml-1 h-4 w-4" />
                           </div>
                         </CardContent>
                       </Card>

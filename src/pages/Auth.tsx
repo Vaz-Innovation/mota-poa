@@ -10,23 +10,10 @@ import { toast } from 'sonner';
 import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
 import { z } from 'zod';
 import motaLogo from '@/assets/logo-mota-new.png';
-
-const loginSchema = z.object({
-  email: z.string().email('E-mail inválido'),
-  password: z.string().min(6, 'Senha deve ter no mínimo 6 caracteres'),
-});
-
-const signUpSchema = z.object({
-  fullName: z.string().min(2, 'Nome deve ter no mínimo 2 caracteres'),
-  email: z.string().email('E-mail inválido'),
-  password: z.string().min(6, 'Senha deve ter no mínimo 6 caracteres'),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: 'As senhas não coincidem',
-  path: ['confirmPassword'],
-});
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Auth = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const { user, signIn, signUp, loading } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +28,21 @@ const Auth = () => {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
   const [signUpConfirmPassword, setSignUpConfirmPassword] = useState('');
+
+  const loginSchema = z.object({
+    email: z.string().email(t('auth.validation.emailInvalid')),
+    password: z.string().min(6, t('auth.validation.passwordMin')),
+  });
+
+  const signUpSchema = z.object({
+    fullName: z.string().min(2, t('auth.validation.nameMin')),
+    email: z.string().email(t('auth.validation.emailInvalid')),
+    password: z.string().min(6, t('auth.validation.passwordMin')),
+    confirmPassword: z.string(),
+  }).refine((data) => data.password === data.confirmPassword, {
+    message: t('auth.validation.passwordsDoNotMatch'),
+    path: ['confirmPassword'],
+  });
 
   useEffect(() => {
     if (user && !loading) {
@@ -63,12 +65,12 @@ const Auth = () => {
     
     if (error) {
       if (error.message.includes('Invalid login credentials')) {
-        toast.error('E-mail ou senha incorretos');
+        toast.error(t('auth.invalidCredentials'));
       } else {
-        toast.error('Erro ao fazer login. Tente novamente.');
+        toast.error(t('auth.loginError'));
       }
     } else {
-      toast.success('Login realizado com sucesso!');
+      toast.success(t('auth.loginSuccess'));
       navigate('/admin');
     }
     
@@ -95,12 +97,12 @@ const Auth = () => {
     
     if (error) {
       if (error.message.includes('User already registered')) {
-        toast.error('Este e-mail já está cadastrado');
+        toast.error(t('auth.emailAlreadyRegistered'));
       } else {
-        toast.error('Erro ao criar conta. Tente novamente.');
+        toast.error(t('auth.signupError'));
       }
     } else {
-      toast.success('Conta criada com sucesso!');
+      toast.success(t('auth.accountCreated'));
       navigate('/admin');
     }
     
@@ -122,26 +124,26 @@ const Auth = () => {
           <div className="flex justify-center mb-4">
             <img src={motaLogo} alt="Mota Advogados" className="h-16" />
           </div>
-          <CardTitle className="text-2xl font-bold text-primary">Área Administrativa</CardTitle>
-          <CardDescription>Acesse o painel de gerenciamento do blog</CardDescription>
+          <CardTitle className="text-2xl font-bold text-primary">{t('auth.adminArea')}</CardTitle>
+          <CardDescription>{t('auth.accessPanel')}</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="login">Entrar</TabsTrigger>
-              <TabsTrigger value="signup">Cadastrar</TabsTrigger>
+              <TabsTrigger value="login">{t('auth.login')}</TabsTrigger>
+              <TabsTrigger value="signup">{t('auth.signup')}</TabsTrigger>
             </TabsList>
             
             <TabsContent value="login">
               <form onSubmit={handleLogin} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="login-email">E-mail</Label>
+                  <Label htmlFor="login-email">{t('auth.email')}</Label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="login-email"
                       type="email"
-                      placeholder="seu@email.com"
+                      placeholder={t('auth.emailPlaceholder')}
                       value={loginEmail}
                       onChange={(e) => setLoginEmail(e.target.value)}
                       className="pl-10"
@@ -151,13 +153,13 @@ const Auth = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="login-password">Senha</Label>
+                  <Label htmlFor="login-password">{t('auth.password')}</Label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="login-password"
                       type={showPassword ? 'text' : 'password'}
-                      placeholder="••••••••"
+                      placeholder={t('auth.passwordPlaceholder')}
                       value={loginPassword}
                       onChange={(e) => setLoginPassword(e.target.value)}
                       className="pl-10 pr-10"
@@ -174,7 +176,7 @@ const Auth = () => {
                 </div>
                 
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? 'Entrando...' : 'Entrar'}
+                  {isLoading ? t('auth.loggingIn') : t('auth.login')}
                 </Button>
               </form>
             </TabsContent>
@@ -182,13 +184,13 @@ const Auth = () => {
             <TabsContent value="signup">
               <form onSubmit={handleSignUp} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="signup-name">Nome completo</Label>
+                  <Label htmlFor="signup-name">{t('auth.fullName')}</Label>
                   <div className="relative">
                     <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="signup-name"
                       type="text"
-                      placeholder="Seu nome"
+                      placeholder={t('auth.fullNamePlaceholder')}
                       value={signUpName}
                       onChange={(e) => setSignUpName(e.target.value)}
                       className="pl-10"
@@ -198,13 +200,13 @@ const Auth = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signup-email">E-mail</Label>
+                  <Label htmlFor="signup-email">{t('auth.email')}</Label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="signup-email"
                       type="email"
-                      placeholder="seu@email.com"
+                      placeholder={t('auth.emailPlaceholder')}
                       value={signUpEmail}
                       onChange={(e) => setSignUpEmail(e.target.value)}
                       className="pl-10"
@@ -214,13 +216,13 @@ const Auth = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signup-password">Senha</Label>
+                  <Label htmlFor="signup-password">{t('auth.password')}</Label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="signup-password"
                       type={showPassword ? 'text' : 'password'}
-                      placeholder="••••••••"
+                      placeholder={t('auth.passwordPlaceholder')}
                       value={signUpPassword}
                       onChange={(e) => setSignUpPassword(e.target.value)}
                       className="pl-10 pr-10"
@@ -237,13 +239,13 @@ const Auth = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="signup-confirm-password">Confirmar senha</Label>
+                  <Label htmlFor="signup-confirm-password">{t('auth.confirmPassword')}</Label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="signup-confirm-password"
                       type={showPassword ? 'text' : 'password'}
-                      placeholder="••••••••"
+                      placeholder={t('auth.passwordPlaceholder')}
                       value={signUpConfirmPassword}
                       onChange={(e) => setSignUpConfirmPassword(e.target.value)}
                       className="pl-10"
@@ -253,7 +255,7 @@ const Auth = () => {
                 </div>
                 
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? 'Cadastrando...' : 'Cadastrar'}
+                  {isLoading ? t('auth.signingUp') : t('auth.signup')}
                 </Button>
               </form>
             </TabsContent>
@@ -261,7 +263,7 @@ const Auth = () => {
           
           <div className="mt-6 text-center">
             <a href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              ← Voltar ao site
+              {t('auth.backToSite')}
             </a>
           </div>
         </CardContent>

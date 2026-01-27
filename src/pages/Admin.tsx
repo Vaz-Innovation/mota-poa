@@ -26,9 +26,10 @@ import {
 } from '@/components/ui/alert-dialog';
 import { toast } from 'sonner';
 import { Plus, Edit, Trash2, Eye, LogOut, FileText, FolderOpen, Home } from 'lucide-react';
-import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import { format, Locale } from 'date-fns';
+import { ptBR, es, enUS, de, it, fr, zhCN } from 'date-fns/locale';
 import motaLogo from '@/assets/logo-mota-new.png';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface BlogPost {
   id: string;
@@ -49,12 +50,23 @@ interface Category {
 }
 
 const Admin = () => {
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
   const { user, isAdmin, loading, signOut } = useAuth();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loadingData, setLoadingData] = useState(true);
   const [activeTab, setActiveTab] = useState<'posts' | 'categories'>('posts');
+
+  const dateLocales: Record<string, Locale> = {
+    pt: ptBR,
+    es: es,
+    en: enUS,
+    de: de,
+    it: it,
+    fr: fr,
+    zh: zhCN
+  };
 
   useEffect(() => {
     if (!loading && !user) {
@@ -85,7 +97,7 @@ const Admin = () => {
 
     if (error) {
       console.error('Error fetching posts:', error);
-      toast.error('Erro ao carregar posts');
+      toast.error(t('admin.loadError'));
     } else {
       setPosts(data || []);
     }
@@ -112,9 +124,9 @@ const Admin = () => {
       .eq('id', id);
 
     if (error) {
-      toast.error('Erro ao excluir post');
+      toast.error(t('admin.deleteError'));
     } else {
-      toast.success('Post excluído com sucesso');
+      toast.success(t('admin.deleteSuccess'));
       fetchPosts();
     }
   };
@@ -126,9 +138,9 @@ const Admin = () => {
       .eq('id', id);
 
     if (error) {
-      toast.error('Erro ao excluir categoria');
+      toast.error(t('admin.deleteCategoryError'));
     } else {
-      toast.success('Categoria excluída com sucesso');
+      toast.success(t('admin.deleteCategorySuccess'));
       fetchCategories();
     }
   };
@@ -151,16 +163,16 @@ const Admin = () => {
       <div className="min-h-screen flex items-center justify-center bg-secondary">
         <Card className="max-w-md">
           <CardHeader>
-            <CardTitle className="text-destructive">Acesso Negado</CardTitle>
+            <CardTitle className="text-destructive">{t('admin.accessDenied')}</CardTitle>
             <CardDescription>
-              Você não tem permissão para acessar esta página. Entre em contato com o administrador.
+              {t('admin.accessDeniedDesc')}
             </CardDescription>
           </CardHeader>
           <CardContent className="flex gap-4">
             <Button variant="outline" asChild>
-              <Link to="/">Voltar ao Site</Link>
+              <Link to="/">{t('admin.backToSite')}</Link>
             </Button>
-            <Button onClick={handleSignOut}>Sair</Button>
+            <Button onClick={handleSignOut}>{t('admin.logout')}</Button>
           </CardContent>
         </Card>
       </div>
@@ -176,8 +188,8 @@ const Admin = () => {
             <div className="flex items-center gap-4">
               <img src={motaLogo} alt="Mota Advogados" className="h-10" />
               <div>
-                <h1 className="text-xl font-bold">Painel Administrativo</h1>
-                <p className="text-sm opacity-80">Gerenciamento do Blog</p>
+                <h1 className="text-xl font-bold">{t('admin.panel')}</h1>
+                <p className="text-sm opacity-80">{t('admin.blogManagement')}</p>
               </div>
             </div>
             
@@ -185,7 +197,7 @@ const Admin = () => {
               <Button variant="ghost" asChild className="text-primary-foreground hover:text-primary-foreground/80">
                 <Link to="/">
                   <Home className="mr-2 h-4 w-4" />
-                  Site
+                  {t('admin.site')}
                 </Link>
               </Button>
               <Button variant="ghost" asChild className="text-primary-foreground hover:text-primary-foreground/80">
@@ -196,7 +208,7 @@ const Admin = () => {
               </Button>
               <Button variant="secondary" onClick={handleSignOut}>
                 <LogOut className="mr-2 h-4 w-4" />
-                Sair
+                {t('admin.logout')}
               </Button>
             </div>
           </div>
@@ -208,36 +220,36 @@ const Admin = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Total de Posts</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('admin.totalPosts')}</CardTitle>
               <FileText className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{posts.length}</div>
               <p className="text-xs text-muted-foreground">
-                {posts.filter(p => p.published).length} publicados
+                {posts.filter(p => p.published).length} {t('admin.published')}
               </p>
             </CardContent>
           </Card>
           
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Categorias</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('admin.categories')}</CardTitle>
               <FolderOpen className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{categories.length}</div>
-              <p className="text-xs text-muted-foreground">categorias criadas</p>
+              <p className="text-xs text-muted-foreground">{t('admin.categoriesCreated')}</p>
             </CardContent>
           </Card>
           
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Rascunhos</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('admin.drafts')}</CardTitle>
               <Edit className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{posts.filter(p => !p.published).length}</div>
-              <p className="text-xs text-muted-foreground">aguardando publicação</p>
+              <p className="text-xs text-muted-foreground">{t('admin.awaitingPublication')}</p>
             </CardContent>
           </Card>
         </div>
@@ -249,14 +261,14 @@ const Admin = () => {
             onClick={() => setActiveTab('posts')}
           >
             <FileText className="mr-2 h-4 w-4" />
-            Posts
+            {t('admin.posts')}
           </Button>
           <Button
             variant={activeTab === 'categories' ? 'default' : 'outline'}
             onClick={() => setActiveTab('categories')}
           >
             <FolderOpen className="mr-2 h-4 w-4" />
-            Categorias
+            {t('admin.categories')}
           </Button>
         </div>
 
@@ -265,13 +277,13 @@ const Admin = () => {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
-                <CardTitle>Posts do Blog</CardTitle>
-                <CardDescription>Gerencie os artigos publicados</CardDescription>
+                <CardTitle>{t('admin.blogPosts')}</CardTitle>
+                <CardDescription>{t('admin.manageArticles')}</CardDescription>
               </div>
               <Button asChild>
                 <Link to="/admin/posts/new">
                   <Plus className="mr-2 h-4 w-4" />
-                  Novo Post
+                  {t('admin.newPost')}
                 </Link>
               </Button>
             </CardHeader>
@@ -282,17 +294,17 @@ const Admin = () => {
                 </div>
               ) : posts.length === 0 ? (
                 <div className="text-center py-8 text-muted-foreground">
-                  Nenhum post encontrado. Crie seu primeiro artigo!
+                  {t('admin.noPostsFound')}
                 </div>
               ) : (
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Título</TableHead>
-                      <TableHead>Categoria</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Data</TableHead>
-                      <TableHead className="text-right">Ações</TableHead>
+                      <TableHead>{t('admin.title')}</TableHead>
+                      <TableHead>{t('admin.category')}</TableHead>
+                      <TableHead>{t('admin.status')}</TableHead>
+                      <TableHead>{t('admin.date')}</TableHead>
+                      <TableHead className="text-right">{t('admin.actions')}</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -302,11 +314,11 @@ const Admin = () => {
                         <TableCell>{post.category?.name || '-'}</TableCell>
                         <TableCell>
                           <Badge variant={post.published ? 'default' : 'secondary'}>
-                            {post.published ? 'Publicado' : 'Rascunho'}
+                            {post.published ? t('admin.publishedStatus') : t('admin.draftStatus')}
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          {format(new Date(post.created_at), "dd/MM/yyyy", { locale: ptBR })}
+                          {format(new Date(post.created_at), "dd/MM/yyyy", { locale: dateLocales[language] || ptBR })}
                         </TableCell>
                         <TableCell className="text-right">
                           <div className="flex justify-end gap-2">
@@ -330,15 +342,15 @@ const Admin = () => {
                               </AlertDialogTrigger>
                               <AlertDialogContent>
                                 <AlertDialogHeader>
-                                  <AlertDialogTitle>Excluir post?</AlertDialogTitle>
+                                  <AlertDialogTitle>{t('admin.deletePost')}</AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    Esta ação não pode ser desfeita. O post será permanentemente excluído.
+                                    {t('admin.deletePostDesc')}
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
-                                  <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                                  <AlertDialogCancel>{t('admin.cancel')}</AlertDialogCancel>
                                   <AlertDialogAction onClick={() => handleDeletePost(post.id)}>
-                                    Excluir
+                                    {t('admin.delete')}
                                   </AlertDialogAction>
                                 </AlertDialogFooter>
                               </AlertDialogContent>
@@ -356,28 +368,28 @@ const Admin = () => {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
-                <CardTitle>Categorias</CardTitle>
-                <CardDescription>Organize os posts por categoria</CardDescription>
+                <CardTitle>{t('admin.categories')}</CardTitle>
+                <CardDescription>{t('admin.organizeByCategory')}</CardDescription>
               </div>
               <Button asChild>
                 <Link to="/admin/categories/new">
                   <Plus className="mr-2 h-4 w-4" />
-                  Nova Categoria
+                  {t('admin.newCategory')}
                 </Link>
               </Button>
             </CardHeader>
             <CardContent>
               {categories.length === 0 ? (
                 <div className="text-center py-8 text-muted-foreground">
-                  Nenhuma categoria encontrada. Crie sua primeira categoria!
+                  {t('admin.noCategoriesFound')}
                 </div>
               ) : (
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Nome</TableHead>
-                      <TableHead>Slug</TableHead>
-                      <TableHead className="text-right">Ações</TableHead>
+                      <TableHead>{t('admin.name')}</TableHead>
+                      <TableHead>{t('admin.slug')}</TableHead>
+                      <TableHead className="text-right">{t('admin.actions')}</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -400,15 +412,15 @@ const Admin = () => {
                               </AlertDialogTrigger>
                               <AlertDialogContent>
                                 <AlertDialogHeader>
-                                  <AlertDialogTitle>Excluir categoria?</AlertDialogTitle>
+                                  <AlertDialogTitle>{t('admin.deleteCategory')}</AlertDialogTitle>
                                   <AlertDialogDescription>
-                                    Esta ação não pode ser desfeita. Os posts vinculados ficarão sem categoria.
+                                    {t('admin.deleteCategoryDesc')}
                                   </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
-                                  <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                                  <AlertDialogCancel>{t('admin.cancel')}</AlertDialogCancel>
                                   <AlertDialogAction onClick={() => handleDeleteCategory(category.id)}>
-                                    Excluir
+                                    {t('admin.delete')}
                                   </AlertDialogAction>
                                 </AlertDialogFooter>
                               </AlertDialogContent>

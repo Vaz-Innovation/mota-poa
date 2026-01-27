@@ -6,9 +6,10 @@ import Footer from '@/components/Footer';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar, User, ArrowLeft, Share2, Clock } from 'lucide-react';
-import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import { format, Locale } from 'date-fns';
+import { ptBR, es, enUS, de, it, fr, zhCN } from 'date-fns/locale';
 import { toast } from 'sonner';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface BlogPostData {
   id: string;
@@ -35,9 +36,20 @@ interface BlogPostData {
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const { t, language } = useLanguage();
   const [post, setPost] = useState<BlogPostData | null>(null);
   const [loading, setLoading] = useState(true);
   const [readingTime, setReadingTime] = useState(0);
+
+  const dateLocales: Record<string, Locale> = {
+    pt: ptBR,
+    es: es,
+    en: enUS,
+    de: de,
+    it: it,
+    fr: fr,
+    zh: zhCN
+  };
 
   useEffect(() => {
     if (slug) {
@@ -93,7 +105,7 @@ const BlogPost = () => {
       }
     } else {
       await navigator.clipboard.writeText(url);
-      toast.success('Link copiado para a área de transferência!');
+      toast.success(t('blog.linkCopied'));
     }
   };
 
@@ -126,10 +138,10 @@ const BlogPost = () => {
         <Header />
         <main className="flex-1 pt-24 pb-16">
           <div className="container mx-auto px-4 lg:px-8 text-center">
-            <h1 className="text-3xl font-bold text-primary mb-4">Artigo não encontrado</h1>
-            <p className="text-muted-foreground mb-8">O artigo que você procura não existe ou foi removido.</p>
+            <h1 className="text-3xl font-bold text-primary mb-4">{t('blog.articleNotFound')}</h1>
+            <p className="text-muted-foreground mb-8">{t('blog.articleNotFoundDesc')}</p>
             <Button asChild>
-              <Link to="/blog">Voltar ao Blog</Link>
+              <Link to="/blog">{t('blog.backToBlog')}</Link>
             </Button>
           </div>
         </main>
@@ -204,7 +216,7 @@ const BlogPost = () => {
               className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Voltar ao Blog
+              {t('blog.backToBlog')}
             </Link>
             
             {/* Header */}
@@ -220,7 +232,7 @@ const BlogPost = () => {
               <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
                 <span className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
-                  {format(new Date(post.published_at || post.created_at), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                  {format(new Date(post.published_at || post.created_at), "d 'de' MMMM 'de' yyyy", { locale: dateLocales[language] || ptBR })}
                 </span>
                 
                 {post.author?.full_name && (
@@ -232,12 +244,12 @@ const BlogPost = () => {
                 
                 <span className="flex items-center gap-2">
                   <Clock className="h-4 w-4" />
-                  {readingTime} min de leitura
+                  {readingTime} {t('blog.minRead')}
                 </span>
                 
                 <Button variant="ghost" size="sm" onClick={handleShare} className="ml-auto">
                   <Share2 className="mr-2 h-4 w-4" />
-                  Compartilhar
+                  {t('blog.share')}
                 </Button>
               </div>
             </header>
@@ -263,7 +275,7 @@ const BlogPost = () => {
             {post.tags.length > 0 && (
               <footer className="mt-12 pt-8 border-t border-border">
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-sm font-medium text-muted-foreground">Tags:</span>
+                  <span className="text-sm font-medium text-muted-foreground">{t('blog.tags')}:</span>
                   {post.tags.map((tag) => (
                     <Badge key={tag} variant="secondary">
                       {tag}
