@@ -34,10 +34,19 @@ interface BlogPostData {
   } | null;
 }
 
+interface Translation {
+  title: string;
+  excerpt: string | null;
+  content: string;
+  meta_title: string | null;
+  meta_description: string | null;
+}
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t, language } = useLanguage();
   const [post, setPost] = useState<BlogPostData | null>(null);
+  const [translation, setTranslation] = useState<Translation | null>(null);
   const [loading, setLoading] = useState(true);
   const [readingTime, setReadingTime] = useState(0);
 
@@ -56,6 +65,14 @@ const BlogPost = () => {
       fetchPost(slug);
     }
   }, [slug]);
+
+  useEffect(() => {
+    if (post && language !== 'pt') {
+      fetchTranslation(post.id, language);
+    } else {
+      setTranslation(null);
+    }
+  }, [post?.id, language]);
 
   const fetchPost = async (postSlug: string) => {
     const { data, error } = await supabase
@@ -90,14 +107,35 @@ const BlogPost = () => {
     setLoading(false);
   };
 
+  const fetchTranslation = async (postId: string, lang: string) => {
+    const { data, error } = await supabase
+      .from('blog_post_translations')
+      .select('title, excerpt, content, meta_title, meta_description')
+      .eq('post_id', postId)
+      .eq('language', lang)
+      .maybeSingle();
+
+    if (error) {
+      console.error('Error fetching translation:', error);
+      setTranslation(null);
+    } else if (data) {
+      setTranslation(data);
+      // Recalculate reading time with translated content
+      const wordCount = data.content.split(/\s+/).length;
+      setReadingTime(Math.ceil(wordCount / 200));
+    } else {
+      setTranslation(null);
+    }
+  };
+
   const handleShare = async () => {
     const url = window.location.href;
     
     if (navigator.share) {
       try {
         await navigator.share({
-          title: post?.title,
-          text: post?.excerpt || '',
+          title: displayTitle,
+          text: displayExcerpt || '',
           url,
         });
       } catch (error) {
@@ -150,15 +188,19 @@ const BlogPost = () => {
     );
   }
 
-  const pageTitle = post.meta_title || post.title;
-  const pageDescription = post.meta_description || post.excerpt || '';
+  // Use translated content if available, otherwise use original
+  const displayTitle = translation?.title || post.title;
+  const displayExcerpt = translation?.excerpt || post.excerpt;
+  const displayContent = translation?.content || post.content;
+  const displayMetaTitle = translation?.meta_title || post.meta_title || displayTitle;
+  const displayMetaDescription = translation?.meta_description || post.meta_description || displayExcerpt || '';
 
   // JSON-LD structured data for SEO
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
+    "headline": displayTitle,
+    "description": displayExcerpt,
     "image": post.featured_image,
     "datePublished": post.published_at || post.created_at,
     "dateModified": post.published_at || post.created_at,
@@ -183,14 +225,14 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* SEO Meta Tags */}
-      <title>{pageTitle} | Blog Mota Advogados</title>
-      <meta name="description" content={pageDescription} />
+      <title>{displayMetaTitle} | Blog Mota Advogados</title>
+      <meta name="description" content={displayMetaDescription} />
       <meta name="keywords" content={post.tags.join(', ')} />
       <link rel="canonical" href={window.location.href} />
       
       {/* Open Graph */}
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={pageDescription} />
+      <meta property="og:title" content={displayMetaTitle} />
+      <meta property="og:description" content={displayMetaDescription} />
       <meta property="og:type" content="article" />
       <meta property="og:url" content={window.location.href} />
       {post.featured_image && <meta property="og:image" content={post.featured_image} />}
@@ -226,7 +268,7 @@ const BlogPost = () => {
               )}
               
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight">
-                {post.title}
+                {displayTitle}
               </h1>
               
               <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
@@ -259,7 +301,7 @@ const BlogPost = () => {
               <figure className="mb-8">
                 <img
                   src={post.featured_image}
-                  alt={post.title}
+                  alt={displayTitle}
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
               </figure>
@@ -268,7 +310,7 @@ const BlogPost = () => {
             {/* Content */}
             <div
               className="blog-content"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: displayContent }}
             />
             
             {/* Tags */}

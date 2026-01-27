@@ -38,6 +38,53 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_post_translations: {
+        Row: {
+          content: string
+          created_at: string
+          excerpt: string | null
+          id: string
+          language: string
+          meta_description: string | null
+          meta_title: string | null
+          post_id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          language: string
+          meta_description?: string | null
+          meta_title?: string | null
+          post_id: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          language?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          post_id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_post_translations_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       blog_posts: {
         Row: {
           author_id: string | null
