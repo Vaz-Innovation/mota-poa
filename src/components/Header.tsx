@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Search, Lock } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import motaLogo from "@/assets/logo-mota-header.png";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,6 +11,20 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,21 +62,21 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <a href="#inicio" className="text-white hover:text-accent transition-colors text-sm font-medium">
+            <button onClick={() => handleNavClick('inicio')} className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.home')}
-            </a>
-            <a href="#sobre" className="text-white hover:text-accent transition-colors text-sm font-medium">
+            </button>
+            <button onClick={() => handleNavClick('sobre')} className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.about')}
-            </a>
-            <a href="#areas" className="text-white hover:text-accent transition-colors text-sm font-medium">
+            </button>
+            <button onClick={() => handleNavClick('areas')} className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.areas')}
-            </a>
-            <a href="#advogados" className="text-white hover:text-accent transition-colors text-sm font-medium">
+            </button>
+            <button onClick={() => handleNavClick('advogados')} className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.lawyers')}
-            </a>
-            <a href="#contato" className="text-white hover:text-accent transition-colors text-sm font-medium">
+            </button>
+            <button onClick={() => handleNavClick('contato')} className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.contact')}
-            </a>
+            </button>
             <Link to="/blog" className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.blog')}
             </Link>
@@ -108,41 +122,36 @@ const Header = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <nav className="lg:hidden py-4 space-y-4 border-t border-white/10">
-            <a
-              href="#inicio"
-              className="block text-white hover:text-accent transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            <button
+              className="block text-white hover:text-accent transition-colors w-full text-left"
+              onClick={() => handleNavClick('inicio')}
             >
               {t('nav.home')}
-            </a>
-            <a
-              href="#sobre"
-              className="block text-white hover:text-accent transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            </button>
+            <button
+              className="block text-white hover:text-accent transition-colors w-full text-left"
+              onClick={() => handleNavClick('sobre')}
             >
               {t('nav.about')}
-            </a>
-            <a
-              href="#areas"
-              className="block text-white hover:text-accent transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            </button>
+            <button
+              className="block text-white hover:text-accent transition-colors w-full text-left"
+              onClick={() => handleNavClick('areas')}
             >
               {t('nav.areas')}
-            </a>
-            <a
-              href="#advogados"
-              className="block text-white hover:text-accent transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            </button>
+            <button
+              className="block text-white hover:text-accent transition-colors w-full text-left"
+              onClick={() => handleNavClick('advogados')}
             >
               {t('nav.lawyers')}
-            </a>
-            <a
-              href="#contato"
-              className="block text-white hover:text-accent transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            </button>
+            <button
+              className="block text-white hover:text-accent transition-colors w-full text-left"
+              onClick={() => handleNavClick('contato')}
             >
               {t('nav.contact')}
-            </a>
+            </button>
             <Link
               to="/blog"
               className="block text-white hover:text-accent transition-colors"
