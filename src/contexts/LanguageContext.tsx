@@ -320,6 +320,12 @@ const translations: Record<Language, any> = {
       articleNotFoundDesc: 'O artigo que você procura não existe ou foi removido.',
       linkCopied: 'Link copiado para a área de transferência!'
     },
+    latestNews: {
+      label: 'Notícias',
+      title: 'Últimas Notícias',
+      subtitle: 'Fique por dentro das novidades jurídicas e atualizações do nosso escritório.',
+      viewAll: 'Ver todas as notícias'
+    },
     avalie: {
       heroTitle: 'Sua opinião é importante',
       heroSubtitle: 'Ajude-nos a continuar oferecendo serviços jurídicos de excelência',
@@ -817,6 +823,12 @@ const translations: Record<Language, any> = {
       articleNotFound: 'Artículo no encontrado',
       articleNotFoundDesc: 'El artículo que busca no existe o fue eliminado.',
       linkCopied: '¡Enlace copiado al portapapeles!'
+    },
+    latestNews: {
+      label: 'Noticias',
+      title: 'Últimas Noticias',
+      subtitle: 'Mantente informado sobre las novedades jurídicas y actualizaciones de nuestro despacho.',
+      viewAll: 'Ver todas las noticias'
     },
     avalie: {
       heroTitle: 'Tu opinión es importante',
@@ -1316,6 +1328,12 @@ const translations: Record<Language, any> = {
       articleNotFoundDesc: 'The article you are looking for does not exist or has been removed.',
       linkCopied: 'Link copied to clipboard!'
     },
+    latestNews: {
+      label: 'News',
+      title: 'Latest News',
+      subtitle: 'Stay informed about the latest legal updates and news from our firm.',
+      viewAll: 'View all news'
+    },
     avalie: {
       heroTitle: 'Your opinion matters',
       heroSubtitle: 'Help us continue delivering excellent legal services',
@@ -1813,6 +1831,12 @@ const translations: Record<Language, any> = {
       articleNotFound: 'Artikel nicht gefunden',
       articleNotFoundDesc: 'Der gesuchte Artikel existiert nicht oder wurde entfernt.',
       linkCopied: 'Link in die Zwischenablage kopiert!'
+    },
+    latestNews: {
+      label: 'Nachrichten',
+      title: 'Aktuelle Nachrichten',
+      subtitle: 'Bleiben Sie über die neuesten juristischen Entwicklungen und Neuigkeiten unserer Kanzlei informiert.',
+      viewAll: 'Alle Nachrichten anzeigen'
     },
     avalie: {
       heroTitle: 'Ihre Meinung ist wichtig',
@@ -2312,6 +2336,12 @@ const translations: Record<Language, any> = {
       articleNotFoundDesc: "L'articolo che stai cercando non esiste o è stato rimosso.",
       linkCopied: 'Link copiato negli appunti!'
     },
+    latestNews: {
+      label: 'Notizie',
+      title: 'Ultime Notizie',
+      subtitle: 'Rimani aggiornato sulle ultime novità legali e gli aggiornamenti del nostro studio.',
+      viewAll: 'Vedi tutte le notizie'
+    },
     avalie: {
       heroTitle: 'La tua opinione è importante',
       heroSubtitle: 'Aiutaci a continuare a offrire servizi legali di eccellenza',
@@ -2810,6 +2840,12 @@ const translations: Record<Language, any> = {
       articleNotFoundDesc: "L'article que vous recherchez n'existe pas ou a été supprimé.",
       linkCopied: 'Lien copié dans le presse-papiers !'
     },
+    latestNews: {
+      label: 'Actualités',
+      title: 'Dernières Actualités',
+      subtitle: 'Restez informé des dernières évolutions juridiques et des nouvelles de notre cabinet.',
+      viewAll: 'Voir toutes les actualités'
+    },
     avalie: {
       heroTitle: 'Votre avis compte',
       heroSubtitle: 'Aidez-nous à continuer d’offrir des services juridiques d’excellence',
@@ -3307,6 +3343,12 @@ const translations: Record<Language, any> = {
       articleNotFound: '文章未找到',
       articleNotFoundDesc: '您查找的文章不存在或已被删除。',
       linkCopied: '链接已复制到剪贴板！'
+    },
+    latestNews: {
+      label: '新闻',
+      title: '最新动态',
+      subtitle: '了解我们律所的最新法律资讯和动态。',
+      viewAll: '查看全部新闻'
     },
     avalie: {
       heroTitle: '您的意见很重要',

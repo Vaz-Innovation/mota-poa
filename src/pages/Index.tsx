@@ -4,6 +4,7 @@ import Stats from "@/components/Stats";
 import About from "@/components/About";
 import PracticeAreas from "@/components/PracticeAreas";
 import Lawyers from "@/components/Lawyers";
+import LatestNews from "@/components/LatestNews";
 import Contact from "@/components/Contact";
 import ProcessConsultation from "@/components/ProcessConsultation";
 import Newsletter from "@/components/Newsletter";
@@ -22,6 +23,7 @@ const Index = () => {
         <About />
         <PracticeAreas />
         <Lawyers />
+        <LatestNews />
         <Contact />
       </main>
       <Newsletter />
