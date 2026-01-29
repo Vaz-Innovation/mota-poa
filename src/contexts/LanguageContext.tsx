@@ -61,7 +61,7 @@ const translations: Record<Language, any> = {
       about: 'Sobre',
       areas: 'Áreas de Atuação',
       lawyers: 'Equipe',
-      contact: 'Contato',
+      contact: 'Localização',
       blog: 'Blog',
       callUs: 'Fale Conosco',
       access: 'Acessos'
@@ -565,7 +565,7 @@ const translations: Record<Language, any> = {
       about: 'Sobre Nosotros',
       areas: 'Áreas de Práctica',
       lawyers: 'Abogados',
-      contact: 'Contacto',
+      contact: 'Ubicación',
       blog: 'Blog',
       callUs: 'Contáctenos',
       access: 'Accesos'
@@ -1069,7 +1069,7 @@ const translations: Record<Language, any> = {
       about: 'About',
       areas: 'Practice Areas',
       lawyers: 'Lawyers',
-      contact: 'Contact',
+      contact: 'Location',
       blog: 'Blog',
       callUs: 'Contact Us',
       access: 'Access'
@@ -1573,7 +1573,7 @@ const translations: Record<Language, any> = {
       about: 'Über Uns',
       areas: 'Tätigkeitsbereiche',
       lawyers: 'Anwälte',
-      contact: 'Kontakt',
+      contact: 'Standort',
       blog: 'Blog',
       callUs: 'Kontaktieren Sie Uns',
       access: 'Zugang'
@@ -2077,7 +2077,7 @@ const translations: Record<Language, any> = {
       about: 'Chi Siamo',
       areas: 'Aree di Pratica',
       lawyers: 'Avvocati',
-      contact: 'Contatto',
+      contact: 'Posizione',
       blog: 'Blog',
       callUs: 'Contattaci',
       access: 'Accesso'
@@ -2581,7 +2581,7 @@ const translations: Record<Language, any> = {
       about: 'À Propos',
       areas: 'Domaines de Pratique',
       lawyers: 'Avocats',
-      contact: 'Contact',
+      contact: 'Localisation',
       blog: 'Blog',
       callUs: 'Contactez-Nous',
       access: 'Accès'
@@ -3085,7 +3085,7 @@ const translations: Record<Language, any> = {
       about: '关于我们',
       areas: '业务领域',
       lawyers: '律师团队',
-      contact: '联系我们',
+      contact: '位置',
       blog: '博客',
       callUs: '联系我们',
       access: '访问'
