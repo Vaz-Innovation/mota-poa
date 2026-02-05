@@ -14,12 +14,11 @@ import { trackWhatsAppClick } from "@/lib/analytics";
 const ProcessConsultation = () => {
   const { t } = useLanguage();
   const [processNumber, setProcessNumber] = useState("");
-  const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
-    if (!processNumber.trim() || !name.trim() || !cpf.trim()) {
+    if (!processNumber.trim() || !cpf.trim()) {
       toast({
         title: t('processConsultation.error'),
         description: t('processConsultation.requiredFieldsError'),
@@ -31,11 +30,10 @@ const ProcessConsultation = () => {
     // Track analytics event
     trackWhatsAppClick('process_consultation', {
       process_number: processNumber,
-      name: name,
       cpf: cpf,
     });
 
-    const message = `Olá, queria consultar o meu processo\nNúmero do processo: ${processNumber}\nNome Completo: ${name}\nCPF: ${cpf}`;
+    const message = `Olá, queria consultar o meu processo\nNúmero do processo: ${processNumber}\nCPF/CNPJ: ${cpf}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5551981981210?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
@@ -83,17 +81,6 @@ const ProcessConsultation = () => {
                       className="text-base"
                     />
                   </div>
-
-                  <div>
-                    <Input
-                      type="text"
-                      placeholder={t('processConsultation.fullNamePlaceholder')}
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="text-base"
-                    />
-                  </div>
-
                   <div>
                     <Input
                       type="text"
