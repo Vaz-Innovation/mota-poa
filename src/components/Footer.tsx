@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, Facebook } from "lucide-react";
+import { Linkedin, Facebook } from "lucide-react";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -82,15 +82,6 @@ const Footer = () => {
                 aria-label="LinkedIn"
               >
                 <Linkedin size={24} />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-bronze transition-colors hover-scale"
-                aria-label="Instagram"
-              >
-                <Instagram size={24} />
               </a>
               <a 
                 href="https://web.facebook.com/Mota.Advogados.Poa" 
