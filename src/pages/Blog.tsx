@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
@@ -50,6 +50,10 @@ interface Category {
 const Blog = () => {
   const { t, language } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
