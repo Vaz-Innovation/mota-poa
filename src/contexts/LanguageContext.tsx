@@ -303,7 +303,7 @@ const translations: Record<Language, any> = {
       decline: 'Recusar'
     },
     blog: {
-      title: 'Blog Jurídico',
+      title: 'Blog',
       subtitle: 'Artigos, notícias e análises sobre as mais recentes mudanças na legislação e jurisprudência brasileira.',
       searchPlaceholder: 'Buscar artigos...',
       all: 'Todos',
@@ -807,7 +807,7 @@ const translations: Record<Language, any> = {
       decline: 'Rechazar'
     },
     blog: {
-      title: 'Blog Jurídico',
+      title: 'Blog',
       subtitle: 'Artículos, noticias y análisis sobre los cambios más recientes en la legislación y jurisprudencia brasileña.',
       searchPlaceholder: 'Buscar artículos...',
       all: 'Todos',
@@ -1311,7 +1311,7 @@ const translations: Record<Language, any> = {
       decline: 'Decline'
     },
     blog: {
-      title: 'Legal Blog',
+      title: 'Blog',
       subtitle: 'Articles, news and analysis on the latest changes in Brazilian legislation and jurisprudence.',
       searchPlaceholder: 'Search articles...',
       all: 'All',
@@ -1815,7 +1815,7 @@ const translations: Record<Language, any> = {
       decline: 'Ablehnen'
     },
     blog: {
-      title: 'Rechtsblog',
+      title: 'Blog',
       subtitle: 'Artikel, Nachrichten und Analysen zu den neuesten Änderungen in der brasilianischen Gesetzgebung und Rechtsprechung.',
       searchPlaceholder: 'Artikel suchen...',
       all: 'Alle',
@@ -2319,7 +2319,7 @@ const translations: Record<Language, any> = {
       decline: 'Rifiuta'
     },
     blog: {
-      title: 'Blog Legale',
+      title: 'Blog',
       subtitle: 'Articoli, notizie e analisi sui cambiamenti più recenti nella legislazione e giurisprudenza brasiliana.',
       searchPlaceholder: 'Cerca articoli...',
       all: 'Tutti',
@@ -2823,7 +2823,7 @@ const translations: Record<Language, any> = {
       decline: 'Refuser'
     },
     blog: {
-      title: 'Blog Juridique',
+      title: 'Blog',
       subtitle: 'Articles, actualités et analyses sur les dernières évolutions de la législation et jurisprudence brésilienne.',
       searchPlaceholder: 'Rechercher des articles...',
       all: 'Tous',
@@ -3327,7 +3327,7 @@ const translations: Record<Language, any> = {
       decline: '拒绝'
     },
     blog: {
-      title: '法律博客',
+      title: 'Blog',
       subtitle: '关于巴西立法和判例最新变化的文章、新闻和分析。',
       searchPlaceholder: '搜索文章...',
       all: '全部',
