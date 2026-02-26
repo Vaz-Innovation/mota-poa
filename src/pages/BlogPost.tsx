@@ -24,6 +24,7 @@ interface BlogPostData {
   meta_description: string | null;
   published_at: string | null;
   created_at: string;
+  source_url: string | null;
   category: {
     id: string;
     name: string;
@@ -90,6 +91,7 @@ const BlogPost = () => {
         meta_description,
         published_at,
         created_at,
+        source_url,
         category:blog_categories(id, name, slug),
         author:profiles(full_name, avatar_url)
       `)
@@ -314,9 +316,24 @@ const BlogPost = () => {
               dangerouslySetInnerHTML={{ __html: displayContent }}
             />
             
+            {/* Source URL */}
+            {post.source_url && (
+              <div className="mt-8 p-4 bg-muted/50 rounded-lg border border-border">
+                <span className="text-sm font-medium text-muted-foreground">{t('blog.source')}: </span>
+                <a
+                  href={post.source_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary hover:underline break-all"
+                >
+                  {post.source_url}
+                </a>
+              </div>
+            )}
+
             {/* Tags */}
             {post.tags.length > 0 && (
-              <footer className="mt-12 pt-8 border-t border-border">
+              <footer className="mt-8 pt-8 border-t border-border">
                 <div className="flex flex-wrap gap-2">
                   <span className="text-sm font-medium text-muted-foreground">{t('blog.tags')}:</span>
                   {post.tags.map((tag) => (

@@ -318,7 +318,8 @@ const translations: Record<Language, any> = {
       tags: 'Tags',
       articleNotFound: 'Artigo não encontrado',
       articleNotFoundDesc: 'O artigo que você procura não existe ou foi removido.',
-      linkCopied: 'Link copiado para a área de transferência!'
+      linkCopied: 'Link copiado para a área de transferência!',
+      source: 'Fonte'
     },
     latestNews: {
       label: 'Notícias',
@@ -822,7 +823,8 @@ const translations: Record<Language, any> = {
       tags: 'Etiquetas',
       articleNotFound: 'Artículo no encontrado',
       articleNotFoundDesc: 'El artículo que busca no existe o fue eliminado.',
-      linkCopied: '¡Enlace copiado al portapapeles!'
+      linkCopied: '¡Enlace copiado al portapapeles!',
+      source: 'Fuente'
     },
     latestNews: {
       label: 'Noticias',
@@ -1326,7 +1328,8 @@ const translations: Record<Language, any> = {
       tags: 'Tags',
       articleNotFound: 'Article not found',
       articleNotFoundDesc: 'The article you are looking for does not exist or has been removed.',
-      linkCopied: 'Link copied to clipboard!'
+      linkCopied: 'Link copied to clipboard!',
+      source: 'Source'
     },
     latestNews: {
       label: 'News',
@@ -1830,7 +1833,8 @@ const translations: Record<Language, any> = {
       tags: 'Tags',
       articleNotFound: 'Artikel nicht gefunden',
       articleNotFoundDesc: 'Der gesuchte Artikel existiert nicht oder wurde entfernt.',
-      linkCopied: 'Link in die Zwischenablage kopiert!'
+      linkCopied: 'Link in die Zwischenablage kopiert!',
+      source: 'Quelle'
     },
     latestNews: {
       label: 'Nachrichten',
@@ -2334,7 +2338,8 @@ const translations: Record<Language, any> = {
       tags: 'Tag',
       articleNotFound: 'Articolo non trovato',
       articleNotFoundDesc: "L'articolo che stai cercando non esiste o è stato rimosso.",
-      linkCopied: 'Link copiato negli appunti!'
+      linkCopied: 'Link copiato negli appunti!',
+      source: 'Fonte'
     },
     latestNews: {
       label: 'Notizie',
@@ -2838,7 +2843,8 @@ const translations: Record<Language, any> = {
       tags: 'Tags',
       articleNotFound: 'Article non trouvé',
       articleNotFoundDesc: "L'article que vous recherchez n'existe pas ou a été supprimé.",
-      linkCopied: 'Lien copié dans le presse-papiers !'
+      linkCopied: 'Lien copié dans le presse-papiers !',
+      source: 'Source'
     },
     latestNews: {
       label: 'Actualités',
@@ -3342,7 +3348,8 @@ const translations: Record<Language, any> = {
       tags: '标签',
       articleNotFound: '文章未找到',
       articleNotFoundDesc: '您查找的文章不存在或已被删除。',
-      linkCopied: '链接已复制到剪贴板！'
+      linkCopied: '链接已复制到剪贴板！',
+      source: '来源'
     },
     latestNews: {
       label: '新闻',
