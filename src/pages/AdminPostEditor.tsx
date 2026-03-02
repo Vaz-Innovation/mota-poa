@@ -46,6 +46,7 @@ const AdminPostEditor = () => {
   const [metaTitle, setMetaTitle] = useState('');
   const [metaDescription, setMetaDescription] = useState('');
   const [published, setPublished] = useState(false);
+  const [sourceUrl, setSourceUrl] = useState('');
   
   // Import URL state
   const [importUrl, setImportUrl] = useState('');
@@ -100,6 +101,7 @@ const AdminPostEditor = () => {
       setMetaTitle(data.meta_title || '');
       setMetaDescription(data.meta_description || '');
       setPublished(data.published);
+      setSourceUrl(data.source_url || '');
     }
     setLoadingPost(false);
   };
@@ -185,6 +187,7 @@ const AdminPostEditor = () => {
         if (extracted.metaDescription) setMetaDescription(extracted.metaDescription.substring(0, 160));
         if (extracted.title) setMetaTitle(extracted.title.substring(0, 60));
         
+        setSourceUrl(importUrl.trim());
         setImportUrl('');
         toast.success(t('admin.importSuccess'));
       }
@@ -282,6 +285,7 @@ const AdminPostEditor = () => {
       meta_description: metaDescription || null,
       published,
       published_at: published ? new Date().toISOString() : null,
+      source_url: sourceUrl || null,
     };
 
     if (isEditing) {
