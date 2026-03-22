@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
+import LegacyRedirect from "@/components/LegacyRedirect";
 import Index from "./pages/Index";
 import TrabalheConosco from "./pages/TrabalheConosco";
 import Avalie from "./pages/Avalie";
@@ -24,6 +25,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <LegacyRedirect />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
