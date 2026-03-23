@@ -108,7 +108,7 @@ const translations: Record<Language, any> = {
       trajectory: {
         title: 'Trajetória',
         badge: 'Desde 2000',
-        summary: 'Mais de 25 anos de excelência jurídica',
+        summary: 'Mais de 26 anos de excelência jurídica',
         content1: 'A MOTA & ADVOGADOS ASSOCIADOS é uma sociedade de advogados desde 2000, com atuação nacional.',
         content2: 'A prestação de serviços jurídicos de excelência é nosso objetivo e se reflete nos resultados alcançados e na satisfação dos nossos clientes.'
       },
@@ -1118,7 +1118,7 @@ const translations: Record<Language, any> = {
       trajectory: {
         title: 'Trajectory',
         badge: 'Since 2000',
-        summary: 'Over 25 years of legal excellence',
+        summary: 'Over 26 years of legal excellence',
         content1: 'MOTA & LAWYERS ASSOCIATES is a law firm since 2000, with national coverage.',
         content2: 'Providing excellent legal services is our goal and is reflected in the results achieved and in our clients\' satisfaction.'
       },
