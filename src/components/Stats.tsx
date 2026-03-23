@@ -37,7 +37,7 @@ const Stats = () => {
     },
     {
       id: 2,
-      value: 22500,
+      value: 223000,
       suffix: "+",
       label: t('stats.clients'),
       duration: 2500,
