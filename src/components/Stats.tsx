@@ -30,7 +30,7 @@ const Stats = () => {
   const stats = [
     {
       id: 1,
-      value: 25,
+      value: 26,
       suffix: "+",
       label: t('stats.experience'),
       duration: 2000,
