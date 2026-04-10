@@ -51,7 +51,7 @@ const Stats = () => {
     },
     {
       id: 4,
-      value: 125000,
+      value: 211850,
       suffix: "+",
       label: t('stats.cases'),
       duration: 3000,
