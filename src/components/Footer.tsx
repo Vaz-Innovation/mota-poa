@@ -53,11 +53,6 @@ const Footer = () => {
                   {t('nav.blog')}
                 </Link>
               </li>
-              <li>
-                <a href="https://dev.motaeadvogados.com.br/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-bronze transition-colors">
-                  Intranet
-                </a>
-              </li>
             </ul>
           </div>
 
