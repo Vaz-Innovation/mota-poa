@@ -96,6 +96,18 @@ const Footer = () => {
           </div>
         </div>
 
+        <div className="border-t border-white/20 pt-6 pb-6 flex justify-center">
+          <a 
+            href="https://dev.motaeadvogados.com.br/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-white/70 hover:text-bronze transition-colors"
+          >
+            <Lock className="h-4 w-4" />
+            <span className="text-sm font-medium">Intranet</span>
+          </a>
+        </div>
+
         <div className="border-t border-white/20 pt-8 text-center text-white/60">
           <p>&copy; {new Date().getFullYear()} Mota & Advogados Associados. {t('footer.rights')}</p>
         </div>
