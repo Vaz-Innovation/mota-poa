@@ -88,10 +88,6 @@ const Header = () => {
               <Search className="h-5 w-5" />
             </button>
             
-            <div className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
-              <Lock className="h-4 w-4 text-white" />
-              <span className="text-white text-sm font-medium">{t('nav.access')}</span>
-            </div>
             
             <LanguageSelector />
             
