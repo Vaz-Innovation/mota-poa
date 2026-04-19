@@ -16,6 +16,24 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+/** A Field Group managed by ACF */
+export type AcfFieldGroup = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+};
+
+/** Fields associated with an ACF Field Group */
+export type AcfFieldGroupFields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+};
+
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
 export type Avatar = {
   __typename?: 'Avatar';
@@ -699,13 +717,13 @@ export enum CommentNodeIdTypeEnum {
 
 /** Moderation state for user comments. Determines whether comments are publicly visible, pending approval, or marked as spam. */
 export enum CommentStatusEnum {
-  /** Comments with the Aprovado status */
+  /** Comments with the Approved status */
   Approve = 'APPROVE',
-  /** Comments with the Rejeitado status */
+  /** Comments with the Unapproved status */
   Hold = 'HOLD',
   /** Comments with the Spam status */
   Spam = 'SPAM',
-  /** Comments with the Lixo status */
+  /** Comments with the Trash status */
   Trash = 'TRASH'
 }
 
@@ -1733,8 +1751,12 @@ export type CreateUserInput = {
   nickname?: InputMaybe<Scalars['String']['input']>;
   /** A string that contains the plain text password for the user. */
   password?: InputMaybe<Scalars['String']['input']>;
+  /** If true, this will refresh the users JWT secret. */
+  refreshJwtUserSecret?: InputMaybe<Scalars['Boolean']['input']>;
   /** The date the user registered. Format is Y-m-d H:i:s. */
   registered?: InputMaybe<Scalars['String']['input']>;
+  /** If true, this will revoke the users JWT secret. If false, this will unrevoke the JWT secret AND issue a new one. To revoke, the user must have proper capabilities to edit users JWT secrets. */
+  revokeJwtUserSecret?: InputMaybe<Scalars['Boolean']['input']>;
   /** A string for whether to enable the rich editor or not. False if not empty. */
   richEditing?: InputMaybe<Scalars['String']['input']>;
   /** An array of roles to be assigned to the user. */
@@ -1978,9 +2000,9 @@ export type DeleteUserPayload = {
 /** The discussion setting type */
 export type DiscussionSettings = {
   __typename?: 'DiscussionSettings';
-  /** Permitir que pessoas enviem comentários em novos posts. */
+  /** Allow people to submit comments on new posts. */
   defaultCommentStatus?: Maybe<Scalars['String']['output']>;
-  /** Permitir avisos de links de outros blogs (pingbacks ou trackbacks) em novos artigos. */
+  /** Allow link notifications from other blogs (pingbacks and trackbacks) on new articles. */
   defaultPingStatus?: Maybe<Scalars['String']['output']>;
 };
 
@@ -2175,27 +2197,27 @@ export type EnqueuedStylesheetConnectionPageInfo = {
 /** The general setting type */
 export type GeneralSettings = {
   __typename?: 'GeneralSettings';
-  /** Um formato de data para todos os textos. */
+  /** A date format for all date strings. */
   dateFormat?: Maybe<Scalars['String']['output']>;
-  /** Slogan do site. */
+  /** Site tagline. */
   description?: Maybe<Scalars['String']['output']>;
-  /** Este endereço é utilizado para administração, como notificação de novo usuário. */
+  /** This address is used for admin purposes, like new user notification. */
   email?: Maybe<Scalars['String']['output']>;
-  /** Código de localização do WordPress. */
+  /** WordPress locale code. */
   language?: Maybe<Scalars['String']['output']>;
   /** The media item representing the site icon configured in site settings, used as the site&#039;s favicon and app icon. */
   siteIcon?: Maybe<GeneralSettingsToMediaItemConnectionEdge>;
   /** Site icon URL configured in site settings, used as the site&#039;s favicon and app icon. */
   siteIconUrl?: Maybe<Scalars['String']['output']>;
-  /** Número do dia da semana em que a semana deve iniciar. */
+  /** A day number of the week that the week should start on. */
   startOfWeek?: Maybe<Scalars['Int']['output']>;
-  /** Um formato de hora para todos os textos. */
+  /** A time format for all time strings. */
   timeFormat?: Maybe<Scalars['String']['output']>;
-  /** Uma cidade no mesmo fuso horário que você. */
+  /** A city in the same timezone as you. */
   timezone?: Maybe<Scalars['String']['output']>;
-  /** Título do site. */
+  /** Site title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** URL do site. */
+  /** Site URL. */
   url?: Maybe<Scalars['String']['output']>;
 };
 
@@ -2589,6 +2611,29 @@ export enum LanguageCodeFilterEnum {
   En = 'EN',
   Pt = 'PT'
 }
+
+/** Input for the login mutation. */
+export type LoginInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The plain-text password for the user logging in. */
+  password: Scalars['String']['input'];
+  /** The username used for login. Typically a unique or email address depending on specific configuration */
+  username: Scalars['String']['input'];
+};
+
+/** The payload for the login mutation. */
+export type LoginPayload = {
+  __typename?: 'LoginPayload';
+  /** JWT Token that can be used in future requests for Authentication */
+  authToken?: Maybe<Scalars['String']['output']>;
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** A JWT token that can be used in future requests to get a refreshed jwtAuthToken. If the refresh token used in a request is revoked or otherwise invalid, a valid Auth token will NOT be issued in the response headers. */
+  refreshToken?: Maybe<Scalars['String']['output']>;
+  /** The user that was logged in */
+  user?: Maybe<User>;
+};
 
 /** File details for a Media Item */
 export type MediaDetails = {
@@ -5677,14 +5722,31 @@ export type Previewable = {
 /** The reading setting type */
 export type ReadingSettings = {
   __typename?: 'ReadingSettings';
-  /** O ID da página que deve exibir os posts mais recentes */
+  /** The ID of the page that should display the latest posts */
   pageForPosts?: Maybe<Scalars['Int']['output']>;
-  /** O ID da página que deve ser exibida na página inicial */
+  /** The ID of the page that should be displayed on the front page */
   pageOnFront?: Maybe<Scalars['Int']['output']>;
-  /** As páginas do blog mostram no máximo. */
+  /** Blog pages show at most. */
   postsPerPage?: Maybe<Scalars['Int']['output']>;
-  /** O que exibir na página inicial */
+  /** What to show on the front page */
   showOnFront?: Maybe<Scalars['String']['output']>;
+};
+
+/** Input for the refreshJwtAuthToken mutation. */
+export type RefreshJwtAuthTokenInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** A valid, previously issued JWT refresh token. If valid a new Auth token will be provided. If invalid, expired, revoked or otherwise invalid, a new AuthToken will not be provided. */
+  jwtRefreshToken: Scalars['String']['input'];
+};
+
+/** The payload for the refreshJwtAuthToken mutation. */
+export type RefreshJwtAuthTokenPayload = {
+  __typename?: 'RefreshJwtAuthTokenPayload';
+  /** JWT Token that can be used in future requests for Authentication */
+  authToken?: Maybe<Scalars['String']['output']>;
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
 };
 
 /** Input for the registerUser mutation. */
@@ -5713,8 +5775,12 @@ export type RegisterUserInput = {
   nickname?: InputMaybe<Scalars['String']['input']>;
   /** A string that contains the plain text password for the user. */
   password?: InputMaybe<Scalars['String']['input']>;
+  /** If true, this will refresh the users JWT secret. */
+  refreshJwtUserSecret?: InputMaybe<Scalars['Boolean']['input']>;
   /** The date the user registered. Format is Y-m-d H:i:s. */
   registered?: InputMaybe<Scalars['String']['input']>;
+  /** If true, this will revoke the users JWT secret. If false, this will unrevoke the JWT secret AND issue a new one. To revoke, the user must have proper capabilities to edit users JWT secrets. */
+  revokeJwtUserSecret?: InputMaybe<Scalars['Boolean']['input']>;
   /** A string for whether to enable the rich editor or not. False if not empty. */
   richEditing?: InputMaybe<Scalars['String']['input']>;
   /** A string that contains the user's username. */
@@ -5819,6 +5885,10 @@ export type RootMutation = {
   deleteUser?: Maybe<DeleteUserPayload>;
   /** Increase the count. */
   increaseCount?: Maybe<Scalars['Int']['output']>;
+  /** Login a user. Request for an authToken and User details in response */
+  login?: Maybe<LoginPayload>;
+  /** Use a valid JWT Refresh token to retrieve a new JWT Auth Token */
+  refreshJwtAuthToken?: Maybe<RefreshJwtAuthTokenPayload>;
   /** The registerUser mutation */
   registerUser?: Maybe<RegisterUserPayload>;
   /** The resetUserPassword mutation */
@@ -5947,6 +6017,18 @@ export type RootMutationDeleteUserArgs = {
 /** The root mutation */
 export type RootMutationIncreaseCountArgs = {
   count?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** The root mutation */
+export type RootMutationLoginArgs = {
+  input: LoginInput;
+};
+
+
+/** The root mutation */
+export type RootMutationRefreshJwtAuthTokenArgs = {
+  input: RefreshJwtAuthTokenInput;
 };
 
 
@@ -7858,6 +7940,45 @@ export type Settings = {
   writingSettingsUseSmilies?: Maybe<Scalars['Boolean']['output']>;
 };
 
+/** The &quot;SocialFields&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type SocialFields = AcfFieldGroup & AcfFieldGroupFields & SocialFields_Fields & {
+  __typename?: 'SocialFields';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  github?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  instagram?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  linkedin?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  twitter?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  youtube?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;SocialFields&quot; Field Group */
+export type SocialFields_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  github?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  instagram?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  linkedin?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  twitter?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialFields&quot; Field Group */
+  youtube?: Maybe<Scalars['String']['output']>;
+};
+
 /** A taxonomy term used to organize and classify content. Tags do not have a hierarchy and are generally used for more specific classifications. */
 export type Tag = DatabaseIdentifier & MenuItemLinkable & Node & TermNode & UniformResourceIdentifiable & {
   __typename?: 'Tag';
@@ -8379,29 +8500,29 @@ export type TaxonomyToTermNodeConnectionPageInfo = PageInfo & TermNodeConnection
 };
 
 /** The template assigned to the node */
-export type Template_ElementorLarguraTotal = ContentTemplate & {
-  __typename?: 'Template_ElementorLarguraTotal';
+export type Template_ElementorCanvas = ContentTemplate & {
+  __typename?: 'Template_ElementorCanvas';
   /** The name of the template */
   templateName?: Maybe<Scalars['String']['output']>;
 };
 
 /** The template assigned to the node */
-export type Template_PginaSemTtulo = ContentTemplate & {
-  __typename?: 'Template_PginaSemTtulo';
+export type Template_ElementorFullWidth = ContentTemplate & {
+  __typename?: 'Template_ElementorFullWidth';
   /** The name of the template */
   templateName?: Maybe<Scalars['String']['output']>;
 };
 
 /** The template assigned to the node */
-export type Template_TelaDoElementor = ContentTemplate & {
-  __typename?: 'Template_TelaDoElementor';
+export type Template_PageNoTitle = ContentTemplate & {
+  __typename?: 'Template_PageNoTitle';
   /** The name of the template */
   templateName?: Maybe<Scalars['String']['output']>;
 };
 
 /** The template assigned to the node */
-export type Template_Tema = ContentTemplate & {
-  __typename?: 'Template_Tema';
+export type Template_Theme = ContentTemplate & {
+  __typename?: 'Template_Theme';
   /** The name of the template */
   templateName?: Maybe<Scalars['String']['output']>;
 };
@@ -8910,41 +9031,41 @@ export type UpdatePostPayload = {
 export type UpdateSettingsInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** Permitir que pessoas enviem comentários em novos posts. */
+  /** Allow people to submit comments on new posts. */
   discussionSettingsDefaultCommentStatus?: InputMaybe<Scalars['String']['input']>;
-  /** Permitir avisos de links de outros blogs (pingbacks ou trackbacks) em novos artigos. */
+  /** Allow link notifications from other blogs (pingbacks and trackbacks) on new articles. */
   discussionSettingsDefaultPingStatus?: InputMaybe<Scalars['String']['input']>;
-  /** Um formato de data para todos os textos. */
+  /** A date format for all date strings. */
   generalSettingsDateFormat?: InputMaybe<Scalars['String']['input']>;
-  /** Slogan do site. */
+  /** Site tagline. */
   generalSettingsDescription?: InputMaybe<Scalars['String']['input']>;
-  /** Este endereço é utilizado para administração, como notificação de novo usuário. */
+  /** This address is used for admin purposes, like new user notification. */
   generalSettingsEmail?: InputMaybe<Scalars['String']['input']>;
-  /** Código de localização do WordPress. */
+  /** WordPress locale code. */
   generalSettingsLanguage?: InputMaybe<Scalars['String']['input']>;
-  /** Número do dia da semana em que a semana deve iniciar. */
+  /** A day number of the week that the week should start on. */
   generalSettingsStartOfWeek?: InputMaybe<Scalars['Int']['input']>;
-  /** Um formato de hora para todos os textos. */
+  /** A time format for all time strings. */
   generalSettingsTimeFormat?: InputMaybe<Scalars['String']['input']>;
-  /** Uma cidade no mesmo fuso horário que você. */
+  /** A city in the same timezone as you. */
   generalSettingsTimezone?: InputMaybe<Scalars['String']['input']>;
-  /** Título do site. */
+  /** Site title. */
   generalSettingsTitle?: InputMaybe<Scalars['String']['input']>;
-  /** URL do site. */
+  /** Site URL. */
   generalSettingsUrl?: InputMaybe<Scalars['String']['input']>;
-  /** O ID da página que deve exibir os posts mais recentes */
+  /** The ID of the page that should display the latest posts */
   readingSettingsPageForPosts?: InputMaybe<Scalars['Int']['input']>;
-  /** O ID da página que deve ser exibida na página inicial */
+  /** The ID of the page that should be displayed on the front page */
   readingSettingsPageOnFront?: InputMaybe<Scalars['Int']['input']>;
-  /** As páginas do blog mostram no máximo. */
+  /** Blog pages show at most. */
   readingSettingsPostsPerPage?: InputMaybe<Scalars['Int']['input']>;
-  /** O que exibir na página inicial */
+  /** What to show on the front page */
   readingSettingsShowOnFront?: InputMaybe<Scalars['String']['input']>;
-  /** Categoria padrão para post. */
+  /** Default post category. */
   writingSettingsDefaultCategory?: InputMaybe<Scalars['Int']['input']>;
-  /** Formato de post padrão. */
+  /** Default post format. */
   writingSettingsDefaultPostFormat?: InputMaybe<Scalars['String']['input']>;
-  /** Converter emoticons como :-) e :-P em gráficos ao exibí-los. */
+  /** Convert emoticons like :-) and :-P to graphics on display. */
   writingSettingsUseSmilies?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9019,8 +9140,12 @@ export type UpdateUserInput = {
   nickname?: InputMaybe<Scalars['String']['input']>;
   /** A string that contains the plain text password for the user. */
   password?: InputMaybe<Scalars['String']['input']>;
+  /** If true, this will refresh the users JWT secret. */
+  refreshJwtUserSecret?: InputMaybe<Scalars['Boolean']['input']>;
   /** The date the user registered. Format is Y-m-d H:i:s. */
   registered?: InputMaybe<Scalars['String']['input']>;
+  /** If true, this will revoke the users JWT secret. If false, this will unrevoke the JWT secret AND issue a new one. To revoke, the user must have proper capabilities to edit users JWT secrets. */
+  revokeJwtUserSecret?: InputMaybe<Scalars['Boolean']['input']>;
   /** A string for whether to enable the rich editor or not. False if not empty. */
   richEditing?: InputMaybe<Scalars['String']['input']>;
   /** An array of roles to be assigned to the user. */
@@ -9041,7 +9166,7 @@ export type UpdateUserPayload = {
 };
 
 /** A registered user account. Users can be assigned roles, author content, and have various capabilities within the site. */
-export type User = Commenter & DatabaseIdentifier & Node & UniformResourceIdentifiable & {
+export type User = Commenter & DatabaseIdentifier & Node & UniformResourceIdentifiable & WithAcfSocialFields & {
   __typename?: 'User';
   /** The admin color scheme preference for the user. Possible values include &quot;fresh&quot;, &quot;light&quot;, &quot;blue&quot;, &quot;coffee&quot;, &quot;ectoplasm&quot;, &quot;midnight&quot;, &quot;ocean&quot;, &quot;sunrise&quot;. Default is &quot;fresh&quot;. */
   adminColor?: Maybe<Scalars['String']['output']>;
@@ -9081,12 +9206,22 @@ export type User = Commenter & DatabaseIdentifier & Node & UniformResourceIdenti
   isContentNode: Scalars['Boolean']['output'];
   /** Whether the node represents the front page. */
   isFrontPage: Scalars['Boolean']['output'];
+  /** Whether the JWT User secret has been revoked. If the secret has been revoked, auth tokens will not be issued until an admin, or user with proper capabilities re-issues a secret for the user. */
+  isJwtAuthSecretRevoked: Scalars['Boolean']['output'];
   /** Whether  the node represents the blog page. */
   isPostsPage: Scalars['Boolean']['output'];
   /** Whether the object is restricted from the current viewer */
   isRestricted?: Maybe<Scalars['Boolean']['output']>;
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']['output'];
+  /** The expiration for the JWT Token for the user. If not set custom for the user, it will use the default sitewide expiration setting */
+  jwtAuthExpiration?: Maybe<Scalars['String']['output']>;
+  /** A JWT token that can be used in future requests for authentication/authorization */
+  jwtAuthToken?: Maybe<Scalars['String']['output']>;
+  /** A JWT token that can be used in future requests to get a refreshed jwtAuthToken. If the refresh token used in a request is revoked or otherwise invalid, a valid Auth token will NOT be issued in the response headers. */
+  jwtRefreshToken?: Maybe<Scalars['String']['output']>;
+  /** A unique secret tied to the users JWT token that can be revoked or refreshed. Revoking the secret prevents JWT tokens from being issued to the user. Refreshing the token invalidates previously issued tokens, but allows new tokens to be issued. */
+  jwtUserSecret?: Maybe<Scalars['String']['output']>;
   /** Last name of the user. This is equivalent to the WP_User-&gt;user_last_name property. */
   lastName?: Maybe<Scalars['String']['output']>;
   /** The preferred language locale set for the user. Value derived from get_user_locale(). */
@@ -9113,6 +9248,8 @@ export type User = Commenter & DatabaseIdentifier & Node & UniformResourceIdenti
   shouldShowAdminToolbar?: Maybe<Scalars['Boolean']['output']>;
   /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
   slug?: Maybe<Scalars['String']['output']>;
+  /** Fields of the SocialFields ACF Field Group */
+  socialFields?: Maybe<SocialFields>;
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']['output']>;
   /** A website url that is associated with the user. */
@@ -9916,14 +10053,20 @@ export type WpPageInfo = {
   startCursor?: Maybe<Scalars['String']['output']>;
 };
 
+/** Provides access to fields of the &quot;SocialFields&quot; ACF Field Group via the &quot;socialFields&quot; field */
+export type WithAcfSocialFields = {
+  /** Fields of the SocialFields ACF Field Group */
+  socialFields?: Maybe<SocialFields>;
+};
+
 /** The writing setting type */
 export type WritingSettings = {
   __typename?: 'WritingSettings';
-  /** Categoria padrão para post. */
+  /** Default post category. */
   defaultCategory?: Maybe<Scalars['Int']['output']>;
-  /** Formato de post padrão. */
+  /** Default post format. */
   defaultPostFormat?: Maybe<Scalars['String']['output']>;
-  /** Converter emoticons como :-) e :-P em gráficos ao exibí-los. */
+  /** Convert emoticons like :-) and :-P to graphics on display. */
   useSmilies?: Maybe<Scalars['Boolean']['output']>;
 };
 
