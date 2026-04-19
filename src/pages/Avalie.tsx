@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Star, ExternalLink } from "lucide-react";
-import { Scale } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Avalie = () => {
@@ -14,24 +14,28 @@ const Avalie = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title={t("avalie.heroTitle")} 
+        description={t("avalie.heroSubtitle")}
+      />
       <Header />
+
       <main className="flex-1 bg-gradient-to-b from-background to-muted">
         <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="max-w-2xl mx-auto">
-
             {/* Card Principal */}
             <div className="bg-card rounded-lg shadow-xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
-                {t('avalie.heroTitle')}
+                {t("avalie.heroTitle")}
               </h2>
-              
+
               <p className="text-center text-muted-foreground mb-8">
-                {t('avalie.heroSubtitle')}
+                {t("avalie.heroSubtitle")}
               </p>
 
               {/* Estrelas */}
               <div className="flex justify-center gap-2 mb-8">
-                {[1, 2, 3, 4, 5].map((star) => (
+                {[1, 2, 3, 4, 5].map(star => (
                   <Star
                     key={star}
                     className="w-10 h-10 md:w-12 md:h-12 fill-accent text-accent"
@@ -40,11 +44,11 @@ const Avalie = () => {
               </div>
 
               <h3 className="text-2xl font-semibold text-center mb-3 text-foreground">
-                {t('avalie.cardTitle')}
+                {t("avalie.cardTitle")}
               </h3>
-              
+
               <p className="text-center text-muted-foreground mb-6">
-                {t('avalie.cardSubtitle')}
+                {t("avalie.cardSubtitle")}
               </p>
 
               {/* Caixa de Informação */}
@@ -52,7 +56,7 @@ const Avalie = () => {
                 <div className="flex gap-3">
                   <div className="text-accent text-xl flex-shrink-0">✍️</div>
                   <p className="text-sm text-muted-foreground">
-                    {t('avalie.note')}
+                    {t("avalie.note")}
                   </p>
                 </div>
               </div>
@@ -63,12 +67,12 @@ const Avalie = () => {
                 className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-6 text-lg rounded-lg shadow-lg transition-all hover:shadow-xl"
               >
                 <Star className="w-5 h-5 mr-2" />
-                {t('avalie.cta')}
+                {t("avalie.cta")}
                 <ExternalLink className="w-5 h-5 ml-2" />
               </Button>
 
               <p className="text-center text-sm text-muted-foreground mt-4">
-                {t('avalie.disclaimer')}
+                {t("avalie.disclaimer")}
               </p>
             </div>
 
@@ -78,7 +82,7 @@ const Avalie = () => {
                 Mota Advogados Associados • Porto Alegre - RS
               </p>
               <p className="text-sm text-muted-foreground">
-                {t('avalie.footerLine')}
+                {t("avalie.footerLine")}
               </p>
             </div>
           </div>

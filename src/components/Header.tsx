@@ -1,26 +1,32 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Search, Lock } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
 import motaLogo from "@/assets/logo-mota-header.png";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
-const Header = () => {
+interface HeaderProps {
+  pathOverrides?: Record<string, string>;
+}
+
+const Header = ({ pathOverrides }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useLanguage();
-  const location = useLocation();
-  const navigate = useNavigate();
+  const router = useRouter();
+
 
   const handleNavClick = (sectionId: string) => {
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: sectionId } });
+    if (router.pathname !== "/") {
+      router.push({ pathname: "/", query: { scrollTo: sectionId } });
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
     setMobileMenuOpen(false);
@@ -35,30 +41,41 @@ const Header = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-primary/95 backdrop-blur-md shadow-lg' 
-        : 'bg-primary/80 backdrop-blur-sm shadow-md'
-    }`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-primary/95 backdrop-blur-md shadow-lg"
+          : "bg-primary/80 backdrop-blur-sm shadow-md"
+      }`}
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link 
-            to="/" 
+          <Link
+            href="/"
             className="flex items-center cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={(e) => {
+              if (router.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
           >
-            <img 
-              src={motaLogo} 
-              alt="MOTA & ADVOGADOS ASSOCIADOS" 
+            <Image
+              src={motaLogo}
+              alt="MOTA & ADVOGADOS ASSOCIADOS"
+              height={80}
+              width={320}
               className="h-20 w-auto"
+              priority
             />
           </Link>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
@@ -77,7 +94,7 @@ const Header = () => {
             <button onClick={() => handleNavClick('contato')} className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.contact')}
             </button>
-            <Link to="/blog" className="text-white hover:text-accent transition-colors text-sm font-medium">
+            <Link href="/blog" className="text-white hover:text-accent transition-colors text-sm font-medium">
               {t('nav.blog')}
             </Link>
           </nav>
@@ -89,7 +106,7 @@ const Header = () => {
             </button>
             
             
-            <LanguageSelector />
+            <LanguageSelector pathOverrides={pathOverrides} />
             
             <Button 
               asChild 
@@ -149,14 +166,14 @@ const Header = () => {
               {t('nav.contact')}
             </button>
             <Link
-              to="/blog"
+              href="/blog"
               className="block text-white hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               {t('nav.blog')}
             </Link>
             <div className="flex flex-col gap-3 pt-2">
-              <LanguageSelector />
+              <LanguageSelector pathOverrides={pathOverrides} />
               <Button asChild variant="bronze" size="lg" className="w-full">
                 <a
                   href="https://wa.me/5551981981210"
@@ -176,3 +193,4 @@ const Header = () => {
 };
 
 export default Header;
+

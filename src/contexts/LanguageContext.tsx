@@ -1,6 +1,27 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 type Language = 'pt' | 'es' | 'en' | 'de' | 'it' | 'fr' | 'zh';
+
+const localeMap: Record<Language, string> = {
+  pt: 'pt-BR',
+  es: 'es-ES',
+  en: 'en-US',
+  de: 'de-DE',
+  it: 'it-IT',
+  fr: 'fr-FR',
+  zh: 'zh-CN'
+};
+
+const reverseLocaleMap: Record<string, Language> = {
+  'pt-BR': 'pt',
+  'es-ES': 'es',
+  'en-US': 'en',
+  'de-DE': 'de',
+  'it-IT': 'it',
+  'fr-FR': 'fr',
+  'zh-CN': 'zh'
+};
 
 interface LanguageContextType {
   language: Language;
@@ -23,17 +44,26 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem('language');
-    return (saved as Language) || 'pt';
-  });
+  const router = useRouter();
+  const { locale } = router;
+  
+  const [language, setLanguageState] = useState<Language>(
+    (locale && reverseLocaleMap[locale]) || 'pt'
+  );
 
   useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
+    if (locale && reverseLocaleMap[locale]) {
+      setLanguageState(reverseLocaleMap[locale]);
+    }
+  }, [locale]);
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
+    const nextLocale = localeMap[lang];
+    if (nextLocale) {
+      router.push(router.asPath, router.asPath, { locale: nextLocale });
+    } else {
+      setLanguageState(lang);
+    }
   };
 
   const t = (key: string): string => {
@@ -53,6 +83,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     </LanguageContext.Provider>
   );
 };
+
 
 const translations: Record<Language, any> = {
   pt: {

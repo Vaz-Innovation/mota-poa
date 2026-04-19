@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import Image from "next/image";
 import { Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
@@ -8,6 +9,7 @@ import joseMota from "@/assets/jose-mota.jpg";
 import rafaelMota from "@/assets/rafael-mota.jpg";
 import maristelaMota from "@/assets/maristela-mota.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+
 
 const Lawyers = () => {
   const { t } = useLanguage();
@@ -121,11 +123,15 @@ const Lawyers = () => {
                     <CardContent className="p-8 flex flex-col items-center text-center">
                       <div className="relative mb-6 overflow-hidden rounded-full">
                         <Avatar className="w-40 h-40 md:w-48 md:h-48 ring-4 ring-accent/20 group-hover:ring-accent/40 transition-all duration-500">
-                          <AvatarImage 
-                            src={lawyer.image} 
-                            alt={lawyer.name}
-                            className="object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
+                          {lawyer.image && (
+                            <Image
+                              src={lawyer.image}
+                              alt={lawyer.name}
+                              fill
+                              className="object-cover group-hover:scale-110 transition-transform duration-500"
+                              sizes="(max-width: 768px) 160px, 192px"
+                            />
+                          )}
                           <AvatarFallback className="text-3xl bg-accent text-accent-foreground">
                             {lawyer.initials}
                           </AvatarFallback>

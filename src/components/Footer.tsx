@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Linkedin, Facebook, Lock } from "lucide-react";
 
 const Footer = () => {
@@ -14,42 +14,42 @@ const Footer = () => {
             <h4 className="font-semibold text-bronze mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#inicio" className="text-white/80 hover:text-bronze transition-colors">
+                <Link href="/#inicio" className="text-white/80 hover:text-bronze transition-colors">
                   {t('nav.home')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#sobre" className="text-white/80 hover:text-bronze transition-colors">
+                <Link href="/#sobre" className="text-white/80 hover:text-bronze transition-colors">
                   {t('nav.about')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#areas" className="text-white/80 hover:text-bronze transition-colors">
+                <Link href="/#areas" className="text-white/80 hover:text-bronze transition-colors">
                   {t('nav.areas')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#advogados" className="text-white/80 hover:text-bronze transition-colors">
+                <Link href="/#advogados" className="text-white/80 hover:text-bronze transition-colors">
                   {t('nav.lawyers')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contato" className="text-white/80 hover:text-bronze transition-colors">
+                <Link href="/#contato" className="text-white/80 hover:text-bronze transition-colors">
                   {t('nav.contact')}
-                </a>
+                </Link>
               </li>
               <li>
-                <Link to="/trabalhe-conosco" className="text-white/80 hover:text-bronze transition-colors">
+                <Link href="/trabalhe-conosco" className="text-white/80 hover:text-bronze transition-colors">
                   {t('footer.workWithUs')}
                 </Link>
               </li>
               <li>
-                <Link to="/avalie" className="text-white/80 hover:text-bronze transition-colors">
+                <Link href="/avalie" className="text-white/80 hover:text-bronze transition-colors">
                   {t('footer.rateUs')}
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-white/80 hover:text-bronze transition-colors">
+                <Link href="/blog" className="text-white/80 hover:text-bronze transition-colors">
                   {t('nav.blog')}
                 </Link>
               </li>
@@ -117,3 +117,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

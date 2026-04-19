@@ -1,1 +1,0 @@
-ALTER TABLE public.blog_posts ADD COLUMN source_url text;
