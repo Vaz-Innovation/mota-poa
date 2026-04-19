@@ -1,28 +1,28 @@
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import Head from 'next/head';
-import Image from 'next/image';
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Head from "next/head";
+import Image from "next/image";
 
-import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
-import type { GetStaticPaths, GetStaticProps } from 'next';
-import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
-import { Calendar, User, ArrowLeft, Tag } from 'lucide-react';
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import type { GetStaticPaths, GetStaticProps } from "next";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { Calendar, User, ArrowLeft, Tag } from "lucide-react";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import SEO from '@/components/SEO';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { gqlQueryOptions } from '@/graphql/gqlpc';
-import { BlogPostBySlugQuery, BlogPostSlugsQuery } from '@/graphql/pages/blog';
-import { execute } from '@/graphql/execute';
-import { resolveWpLanguage } from '@/graphql/locale-to-wp-language';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { gqlQueryOptions } from "@/graphql/gqlpc";
+import { BlogPostBySlugQuery, BlogPostSlugsQuery } from "@/graphql/pages/blog";
+import { execute } from "@/graphql/execute";
+import { resolveWpLanguage } from "@/graphql/locale-to-wp-language";
 
 export default function BlogPostPage({ slug }: { slug: string }) {
   const router = useRouter();
   const { data, isLoading } = useQuery(
-    gqlQueryOptions(BlogPostBySlugQuery as any, { input: { slug } }),
+    gqlQueryOptions(BlogPostBySlugQuery, { input: { slug } }),
   );
 
   const post = data?.post;
@@ -39,58 +39,60 @@ export default function BlogPostPage({ slug }: { slug: string }) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground gap-6">
         <p className="text-2xl">Artigo não encontrado</p>
-        <Link
-          href="/blog"
-          className="text-primary hover:underline"
-        >
+        <Link href="/blog" className="text-primary hover:underline">
           Voltar ao blog
         </Link>
       </div>
     );
   }
 
-  const localePathOverrides = post.translations?.reduce((acc, translation) => {
-    if (translation?.language?.locale && translation?.slug) {
-      acc[translation.language.locale] = `/blog/${translation.slug}`;
-    }
-    return acc;
-  }, {} as Record<string, string>);
+  const localePathOverrides = post.translations?.reduce(
+    (acc, translation) => {
+      if (translation?.language?.locale && translation?.slug) {
+        acc[translation.language.locale] = `/blog/${translation.slug}`;
+      }
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": post.title,
-    "image": post.featuredImage?.node?.sourceUrl,
-    "datePublished": post.date,
-    "author": {
+    headline: post.title,
+    image: post.featuredImage?.node?.sourceUrl,
+    datePublished: post.date,
+    author: {
       "@type": "Person",
-      "name": post.author?.node?.name || "Mota & Advogados Associados"
+      name: post.author?.node?.name || "Mota & Advogados Associados",
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Mota & Advogados Associados",
-      "logo": {
+      name: "Mota & Advogados Associados",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://mota.adv.br/logo.png"
-      }
+        url: "https://mota.adv.br/logo.png",
+      },
     },
-    "description": post.excerpt?.replace(/<[^>]*>/g, ''),
-    "inLanguage": post.language?.code
+    description: post.excerpt?.replace(/<[^>]*>/g, ""),
+    inLanguage: post.language?.code,
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEO 
-        title={post.title || ""} 
-        description={post.excerpt?.replace(/<[^>]*>/g, '')}
+      <SEO
+        title={post.title || ""}
+        description={post.excerpt?.replace(/<[^>]*>/g, "")}
         image={post.featuredImage?.node?.sourceUrl || ""}
         article
         localePathOverrides={localePathOverrides}
       />
       <Head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </Head>
-
 
       <Header />
 
@@ -108,13 +110,17 @@ export default function BlogPostPage({ slug }: { slug: string }) {
             {/* Post Header */}
             <header className="mb-12">
               <div className="flex flex-wrap gap-2 mb-4">
-                {post.categories?.nodes?.map((cat) => (
-                  <Badge key={cat.id} variant="secondary" className="bg-accent/10 text-accent hover:bg-accent/20">
+                {post.categories?.nodes?.map(cat => (
+                  <Badge
+                    key={cat.id}
+                    variant="secondary"
+                    className="bg-accent/10 text-accent hover:bg-accent/20"
+                  >
                     {cat.name}
                   </Badge>
                 ))}
               </div>
-              
+
               <h1 className="text-3xl md:text-5xl font-bold text-primary mb-6 leading-tight">
                 {post.title}
               </h1>
@@ -122,7 +128,10 @@ export default function BlogPostPage({ slug }: { slug: string }) {
               <div className="flex flex-wrap items-center gap-6 text-muted-foreground text-sm">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
-                  {post.date && format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: ptBR })}
+                  {post.date &&
+                    format(new Date(post.date), "d 'de' MMMM, yyyy", {
+                      locale: ptBR,
+                    })}
                 </div>
                 {post.author?.node?.name && (
                   <div className="flex items-center gap-2">
@@ -138,7 +147,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
               <div className="relative aspect-video mb-12 rounded-xl overflow-hidden shadow-xl">
                 <Image
                   src={post.featuredImage.node.sourceUrl}
-                  alt={post.featuredImage.node.altText || post.title || ''}
+                  alt={post.featuredImage.node.altText || post.title || ""}
                   fill
                   className="object-cover"
                   priority
@@ -147,20 +156,24 @@ export default function BlogPostPage({ slug }: { slug: string }) {
             )}
 
             {/* Post Content */}
-            <div 
+            <div
               className="blog-content prose prose-lg max-w-none mb-12"
-              dangerouslySetInnerHTML={{ __html: post.content || '' }}
+              dangerouslySetInnerHTML={{ __html: post.content || "" }}
             />
 
             {/* Post Footer */}
             <Separator className="my-12" />
-            
+
             {post.tags?.nodes && post.tags.nodes.length > 0 && (
               <div className="flex items-center gap-3 mb-12">
                 <Tag className="h-5 w-5 text-muted-foreground" />
                 <div className="flex flex-wrap gap-2">
-                  {post.tags.nodes.map((tag) => (
-                    <Badge key={tag.id} variant="outline" className="font-normal">
+                  {post.tags.nodes.map(tag => (
+                    <Badge
+                      key={tag.id}
+                      variant="outline"
+                      className="font-normal"
+                    >
                       {tag.name}
                     </Badge>
                   ))}
@@ -188,9 +201,9 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
       });
 
       const localePaths = (data.posts?.nodes || [])
-        .map((node) => node?.slug)
+        .map(node => node?.slug)
         .filter(Boolean)
-        .map((slug) => ({ params: { slug }, locale }));
+        .map(slug => ({ params: { slug }, locale }));
 
       paths.push(...localePaths);
     } catch (error) {
@@ -200,7 +213,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 };
 
@@ -230,4 +243,3 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     revalidate: 60,
   };
 };
-

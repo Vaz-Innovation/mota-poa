@@ -9949,7 +9949,7 @@ export type BlogPostBySlugQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostBySlugQuery = { __typename?: 'RootQuery', post?: { __typename?: 'Post', id: string, title?: string | null, slug?: string | null, date?: string | null, content?: string | null, excerpt?: string | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, altText?: string | null } } | null, categories?: { __typename?: 'PostToCategoryConnection', nodes: Array<{ __typename?: 'Category', id: string, name?: string | null, slug?: string | null }> } | null, tags?: { __typename?: 'PostToTagConnection', nodes: Array<{ __typename?: 'Tag', id: string, name?: string | null, slug?: string | null }> } | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null, avatar?: { __typename?: 'Avatar', url?: string | null } | null } } | null, translations?: Array<{ __typename?: 'Post', slug?: string | null, language?: { __typename?: 'Language', code?: LanguageCodeEnum | null, locale?: string | null } | null } | null> | null } | null };
+export type BlogPostBySlugQuery = { __typename?: 'RootQuery', post?: { __typename?: 'Post', id: string, title?: string | null, slug?: string | null, date?: string | null, content?: string | null, excerpt?: string | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, altText?: string | null } } | null, categories?: { __typename?: 'PostToCategoryConnection', nodes: Array<{ __typename?: 'Category', id: string, name?: string | null, slug?: string | null }> } | null, tags?: { __typename?: 'PostToTagConnection', nodes: Array<{ __typename?: 'Tag', id: string, name?: string | null, slug?: string | null }> } | null, author?: { __typename?: 'NodeWithAuthorToUserConnectionEdge', node: { __typename?: 'User', name?: string | null, avatar?: { __typename?: 'Avatar', url?: string | null } | null } } | null, translations?: Array<{ __typename?: 'Post', slug?: string | null, language?: { __typename?: 'Language', code?: LanguageCodeEnum | null, locale?: string | null } | null } | null> | null, language?: { __typename?: 'Language', code?: LanguageCodeEnum | null, locale?: string | null } | null } | null };
 
 export type BlogPostSlugsQueryVariables = Exact<{
   language: LanguageCodeFilterEnum;
@@ -10080,6 +10080,10 @@ export const BlogPostBySlugDocument = new TypedDocumentString(`
         code
         locale
       }
+    }
+    language {
+      code
+      locale
     }
   }
 }

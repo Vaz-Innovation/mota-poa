@@ -9,10 +9,7 @@ export const BlogListQuery = graphql(`
     posts(
       first: $first
       after: $after
-      where: {
-        orderby: { field: DATE, order: DESC }
-        language: $language
-      }
+      where: { orderby: { field: DATE, order: DESC }, language: $language }
     ) {
       nodes {
         id
@@ -94,10 +91,13 @@ export const BlogPostBySlugQuery = graphql(`
           locale
         }
       }
+      language {
+        code
+        locale
+      }
     }
   }
 `);
-
 
 export const BlogPostSlugsQuery = graphql(`
   query BlogPostSlugs(
@@ -108,10 +108,7 @@ export const BlogPostSlugsQuery = graphql(`
     posts(
       first: $first
       after: $after
-      where: {
-        orderby: { field: DATE, order: DESC }
-        language: $language
-      }
+      where: { orderby: { field: DATE, order: DESC }, language: $language }
     ) {
       nodes {
         slug
@@ -123,4 +120,3 @@ export const BlogPostSlugsQuery = graphql(`
     }
   }
 `);
-
