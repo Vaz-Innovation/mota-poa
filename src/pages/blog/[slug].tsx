@@ -158,7 +158,11 @@ export default function BlogPostPage({ slug }: { slug: string }) {
             {/* Post Content */}
             <div
               className="blog-content prose prose-lg max-w-none mb-12"
-              dangerouslySetInnerHTML={{ __html: post.content || "" }}
+              dangerouslySetInnerHTML={{
+                __html: post.content
+                  ? post.content.replace("Reading Time: ", "Tempo de Leitura: ")
+                  : "",
+              }}
             />
 
             {/* Post Footer */}
