@@ -68,12 +68,13 @@ const Newsletter = () => {
         throw new Error(data.error || "Failed");
       }
 
-      toast({ title: "User created!" });
+      toast({
+        title: t("newsletter.successMessage"),
+      });
       form.reset();
     } catch (err: any) {
       toast({
-        title: "Error",
-        description: err.message,
+        title: t("newsletter.error"),
         variant: "destructive",
       });
     } finally {
