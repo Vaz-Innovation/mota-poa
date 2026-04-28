@@ -8,9 +8,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
 const Newsletter = () => {
   const { t } = useLanguage();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // useEffect(() => {
@@ -72,6 +74,7 @@ const Newsletter = () => {
         title: t("newsletter.successMessage"),
       });
       form.reset();
+      router.push("/blog");
     } catch (err: any) {
       toast({
         title: t("newsletter.error"),
