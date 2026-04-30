@@ -77,7 +77,7 @@ const Newsletter = () => {
       router.push("/blog");
     } catch (err: any) {
       toast({
-        title: t("newsletter.error"),
+        title: err.message,
         variant: "destructive",
       });
     } finally {
