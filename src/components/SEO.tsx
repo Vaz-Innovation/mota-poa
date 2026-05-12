@@ -18,6 +18,7 @@ interface SEOProps {
   articleMeta?: ArticleMeta;
   keywords?: string[];
   noindex?: boolean;
+  author?: string;
   localePathOverrides?: Record<string, string>;
 }
 
@@ -40,6 +41,7 @@ const SEO = ({
   articleMeta,
   keywords,
   noindex = false,
+  author,
   localePathOverrides 
 }: SEOProps) => {
 
@@ -53,12 +55,17 @@ const SEO = ({
   // Limpar URL de parâmetros para canonical
   const cleanPath = router.asPath.split('?')[0].split('#')[0];
   
+  // Usar imagem do post se disponível, senão usar default
+  const ogImage = image && image.trim() !== "" ? image : defaultImage;
+  
   const seo = {
     title: title ? `${title} | ${siteName}` : siteName,
+    rawTitle: title || siteName,
     description: description || defaultDescription,
-    image: image || defaultImage,
+    image: ogImage,
     imageAlt: imageAlt || title || siteName,
     url: `${siteUrl}${cleanPath === '/' ? '' : cleanPath}`,
+    author: author || articleMeta?.author || siteName,
   };
 
   // Determinar o locale OG
@@ -75,7 +82,7 @@ const SEO = ({
       {/* Meta tags básicos */}
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
-      <meta name="author" content={articleMeta?.author || siteName} />
+      <meta name="author" content={seo.author} />
       
       {/* Robots */}
       <meta 
@@ -116,9 +123,14 @@ const SEO = ({
       <meta property="og:site_name" content={siteName} />
       <meta property="og:url" content={seo.url} />
       <meta property="og:type" content={article ? "article" : "website"} />
-      <meta property="og:title" content={seo.title} />
+      <meta property="og:title" content={seo.rawTitle} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:locale" content={ogLocale} />
+      
+      {/* Author meta para artigos */}
+      {article && seo.author && (
+        <meta property="og:article:author" content={seo.author} />
+      )}
       
       {/* OG Locales alternativos */}
       {alternateLocales.map(locale => (

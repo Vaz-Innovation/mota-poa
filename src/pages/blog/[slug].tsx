@@ -161,6 +161,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
         article
         articleMeta={articleMeta}
         keywords={keywords}
+        author={post.author?.node?.name || "Mota & Advogados Associados"}
         localePathOverrides={localePathOverrides}
       />
       <Head>
