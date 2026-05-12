@@ -74,7 +74,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
   // Metadados do artigo para Open Graph
   const articleMeta = {
     publishedTime: post.date || undefined,
-    modifiedTime: post.modified || post.date || undefined,
+    modifiedTime: post.date || undefined,
     author: post.author?.node?.name || "Mota & Advogados Associados",
     section: post.categories?.nodes?.[0]?.name || "Blog",
     tags: post.tags?.nodes?.map(tag => tag.name).filter(Boolean) as string[] || [],
@@ -99,7 +99,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
       height: 630,
     },
     datePublished: post.date,
-    dateModified: post.modified || post.date,
+    dateModified: post.date,
     author: {
       "@type": "Person",
       name: post.author?.node?.name || "Mota & Advogados Associados",
