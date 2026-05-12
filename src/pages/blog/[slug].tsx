@@ -56,41 +56,123 @@ export default function BlogPostPage({ slug }: { slug: string }) {
     {} as Record<string, string>,
   );
 
+  // Limpar HTML do excerpt para meta description
+  const cleanExcerpt = post.excerpt?.replace(/<[^>]*>/g, "").trim() || "";
+  const metaDescription = cleanExcerpt.length > 160 
+    ? cleanExcerpt.substring(0, 157) + "..." 
+    : cleanExcerpt;
+
+  // Extrair keywords das tags e categorias
+  const keywords = [
+    ...(post.categories?.nodes?.map(cat => cat.name) || []),
+    ...(post.tags?.nodes?.map(tag => tag.name) || []),
+    "advocacia",
+    "direito",
+    "Mota Advogados",
+  ].filter(Boolean) as string[];
+
+  // Metadados do artigo para Open Graph
+  const articleMeta = {
+    publishedTime: post.date || undefined,
+    modifiedTime: post.date || undefined,
+    author: post.author?.node?.name || "Mota & Advogados Associados",
+    section: post.categories?.nodes?.[0]?.name || "Blog",
+    tags: post.tags?.nodes?.map(tag => tag.name).filter(Boolean) as string[] || [],
+  };
+
+  // Schema.org estruturado completo
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `https://mota.adv.br/blog/${post.slug}#article`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://mota.adv.br/blog/${post.slug}`,
+    },
     headline: post.title,
-    image: post.featuredImage?.node?.sourceUrl,
+    name: post.title,
+    description: metaDescription,
+    image: {
+      "@type": "ImageObject",
+      url: post.featuredImage?.node?.sourceUrl || "https://mota.adv.br/og-image.jpg",
+      width: 1200,
+      height: 630,
+    },
     datePublished: post.date,
+    dateModified: post.date,
     author: {
       "@type": "Person",
       name: post.author?.node?.name || "Mota & Advogados Associados",
+      url: "https://mota.adv.br/sobre",
     },
     publisher: {
       "@type": "Organization",
       name: "Mota & Advogados Associados",
+      url: "https://mota.adv.br",
       logo: {
         "@type": "ImageObject",
         url: "https://mota.adv.br/logo.png",
+        width: 250,
+        height: 60,
       },
     },
-    description: post.excerpt?.replace(/<[^>]*>/g, ""),
-    inLanguage: post.language?.code,
+    keywords: keywords.join(", "),
+    articleSection: post.categories?.nodes?.[0]?.name || "Blog",
+    inLanguage: post.language?.code || "pt-BR",
+    isAccessibleForFree: true,
+    ...(post.content && {
+      wordCount: post.content.replace(/<[^>]*>/g, "").split(/\s+/).length,
+    }),
+  };
+
+  // BreadcrumbList para navegação estruturada
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://mota.adv.br",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://mota.adv.br/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://mota.adv.br/blog/${post.slug}`,
+      },
+    ],
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
         title={post.title || ""}
-        description={post.excerpt?.replace(/<[^>]*>/g, "")}
+        description={metaDescription}
         image={post.featuredImage?.node?.sourceUrl || ""}
+        imageAlt={post.featuredImage?.node?.altText || post.title || ""}
         article
+        articleMeta={articleMeta}
+        keywords={keywords}
         localePathOverrides={localePathOverrides}
       />
       <Head>
+        {/* Schema.org JSON-LD para artigo */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        {/* Schema.org JSON-LD para breadcrumbs */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
         />
       </Head>
 

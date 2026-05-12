@@ -87,22 +87,91 @@ const Blog = () => {
     }
   };
 
+  // Keywords para SEO
+  const blogKeywords = [
+    "blog jurídico",
+    "direito",
+    "legislação",
+    "jurisprudência",
+    "advocacia",
+    "Mota Advogados",
+    "artigos jurídicos",
+    "notícias direito",
+    "Porto Alegre",
+    ...categories.map(cat => cat.name).filter(Boolean),
+  ] as string[];
+
+  // Schema.org para Blog
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
+    "@id": "https://mota.adv.br/blog#blog",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://mota.adv.br/blog",
+    },
     name: "Blog Mota Advogados",
     description: t("blog.subtitle"),
+    url: "https://mota.adv.br/blog",
+    inLanguage: router.locale || "pt-BR",
     publisher: {
       "@type": "Organization",
       name: "Mota & Advogados Associados",
+      url: "https://mota.adv.br",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://mota.adv.br/logo.png",
+        width: 250,
+        height: 60,
+      },
     },
-    blogPost: filteredPosts.map(post => ({
+    blogPost: filteredPosts.slice(0, 10).map(post => ({
       "@type": "BlogPosting",
       headline: post.title,
-      description: post.excerpt,
+      description: post.excerpt?.replace(/<[^>]*>/g, "").substring(0, 160),
       datePublished: post.date,
-      url: `/blog/${post.slug}`,
+      url: `https://mota.adv.br/blog/${post.slug}`,
+      image: post.featuredImage?.node?.sourceUrl,
+      author: {
+        "@type": "Organization",
+        name: "Mota & Advogados Associados",
+      },
     })),
+  };
+
+  // Schema.org para Breadcrumbs
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://mota.adv.br",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://mota.adv.br/blog",
+      },
+    ],
+  };
+
+  // Schema.org para CollectionPage (lista de artigos)
+  const collectionPageData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: t("blog.title"),
+    description: t("blog.subtitle"),
+    url: "https://mota.adv.br/blog",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Mota & Advogados Associados",
+      url: "https://mota.adv.br",
+    },
+    numberOfItems: posts.length,
   };
 
   return (
@@ -110,16 +179,24 @@ const Blog = () => {
       <SEO 
         title={t("blog.title")} 
         description={t("blog.subtitle")} 
+        keywords={blogKeywords}
         localePathOverrides={localePathOverrides}
       />
       <Head>
-        <meta
-          name="keywords"
-          content="blog jurídico, direito, legislação, jurisprudência, advocacia, Mota Advogados"
-        />
+        {/* Schema.org JSON-LD para Blog */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        {/* Schema.org JSON-LD para Breadcrumbs */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+        />
+        {/* Schema.org JSON-LD para CollectionPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageData) }}
         />
       </Head>
 
