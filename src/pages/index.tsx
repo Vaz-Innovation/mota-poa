@@ -41,7 +41,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO />
+      <SEO 
+        title="Escritório de Advocacia em Porto Alegre"
+        description="Mota & Advogados Associados - Escritório de advocacia especializado em Direito Administrativo, Trabalhista, Previdenciário e Civil. Atuação em todo o Brasil com sede em Porto Alegre."
+        keywords={["advogado Porto Alegre", "escritório de advocacia", "direito trabalhista", "direito previdenciário", "direito administrativo", "Mota Advogados"]}
+      />
       <Header />
       <main>
         <Hero />

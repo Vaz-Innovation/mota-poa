@@ -14,7 +14,11 @@ const TrabalheConosco = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEO title={t("trabalheConosco.title") || "Trabalhe Conosco"} />
+      <SEO 
+        title={t("trabalheConosco.title") || "Trabalhe Conosco"} 
+        description="Faça parte da equipe Mota Advogados. Confira nossas vagas abertas e envie seu currículo para trabalhar em um dos principais escritórios de advocacia de Porto Alegre."
+        keywords={["vagas advocacia", "trabalhe conosco", "emprego advogado", "carreira jurídica", "Mota Advogados", "Porto Alegre"]}
+      />
       <Header />
 
 
