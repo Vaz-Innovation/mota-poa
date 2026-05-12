@@ -15,8 +15,9 @@ const Avalie = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO 
-        title={t("avalie.heroTitle")} 
-        description={t("avalie.heroSubtitle")}
+        title={t("avalie.heroTitle") || "Avalie nossos serviços"} 
+        description={t("avalie.heroSubtitle") || "Deixe sua avaliação sobre o atendimento do Mota Advogados. Sua opinião é muito importante para nós."}
+        keywords={["avaliação", "feedback", "Mota Advogados", "Porto Alegre", "atendimento jurídico"]}
       />
       <Header />
 

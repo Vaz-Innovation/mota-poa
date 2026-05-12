@@ -9,7 +9,11 @@ const Custom404 = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEO title={t('blog.articleNotFound') || 'Page Not Found'} />
+      <SEO 
+        title={t('blog.articleNotFound') || 'Página não encontrada'} 
+        description="A página que você procura não foi encontrada. Retorne à página inicial do Mota Advogados."
+        noindex={true}
+      />
       <Header />
 
       <main className="flex-grow flex items-center justify-center py-24 bg-background">
