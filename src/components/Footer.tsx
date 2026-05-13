@@ -98,7 +98,7 @@ const Footer = () => {
 
         <div className="border-t border-white/20 pt-6 pb-6 flex justify-center">
           <a 
-            href="https://dev.motaeadvogados.com.br/" 
+            href="https://stg.motaeadvogados.com.br/sign-in" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-white/70 hover:text-bronze transition-colors"
